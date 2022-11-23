@@ -1,0 +1,88 @@
+
+% * Commands for the document
+% * -------------------------------------------------------------------
+% * User defined macros (functions) can go here, 
+% * these may be overriden for each subfile by using \renewcommand{cmd}[args][default]{def} or simply \renewcommand{cmd}{def}
+
+
+
+% * --- Layout & Graphics --- * %
+%% Defines a new command for the horizontal lines, change thickness here
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+
+
+%\renewcommand{\arraystretch}{1.25}  % For stretching tables and arrays
+
+
+% * --- Crossreferencing --- * %
+%% Avoids some words when crossreferencing to a enumerated list of equations within a theorem enviroment
+%% Using \cref{thrm:my_theorem} \cref{eq:mt_c} will print "Theorem 2.0.2 (c)" and not "Theorem 2.0.2 Item (c)"
+%% Original settings for both \crefname{} and \Crefname collected from cleverref pacakge .sty file
+%\Crefname{enumi}{Item}{Items}%
+%\Crefname{enumii}{Item}{Items}%
+%\Crefname{enumiii}{Item}{Items}%
+%\Crefname{enumiv}{Item}{Items}%
+%\Crefname{enumv}{Item}{Items}%
+
+\Crefname{enumi}{}{}%
+\Crefname{enumii}{}{}%
+\Crefname{enumiii}{}{}%
+\Crefname{enumiv}{}{}%
+\Crefname{enumv}{}{}%
+
+\crefname{enumi}{}{}%
+\crefname{enumii}{}{}%
+\crefname{enumiii}{}{}%
+\crefname{enumiv}{}{}%
+\crefname{enumv}{}{}%
+
+
+% * --- Mathematical symbol commands --- * %
+% Arabic letters
+\newcommand{\N}{\mathbb{N}}  % Already defined
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}  % as \P yields some note P
+\newcommand{\PP}{\mathbb{PP}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}  % Already defined
+
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fq}{\mathbb{F}_q}
+
+
+% Greek letters
+\newcommand{\Tau}{\mathrm{T}}
+
+
+% Z med striketrhough
+\newcommand{\Zstroke}{\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$Z$\cr}}}
+\newcommand{\zstroke}{\text{\ooalign{\hidewidth -\kern-.3em-\hidewidth\cr$z$\cr}}}
+
+
+% Degrees and  and such
+\newcommand{\degc}{$^\circ$C~}
+\renewcommand{\deg}{\ensuremath{^{\circ}}}
+\newcommand{\edegc}{^\circ \text{C}~}
+\newcommand{\minone}{$^{-1}$}
+\newcommand{\eminone}{^{-1}}
+
+
+% Brackets
+%% normal-brackets
+\newcommand{\brac}[1]{\left(#1\right)}
+%% Square-brackets
+\newcommand{\bras}[1]{\left[#1\right]}
+%% Curly-brackets
+\newcommand{\braq}[1]{\left\{#1\right\}}
+
+
+% Operatornames
+\newcommand{\spn}[1]{\operatorname{span}\left( #1 \right)}
+\newcommand{\spnclos}[1]{\overline{\operatorname{span}}\left( #1 \right)}
+\newcommand{\mes}[1]{\operatorname{mes}\left( #1 \right)}
+
+
+% * --- Other Settings --- * %
+% \newcommand{\masl}{m.a.s.l}
+

@@ -1,0 +1,43 @@
+%\documentclass[british, titlepage, oneside]{ntnuthesis}
+\documentclass[british, oneside]{ntnuthesis}
+
+\usepackage{import}
+\usepackage{preamble/head_mk2}  % import allows for self made .sty files
+
+% --- Import support files --- %
+    %\input{support_files/glossary.tex}  % add glossary and acronym lists before document. Add \printglossaries after \tableofcontents to print
+    \input{support_files/commands.tex}  % add commands before document
+    % Bibliography file
+    \addbibresource{support_files/Mastergrad.bib}
+% ---
+
+% title if using "titlepage" option in documentclass
+%\input{support_files/title_ntnu.tex}
+
+\begin{document}
+
+    % --- Opening --- %
+    \input{support_files/titlepage_max.tex}  % title for max titlepage
+
+    %\setcounter{tocdepth}{2}
+    \tableofcontents
+
+
+    % --- DOCUMENT START --- %
+    % --- NOTE: Folder structure --- %
+    % Allows compilation of each subfile, rather to compile everything at once
+    % Subfiles must have this file as option while using the documentclass subfile
+    % Loading a subfile is done with \subfile{"path-to-file"}
+    % ---
+    \chapter[]{Intro?}
+        \subfile{chapters/01_introduction.tex}
+
+    \chapter{The complex trigonometric system}
+        \subfile{chapters/02_cmplx_trig_system.tex}
+        \subfile{chapters/021_cmplx_trig_system.tex}
+        \subfile{chapters/022_cmplx_trig_system.tex}
+
+
+    \printbibliography
+
+\end{document}
