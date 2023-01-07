@@ -1,0 +1,116 @@
+\documentclass[../thesis.tex]{subfiles}
+% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information is highlighted
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // this is strikethrough
+
+
+\begin{document}
+
+Written in the way of \cite{jorgensenSpectralPairsCartesian2001}
+
+\begin{theorem}[construction of spectra]
+    requirement → $(\Omega_1,\Lambda_1)$ is a spectral pair in dimension $d_1$.
+
+    requirement →  $\Omega_2$ is a set of positive finite measure in dimension $d_2$.
+
+    Suppose →  for each $\lambda_1 \in \Lambda_1$, that $\Lambda_2$ is a discrete subset of $\mathbb{R}^{d_2}$ s.t $(\Omega_2,\Lambda_2)$ is a spectral pair.
+
+    Statement → If $\Lambda=\{(\lambda_1,\lambda_2): \lambda_1\in \Lambda_1, \lambda_2 \in \Lambda_2\}$ then $(\Omega_1\times\Omega_2, \Lambda)$ is a spectral pair in $d_1+d_2$ dimensions. 
+\end{theorem}
+
+
+
+\begin{example}
+    % TODO 
+    text\\
+\end{example}
+
+
+Let $d_1=d_2=1$,  $\Omega_1 = \Omega_2=[0,1]$, $\Lambda_1 = \mathbb{Z}$ such that $(\Omega_1,\Lambda_1)=([0,1],\mathbb{Z})$ is a spectral pair
+
+
+\begin{align*}
+    \Lambda_2=\Lambda(\lambda_1) = \begin{cases}        
+        \mathbb{Z} & \text{for all } \lambda_1 \in \Lambda_1 \text{ except one}\\        
+        \mathbb{Z}+\alpha & \text{for the one, where } \alpha \in \mathbb{R}   
+    \end{cases}
+\end{align*}
+
+
+Goal: $\left\{ e^{2\pi i \langle \lambda,x  \rangle } : \lambda \in \Lambda_1\times\Lambda_2\right\}$ is an ONB in $L^2(\Omega_1\times\Omega_2)= L^2{([0,1]^2)}$
+
+
+$\left\{ e^{2\pi i \langle \lambda,x  \rangle } : \lambda \in \Lambda\right\}$ is orthogonal for $\Omega = \Omega_1 \times \Omega_2$ , the unit square
+
+Recall 
+\begin{equation*}
+    \langle e_\lambda,e_{\lambda'} \rangle_{L^2} = \int_0^1e^{2\pi i  (\lambda_1- \lambda_1')x}\int_0^1  e^{2\pi i  (\lambda_2 - \lambda_2')y} dy dx
+\end{equation*}
+
+Since we have already shown all the cases for $\lambda_2,\lambda_2' \in \Z$ and $\lambda_1,\lambda_1' \in \Z$ in \cref{sec:complx_trig_2d}, we exempt these cases here. We start with letting either $\lambda_2$ or $\lambda_2'$ be from the $\Lambda_2$ when $\Lambda_2=\Z+\alpha$. We can choose eiher one, as the only difference is the sign of the exponent which whill not matter in the end.
+
+Let $\lambda_2\in \Lambda_2$ for the one $\lambda_1\in\Lambda_1$ where $\Lambda_2=\Z+\alpha$, and assume first that $\lambda_2'\in \Lambda_2$ for $\Lambda_2 = \Z$. Note that this imply that $\lambda_1\neq\lambda_1'$, as it is only in the oposite case $\lambda_1 = \lambda_1'$ we have either both of $\lambda_2,\lambda_2' \in \Z+\alpha$ or $\lambda_2,\lambda_2' \in \Z$. Without loss of generality, let the already defined $\lambda_2$ be replaced by $(\lambda_2+\alpha)$ to keep notation consistent and to avoid introducing unneccecary variables in the cases where $\lambda_2 \in \Lambda_2 = \Z+\alpha$. We have
+
+\begin{align*}
+    \int_0^1e^{2\pi i  (\lambda_1- \lambda_1')x}\int_0^1  e^{2\pi i  ((\lambda_2+\alpha) - \lambda_2')y} dydx 
+    &= \int_0^1e^{2\pi i  (\lambda_1- \lambda_1')x} \frac{e^{2\pi i (\lambda_2-\lambda_2')}e^{2\pi i \alpha}-1}{2\pi i (\lambda_2-\lambda_2'+\alpha)}dx\\ 
+    &= \frac{e^{2\pi i \alpha}-1}{2\pi i (\lambda_2-\lambda_2'+\alpha)} \int_0^1e^{2\pi i  (\lambda_1- \lambda_1')x} dx\\ 
+    &= \frac{e^{2\pi i \alpha}-1}{2\pi i (\lambda_2-\lambda_2'+\alpha)} \frac{e^{2\pi i (\lambda_1- \lambda_1')}-1}{2\pi i (\lambda_1- \lambda_1')}\\
+    &= \frac{e^{2\pi i \alpha}-1}{2\pi i (\lambda_2-\lambda_2'+\alpha)} \frac{1-1}{2\pi i (\lambda_1- \lambda_1')}\\
+    &= 0 
+\end{align*}
+using first a substituion of $u_2=2 \pi i (\lambda_2-\lambda_2'+\alpha)y$ for the inner integral, and then $u_1=2 \pi i (\lambda_1-\lambda_1')x$ for the outer integral, and solving both integrals in the same way as in \cref{sec:complx_trig_1d}. Since we must have $\lambda_1 \neq \lambda_1'$, we get that $e^{2\pi i (\lambda_1-\lambda_1')} = 1$ since $(\lambda_1-\lambda_1')\in \Z$ as shown previously. 
+
+%switch order of integration, requirements
+
+Now, let $\lambda_2'\in \Lambda_2$ for $\Lambda_2=\Z+\alpha$ so that we have the case of $\lambda_2,\lambda_2'\in \Lambda_2= \Z+\alpha$, and assume that $\lambda_2\neq\lambda_2'$. Again, let the already defined $\lambda_2'$ be replaced by $(\lambda_2'+\alpha)$ for the same reason as above. Now
+\begin{equation*}
+    \int_0^1  e^{2\pi i ((\lambda_2+\alpha) - (\lambda_2'+\alpha))y} dy = \int_0^1 e^{2\pi i  (\lambda_2 - \lambda_2')y} dy = \frac{e^{2\pi i (\lambda_2- \lambda_2')}-1}{2\pi i (\lambda_2- \lambda_2')} =0,
+\end{equation*}
+using a substitution of $u=2\pi i (\lambda_2-\lambda_2')y$ and the same argument for $(\lambda_2-\lambda_2') \in \Z$. If $\lambda_2 = \lambda_2'$ we have that the inner integral
+\begin{equation*}
+    \int_0^1  e^{2\pi i  ((\lambda_2+\alpha) - (\lambda_2+\alpha))y} dy =  \int_0^1 e^0 dy = 1,
+\end{equation*}
+
+For the outter integral that is left, recall that we have shown that this is equal to zero if $\lambda_1\neq\lambda_1'$ and equal to one if $\lambda_1 = \lambda_1'$. This shows that not only is $\left\{ e^{2\pi i \langle \lambda,x  \rangle } : \lambda \in \Lambda_1\times\Lambda_2\right\}$ orthogonal, it also also orthonormal. 
+
+
+To show that the set is comlete, we follow a similar procedure as in \cref{sec:complx_trig_2d}. Let $f\in L^2([0,1]^2)$ and assume its orthogonal to $\spn{\left\{ e^{2\pi i \langle \lambda,x  \rangle } : \lambda \in \Lambda_1\times\Lambda_2\right\}}$. We have the following two cases to check. For $\lambda_1\in\Lambda_1=\Z$ we have either $\lambda_2\in \Lambda_2=\Z$ or $\lambda_2\in \Lambda_2=\Z+\alpha$, the first of which we have already shown in \cref{sec:complx_trig_2d}. Therefore, let $\lambda_2\in \Lambda_2=\Z+\alpha$. We have the following inner product
+\begin{align*}
+    \langle e_\lambda, f \rangle_{L^2} 
+    &= \int_0^1 \int_0^1 e_\lambda(x,y) \overline{f(x,y)} dydx \\   &= \int_0^1 \int_0^1 e^{2\pi i  (\lambda_1x + (\lambda_2+\alpha) y)} \overline{f(x,y)} dydx \\
+    &= \int_0^1 e^{2 \pi i \lambda_1 x}\int_0^1 e^{2 \pi i (\lambda_2+\alpha) y} \overline{f(x,y)} dydx \\
+\end{align*}
+
+Fix $(\lambda_2+\alpha)$, and observe when the integral is equal to zero for all $\lambda_1\in \Z$. Using the exact same argument, that the inner integral must be zero for almost all $x\in[0,1]$ as the only function satisfiying 
+\begin{equation*}
+    \int_0^1 e^{2 \pi i \lambda_1 x} F(x)dx = \langle e_{\lambda_1}, \overline{F(x)}\rangle_{L^2(I^2)} = 0
+\end{equation*}
+for all $\lambda_1 \in \Z$ is $F(x)=0$ using the fact that $(I,\Z)$ is a spectral pair. Here,
+\begin{equation*}
+    F(x) = \int_0^1 e^{2 \pi i (\lambda_2+\alpha) y} \overline{f(x,y)} dy.
+\end{equation*}
+
+As $(\lambda_2+\alpha)$ was arbitrarily fixed, the only function satifying $F(x) = 0 $ for all $\lambda_2 \in \Lambda_2=\Z+\alpha$ is $f(x,y)=0$, since $\brac{I, \Z+\alpha}$ is a spectral pair. As $f(x,y)=0$ is the only solution for all $\lambda \in \Lambda_1 \times \Lambda_2$, it means that $\left\{ e^{2\pi i \langle \lambda,x  \rangle } : \lambda \in \Lambda_1\times\Lambda_2\right\}$ is complete. 
+
+Here we used that $\brac{I, \Z+\alpha}$ is a spectral set which can be proven using the following.
+$\Longrightarrow$ Todo\\
+TODO Tanke -> link spectral set with tilings. og bruke conjecture 1.4, lemma 1.5 i \cite{jorgensenSpectralPairsCartesian2001}. 
+% note: conjecture 1.4 er løst generelt i \cite{iosevichSpectralTilingProperties1998} og \cite{lagariasOrthonormalBasesExponentials2000}.
+% ! TODOS above
+
+% TODO plot of $\Lambda_1\times\Lambda_2$
+
+
+
+% note
+% argrument that what spectral pair implies. Completeness, and orthogonality. 
+
+
+\end{document}

@@ -29,13 +29,30 @@
     % Subfiles must have this file as option while using the documentclass subfile
     % Loading a subfile is done with \subfile{"path-to-file"}
     % ---
-    \chapter[]{Intro?}
+
+    % Chapter 1
+    \chapter[]{Introduction}
         \subfile{chapters/01_introduction.tex}
 
-    \chapter{The complex trigonometric system}
-        \subfile{chapters/02_cmplx_trig_system.tex}
-        \subfile{chapters/021_cmplx_trig_system.tex}
-        \subfile{chapters/022_cmplx_trig_system.tex}
+    % Chapter 2
+    \chapter[]{Preliminaries}
+        \subfile{chapters/02_preliminaries.tex}
+    
+    % Chapter 3
+    \chapter[]{Tilings}
+        \subfile{chapters/03_tilings.tex}
+
+    % Chapter 4
+    \chapter[]{Spectral Sets}
+        \subfile{chapters/04_spectral_sets.tex}
+    
+    % Chapter 5 
+    \chapter[]{Comparison}
+        \subfile{chapters/05_comparison.tex}
+    
+    % Chapter 6
+    \chapter[]{Equivalence of tiling sets and spectral sets for the n-cube}
+        \subfile{chapters/06_equiv_tiling_spec_ncube.tex}
 
 
     \printbibliography

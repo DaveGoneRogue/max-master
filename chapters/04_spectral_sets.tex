@@ -1,0 +1,42 @@
+\documentclass[../thesis.tex]{subfiles}
+% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information is highlighted
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // this is strikethrough
+
+
+\begin{document}
+
+
+%! Generelt intro ish til det under
+TEXTTEXT
+
+
+\section[]{Trigonometric system in $L^2([0,1])$}\label{sec:complx_trig_1d}
+%\chapter[]{The complex trigonometric system} % OLD TITLE
+%\section{The complex trigonometric system in 1D} % OLD TITLE
+    %* Hvilken flex har  vi? Jo, nær sagt ingen
+    \subfile{04_x1__one_dim.tex}
+
+
+%! this should be deleted and better merged with Jorgen pedersen section below     
+\section[]{The complex trigonometric system in 2D}\label{sec:complx_trig_2d}
+    \subfile{04_x2__two_dim.tex}
+
+%\section{The complex trigonometric system in 2D for shifted $\lambda$ values} % OLD TITLE
+\section{The complex trigonometric system in 2D for shifted values}
+    \subfile{04_x3__two_dim_shifted}
+
+
+
+\section[]{Spectral sets for $\Omega = [0,1]^2$}
+    %* Jorgen pedersen – generelt og spesialtilfelle
+
+
+
+\end{document}
