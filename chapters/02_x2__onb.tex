@@ -1,0 +1,118 @@
+\documentclass[../thesis.tex]{subfiles}
+% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information is highlighted
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // this is strikethrough
+
+
+\begin{document}
+% --- Section --- %
+% ------------------------------------------------------------------
+% ? \section[]{INtro ishh}
+% * Def complete i form av “and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. (fundamental/total)"
+intro til orthogonal bases 
+%
+%
+We consider orthogonal sets with a focus on countable orthogonal sequences. As any set of nonzero orthognal vectors can be turned into an orthonormal set if each vector is divided by its length, the following results are stated for orthonormal sets for simplicity. 
+We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem sourced from \cite{heilMetricsNormsInner2018}.
+%
+%
+\begin{theorem}\label{thrm:orthog_proj_formula_and_facts}
+    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following statements hold:
+    \begin{enumerate}[label=(\alph*)]
+        \item \label{eq:opfaf_a} Bessel's inequality holds for all $x \in H$. That is, 
+        \begin{equation}
+            \sum_{n=1}^{\infty} \left| \langle x, e_n \rangle \right|^2 \leq \| x\|^2 
+        \end{equation}
+        
+        \item \label{eq:opfaf:b} Let $c_n$ be scalars. If the following series converges in the norm of $H$, then for each $n \in \mathbb{N}$  the scalars $c_n= \langle x, e_n\rangle$. $$ x=\sum_{n=1}^\infty c_n e_n.$$
+        
+        \item \label{eq:opfaf_c} The following equivalence: 
+        \begin{equation}
+            \sum_{n=1}^{\infty} c_n e_n \text{ converges in norm of } H \Longleftrightarrow \sum_{n=1}^{\infty} \left| c_n \right|^2 < \infty.
+        \end{equation}
+        In this case the series $\sum_{n=1}^{\infty} c_n e_n$ converges unconditionally, meaning that it converges regardless of the ordering of the index set.
+        
+        \item \label{eq:opfaf_d} If $x \in H$, then 
+        \begin{equation} 
+            p= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n, 
+        \end{equation} 
+        is the orthogonal projection of $x$ onto  $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) $, with
+        \begin{equation}
+            \| p\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n \rangle \right|^2
+        \end{equation}
+        
+        \item \label{eq:opfaf_e} If $x \in H$, then 
+        \begin{equation}
+            x\in \overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) \Longleftrightarrow x=\sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \Longleftrightarrow \| x\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n\rangle \right|^2
+        \end{equation}
+    \end{enumerate}
+\end{theorem}
+%
+%
+% ! Max Kommentar
+\textcolor{red}{poof}\\
+Intro, ONB
+%
+%
+\begin{theorem}\label{thrm:orthonormal_equivalences}
+    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following are equivalent:
+    \begin{enumerate}[label=(\alph*)]
+        \item \label{eq:oe_a} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is complete. That is, $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) = H$
+        
+        \item \label{eq:oe_b} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is a \emph{Schauder basis} for $H$. That is, for each $x\in H$ there exists a unique sequence  $(c_n)_{n\in\mathbb{N}}$ of scalars such that $x = \sum c_n x_n$.
+        
+        \item \label{eq:oe_c} If $x\in H$, then the following series converges in the norm of $H$. \begin{equation} \label{eq:orthonormal_equivalences_3} x=\sum_{n=1}^\infty \langle x,e_n\rangle e_n, \end{equation}
+        
+        \item \label{eq:oe_d} Plancherel's equality holds for all $x \in H$. That is, $$ \|x \|^2 = \sum_{n=1}^\infty \left| \langle x,e_n \rangle \right|^2.$$
+        
+        \item \label{eq:oe_e} Parseval's equality holds for all $x,y \in H$. That is, $$ \langle x,y \rangle = \sum_{n=1}^\infty \langle x,e_n \rangle \langle e_n,y \rangle $$
+    \end{enumerate}
+\end{theorem}
+%
+% ! Max Kommentar
+\textcolor{red}{poof}
+
+Note that a sequence that satisfies any of the equivalent conditions in \cref{thrm:orthonormal_equivalences} is an orthonormal basis. We form the following definition.
+
+
+\begin{definition}
+    A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
+\end{definition}
+
+Or more generally  / summary def
+
+\begin{definition}
+    Let $H$ be a Hilbert space. An \emph{orthonormal basis} $B$ is a countable infinite family $\{e_k\}_{k\in B}$ of elements of $H$ that are orthonormal and complete. That is, they are pairwise orthogonal, have norm one, and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. 
+\end{definition}
+
+
+Orthonormal bases are a powerful tool. As stated in \cref{eq:orthonormal_equivalences_3}, it allows us to write
+\begin{equation*}
+    x= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \quad \text{for every } x\in H,
+\end{equation*}
+
+under the assumption that $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ \emph{is} an orthonormal basis for $H$.  By \cref{thrm:orthog_proj_formula_and_facts} we know that this series converges unconditionally, meaning that it converges whatever the ordering of the series is. The orthogonality implies that the 'decomposition' is unique, and in some sense one can say that \cref{eq:orthonormal_equivalences_3} \emph{characterises} completeness. %\cref{thrm:orthonormal_equivalences} gives several other equivalent and useful characterisations for complete orthonormal sequences.
+
+An equivalent restatement of completeness is that $\left\{ e_k \right\}$ is complete in $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$. Since $B$ is an orthonormal set and $x$ is orthogonal to $B$, then $x$ is orthogonal to the closure of the linear span of $B$. As $\operatorname{span}(B)$ is dense in $H$ we have $\overline{\operatorname{span}}(B) = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
+
+% ikke skriv $x=\overrightarrow{0}$
+
+% Zero vector comment
+%Furthermore, given $\Omega \subset \mathbb{R}^d$ have finite positive lebesgue measure, and let $L^2(\Omega)$ be the corresponding Hilbert space of $L^2$ functions on $\Omega$. Completeness can be restated into showing that $f=0$, for $f \in L^2(\Omega)$, is the only solution to $\langle f,e_\lambda \rangle_{H} = 0$ for all $\lambda \in \Lambda$. This comes from the fact that the  only vector/function $v$ orthogonal to a dense linear subspace is the zero vector/function. That is to say, since $B$ is any orthonormal set/family, and $v$ is orthonormal to $B$, then $v$ is also orthogonal to $\overline{\operatorname{span}(B)}$ , which is the whole space $H$. Ref linmet bok og paperet om spectral pairs.
+
+% ? Note, the fact that the span of the basis vectors is dense implies that every vector in H can be written as the sum of an infinite series, and the orthogonality imply that the decomposition is unique.
+
+% ! Max Kommentar
+% overgang fra $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ til $\left\{ e_{\lambda} \right\}_{\lambda \in \mathbb{Z}}$ 
+
+
+
+
+
+\end{document}
