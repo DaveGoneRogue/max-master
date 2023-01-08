@@ -18,8 +18,8 @@
 intro til orthogonal bases 
 %
 %
-We consider orthogonal sets with a focus on countable orthogonal sequences. As any set of nonzero orthognal vectors can be turned into an orthonormal set if each vector is divided by its length, the following results are stated for orthonormal sets for simplicity. 
-We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem sourced from \cite{heilMetricsNormsInner2018}.
+We consider orthogonal sets with a focus on countable orthogonal sequences. As any set of nonzero orthogonal vectors can be turned into an orthonormal set if each vector is divided by its length, the following results are stated for orthonormal sets for simplicity. 
+We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem \cite{heilMetricsNormsInner2018}.
 %
 %
 \begin{theorem}\label{thrm:orthog_proj_formula_and_facts}
@@ -30,7 +30,7 @@ We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \rig
             \sum_{n=1}^{\infty} \left| \langle x, e_n \rangle \right|^2 \leq \| x\|^2 
         \end{equation}
         
-        \item \label{eq:opfaf:b} Let $c_n$ be scalars. If the following series converges in the norm of $H$, then for each $n \in \mathbb{N}$  the scalars $c_n= \langle x, e_n\rangle$. $$ x=\sum_{n=1}^\infty c_n e_n.$$
+        \item \label{eq:opfaf:b} Let $c_n$ be scalars. If the series $$ x=\sum_{n=1}^\infty c_n e_n.$$ converges in the norm of $H$, then the scalars $c_n= \langle x, e_n\rangle$ for each $n \in \mathbb{N}$.
         
         \item \label{eq:opfaf_c} The following equivalence: 
         \begin{equation}
@@ -75,7 +75,7 @@ Intro, ONB
     \end{enumerate}
 \end{theorem}
 %
-% ! Max Kommentar
+%! Max Kommentar
 \textcolor{red}{poof}
 
 Note that a sequence that satisfies any of the equivalent conditions in \cref{thrm:orthonormal_equivalences} is an orthonormal basis. We form the following definition.
@@ -85,11 +85,12 @@ Note that a sequence that satisfies any of the equivalent conditions in \cref{th
     A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
 \end{definition}
 
-Or more generally  / summary def
+%? Sigrid ville kutte
+%* Or more generally  / summary def 
 
-\begin{definition}
-    Let $H$ be a Hilbert space. An \emph{orthonormal basis} $B$ is a countable infinite family $\{e_k\}_{k\in B}$ of elements of $H$ that are orthonormal and complete. That is, they are pairwise orthogonal, have norm one, and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. 
-\end{definition}
+%\begin{definition}
+    %Let $H$ be a Hilbert space. An \emph{orthonormal basis} $B$ is a countable infinite family $\{e_k\}_{k\in B}$ of elements of $H$ that are orthonormal and complete. That is, they are pairwise orthogonal, have norm one, and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. 
+%\end{definition}
 
 
 Orthonormal bases are a powerful tool. As stated in \cref{eq:orthonormal_equivalences_3}, it allows us to write
@@ -97,7 +98,7 @@ Orthonormal bases are a powerful tool. As stated in \cref{eq:orthonormal_equival
     x= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \quad \text{for every } x\in H,
 \end{equation*}
 
-under the assumption that $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ \emph{is} an orthonormal basis for $H$.  By \cref{thrm:orthog_proj_formula_and_facts} we know that this series converges unconditionally, meaning that it converges whatever the ordering of the series is. The orthogonality implies that the 'decomposition' is unique, and in some sense one can say that \cref{eq:orthonormal_equivalences_3} \emph{characterises} completeness. %\cref{thrm:orthonormal_equivalences} gives several other equivalent and useful characterisations for complete orthonormal sequences.
+under the assumption that $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ \emph{is} an orthonormal basis for $H$.  By \cref{thrm:orthog_proj_formula_and_facts} we know that this series converges unconditionally. The orthogonality implies that the 'decomposition' is unique, and in some sense one can say that \cref{eq:orthonormal_equivalences_3} \emph{characterises} completeness. %\cref{thrm:orthonormal_equivalences} gives several other equivalent and useful characterisations for complete orthonormal sequences.
 
 An equivalent restatement of completeness is that $\left\{ e_k \right\}$ is complete in $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$. Since $B$ is an orthonormal set and $x$ is orthogonal to $B$, then $x$ is orthogonal to the closure of the linear span of $B$. As $\operatorname{span}(B)$ is dense in $H$ we have $\overline{\operatorname{span}}(B) = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
 

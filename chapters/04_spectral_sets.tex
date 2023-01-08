@@ -14,10 +14,36 @@
 
 
 %! Generelt intro ish til det under
-TEXTTEXT
 
 
-\section[]{Trigonometric system in $L^2([0,1])$}\label{sec:complx_trig_1d}
+
+% ? Intro overgang, noe for å introdusere d-dimensjoner. 
+% ? Before expanding up to higher dimensions, let us form the following defenitions.
+
+
+\begin{definition}[Spectral set \cite{liuUniformityNonUniformGabor2003}] \label{def:spectral_set}
+    Let $\Omega \subseteq \mathbb{R}^d$ be a measurable subset with positive and finite (bounded) measure, i.e $0< \operatorname{mes} \Omega < \infty$, and let $e_{\lambda}$ be an exponential function on $\Omega$ given by $e_{\lambda}(t) = e^{2\pi i \langle \lambda,t  \rangle }$. If the set of exponentials $\{ e^{2\pi i \langle \lambda,t  \rangle } : \lambda \in \Lambda\}$  form an \textsc{orthogonal} basis for $L^2 (\Omega)$ when $\lambda$ ranges over some subset $\Lambda$ in $\mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair}. 
+\end{definition} 
+
+%? SIGRID VIL STRYKE: 
+% Note, even though the exponential function $e^{2\pi i \langle \lambda,t  \rangle }$ is defined over $\mathbb{C}$, the inner product is defined over $\R^d$ as $t\in \Omega\subset \R^d$ and $\lambda \in \Lambda \subset \R^d$, and can be calculated using \cref{eq:dot_prod}.
+
+% ! Note that a spectral set $\Omega$ may have more than one spectrum.
+% ! Spectral pairs are connected to tilings.
+
+
+%* Dette leder dårlig over til den en dimensjonale tingen, som vi skal se på først og se på fleksibiliteten til
+% In other words we have shown that $\brac{[0,1],\mathbb{Z}}$ is a spectral pair. This follows directly from \cref{def:spectral_set} with $\Omega = [0,1]$, $\Lambda = \Z $, $d=1$, and in conjunction with the proof that $\{ e^{2\pi i \lambda t} : \lambda \in \mathbb{Z} \}$ is an orthonormal basis for $L^2([0,1])$. As shown in \cite{taoIntroductionMeasureTheory2011}, closed sets are measurable, in our case with positive and finite measure $\operatorname{mes}(\Omega) = 1$. % * using Lebesgue measure, state this? %! NEI, stryk measure. 
+
+
+% TODO
+% Todo: notation switch from $\{ e_\lambda \}_{\lambda \in \Z}$ to $\{e^{2 \pi i \dots \lambda \dots} : \lambda \in \Z \}$, go back and change
+% Todo: sjekke spacing, for nå er det ikke konsistent: Ny linje, ny linje med spacing, ny lince med spacing etterfulgt av theorem enviroment, etc
+
+
+
+
+\section{Trigonometric system in $L^2([0,1])$}\label{sec:complx_trig_1d}
 %\chapter[]{The complex trigonometric system} % OLD TITLE
 %\section{The complex trigonometric system in 1D} % OLD TITLE
     %* Hvilken flex har  vi? Jo, nær sagt ingen
@@ -25,7 +51,7 @@ TEXTTEXT
 
 
 %! this should be deleted and better merged with Jorgen pedersen section below     
-\section[]{The complex trigonometric system in 2D}\label{sec:complx_trig_2d}
+\section{The complex trigonometric system in 2D}\label{sec:complx_trig_2d}
     \subfile{04_x2__two_dim.tex}
 
 %\section{The complex trigonometric system in 2D for shifted $\lambda$ values} % OLD TITLE
@@ -34,7 +60,7 @@ TEXTTEXT
 
 
 
-\section[]{Spectral sets for $\Omega = [0,1]^2$}
+\section{Spectral sets for $\Omega = [0,1]^2$}
     %* Jorgen pedersen – generelt og spesialtilfelle
 
 
