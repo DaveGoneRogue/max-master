@@ -11,24 +11,11 @@
 
 
 \begin{document}
-Given $\lambda \in \mathbb{Z}$, the complex exponential of the frequency $\lambda$ is 
-\begin{equation}
-    e_{\lambda}(t) = e^{2 \pi i \lambda t} = \cos{(2 \pi \lambda t)} + i \sin{(2 \pi \lambda t)}, \quad t\in \mathbb{R}    
-\end{equation}
-The complex trigonometric system is the sequence
-\begin{equation}
-    \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} = \{ e^{2 \pi i \lambda t} \}_{\lambda \in \mathbb{Z}}    
-\end{equation}
-where the domain of $e_\lambda$ is the real line (the input $t$ is a real number), and the output is a complex number. Furthermore, let $\mathbb{T}=\{z\in \mathbb{C} : |z|=1\}$ be the unit circle in the complex plane, and note that each point $z\in\mathbb{T}$ is on the form $z=e^{2 \pi i t}$ for $t$ a real number, meaning that for an arbitrary $\lambda \in \mathbb{Z}$ we have
-\begin{equation}
-    \left|e_{\lambda}(t) \right|= |e^{2 \pi i \lambda t} | = 1 \quad \text{for all } t\in \mathbb{R} 
-\end{equation}
-Furthermore, observe that $e_\lambda$ is 1-\emph{periodic}, because
-\begin{equation}
-    e_\lambda(t+1) = e^{2 \pi i \lambda (t+1)} = e^{2 \pi i \lambda t} e^{2 \pi i \lambda} = e^{2 \pi i \lambda t} = e_\lambda(t)
-\end{equation}
 
-The 1-periodicity of $e_\lambda$ is important. If we know values of $e_\lambda(t)$ for $t$ on an interval of length $1$, we know the values for all points $t\in \mathbb{R}$. This allows us to restrict our domain from all of $\mathbb{R}$ to just the $t$´s that lie on the interval $[0,1]$, the unit interval.
+For $d=1$ we have the following set of exponential functions
+\begin{equation}
+    \{ e^{2\pi i \lambda t } : \lambda \in \Lambda\}
+\end{equation}
 
 The complex trigonometric system is orthogonal on $L^2([0,1])$. This follows from the following; As the complex exponential functions are continuous, they are also Lebesgue integrable on $[0,1]$. Let $e_{\lambda}, e_{\lambda'} \in \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ so that $\lambda \neq \lambda'$ and compute the inner product
 \begin{align*} 
