@@ -15,27 +15,46 @@
 % Begynne med L^2 og L^p
 % Så ta for seg C([0,1]) og C_per([0,1])
 % Hvordan flette inn C(\Omega) ??
+\begin{definition}[Lebesgue Space]
+    Let $E$ be a measurable subset of $\R^d$. Given an index $1 \leq p < \infty$ and a measurable function $f:E\rightarrow \C$, we say that $f$ is \emph{$p$-integrable} if the Lebesgue integral of $|f|^p$ is finite, or equivalent that the $\|\cdot\|_p$-norm of $f$ is finite. That is,
+    \begin{equation*}
+        \int_{E} |f(t)|^p dt < \infty,
+    \end{equation*}
+    or 
+    \begin{equation*}
+        \|f\|_{L^p(E)} = \brac{\int_{E} |f(t)|^p dt}^{1/p}< \infty,
+    \end{equation*}
+    where $dt= dt_1 \dots dt_d$. Conversly, $\|f\|_p = \infty$ then $f$ is \emph{not} $p$-integrable. We define the \emph{Lebesgue space} $L^p(E)$ as the set of all $p$-integrable functions on $E$. %The \emph{Lebesgue space} $L^p(E)$ is the set of all $p$-integrable functions on $E$.
+\end{definition}
+% Heil REal analysis book page 269, citation?
 
-%? Sjekk hvordan denne er introdusert i HEIL
-Let $C([0,1])$ denote the set of all continuous, scalar-valued functions whose domain is $[0,1]$:
+Of all the $L^p$ spaces, the case of $p=2$ is noteworthy since $L^2(E)$ is the only space that has its norm induced from the inner product.
+In addition, from the Riesz-Fischer Theorem \cite[p.~279]{heilIntroductionRealAnalysis2019} all $L^p$ spaces are complete with respect to its $\|\cdot\|_p$-norm. Hence, $L^2$ is a Hilbert space. The inner product on $L^2(E)$ for two functions $f,g\in L^2(E)$ is given by
 \begin{equation}
-    C([0,1]) = \{f:[0,1] \rightarrow \mathbb{C}: f \text{ is continuous on } [0,1]\}.
+    \langle f, g\rangle_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation}
+and the induced norm is 
+\begin{equation}
+    \|f\|_{L^2(E)}^2 = \langle f, f\rangle_{L^2(E)} = \int_{E} |f(t)|^2 dt.
+\end{equation}
+
+
+
+
+Introduce
 
 Let
 \begin{equation}
-    C([0,1]) = \{f:[0,1] \rightarrow \mathbb{C}: f \text{ is continuous on } [0,1]\}.
+    C([a,b]) = \{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]\}.
 \end{equation}
-denote the set of all continuous, scalar-valued functions whose domain is $[0,1]$:
-
+denote the set of all continuous, scalar-valued functions whose domain is a closed and bounded interval.
 
 
 Let
 \begin{equation*}
-C_{\text {per }}[0,1]=\{f \in C[0,1]: f(0)=f(1)\}.
+C_{\text {per }}[a,b]=\{f \in C[a,b]: f(a)=f(b)\}.
 \end{equation*}
-denote the set of all periodic, continuous, real-valued, functions on the interval $[0,1]$:
-
+denote the set of all periodic, continuous, real-valued, functions on the interval $[a,b]$:
 
 
 \begin{definition}\label{eq:dot_prod}
