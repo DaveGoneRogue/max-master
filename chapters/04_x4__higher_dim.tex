@@ -1,0 +1,49 @@
+\documentclass[../thesis.tex]{subfiles}
+% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information is highlighted
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // this is strikethrough
+
+
+\begin{document}
+
+
+intro %til jorgensen og pedersen om construction for høyere dim. 
+
+
+In \cite{jorgensenSpectralPairsCartesian2001} Steen P. and Palle E. presented a method on the construction of spectral pairs in higher dimensions. It is a recursive technique in what they dub "a cross-product construction" using "factors" in lower dimensions, and applies for any two spectral pairs $\brac{\Omega_i,\Lambda_i}$ where $i=1,2$ and in arbitrary dimensions $d_1$ and $d_2$. The technique is presented in the following theorem
+
+\begin{theorem}[Construction of spectra, \cite{jorgensenSpectralPairsCartesian2001}] \label{thrm:construction_spectra} %! SKRIV OM, er nesten reeen copy paste
+    Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in dimension $d_1$, and let $\Omega_2$ be a set of positive finite measure in dimension $d_2$. Suppose that for each $\lambda_1 \in \Lambda_1$, that $\Lambda_2=\Lambda(\lambda_1)$ is a discrete subset of $\mathbb{R}^{d_2}$ such that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair.
+
+    If $\Lambda=\braq{\brac{\lambda_1,\lambda_2}: \lambda_1\in \Lambda_1, \lambda_2 \in \Lambda_2}$ then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $d_1+d_2$ dimensions. 
+\end{theorem}
+%[p.~3]
+\begin{proof}
+    $\dots$
+    $\dots$
+\end{proof}
+
+
+\begin{example}
+    Example of using \cref{thrm:construction_spectra} to construct a spectral pair for $d=2$ dimensions. 
+    We have shown that $\brac{\Omega_1,\Lambda_1} = \brac{I, \Z}$ is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\Lambda_2} = \brac{I, \Z}$ is a spectral pair in dimension $d_2=1$. Now, since $\Lambda  = \braq{\brac{\lambda_1,\lambda_2}\in \Z \times \Z }$ we have that $\brac{I \times I, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
+
+    
+\end{example}
+
+
+
+
+
+
+
+
+
+
+\end{document}

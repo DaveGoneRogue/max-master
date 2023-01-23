@@ -38,35 +38,39 @@ The framework of spectral sets involves a subset $\Omega$ of $\R^d$ with finite 
 \begin{equation}\label{eq:exp}
     e_{\lambda}(t) = e^{2 \pi i \inpl{t}}, t\in \Omega, \lambda \in \Lambda
 \end{equation}
-where $\inpl{t}$ is the euclidian inner product defined in \cref{eq:dot_prod}. If these exponential functions form an orthogonal basis for $L^2(\Omega)$ when $\lambda$ ranges over some subset $\Lambda$ in $\R^d$, then $\Omega$ is a spectral set. We formalize this into the following definition.
+where $\inpl{t}$ is the euclidian inner product defined in \cref{def:closed_span}. If these exponential functions form an orthogonal basis for $L^2(\Omega)$ when $\lambda$ ranges over some subset $\Lambda$ in $\R^d$, then $\Omega$ is a spectral set. We formalize this into the following definition.
 
 \begin{definition}[Spectral set \cite{liuUniformityNonUniformGabor2003}] \label{def:spectral_set}
     Let $\Omega \subseteq \mathbb{R}^d$ be a measurable subset with $0< \operatorname{mes} \Omega < \infty$, and let $e_{\lambda}$ be an exponential function on $\Omega$ given by $e_{\lambda}(t) = e^{2\pi i \langle \lambda,t  \rangle }$. If the set of exponentials $\{ e^{2\pi i \langle \lambda,t  \rangle } : \lambda \in \Lambda\}$  form an \textsc{orthogonal} basis for $L^2 (\Omega)$ when $\lambda$ ranges over some subset $\Lambda \subset \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair}. 
 \end{definition}
 
 We will mainly consider the case when $\Omega=I^d$, where $I^d=\bras{0,1}^d$ is the unit cube in $\R^d$. The significance of this case lies in the more direct connection between tiles and spectrum for $\Omega=I^d$ than for other sets $\Omega$ and is a topic we will explore further in \cref{chap:comparison}.
-Before considering spectral sets in higher dimensions, we will first consider the one-dimensional case, and what flexibility we have in choosing $\Lambda$.
+Before considering spectral sets in higher dimensions, we will first consider the one-dimensional case, and what flexibility we have in choosing $\Lambda$. 
 
-\section{The unit cube in dimension one}\label{sec:complx_trig_1d}
+\section{Spectral sets in dimension one}\label{sec:complx_trig_1d}
+\section{The unit cube in dimension one}%\label{sec:complx_trig_1d}
 %\section{Trigonometric system in $L^2([0,1])$}\label{sec:complx_trig_1d}
 %\chapter[]{The complex trigonometric system} % OLD TITLE
 %\section{The complex trigonometric system in 1D} % OLD TITLE
     %* Hvilken flex har  vi? Jo, nær sagt ingen
+    %* Samtidig: Concerned with the structure of the dicrete sets \Lambda which at the same time serve as spectra for I^d (the basis property), and also are sets of vectors \lambda, which makes the translates \lambda + I^d tile \R^d
     \subfile{04_x1__one_dim.tex}
 
 
 %! this should be deleted and better merged with Jorgen pedersen section below     
-\section{The complex trigonometric system in 2D}\label{sec:complx_trig_2d}
-    \subfile{04_x2__two_dim.tex}
+%\section{The complex trigonometric system in 2D}\label{sec:complx_trig_2d}
+    %\subfile{04_x2__two_dim.tex}
 
 %\section{The complex trigonometric system in 2D for shifted $\lambda$ values} % OLD TITLE
-\section{The complex trigonometric system in 2D for shifted values}
-    \subfile{04_x3__two_dim_shifted}
+%\section{The complex trigonometric system in 2D for shifted values}
+    %\subfile{04_x3__two_dim_shifted}
 
 
-
-\section{Spectral sets for $\Omega = [0,1]^2$}
+\section{Spectral sets in higher dimensions}
+%\section{Spectral sets for $\Omega = [0,1]^2$}
+    \subfile{04_x4__higher_dim}
     %* Jorgen pedersen – generelt og spesialtilfelle
+
 
 
 \end{document}

@@ -12,131 +12,112 @@
 
 \begin{document}
 
-For $d=1$ we have the following set of exponential functions
+For $d=1$ and $\Lambda=\Z$ we have the following set of exponential functions
 \begin{equation}
-    \{ e^{2\pi i \lambda t } : \lambda \in \Lambda\}
+    \onedexp
 \end{equation}
+%This set is sometimes referred to as the \emph{complex trigonometric system}. 
+Since the complex exponential functions $e_{\lambda}$ are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. In other words $\onedexp \subset L^2(I)$. %which imply $e_\lambda \in L^2(I)$ for all $\lambda \in \Z$. 
+\begin{lemma}
+    The set of exponential functions $\onedexp$ is an orthonormal basis for $L^2(I)$
+\end{lemma}
+\begin{proof}
+    We begin with showing orthogonality. Let $e_{\lambda}, e_{\lambda'} \in \onedexp $ so that $\lambda \neq \lambda'$ and compute the inner product
+    \begin{align*} 
+        \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I)} &= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt\\ 
+        &= \int_0^1 e^{2 \pi i {\lambda}t} e^{-2 \pi i {\lambda'}t} dt\\
+        &= \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt\\
+        &=\frac{1}{2 \pi i (\lambda-\lambda')}\left( e^u  \big| _0^{2 \pi i (\lambda-\lambda')}\right) & (\text{using }u=2 \pi i (\lambda-\lambda')t)\\
+        &=\frac{1-1}{2 \pi i (\lambda-\lambda')} & (\text{since } e^{2 \pi i (\lambda-\lambda')} = 1)\\
+        &= 0.
+    \end{align*}
+    Hence $\onedexp$ is orthogonal. Furthermore, if  $\lambda =\lambda'$ the inner product is
+    \begin{align}\label{eq:exp_norm_one}
+        \| e_\lambda \|^2_{L^2(I)} 
+        = \langle e_{\lambda},e_{\lambda} \rangle_{L^2(I)} 
+        = \int_0^1 e^{2 \pi i (\lambda-\lambda)t} dt
+        = \int_0^1 e^{0} dt = t  \big| _0^{1}= 1
+    \end{align}
+    which shows that the system $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is not only orthogonal, it is also orthonormal. 
+    % * ------------------------------------------------------------------
+    % * BASIS PROOOF
 
-The complex trigonometric system is orthogonal on $L^2([0,1])$. This follows from the following; As the complex exponential functions are continuous, they are also Lebesgue integrable on $[0,1]$. Let $e_{\lambda}, e_{\lambda'} \in \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ so that $\lambda \neq \lambda'$ and compute the inner product
-\begin{align*} 
-\langle e_{\lambda},e_{\lambda'} \rangle_{L^2([0,1])} 
-&= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt\\ &= \int_0^1 e^{2 \pi i {\lambda}t} e^{-2 \pi i {\lambda'}t} dt\\
-&= \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt\\
-&=\frac{1}{2 \pi i (\lambda-\lambda')}\left( e^u  \big| _0^{2 \pi i (\lambda-\lambda')}\right)\\
-&=\frac{e^{2 \pi i (\lambda-\lambda')}-1}{2 \pi i (\lambda-\lambda')}\\
-&= 0
-\end{align*}
+    Going forward, to show that we have an orthonormal basis we must prove that $\onedexp$ is complete in $L^2(I)$. By\cref{thrm:orthonormal_equivalences} this is equivalent to showing $\spn{\onedexp}$ is dense in $L^2(I)$ with respect to the \Ltwonorm. 
+    %More specificaly, if $\|f-f'\|_{L^2(I)} < \varepsilon'$ for $\varepsilon' > 0$ and two functions $f,f'$ where $f\in L^2(I)$ and $f'\in \spn{\onedexp}$, follows from defenition of dense that $\spn{\onedexp}$ is dense in $L^2(I)$.
+    %
+    %THIS IS THE SAME AS the closed span, which is the set of all elements a_i of the span(E) that converges to a. If this closed span is the whole of X then E is dense. So by showing E is dense w.r.t a norm, is essentially showing the closed span = the set.
+    %
+    %More specificaly, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. If we can show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$, then we are done as this implies completeness from the defenition of closed span .
+    %First, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. %Our goal in the end is to show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$.
 
-By change of variables, and later using that $(\lambda-\lambda') \in \mathbb{Z}$ imply $e^{2 \pi i (\lambda-\lambda')} = 1$. Hence $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is orthogonal. Furthermore, if  $\lambda =\lambda'$ the inner product is
-\begin{align}\label{eq:exp_norm_one}
-    \| e_\lambda \|^2_{L^2([0,1])} 
-    = \langle e_{\lambda},e_{\lambda} \rangle_{L^2([0,1])} 
-    = \int_0^1 e^{2 \pi i (\lambda-\lambda)t} dt
-    = \int_0^1 e^{0} dt = t  \big| _0^{1}= 1
-\end{align}
+    First, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. Since $C(I)$ is dense in $L^2(I)$ with respec to the $L^2$-norm, we know that there exist a continuous function $g \in C(I)$ such that
+    \begin{equation}
+        \| f-g \|_{L^2(I)}^2 = \int_0^1 \left|f(t)-g(t) \right|^2dt < \varepsilon^2
+    \end{equation}
+    Now, using the fact that $C_{\text{per}}(I)$ is dense in $C(I)$, we have a function $h\in C_{\text{per}}(I)$ such that 
+    \begin{equation}
+        \| g-h \|_{L^2(I)}^2 = \int_0^1 \left|g(t)-h(t) \right|^2dt < \varepsilon^2
+    \end{equation}
 
-which shows that the system $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is not only orthogonal, it is also orthonormal. 
+    \begin{theorem}[Weierstrass Approximation Theorem \cite{durenInvitationClassicalAnalysis2012}]\label{thrm:weierstrassApprox}
+        Let $q(x)$ be continuous on the interval $[0, 1]$, with $q(0)=q(1)$. Then for each $\varepsilon>0$ there is a trigonometric polynomial $T(x)$ such that $|q(x)-T(x)|<\varepsilon$ for $0 \leq x \leq 1$.
+    \end{theorem}
 
+    By using \cref{thrm:weierstrassApprox} on $h\in C_{\text{per}}(I)$ we get directly that there exist a trigonometric polynomial $T(t)$  such that $|h(t)-T(t)|<\varepsilon$. Furthermore, note that $T(t)$ in fact a member of $\spn{\onedexp}$ since 
+    \begin{equation*}
+        \spn{\onedexp}=\left\{\sum_{\lambda=-N}^N c_\lambda e^{2\pi i \lambda t} : \lambda \in \N, c_\lambda \in \C\right\},
+    \end{equation*}
+    and a trigonometric polynomial of degree $N$ and period $P$ that in general can be expressed as
+    \begin{equation*}
+        p_N(x)=\sum_{n=-N}^N c_n e^{i \frac{2 \pi}{P} n x}, x\in \R.
+    \end{equation*}
+    When the period $P=1$, as is in our case, we see that $P_N(x)= T(t)$. Continuing on, using the \Ltwonorm we have that for %$e^{2 \pi it}$ is a trigonometric polynomial by definition. Set $p(t)=T(t)$ and using the \Ltwonorm we have
+    \begin{align*}
+        \| h-T \|_{L^2(I)}^2 =& \int_0^1 \left|h(t)-T(t) \right|^2dt \\ 
+        \leq &\int_0^1 \varepsilon^2 dt\\ 
+        =& \varepsilon^2.
+    \end{align*}
+    Now using the triangle inequality to combine the above estimates, we get
+    \begin{align*} 
+        \| f-T\|_{L^2(I)} \quad \leq&\quad  \| f-g\|_{L^2(I)} + \| g-h\|_{L^2(I)} +\| h-T\|_{L^2(I)}\\
+        <& \quad \varepsilon + \varepsilon +\varepsilon \\
+        =& \quad 3 \varepsilon
+    \end{align*}
+    For this reason, we can approximate every $f\in L^2(I)$ by a function $T \in \spn{\onedexp}$ as closely as we want. In other words, $\spnclos{\onedexp}=L^2(I)$, and by \cref{def:closure} $\spn{\onedexp}$ is dense in $L^2(I)$ which finalizes our proof%, and this finalizes our proof. %we have shown that $\onedexp$ indeed is complete. This 
+\end{proof}
 
-% * ------------------------------------------------------------------
-% * BASIS PROOOF
-To show that $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is a basis, we must show that it is a complete sequence in the sense of \cref{thrm:orthonormal_equivalences} \cref{eq:oe_a}, which is that $\overline{\operatorname{span}} \left( \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} \right) = L^2{([0,1])}$.
-
-First, choose any function $f\in L^2([0,1])$ and fix a real number $\varepsilon >0$. Our goal is to show that there is a function $p \in \operatorname{span} \left( \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} \right)$ such that $\|f-p\|_{L^2([0,1])} < 3 \varepsilon$, which will imply completeness from the equivalence of \cref{thrm:orthonormal_equivalences} \cref{eq:oe_c} and \cref{thrm:orthonormal_equivalences} \cref{eq:oe_a}.
-
-Since $C[0,1]$ is dense in $L^2([0,1])$ \cite{heilMetricsNormsInner2018}, we know that there exist a continuous function $g \in C[0,1]$ such that %$\| f-g \|_{L^2([0,1])} < \varepsilon$. If $g$ is the zero function, then we can take $p=0$ and we are done with the proof
-\begin{equation}
-    \| f-g \|_{L^2([0,1])}^2 = \int_0^1 \left|f(t)-g(t) \right|^2dt < \varepsilon^2
-\end{equation}
-% * BUILD UP TO h function 
-%If $g$ is the zero function, then we can take $p=0$ and we are done with the proof. Thus we consider the case where $g$ is not identically zero. Going forward, our goal is to show that $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is complete in the subspace $C_{\text{per}}[0,1]$ with respect to the $\|\cdot\|_u$-norm. Here, $C_{\text{per}}[0,1]$ is the set of all periodic, continuous, real-valued, functions on the interval $[0,1]$:
-Going forward, our goal is to show that $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is complete in the subspace $C_{\text{per}}[0,1]$ using the weierstrass theorem \cite{durenInvitationClassicalAnalysis2012}. We do not require that $g \in C_{\text{per}}[0,1]$, meaning that the requirement $g(0)=g(1)$ need not hold. Instead we will construct a function $h$ that belongs to $C_{\text{per}}[0,1]$. Let  $\delta = \varepsilon^2/(8\|g\|_\infty)$, and $h$  be given by %, and which satisfies 
-%\begin{equation*}
-%    \| g-h \|_{L^2([0,1])}^2 = \int_0^1 \left|g(t)-h(t) \right|^2dt < \varepsilon^2.
-%\end{equation*}
-%Let  $\delta = \varepsilon^2/(8\|g\|_\infty)$, and $h$  be given by
-\begin{equation*}
-    h(t) = 
-    \begin{cases} 0, &  t=0,\\  
-        \text{linear}, &  0<t<0+\delta,\\ 
-        g(t), & 0+\delta \leq t \leq 1-\delta,\\ 
-        \text{linear}, &  1-\delta <t<1,\\ 
-        0, &  t=1,
-    \end{cases}
-\end{equation*}
-% kan lage formel for h på ax+b formel: $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side. $dy/dx \cdot x + b$
-as can be seen from Figure 1, on the interval $[0+\delta, 1-\delta]$ we have $g(t)-h(t)= 0$ for all $t$, and for all other values of $t$ the 'disance' is at worst 
-\begin{equation*}
-    \left|g(t)-h(t) \right| \leq |g(t)| + |-h(t)| \leq \|g \|_{\infty} + \|g \|_{\infty} = 2 \|g \|_{\infty}
-\end{equation*}
-by first using the triangle inequality, and then that
-\begin{equation*}
-    |h(t)| \leq \|h\|_{\infty} = \sup_{t\in[0,1]} |h(t)| = \sup_{t\in[0+\delta, 1-\delta]} |h(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| \leq \sup_{t\in[0, 1]} |g(t)| =\| g\|_{\infty}
-\end{equation*}
-with equality in the second step from the fact that $h$ is linear and goes towards zero as it approaches $0$ or $1$, and therefore attains its greatest value on the interval $[0+\delta,1-\delta]$. Now,
-\begin{align*}
-    \| g-h \|_{L^2}^2 &=  \int_0^{0+\delta} \left|g(t)-h(t) \right|^2dt + \int_{0+\delta}^{1-\delta} \left|g(t)-h(t) \right|^2dt +\int_{1-\delta}^{1} \left|g(t)-h(t) \right|^2dt\\ 
-    &\leq \int_0^{0+\delta} (2 \| g\|_\infty)^2dt + 0 +\int_{1-\delta}^{1} (2 \| g\|_\infty)^2dt\\
-    &=  4 \delta \| g\|_\infty^2 + 4 \delta \| g\|_\infty^2\\ 
-    &= \varepsilon^2
-\end{align*}
-
-% * PART 3   % construct vs. define
-Recall the unit circle $\mathbb{T}$ where each point $z \in \mathbb{T}$ is given by $z= e^{2\pi i t}$ for $t \in \mathbb{R}$, and the 1-periodicity of the values $z$.  That is, all values of $t$ that differ by an integer amount correspond to the same point $z$. Using this, we construct a function $H: \mathbb{T} \longrightarrow \mathbb{C}$ of  $z\in\mathbb{T}$ by $H(e^{2 \pi i t})=h(t)$ for $t\in[0,1]$. Since $h \in C_{\text{per}}[0,1]$ we have that $H \in C(\mathbb{T})$. That is, since $h$ is continuous and satisfies $h(0) = h(1)$, it implies that $H$ is continuous on $\mathbb{T}$.
-%\begin{lemma}
-%    The collection 
-%    \begin{equation*} 
-%        A = \operatorname{span}(\{z^n\})_{n\in \mathbb{Z}} = \left\{ \sum_{n=-N}^{N} c_nz^n : N\in\mathbb{N}, c_n \in \mathbb  {C} \right\}
-%    \end{equation*}
-%    is dense in $C(\mathbb{T})$.
-%\end{lemma}
-%by the Stone weierstrass theorem 0.
-%overgang fra $\mathbb{N}$ til $\mathbb{Z}$
-%// \begin{theorem}[Weierstrass Approximation Theorem \cite{durenInvitationClassicalAnalysis2012}]
-%//     Let $q(x)$ be continuous on the interval $[-\pi, \pi]$, with $q(-\pi)=q(\pi)$. Then for each $\varepsilon>0$ there is a trigonometric polynomial $T(x)$ such that $|q(x)-T(x)|<\varepsilon$ for $-\pi \leq x \leq \pi$.
-%// \end{theorem}
-\begin{theorem}[Weierstrass Approximation Theorem \cite{durenInvitationClassicalAnalysis2012}]
-    Let $q(x)$ be continuous on the interval $[0, 1]$, with $q(0)=q(1)$. Then for each $\varepsilon>0$ there is a trigonometric polynomial $T(x)$ such that $|q(x)-T(x)|<\varepsilon$ for $0 \leq x \leq 1$.
-\end{theorem}
-
-% Lemma 1 implies that there exist a complex polynomial 
-Now using the Weierstrass Approximation theorem with $q(x)= H(z)$ and $T(x) = P(z)$ we have that there exist a complex polynomial
-\begin{equation*}
-    P(z)= \sum_{n=-N}^{N}c_n z^n, \quad \text{where }z\in \mathbb{T},    
-\end{equation*}
-such that $| H(z)-P(z) | < \varepsilon$. Set $p(t) =P(e^{2\pi it})$ and observe that
-%\begin{equation*}
-%    \| H-P \| \leq \| H-P \|_{\infty} = \sup_{z\in \mathbb{T}} |H(z)-P(z)| < \varepsilon.
-%\end{equation*}
-% using that that $\operatorname{span}(z^n)_{n\in \mathbb{Z}}$ is dense in $C(\mathbb{T})$. Set $p(t) =P(e^{2\pi it})$ and observe that
-\begin{equation*}
-P(z)= P(e^{2\pi it})= \sum_{n=-N}^{N}c_n e^{2\pi int}, \quad \text{where }t\in [0,1],
-\end{equation*}
-gives an element of $\operatorname{span} \left( \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} \right)$ with $| h(t)-p(t) | < \varepsilon$.
-%\begin{equation*}
-%    \| h-p \|_{\infty} = \sup_{t\in [0,1]} |h(t)-p(t)| < \varepsilon.
-%\end{equation*}
-%However, we need to measure distance using the $L^2$-norm and not the uniform norm. 
-And in using the $L^2$-norm we have
-%\begin{align*}
-%    \| h-p \|_{L^2([0,1])}^2 =& \int_0^1 \left|h(t)-p(t) \right|^2dt, \\ 
-%    \leq &\int_0^1 \left\|h(t)-p(t) \right\|_{\infty}^2dt,\\
-%    \leq &\int_0^1 \varepsilon^2 dt,\\ 
-%    =& \varepsilon^2.
-%\end{align*}
-\begin{align*}
-    \| h-p \|_{L^2([0,1])}^2 =& \int_0^1 \left|h(t)-p(t) \right|^2dt, \\ 
-    \leq &\int_0^1 \varepsilon^2 dt,\\ 
-    =& \varepsilon^2.
-\end{align*}
-Now using the triangle inequality to combine the above estimates, we get
-\begin{align*} 
-    \| f-p\|_{L^2([0,1])} \quad \leq&\quad  \| f-g\|_{L^2([0,1])} + \| g-h\|_{L^2([0,1])} +\| h-p\|_{L^2([0,1])}\\
-    <& \quad \varepsilon + \varepsilon +\varepsilon \\
-    =& \quad 3 \varepsilon
-\end{align*}
-For this reason, we can approximate every $f\in L^2([0,1])$ by a function $p \in \operatorname{span} \left( \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} \right)$ as closely as we want. In other words,  $\operatorname{span} \left( \left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}} \right)$ is dense in $L^2([0,1])$, and therefore $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is complete. %By theorem 2 $\left\{ e_{\lambda} \right\}_{\lambda\in \mathbb{Z}}$ is an orthonormal basis for $L^2([0,1])$. 
+\begin{remark}
+    Since $\onedexp$ is an orthonormal basis for $L^2(I)$, it is clearly also an orthogonal basis. By direct application of \cref{def:spectral_set} we have that $\brac{\Omega, \Lambda}=\brac{I,\Z}$ is a spectral pair.
+\end{remark}
 
 
+
+Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, som jo burde stemme.
+\begin{lemma}
+    The set of exponential functions $\alldexp$ is an orthonormal basis for $L^2(I^d)$
+\end{lemma}
+
+\begin{proof}
+    Let $x\in \R^d$ and $\lambda, \lambda' \in Z^d$. Note that they are all vectors on the form $x=(x_1,\dots, x_n, \dots, x_d)$.
+    %Using vector notation: $x=(x_1,\dots x_d)$, $\lambda=(\lambda_1, \dots, \lambda_d)$, and $\kappa=(\kappa_1, \dots, \kappa_d)$.
+    Show that we can rewrite 
+    \begin{align*}
+        \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I^d)} &= \int_{[0,1]^d} e^{2\pi i \langle\lambda, x\rangle} e^{-2 \pi i \langle \lambda', x\rangle} dx \\
+        &= \int_{[0,1]^d} e^{2\pi i  (\lambda_1x_1 + \dots +\lambda_d x_d)} e^{-2\pi i  (\lambda_1' x_1 + \dots +\lambda_d' x_d)} dx\\
+        &= \int_{[0,1]^d} e^{2\pi i  (\lambda_1 -\lambda_1')x_1} \cdots e^{2\pi i  (\lambda_d -\lambda_d')x_d} dx\\
+        &= \int_0^1 e^{2\pi i  (\lambda_1- \lambda_1')x_1} \int_0^1 e^{2\pi i  (\lambda_2 - \lambda_2')x_2}  \cdots \int_0^1 e^{2\pi i  (\lambda_d - \lambda_d')x_d} dx_1 dx_2 \dots dx_d \\
+        &=\prod_{n=1}^d \int_0^1 e^{2\pi i  (\lambda_n- \lambda_n')x_n} d x_n 
+    \end{align*}
+    Show the following 
+    if $\lambda = \lambda'$ we get that its equal to 1
+    if $\lambda \neq \lambda'$, then we must show that for some index $n$ we have that $\lambda_n \neq \lambda_n'$ which is equal to 0, forcing everyting to be 0, i.e integral with index n vanish.
+    That is orthonormality.
+
+    Show basis either by generalising the proof over to d dimensions
+    
+    or by using stone-weierstrass in the complex version to show the system is first dense in $C_{per}(I^d)$
+    and then, since $C_{per}(I^d)$ is dense in $L^2(I^d)$, then the system is dense in $L^2(I^d)$. 
+
+\end{proof}
 
 \end{document}

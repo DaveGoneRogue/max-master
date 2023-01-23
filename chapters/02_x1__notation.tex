@@ -16,7 +16,7 @@
 % Så ta for seg C([0,1]) og C_per([0,1])
 % Hvordan flette inn C(\Omega) ??
 \begin{definition}[Lebesgue Space]
-    Let $E$ be a measurable subset of $\R^d$. Given an index $1 \leq p < \infty$ and a measurable function $f:E\rightarrow \C$, we say that $f$ is \emph{$p$-integrable} if the Lebesgue integral of $|f|^p$ is finite, or equivalent that the $\|\cdot\|_p$-norm of $f$ is finite. That is,
+    Let $E$ be a measurable subset of $\R^d$. Given an index $1 \leq p < \infty$ and a measurable function $f:E\rightarrow \C$, we say that $f$ is \emph{$p$-integrable} if the Lebesgue integral of $|f|^p$ is finite, or equivalent that the \LPnorm of $f$ is finite. That is,
     \begin{equation*}
         \int_{E} |f(t)|^p dt < \infty,
     \end{equation*}
@@ -29,7 +29,7 @@
 % Heil REal analysis book page 269, citation?
 
 Of all the $L^p$ spaces, the case of $p=2$ is noteworthy since $L^2(E)$ is the only space that has its norm induced from the inner product.
-In addition, from the Riesz-Fischer Theorem \cite[p.~279]{heilIntroductionRealAnalysis2019} all $L^p$ spaces are complete with respect to its $\|\cdot\|_p$-norm. Hence, $L^2$ is a Hilbert space. The inner product on $L^2(E)$ for two functions $f,g\in L^2(E)$ is given by
+In addition, from the Riesz-Fischer Theorem \cite[p.~279]{heilIntroductionRealAnalysis2019} all $L^p$ spaces are complete with respect to its \LPnorm. Hence, $L^2$ is a Hilbert space. The inner product on $L^2(E)$ for two functions $f,g\in L^2(E)$ is given by
 \begin{equation}
     \langle f, g\rangle_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation}
@@ -49,6 +49,11 @@ Let
 \end{equation}
 denote the set of all continuous, scalar-valued functions whose domain is a closed and bounded interval.
 
+\begin{lemma}
+    $C([0,1])$ is dense in $L^2([0,1])$
+\end{lemma}
+
+
 
 Let
 \begin{equation*}
@@ -56,8 +61,50 @@ C_{\text {per }}[a,b]=\{f \in C[a,b]: f(a)=f(b)\}.
 \end{equation*}
 denote the set of all periodic, continuous, real-valued, functions on the interval $[a,b]$:
 
+SJEKK dette 
+\begin{lemma}
+    $C_{\text {per}}[0,1]$ is dense in $L^2([0,1]) w.r.t L^2-norm$
+\end{lemma}
 
-\begin{definition}\label{eq:dot_prod}
+\begin{proof}
+    Dense i C1 her, må fullføre argumentet
+    Let $f \in C[0,1]$. We will construct a function $g$ that belongs to $C_{\text{per}}[0,1]$. Let  $\delta = \varepsilon^2/(8\|f\|_\infty)$, and $h$  be given by
+%\begin{equation*}
+%    \| g-h \|_{L^2([0,1])}^2 = \int_0^1 \left|g(t)-h(t) \right|^2dt < \varepsilon^2.
+%\end{equation*}
+%Let  $\delta = \varepsilon^2/(8\|g\|_\infty)$, and $h$  be given by
+\begin{equation*}
+    g(t) = 
+    \begin{cases} 0, &  t=0,\\  
+        \text{linear}, &  0<t<0+\delta,\\ 
+        f(t), & 0+\delta \leq t \leq 1-\delta,\\ 
+        \text{linear}, &  1-\delta <t<1,\\ 
+        0, &  t=1,
+    \end{cases}
+\end{equation*}
+% kan lage formel for h på ax+b formel: $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side. $dy/dx \cdot x + b$
+Note that on the interval $[0+\delta, 1-\delta]$ we have $f(t)-g(t)= 0$ for all $t$, and for all other values of $t$ the 'disance' is at worst 
+\begin{equation*}
+    \left|f(t)-g(t) \right| \leq |f(t)| + |-g(t)| \leq \|f \|_{\infty} + \|f \|_{\infty} = 2 \|f \|_{\infty}
+\end{equation*}
+by first using the triangle inequality, and then that
+\begin{equation*}
+    |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[0,1]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |f(t)| \leq \sup_{t\in[0, 1]} |f(t)| =\| f\|_{\infty}
+\end{equation*}
+with equality in the second step from the fact that $h$ is linear and goes towards zero as it approaches $0$ or $1$, and therefore attains its greatest value on the interval $[0+\delta,1-\delta]$. Now,
+\begin{align*}
+    \| f-g \|_{L^2}^2 &=  \int_0^{0+\delta} \left|f(t)-g(t) \right|^2dt + \int_{0+\delta}^{1-\delta} \left|f(t)-g(t) \right|^2dt +\int_{1-\delta}^{1} \left|f(t)-g(t) \right|^2dt\\ 
+    &\leq \int_0^{0+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{1-\delta}^{1} (2 \| f\|_\infty)^2dt\\
+    &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
+    &= \varepsilon^2
+\end{align*}
+
+closing remarks on span of periodic polynomials and approximations to continious functions
+\end{proof}
+
+
+
+\begin{definition}\label{def:dot_prod}
     Let $t=(t_1,\dots t_d)$ and $\lambda=(\lambda_1, \dots, \lambda_d)$ be two vectors in $\R^d$. The inner product, denoted $\langle \cdot, \cdot \rangle$, between $t$ and $\lambda$ is the following 
     \begin{equation}
         \langle t, \lambda \rangle = \sum_{n=1}^d t_n \lambda_n = t_1\lambda_1 + \dots + t_d\lambda_d,
@@ -66,7 +113,37 @@ denote the set of all periodic, continuous, real-valued, functions on the interv
 \end{definition}
 
 
+\begin{definition}[Span]\label{def:span}
+    Let $E$ be a subset of a vector space $X$. The \emph{finite linear span}, or \emph{span} for short, is the set of all finite linear combinations of $E$, that is
+    \begin{equation*}
+        \operatorname{span}(E)=\left\{\sum_{n=1}^N C_n v_n : N>0, v_n \in E, C_i \in \mathbb{F}\right\}.
+    \end{equation*}
+    We say that $E$ \emph{spans} $X$ if $\operatorname{span}(E) = X$.
+\end{definition}
 
+
+\begin{definition}[Closed Span]\label{def:closed_span}
+    Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\operatorname{span}(E)$, that is
+    \begin{equation*}
+        \spnclos{E} = \big\{y\in X: \exists y_i\in \operatorname{span}(E) \quad \text{ s.t } \quad y_i \longrightarrow y \big\}
+    \end{equation*}
+\end{definition}
+
+
+\begin{definition}[Closure]\label{def:closure}
+    Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$. That is the set
+    \begin{equation*}
+        \overline{E} = \cap \{ F \subseteq X : F \text{ closed, and } E \subseteq F\}
+    \end{equation*}
+    Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then$\overline{E}=E$. In this regard, also note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
+\end{definition}
+\begin{remark}
+    Note that if $E$ is a subset of a metric space $X$, then
+    \begin{equation*}
+        \overline{E} = \{ y \in X : \exists y_n\in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
+    \end{equation*}
+    %proof of the above can be found in CITE: Linmet bok, page 67.
+\end{remark}
 
 
 \end{document}
