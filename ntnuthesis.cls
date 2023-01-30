@@ -143,53 +143,38 @@
 
 % * CLASS FILE LOADING
 \LoadClass[a4paper,11pt,openright, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
+\usepackage{sectsty}
+\let\underline\undefined % here - PS
+\let\underbar\undefined % here - PS
+\allsectionsfont{\sffamily}
 
+% F*** Standard latex rport style, go KOMA-style report type w
+%\LoadClass[a4paper,11pt,openright, \paging]{scrreprt}  % i.e load the standard LaTeX Report class which this is based on
 
 % * PACKAGE LOADING
 
 % * --- Fonts --- * %
-\RequirePackage{fontspec}                % modern font encoding
+%\RequirePackage{fontspec}                % modern font encoding (INN MY ASS, ubrukelig pakke)
 
 %\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
 %\let\circledS\undefined % here - PS
 
 %\setmainfont{Atkinson Hyperlegible}       % sans serif font
-
 %\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 
-% Max Font -> Faen dette funker ikke, gidder ikke mer. Har report i det hele tatt støtte for moderne fonter??
-%\setmainfont{Linux Libertine 0}
-%\setmainfont{Linux Biolinum O}
-
 \usepackage{libertine}
-%\usepackage[libertine]{newtxmath}
-%\renewcommand{\textsf}{Biolinum}
-%\renewcommand{\textrm}{Libertine}
+%\setmainfont{Linux Libertine O}
+%\setsansfont{Linux Biolinum O}
+% ? TANKE, LaTeX report class har ikke noe skille på å bruke forksjellige fonter, ei heller designere forskjellige fonter på titler vs. brødtekst. 
+% ? Derfor fungerer ingenting ved å sette "setsansfont". Må deklarere dette individuelt
 
-%\setmainfont{LinLibertine_R.otf}
-%\setsansfont{LinBiolinum_R.otf}
-
-\usepackage{substitutefont}
-%\substitutefont{<encoding>}{<family>}{<new-family>}
-%\substitutefont{TS1}{LinuxBiolinumO(0)/m/n}{cmr/m/n}
-%\substitutefont{TS1}{Linux Biolinum O}{lmr}
-
-
-% FÅr se på dette senere
-%\usepackage{sectsty}
-%\let\underline\undefined % here - PS
-%\let\underbar\undefined % here - PS
-
-%\allsectionsfont{\fontfamily{biolinumOsF}} 
-%%\chapterfont{\fontfamily{Linux Libertine O}}
-%\chapterfont{\fontfamily{biolinumOsF}}
-
+%\RequirePackage{sansmath}
 
 
 % * --- Layout & Graphics --- * %
 \RequirePackage{geometry}                   % page layout
 \RequirePackage{listings}                   % code listings
-\RequirePackage{etoolbox}                   % fixing list of listings spacing
+\RequirePackage{etoolbox}                   % fixing list of listings spacing, as well as enviroments for example, eq, etc
 \RequirePackage{enumitem}                   % customising list appearance
 \RequirePackage{graphicx}                   % including figures
 \RequirePackage{emptypage}                  % empty pages should be blank
@@ -366,20 +351,31 @@
 
 % Defining theorem env
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[theorem]
-\newtheorem{proposition}{Proposition}[theorem]
-\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
 
 % Defining definition env
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\AtBeginEnvironment{definition}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}%
+}
+\AtEndEnvironment{definition}{\popQED\enddefinition}
 
 % Defining remark env
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{construction}[theorem]{Construction}
 \newtheorem{observation}[theorem]{Observation}
-\newtheorem{example}[theorem]{Example}
 
-% Defining proof environment
+\newtheorem{example}[theorem]{Example}  % with added custom symbol to end the enviroment
+\AtBeginEnvironment{example}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}%
+}
+\AtEndEnvironment{example}{\popQED\endexample}
+
+% Ending proof environment
+\renewcommand\qedsymbol{$\square$}
