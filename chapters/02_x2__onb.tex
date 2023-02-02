@@ -15,9 +15,10 @@
 % ------------------------------------------------------------------
 % ? \section[]{INtro ishh}
 % * Def complete i form av “and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. (fundamental/total)"
-intro til orthogonal bases 
+%intro til orthogonal bases 
 %
 %
+\mycomment{
 We consider orthogonal sets with a focus on countable orthogonal sequences. As any set of nonzero orthogonal vectors can be turned into an orthonormal set if each vector is divided by its length, the following results are stated for orthonormal sets for simplicity. 
 We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem \cite[p.~210]{heilMetricsNormsInner2018}.
 %
@@ -81,13 +82,13 @@ Intro, ONB
 Note that a sequence that satisfies any of the equivalent conditions in \cref{thrm:orthonormal_equivalences} is an orthonormal basis. We form the following definition.
 
 
-\begin{definition}
+
+\begin{definition}\label{def:ONB}
     A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
 \end{definition}
 
 %? Sigrid ville kutte
 %* Or more generally  / summary def 
-
 %\begin{definition}
     %Let $H$ be a Hilbert space. An \emph{orthonormal basis} $B$ is a countable infinite family $\{e_k\}_{k\in B}$ of elements of $H$ that are orthonormal and complete. That is, they are pairwise orthogonal, have norm one, and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. 
 %\end{definition}
@@ -100,20 +101,25 @@ Orthonormal bases are a powerful tool. As stated in \cref{eq:orthonormal_equival
 
 under the assumption that $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ \emph{is} an orthonormal basis for $H$.  By \cref{thrm:orthog_proj_formula_and_facts} we know that this series converges unconditionally. The orthogonality implies that the 'decomposition' is unique, and in some sense one can say that \cref{eq:orthonormal_equivalences_3} \emph{characterises} completeness. %\cref{thrm:orthonormal_equivalences} gives several other equivalent and useful characterisations for complete orthonormal sequences.
 
-An equivalent restatement of completeness is that $\left\{ e_k \right\}$ is complete in $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$. Since $B$ is an orthonormal set and $x$ is orthogonal to $B$, then $x$ is orthogonal to the closure of the linear span of $B$. As $\operatorname{span}(B)$ is dense in $H$ we have $\overline{\operatorname{span}}(B) = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
+} % ! HERE IS END OF BLOCK COMMENT
+%********** Nesten ferdige ting
 
+\textcolor{green}{kommentar: er ikke helt ferdig her }
+
+An equivalent restatement of completeness is the following
+\begin{lemma}\label{lem:ONB_alternative_def}
+    An orthonormal sequence $\left\{ e_k \right\}$ is complete in a Hilbert space $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$.
+\end{lemma}
+
+\begin{proof}
+    Since $B$ is an orthonormal set and $x$ is orthogonal to $B$, then $x$ is orthogonal to the closure of the linear span of $B$. As $\spn{B}$ is dense in $H$ we have $\spnclos{B} = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
+\end{proof}
 % ikke skriv $x=\overrightarrow{0}$
-
 % Zero vector comment
 %Furthermore, given $\Omega \subset \mathbb{R}^d$ have finite positive lebesgue measure, and let $L^2(\Omega)$ be the corresponding Hilbert space of $L^2$ functions on $\Omega$. Completeness can be restated into showing that $f=0$, for $f \in L^2(\Omega)$, is the only solution to $\langle f,e_\lambda \rangle_{H} = 0$ for all $\lambda \in \Lambda$. This comes from the fact that the  only vector/function $v$ orthogonal to a dense linear subspace is the zero vector/function. That is to say, since $B$ is any orthonormal set/family, and $v$ is orthonormal to $B$, then $v$ is also orthogonal to $\overline{\operatorname{span}(B)}$ , which is the whole space $H$. Ref linmet bok og paperet om spectral pairs.
 
 % ? Note, the fact that the span of the basis vectors is dense implies that every vector in H can be written as the sum of an infinite series, and the orthogonality imply that the decomposition is unique.
-
-% ! Max Kommentar
-% overgang fra $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ til $\left\{ e_{\lambda} \right\}_{\lambda \in \mathbb{Z}}$ 
-
-
-
+% Merk overgang fra $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ til $\left\{ e_{\lambda} \right\}_{\lambda \in \mathbb{Z}}$ 
 
 
 

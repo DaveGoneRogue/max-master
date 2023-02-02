@@ -53,16 +53,16 @@ denote the set of all continuous, scalar-valued functions whose domain is the cl
 
 As we advance, let
 \begin{equation*}
-C_{\text {per }}[a,b]=\{f \in C[a,b]: f(a)=f(b)\}
+    \Cper([a,b])=\{f \in C[a,b]: f(a)=f(b)\}
 \end{equation*}
 denote the set of all periodic, continuous, and real-valued functions on the interval $[a,b]$. Similar to \cref{lem:c_dense_L2} we will show the following
 
-\begin{lemma}
-    The set of all periodic functions $C_{\text {per}}[0,1]$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm.
+\begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
+    The set of all periodic functions $\Cper([0,1])$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm.
 \end{lemma}
 
 \begin{proof}\cite[p.~228]{heilMetricsNormsInner2018}
-    Let $f \in C[0,1]$, $\delta = \varepsilon^2/(8\|f\|_\infty)$, and construct $g$ such that $g\in C_{\text{per}}$ in the following way %We will construct a function $g$ that belongs to $C_{\text{per}}[0,1]$. Let  $\delta = \varepsilon^2/(8\|f\|_\infty)$, and $g$  be given by
+    Let $f \in C[0,1]$, $\delta = \varepsilon^2/(8\|f\|_\infty)$, and construct $g$ such that $g\in \Cper$ in the following way %We will construct a function $g$ that belongs to $C_{\text{per}}[0,1]$. Let  $\delta = \varepsilon^2/(8\|f\|_\infty)$, and $g$  be given by
 %\begin{equation*}
 %    \| g-h \|_{L^2([0,1])}^2 = \int_0^1 \left|g(t)-h(t) \right|^2dt < \varepsilon^2.
 %\end{equation*}
@@ -71,7 +71,7 @@ denote the set of all periodic, continuous, and real-valued functions on the int
     \centering
     \includegraphics [width=0.45\textwidth]{ntnu.png}
     \caption{Graph}
-    \label{fig:cantor_2d}
+    \label{fig:NAMEEE}
 \end{figure}
 
 \begin{equation*}
@@ -103,6 +103,17 @@ with equality in the second step from the fact that $h$ is linear and goes towar
 closing remarks on the span of periodic polynomials and approximations to continuous functions
 \end{proof}
 
+\colorbox{BurntOrange}{fontfeil m. indikatorfunksjon, er på saken}
+\begin{definition}(Indicator function)\label{def:indicator}
+    Let $A$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function}, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
+    \begin{equation*}
+        \indicator{E}{t}  = 
+        \begin{cases} 
+            1, &  t\in X,\\
+            0, &  t \notin X.
+        \end{cases}
+    \end{equation*}
+\end{definition}
 
 
 \begin{definition}\label{def:dot_prod}
@@ -145,6 +156,9 @@ closing remarks on the span of periodic polynomials and approximations to contin
     \end{equation*}
     %proof of the above can be found in CITE: Linmet bok, page 67.
 \end{remark}
+
+
+
 
 
 \end{document}

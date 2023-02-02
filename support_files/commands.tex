@@ -49,7 +49,7 @@
 
 \newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\Fq}{\mathbb{F}_q}
-
+\newcommand{\indic}{\mathbb{1}}
 
 % Greek letters
 \newcommand{\Tau}{\mathrm{T}}
@@ -86,7 +86,8 @@
 \newcommand{\bralMed}[1]{\left|#1\right|}
 
 
-% Operatornames
+% Operator names  
+% A more high-level approach is to use \DeclareMathOperator{\max}{max} to create a shortcut with brackets and operator name at once, \max -> max(.)
 \newcommand{\spn}[1]{\operatorname{span}\brac{#1}}
 \newcommand{\spnMed}[1]{\operatorname{span}\bracMed{#1}}
 \newcommand{\spnclos}[1]{\overline{\operatorname{span}}\brac{#1}}
@@ -94,8 +95,12 @@
 \newcommand{\mes}[1]{\operatorname{mes}\brac{#1}}
 \newcommand{\mesMed}[1]{\operatorname{mes}\bracMed{#1}}
 
+
+\newcommand{\Cper}{C_{\text{per}}}
+
 % others 
 \newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}
+\newcommand{\indicator}[2]{\mathbb{1}_{#1}(#2)}
 
 % Set of exponential functions
 \newcommand{\onedexp}{ \braq{e^{2\pi i \lambda t } : \lambda \in \Z} }
@@ -108,3 +113,7 @@
 % \newcommand{\masl}{m.a.s.l}
 
 \newcommand{\defqed}{$\diamondsuit$}
+
+
+
+\newcommand{\mycomment}[1]{}

@@ -184,6 +184,8 @@
 
 
 % * --- Math --- * %
+%\usepackage{ bbold }  %\mathbb{1}
+%\usepackage{ dsfont }  % \mathds{1}
 \RequirePackage{amsmath}                    % advanced math typesetting
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}                     % theorem environments

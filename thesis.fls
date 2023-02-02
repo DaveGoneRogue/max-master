@@ -764,6 +764,9 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/mathalpha/mathalpha.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/mathalpha/mathalpha.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/mathalpha/mathalpha.sty
 INPUT ./support_files/commands.tex
 INPUT ./support_files/commands.tex
 INPUT ./thesis.aux
@@ -837,11 +840,9 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/wasysym/uwasy.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/wasysym/uwasy.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm

@@ -9,3 +9,35 @@
 
 MY NOTEPAD, this is not imported anywhere
 
+
+TANKE, språk på om vi ser på ONB, spectra, etc.
+
+
+
+Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, som jo burde stemme.
+\begin{lemma}
+    The set of exponential functions $\alldexp$ is an orthonormal basis for $L^2(I^d)$
+\end{lemma}
+
+\begin{proof}
+    Let $x\in \R^d$ and $\lambda, \lambda' \in Z^d$. Note that they are all vectors on the form $x=(x_1,\dots, x_n, \dots, x_d)$.
+    %Using vector notation: $x=(x_1,\dots x_d)$, $\lambda=(\lambda_1, \dots, \lambda_d)$, and $\kappa=(\kappa_1, \dots, \kappa_d)$.
+    Show that we can rewrite 
+    \begin{align*}
+        \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I^d)} &= \int_{[0,1]^d} e^{2\pi i \langle\lambda, x\rangle} e^{-2 \pi i \langle \lambda', x\rangle} dx \\
+        &= \int_{[0,1]^d} e^{2\pi i  (\lambda_1x_1 + \dots +\lambda_d x_d)} e^{-2\pi i  (\lambda_1' x_1 + \dots +\lambda_d' x_d)} dx\\
+        &= \int_{[0,1]^d} e^{2\pi i  (\lambda_1 -\lambda_1')x_1} \cdots e^{2\pi i  (\lambda_d -\lambda_d')x_d} dx\\
+        &= \int_0^1 e^{2\pi i  (\lambda_1- \lambda_1')x_1} \int_0^1 e^{2\pi i  (\lambda_2 - \lambda_2')x_2}  \cdots \int_0^1 e^{2\pi i  (\lambda_d - \lambda_d')x_d} dx_1 dx_2 \dots dx_d \\
+        &=\prod_{n=1}^d \int_0^1 e^{2\pi i  (\lambda_n- \lambda_n')x_n} d x_n 
+    \end{align*}
+    Show the following 
+    if $\lambda = \lambda'$ we get that its equal to 1
+    if $\lambda \neq \lambda'$, then we must show that for some index $n$ we have that $\lambda_n \neq \lambda_n'$ which is equal to 0, forcing everyting to be 0, i.e integral with index n vanish.
+    That is orthonormality.
+
+    Show basis either by generalising the proof over to d dimensions
+    
+    or by using stone-weierstrass in the complex version to show the system is first dense in $C_{per}(I^d)$
+    and then, since $C_{per}(I^d)$ is dense in $L^2(I^d)$, then the system is dense in $L^2(I^d)$. 
+
+\end{proof}
