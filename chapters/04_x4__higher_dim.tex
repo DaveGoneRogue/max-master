@@ -11,22 +11,59 @@
 
 
 \begin{document}
-
-\mycomment{
-intro %til jorgensen og pedersen om construction for høyere dim. 
-
-
-In \cite{jorgensenSpectralPairsCartesian2001} Steen P. and Palle E. presented a method on the construction of spectral pairs in higher dimensions. It is a recursive technique in what they dub "a cross-product construction" using "factors" in lower dimensions, and applies for any two spectral pairs $\brac{\Omega_i,\Lambda_i}$ where $i=1,2$ and in arbitrary dimensions $d_1$ and $d_2$. The technique is presented in the following theorem
-
-\begin{theorem}[Construction of spectra, \cite{jorgensenSpectralPairsCartesian2001}] \label{thrm:construction_spectra} %! SKRIV OM, er nesten reeen copy paste
-    Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in dimension $d_1$, and let $\Omega_2$ be a set of positive finite measure in dimension $d_2$. Suppose that for each $\lambda_1 \in \Lambda_1$, that $\Lambda_2=\Lambda(\lambda_1)$ is a discrete subset of $\mathbb{R}^{d_2}$ such that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair.
-
-    If $\Lambda=\braq{\brac{\lambda_1,\lambda_2}: \lambda_1\in \Lambda_1, \lambda_2 \in \Lambda_2}$ then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $d_1+d_2$ dimensions. 
+In their paper \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a way of constructing spectral pairs in higher dimensions by using spectral pairs from lower dimensions. The method closely resembles a cross-product construction of vectors in higher dimensions using vectors from lower dimensions. It applies to any pair of spectral pairs in arbitrary dimensions. 
+\begin{theorem}[Construction of spectra]\label{thrm:construction_spectra}
+    Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in dimension $d_1$, and let $\Omega_2$ be a set of positive finite measure in dimension $d_2$. Suppose that for each $\lambda_1 \in \Lambda_1$, that $\Lambda_2=\Lambda(\lambda_1)$ is a discrete subset of $\mathbb{R}^{d_2}$ such that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair. If 
+    \begin{equation}
+        \Lambda = \braq{\lambda: \lambda \in  \Lambda_1 \times \Lambda_2} = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Lambda_1, \lambda_2 \in \Lambda_2} 
+    \end{equation}
+    then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $d_1+d_2$ dimensions. 
 \end{theorem}
+% * In \cite{jorgensenSpectralPairsCartesian2001} Steen P. and Palle E. presented a method on the construction of spectral pairs in higher dimensions. It is a recursive technique in what they dub "a cross-product construction" using "factors" in lower dimensions, and applies for any two spectral pairs $\brac{\Omega_i,\Lambda_i}$ where $i=1,2$ and in arbitrary dimensions $d_1$ and $d_2$. The technique is presented in the following theorem
 %[p.~3]
+\textcolor{green}{kommentar: 1. er det klundrete å vite hvilken $\Lambda$, eller mer spesifikt, $E(\Lambda)$ man ser på her. 2. Er det klundrete for folk å vite at $t$ er følgende vektor $t = (t_1,t_2)$ med $\Omega_1$ and $t_2 \in \Omega_2$}
+
 \begin{proof}
-    $\dots$
-    $\dots$
+    We start by showing that the set of exponentials $E(\Lambda)$
+    %\begin{equation}
+    %    E(\Lambda) = \braq{e^{2\pi i \braa{\lambda, t} } : \lambda \in \Lambda_1\times\Lambda_2}
+    %\end{equation} 
+    % given in \cref{eq:exp_set_all_d}
+    is pairwise orthogonal in $L^2\brac{\Omega_1 \times \Omega_2}$. Given two elements $e_\lambda,e_{\lambda'} \in E(\Lambda)$ we have the following inner product %Note that $t$ denotes the vector $(t_1,t_2)$ where $t_1 in \Omega_1$ and $t_2 \in \Omega_2$
+    \begin{align*}
+        \braa{e_\lambda,e_{\lambda'}}_{L^2\brac{\Omega_1 \times \Omega_2}} 
+        &= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda'}(t)} dt_2 dt_1\\ 
+        &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \braa{\lambda, t} } e^{-2\pi i  \braa{\lambda', t}} dt_2 dt_1\\ 
+        &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \brac{\lambda_1 t_1+\lambda_2 t_2}} e^{-2\pi i\brac{\lambda_1' t_1+\lambda_2' t_2}} dt_2 dt_1\\ 
+        &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \brac{\lambda_1- \lambda_1'}t_1} e^{2\pi i \brac{\lambda_2 - \lambda_2'}t_2} dt_2 dt_1\\ 
+        &= \int_{\Omega_1} e^{2\pi i  \brac{\lambda_1- \lambda_1'}t_1} \int_{\Omega_2}  e^{2\pi i \brac{\lambda_2 - \lambda_2'}t_2} dt_2 dt_1
+    \end{align*}
+    Observe the following for $\lambda_1, \lambda_1' \in \Lambda_1$. If $\lambda_1 \neq \lambda_1'$, then the final integral vanishes since $\brac{\Omega_1, \Lambda_1}$ is a spectral pair. If $\lambda_1 = \lambda_1'$, then the final integral vanishes if $\lambda_2 \neq \lambda_2'$ since $\brac{\Omega_2, \Lambda_2}$ is a spectral pair. However, if $\lambda_2 = \lambda_2'$, we have $\lambda = \lambda'$, and that 
+    \begin{align*}
+        \braa{e_\lambda, e_\lambda}_{L^2\brac{\Omega_1 \times \Omega_2}}
+        &= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda}(t)} dt_2 dt_1
+        =\int_{\Omega_1} \int_{\Omega_2} |e^{2 \pi i \lambda t}|^2 dt_2 dt_1
+        = \int_{\Omega_1} \int_{\Omega_2} |1|^2 dt_2 dt_1\\
+        &= \mes{\Omega_1}\mes{\Omega_2} \neq 0
+    \end{align*}
+    To show that it is complete, let $f\in L^2\brac{\Omega_1 \times \Omega_2}$ and assume it is orthogonal to $\spn{E(\Lambda)}$. For all $e_\lambda \in E(\Lambda)$ the inner product factors as follows
+    \begin{align*} % REMEMBER t is a vector, i.e t=(t_1,t_2)
+        \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}} 
+        &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_2dt_1 \\   
+        &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i  (\lambda_1 t_1 + \lambda_2 t_2)} \overline{f(t_1,t_2)} dt_2 dt_1 \\
+        &= \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \int_{\Omega_2}e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2 dt_1  \\
+        %&= 0
+    \end{align*}
+    If we fix $\lambda_2$, we can denote the inner integral as 
+    \begin{equation}\label{eq:inner_eq}
+        F(t_1) := \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2,
+    \end{equation}
+    and rewrite the rest as
+    \begin{equation}\label{eq:outter_eq}
+        \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} F(t_1) dt_1 := \braa{e_{\lambda_1}, F}.
+    \end{equation}
+    Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} and almost all $t_1 \in \Omega_1$, that the only element in $L^2(\Omega_1)$ that results in $\braa{e_{\lambda_1}, F} = 0$ for all $e_{\lambda_1} \in E(\Lambda_1)$ is the zero-element $F=0$. Now as we must have \cref{eq:inner_eq} equal to zero, observe that as we fixed $\lambda_2$ arbitrarily, and we know that $E(\Lambda_2)$ is complete in $L^2(\Omega_2)$, then the same lemma also implies $f=0$. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes our proof.
+    %For almost all $t_1 \in \Omega_1$ \cref{eq:outter_eq}
 \end{proof}
 
 
@@ -37,12 +74,6 @@ In \cite{jorgensenSpectralPairsCartesian2001} Steen P. and Palle E. presented a 
     
 \end{example}
 
-
-
-
-
-
-} % ! HERE IS END OF BLOCK COMMENT
 
 
 

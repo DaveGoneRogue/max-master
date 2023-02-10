@@ -9,9 +9,45 @@
 % TODO stuff to do
 % // this is strikethrough
 
-
 \begin{document}
 
+\begin{definition}[Span]\label{def:span}
+    Let $E$ be a subset of a vector space $X$. The \emph{finite linear span}, or \emph{span} for short, is the set of all finite linear combinations of $E$, that is
+    \begin{equation*}
+        \spn{E}=\braqMed{\sum_{n=1}^N C_n v_n : N>0, v_n \in E, C_i \in \mathbb{F}}.
+    \end{equation*}
+    We say that $E$ \emph{spans} $X$ if $\spn{E} = X$.
+\end{definition}
+
+
+\begin{definition}[Closed Span]\label{def:closed_span}
+    Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\spnclos{E}$, that is
+    \begin{equation*}
+        \spnclos{E} = \braqMed{y\in X: \exists y_i\in \spn{E} \quad \text{ s.t } \quad y_i \longrightarrow y} \qedhere
+    \end{equation*}
+\end{definition}
+
+
+\begin{definition}[Closure]\label{def:closure}
+    Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$. That is the set
+    \begin{equation*}
+        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}.
+    \end{equation*}
+    Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
+\end{definition}
+\begin{remark}
+    Note that if $E$ is a subset of a metric space $X$, then
+    \begin{equation*}
+        \overline{E} = \{ y \in X : \exists y_n\in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
+    \end{equation*}
+    %proof of the above can be found in CITE: Linmet bok, page 67.
+\end{remark}
+
+\begin{definition}[Complete]\label{def:complete}
+    Let $E$ be a subset of a normed space $X$. If $\spnclos{E} = X$, that is, $\spn{E}$ being dense in $X$ with respect to the \GenNormX, then we say that $E$ is \emph{complete}, \emph{fundamental}, or \emph{total}.
+\end{definition}
+
+%* —————————————————————————————— Importing files ———————————————————————————————
 \section{Notation}
     \subfile{02_x1__notation.tex}
 %! Notasjon i L^2 og i L^P
@@ -28,13 +64,13 @@ Given $\lambda \in \R^d$, the complex exponential function $e_{\lambda}: \R^d \r
 \begin{equation}
     e_{\lambda}(t) = e^{2 \pi i \inpl{t}} = \cos{(2 \pi \inpl{t})} + i \sin{(2 \pi \inpl{t})}, \quad t\in \mathbb{R}^d.
 \end{equation}
-Here, $\inpl{t}$ is the euclidian inner product as defined in \cref{def:dot_prod}. Throughout this thesis we denote by $E\brac{\Lambda}$ the exponential system
+Here, $\inpl{t}$ is the euclidean inner product as defined in \cref{def:dot_prod}. Throughout this thesis we denote by $E\brac{\Lambda}$ the exponential system
 \begin{align}
     %E\brac{\Lambda} = \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \lambda t } : \lambda \in \Lambda}
     % E\brac{\Lambda} = \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
     %*DENNNEE\brac{\Lambda} =& \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.\\
     %E\brac{\Lambda} =& \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda}= \braq{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
-    E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R.
+    E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d.
 \end{align}
 \begin{example}
     In the case where $d=1$ and $\Lambda = \Z$ we have what some authors refer to as \emph{the complex trigonometric system} \cite{heilMetricsNormsInner2018} \cite{encyclopediaofmathematicsTrigonometricSystem},
@@ -43,7 +79,7 @@ Here, $\inpl{t}$ is the euclidian inner product as defined in \cref{def:dot_prod
         %E\brac{\Z} = \braqMed{e_\lambda : \lambda \in \Z} = \braqMed{e^{2\pi i t \lambda} : \lambda \in \Z}, \quad t\in \R.
         E\brac{\Z} &= \braqMed{e^{2\pi i t \lambda} : \lambda \in \Z}, \quad t\in \R.\\
         %E\brac{\Z} &= \braqMed{e_\lambda : \lambda \in \Z}\\
-        E\brac{\Z} &= \braqMed{e_\lambda(t) : \lambda \in \Z}\quad t\in \R.
+        %E\brac{\Z} &= \braqMed{e_\lambda(t) : \lambda \in \Z}\quad t\in \R.
     \end{align}
     Note that for an arbitrary $\lambda \in \Z$ we have
     \begin{equation}

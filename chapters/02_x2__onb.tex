@@ -18,101 +18,46 @@
 %intro til orthogonal bases 
 %
 %
-\mycomment{
-We consider orthogonal sets with a focus on countable orthogonal sequences. As any set of nonzero orthogonal vectors can be turned into an orthonormal set if each vector is divided by its length, the following results are stated for orthonormal sets for simplicity. 
-We begin with the following. Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem \cite[p.~210]{heilMetricsNormsInner2018}.
-%
-%
-\begin{theorem}\label{thrm:orthog_proj_formula_and_facts}
-    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following statements hold:
-    \begin{enumerate}[label=(\alph*)]
-        \item \label{eq:opfaf_a} Bessel's inequality holds for all $x \in H$. That is, 
-        \begin{equation}
-            \sum_{n=1}^{\infty} \left| \langle x, e_n \rangle \right|^2 \leq \| x\|^2 
-        \end{equation}
-        
-        \item \label{eq:opfaf:b} Let $c_n$ be scalars. If the series $$ x=\sum_{n=1}^\infty c_n e_n.$$ converges in the norm of $H$, then the scalars $c_n= \langle x, e_n\rangle$ for each $n \in \mathbb{N}$.
-        
-        \item \label{eq:opfaf_c} The following equivalence: 
-        \begin{equation}
-            \sum_{n=1}^{\infty} c_n e_n \text{ converges in norm of } H \Longleftrightarrow \sum_{n=1}^{\infty} \left| c_n \right|^2 < \infty.
-        \end{equation}
-        In this case the series $\sum_{n=1}^{\infty} c_n e_n$ converges unconditionally, meaning that it converges regardless of the ordering of the index set.
-        
-        \item \label{eq:opfaf_d} If $x \in H$, then 
-        \begin{equation} 
-            p= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n, 
-        \end{equation} 
-        is the orthogonal projection of $x$ onto  $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) $, with
-        \begin{equation}
-            \| p\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n \rangle \right|^2
-        \end{equation}
-        
-        \item \label{eq:opfaf_e} If $x \in H$, then 
-        \begin{equation}
-            x\in \overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) \Longleftrightarrow x=\sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \Longleftrightarrow \| x\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n\rangle \right|^2
-        \end{equation}
-    \end{enumerate}
-\end{theorem}
-%
-%
-% ! Max Kommentar
-\textcolor{red}{poof}\\
-Intro, ONB
-%
-%
-\begin{theorem}\label{thrm:orthonormal_equivalences}
-    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following are equivalent:
-    \begin{enumerate}[label=(\alph*)]
-        \item \label{eq:oe_a} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is complete. That is, $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) = H$
-        
-        \item \label{eq:oe_b} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is a \emph{Schauder basis} for $H$. That is, for each $x\in H$ there exists a unique sequence  $(c_n)_{n\in\mathbb{N}}$ of scalars such that $x = \sum c_n x_n$.
-        
-        \item \label{eq:oe_c} If $x\in H$, then the following series converges in the norm of $H$. \begin{equation} \label{eq:orthonormal_equivalences_3} x=\sum_{n=1}^\infty \langle x,e_n\rangle e_n, \end{equation}
-        
-        \item \label{eq:oe_d} Plancherel's equality holds for all $x \in H$. That is, $$ \|x \|^2 = \sum_{n=1}^\infty \left| \langle x,e_n \rangle \right|^2.$$
-        
-        \item \label{eq:oe_e} Parseval's equality holds for all $x,y \in H$. That is, $$ \langle x,y \rangle = \sum_{n=1}^\infty \langle x,e_n \rangle \langle e_n,y \rangle $$
-    \end{enumerate}
-\end{theorem}
-%
-%! Max Kommentar
-\textcolor{red}{poof}
-
-Note that a sequence that satisfies any of the equivalent conditions in \cref{thrm:orthonormal_equivalences} is an orthonormal basis. We form the following definition.
 
 
+We begin with this section with a short introduction to 
 
-\begin{definition}\label{def:ONB}
-    A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
+We begin with the following. 
+
+\begin{definition}
+    Let $V$ denote an inner product space, $I$ denote an arbitrary index set, and $x_i$ denote a vector in $V$ for some $i \in I$. We have that 
+    \begin{enumerate}
+        \item Any two \textsc{elements} $x_i, x_j \in V$ are \emph{orthogonal}, denoted as $x_i \perp x_j$, if $\braa{x_i,x_j} = 0$
+        %\item If $\braa{x_1,x_2} = 0$, then the vectors are \emph{orthogonal} to each other %$x_1$ and $_2$ are \emph{orthogonal} or \emph{pairwise orthogonal}.
+        \item A \textsc{set} of vectors $\braq{x_i : i \in I}$ is \emph{orthogonal} if $\braa{x_i,x_j} = 0$ whenever $i \neq j$ % if any two distinct elements are pairwise orthogonal
+        \item A \textsc{set} of vectors $\braq{x_i : i \in I}$ is \emph{orthonormal} if it is orthogonal, and each vector $x_i$ satisfies $\|x_i\| = 1$. %unit vector
+    \end{enumerate}\qedhere
 \end{definition}
 
-%? Sigrid ville kutte
-%* Or more generally  / summary def 
-%\begin{definition}
-    %Let $H$ be a Hilbert space. An \emph{orthonormal basis} $B$ is a countable infinite family $\{e_k\}_{k\in B}$ of elements of $H$ that are orthonormal and complete. That is, they are pairwise orthogonal, have norm one, and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. 
-%\end{definition}
+\begin{remark}
+    Note that any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its length. %!Thus, results stated for orthonormal sets also hold for orthogonal sets. The converse is not necessarily true. % LESE hva som står i HEIL?
+\end{remark}
 
+\begin{definition}
+    Let $H$ be a Hilbert space. A countable infinite orthonormal set $E = \braq{v_i : i \in I}$ that is complete in $H$ is called an \emph{orthonormal basis} for $H$.
+\end{definition}
+That is, all of the elements of $E$ are pairwise orthogonal, have norm one, and the linear span of $E$ is dense in $H$ with respect to the \GenNormH, meaning $\spnclos{E} = H$. Furthermore, the fact that the span of the basis vectors is dense implies that every vector $x$ in the space $H$ can be written as the sum of infinite series. That is, for a basis vector $v_i \in E$ we have that
+\begin{equation}\label{eq:orthonorm_equiv}
+    x= \sum_{n=1}^{\infty} \langle x, v_i \rangle v_i . %\quad \text{for every } x\in H,
+\end{equation}
+The orthogonality property implies that the decomposition is unique, and in some sense, we can say that \cref{eq:orthonorm_equiv} \emph{characterizes} completeness.
 
-Orthonormal bases are a powerful tool. As stated in \cref{eq:orthonormal_equivalences_3}, it allows us to write
-\begin{equation*}
-    x= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \quad \text{for every } x\in H,
-\end{equation*}
-
-under the assumption that $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ \emph{is} an orthonormal basis for $H$.  By \cref{thrm:orthog_proj_formula_and_facts} we know that this series converges unconditionally. The orthogonality implies that the 'decomposition' is unique, and in some sense one can say that \cref{eq:orthonormal_equivalences_3} \emph{characterises} completeness. %\cref{thrm:orthonormal_equivalences} gives several other equivalent and useful characterisations for complete orthonormal sequences.
-
-} % ! HERE IS END OF BLOCK COMMENT
-%********** Nesten ferdige ting
-
-\textcolor{green}{kommentar: er ikke helt ferdig her }
 
 An equivalent restatement of completeness is the following
+%\begin{lemma}\label{lem:ONB_alternative_def}
+%    An orthonormal set $\left\{ e_k \right\}$ is complete in a Hilbert space $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$.
+%\end{lemma}
 \begin{lemma}\label{lem:ONB_alternative_def}
-    An orthonormal sequence $\left\{ e_k \right\}$ is complete in a Hilbert space $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$.
+    An orthonormal set $E = \braq{v_i : i \in I}$ is complete in a Hilbert space $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ and an arbitrary $x\in H$, then $x$ is the zero-element of $H$.
 \end{lemma}
 
 \begin{proof}
-    Since $B$ is an orthonormal set and $x$ is orthogonal to $B$, then $x$ is orthogonal to the closure of the linear span of $B$. As $\spn{B}$ is dense in $H$ we have $\spnclos{B} = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
+    Since $E$ is an orthonormal set and $x$ is orthogonal to $E$, then $x$ is orthogonal to the closure of the linear span of $E$. As $\spn{E}$ is dense in $H$ we have $\spnclos{B} = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
 \end{proof}
 % ikke skriv $x=\overrightarrow{0}$
 % Zero vector comment
@@ -121,6 +66,12 @@ An equivalent restatement of completeness is the following
 % ? Note, the fact that the span of the basis vectors is dense implies that every vector in H can be written as the sum of an infinite series, and the orthogonality imply that the decomposition is unique.
 % Merk overgang fra $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ til $\left\{ e_{\lambda} \right\}_{\lambda \in \mathbb{Z}}$ 
 
+\begin{lemma}
+    Let $E = \braq{v_i : i \in I}$ be an orthonormal basis for a Hilbert space $H$, and $F$ denote a subset of $E$. Then $F$ cannot be an orthonormal basis for $H$ unless $F = E$.
+\end{lemma}
+\begin{proof}
+    Construct the set $F$ as a strict subset of $E$, the orthonormal basis for $H$. Naturally, $F$ is also an orthonormal set, but is it complete? Let $v_\gamma$ denote the element that is $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. This means that $e_{\gamma}$ is orthogonal to all elements of $F$. This is a contradiction, as we know from \cref{lem:ONB_alternative_def} that the only element in $H$ that is orthogonal to all elements in $E$ is the zero-element. Thus we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
+\end{proof}
 
 
 \end{document}

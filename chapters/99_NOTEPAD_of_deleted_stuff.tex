@@ -1,0 +1,86 @@
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information is highlighted
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // this is strikethrough
+
+
+MY NOTEPAD, this is not imported anywhere
+
+
+
+% We consider orthogonal sets with a focus on countable orthogonal sequences. 
+Let $H$ be a hilbert space, and $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ denote a sequence of orthonormal vectors in $H$. Then the closed span, $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$, is a closed subspace of $H$. In connection with this, we can give an explicit formula for the orthogonal projection of a vector onto $\overline{\operatorname{span}}\left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right)$. This is presented in the following theorem \cite[p.~210]{heilMetricsNormsInner2018}.
+%
+%
+\begin{theorem}\label{thrm:orthog_proj_formula_and_facts}
+    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following statements hold:
+    \begin{enumerate}[label=(\alph*)]
+        \item \label{eq:opfaf_a} Bessel's inequality holds for all $x \in H$. That is, 
+        \begin{equation}
+            \sum_{n=1}^{\infty} \left| \langle x, e_n \rangle \right|^2 \leq \| x\|^2 
+        \end{equation}
+        
+        \item \label{eq:opfaf:b} Let $c_n$ be scalars. If the series $$ x=\sum_{n=1}^\infty c_n e_n.$$ converges in the norm of $H$, then the scalars $c_n= \langle x, e_n\rangle$ for each $n \in \mathbb{N}$.
+        
+        \item \label{eq:opfaf_c} The following equivalence: 
+        \begin{equation}
+            \sum_{n=1}^{\infty} c_n e_n \text{ converges in norm of } H \Longleftrightarrow \sum_{n=1}^{\infty} \left| c_n \right|^2 < \infty.
+        \end{equation}
+        In this case the series $\sum_{n=1}^{\infty} c_n e_n$ converges unconditionally, meaning that it converges regardless of the ordering of the index set.
+        
+        \item \label{eq:opfaf_d} If $x \in H$, then 
+        \begin{equation} 
+            p= \sum_{n=1}^{\infty} \langle x, e_n \rangle e_n, 
+        \end{equation} 
+        is the orthogonal projection of $x$ onto  $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) $, with
+        \begin{equation}
+            \| p\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n \rangle \right|^2
+        \end{equation}
+        
+        \item \label{eq:opfaf_e} If $x \in H$, then 
+        \begin{equation}
+            x\in \overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) \Longleftrightarrow x=\sum_{n=1}^{\infty} \langle x, e_n \rangle e_n \Longleftrightarrow \| x\|^2 = \sum_{n=1}^{\infty} \left| \langle x,e_n\rangle \right|^2
+        \end{equation}
+    \end{enumerate}
+\end{theorem}
+%
+%
+% ! Max Kommentar
+\textcolor{red}{poof}\\
+Intro, ONB
+%
+%
+\begin{theorem}\label{thrm:orthonormal_equivalences}
+    If $H$ is a Hilbert space and if $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is an orthonormal sequence in $H$,  then the following are equivalent:
+    \begin{enumerate}[label=(\alph*)]
+        \item \label{eq:oe_a} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is complete. That is, $\overline{\operatorname{span}} \left( \left\{ e_{n} \right\}_{n\in \mathbb{N}} \right) = H$
+        
+        \item \label{eq:oe_b} $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ is a \emph{Schauder basis} for $H$. That is, for each $x\in H$ there exists a unique sequence  $(c_n)_{n\in\mathbb{N}}$ of scalars such that $x = \sum c_n x_n$.
+        
+        \item \label{eq:oe_c} If $x\in H$, then the following series converges in the norm of $H$. \begin{equation} \label{eq:orthonormal_equivalences_3} x=\sum_{n=1}^\infty \langle x,e_n\rangle e_n, \end{equation}
+        
+        \item \label{eq:oe_d} Plancherel's equality holds for all $x \in H$. That is, $$ \|x \|^2 = \sum_{n=1}^\infty \left| \langle x,e_n \rangle \right|^2.$$
+        
+        \item \label{eq:oe_e} Parseval's equality holds for all $x,y \in H$. That is, $$ \langle x,y \rangle = \sum_{n=1}^\infty \langle x,e_n \rangle \langle e_n,y \rangle $$
+    \end{enumerate}
+\end{theorem}
+
+Note that a sequence that satisfies any of the equivalent conditions in \cref{thrm:orthonormal_equivalences} is an orthonormal basis. We form the following definition.
+
+
+
+
+\begin{definition}\label{def:ONB}
+    A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
+\end{definition}
+
+\begin{definition}\label{def:ONB}
+    Let $H$ be a Hilbert space. A countable infinite orthonormal sequence $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ that is complete in a Hilbert space $H$ is called an \emph{orthonormal basis} for $H$.
+\end{definition}
+
+
+
+

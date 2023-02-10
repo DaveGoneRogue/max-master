@@ -22,7 +22,7 @@
     \end{equation*}
     where $dt= dt_1 \dots dt_d$. We define the \emph{Lebesgue space} $L^p(E)$ as the set of all $p$-integrable functions on $E$, and equip it with the norm
     \begin{equation*}
-        \|f\|_{L^p(E)} = \brac{\int_{E} |f(t)|^p dt}^{1/p}.
+        \|f\|_{L^p(E)} = \brac{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
     \end{equation*}
 \end{definition}
 % Heil REal analysis book page 269, citation?
@@ -36,74 +36,70 @@ for two functions $f,g\in L^2(E)$. In addition, from the Riesz-Fischer Theorem \
 
 \colorbox{BurntOrange}{Overgang}
 
-
+%* —————————————————————————————————————— C Cont. FUNCTIONS ——————————————————————————————————————
 Let
 \begin{equation}
     C([a,b]) = \{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]\}
 \end{equation}
-denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{0,1}$.
+denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$.
 
 \begin{lemma}\label{lem:c_dense_L2}
-    The set of all continius functions $C([0,1])$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}.
+    The set of all continuous functions $C([a,b])$ is dense in $L^2([a,b])$ with respect to the \Ltwonorm \space \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}.
 \end{lemma}
 
 \begin{proof}
     $$\dots$$
 \end{proof}
 
+%* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
 As we advance, let
 \begin{equation*}
     \Cper([a,b])=\{f \in C[a,b]: f(a)=f(b)\}
 \end{equation*}
 denote the set of all periodic, continuous, and real-valued functions on the interval $[a,b]$. Similar to \cref{lem:c_dense_L2} we will show the following
 
+\textcolor{green}{kommentar: a,b ?}
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
     The set of all periodic functions $\Cper([0,1])$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm.
 \end{lemma}
 
-\begin{proof}\cite[p.~228]{heilMetricsNormsInner2018}
-    Let $f \in C[0,1]$, $\delta = \varepsilon^2/(8\|f\|_\infty)$, and construct $g$ such that $g\in \Cper$ in the following way %We will construct a function $g$ that belongs to $C_{\text{per}}[0,1]$. Let  $\delta = \varepsilon^2/(8\|f\|_\infty)$, and $g$  be given by
-%\begin{equation*}
-%    \| g-h \|_{L^2([0,1])}^2 = \int_0^1 \left|g(t)-h(t) \right|^2dt < \varepsilon^2.
-%\end{equation*}
-%Let  $\delta = \varepsilon^2/(8\|g\|_\infty)$, and $h$  be given by
-\begin{figure}
-    \centering
-    \includegraphics [width=0.45\textwidth]{ntnu.png}
-    \caption{Graph}
-    \label{fig:NAMEEE}
-\end{figure}
-
-\begin{equation*}
-    g(t) = 
-    \begin{cases} 0, &  t=0,\\  
-        \text{linear}, &  0<t<0+\delta,\\ 
-        f(t), & 0+\delta \leq t \leq 1-\delta,\\ 
-        \text{linear}, &  1-\delta <t<1,\\ 
-        0, &  t=1,
-    \end{cases}
-\end{equation*}
-% kan lage formel for h på ax+b formel: $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side. $dy/dx \cdot x + b$
-Note that on the interval $[0+\delta, 1-\delta]$ we have $f(t)-g(t)= 0$ for all $t$, and for all other values of $t$ the 'distance' is at worst 
-\begin{equation*}
-    \left|f(t)-g(t) \right| \leq |f(t)| + |-g(t)| \leq \|f \|_{\infty} + \|f \|_{\infty} = 2 \|f \|_{\infty}
-\end{equation*}
-by first using the triangle inequality and then that
-\begin{equation*}
-    |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[0,1]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |f(t)| \leq \sup_{t\in[0, 1]} |f(t)| =\| f\|_{\infty}
-\end{equation*}
-with equality in the second step from the fact that $h$ is linear and goes towards zero as it approaches $0$ or $1$, and therefore attains its greatest value on the interval $[0+\delta,1-\delta]$. Now,
-\begin{align*}
-    \| f-g \|_{L^2}^2 &=  \int_0^{0+\delta} \left|f(t)-g(t) \right|^2dt + \int_{0+\delta}^{1-\delta} \left|f(t)-g(t) \right|^2dt +\int_{1-\delta}^{1} \left|f(t)-g(t) \right|^2dt\\ 
-    &\leq \int_0^{0+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{1-\delta}^{1} (2 \| f\|_\infty)^2dt\\
-    &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
-    &= \varepsilon^2
-\end{align*}
-
-closing remarks on the span of periodic polynomials and approximations to continuous functions
+\begin{proof}
+    \begin{figure} %!! Lag figur
+        \centering
+        \includegraphics [width=0.45\textwidth]{ntnu.png}
+        \caption{Graph}
+        \label{fig:g_periodic_close_to_f}
+    \end{figure}
+    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. Our goal is to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
+    \begin{equation*}
+        g(t) = 
+        \begin{cases} 0, &  t=0,\\  
+            \text{linear}, &  0<t<0+\delta,\\ 
+            f(t), & 0+\delta \leq t \leq 1-\delta,\\ 
+            \text{linear}, &  1-\delta <t<1,\\ 
+            0, &  t=1,
+        \end{cases}
+    \end{equation*}
+    % kan lage formel for h på ax+b formel: $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side. $dy/dx \cdot x + b$
+    As shown in \cref{fig:g_periodic_close_to_f}, observe that for all $t$ on the interval $[0+\delta, 1-\delta]$ we have $|f(t)-g(t)|= 0$, and for all other values of $t$ we know that
+    \begin{equation*}
+        |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[0,1]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |f(t)| \leq \sup_{t\in[0, 1]} |f(t)| =\| f\|_{\infty}
+    \end{equation*}
+    with equality in the third step using the fact that $g$ is linear and goes towards zero as it approaches $0$ or $1$, and therefore attains its greatest value on the interval $[0+\delta,1-\delta]$ where it is equal to $f$. Using this, as well as the triangle inequality, we have that
+    \begin{equation*}
+        \left|f(t)-g(t) \right| \leq |f(t)| + |-g(t)| \leq \|f \|_{\infty} + \|f \|_{\infty} = 2 \|f \|_{\infty}
+    \end{equation*}
+    for all $t$ on the intervals $[0, 0+\delta]$ and $[1-\delta,1]$. Now,
+    \begin{align*}
+        \| f-g \|_{L^2}^2 &=  \int_0^{0+\delta} \left|f(t)-g(t) \right|^2dt + \int_{0+\delta}^{1-\delta} \left|f(t)-g(t) \right|^2dt +\int_{1-\delta}^{1} \left|f(t)-g(t) \right|^2dt\\ 
+        &\leq \int_0^{0+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{1-\delta}^{1} (2 \| f\|_\infty)^2dt\\
+        &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
+        &= \varepsilon^2
+    \end{align*}
+    This shows that $\Cper([0,1])$ is dense in $C([0,1])$. Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it follows that $\Cper([0,1])$ is dense in $L^2([0,1])$, which finalizes our proof \cite[p.~228]{heilMetricsNormsInner2018}.
 \end{proof}
 
-\colorbox{BurntOrange}{fontfeil m. indikatorfunksjon, er på saken}
+%* —————————————————————————————————————— Indicator function  ——————————————————————————————————————
 \begin{definition}(Indicator function)\label{def:indicator}
     Let $A$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function}, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
     \begin{equation*}
@@ -112,6 +108,7 @@ closing remarks on the span of periodic polynomials and approximations to contin
             1, &  t\in X,\\
             0, &  t \notin X.
         \end{cases}
+        \qedhere
     \end{equation*}
 \end{definition}
 
@@ -123,42 +120,6 @@ closing remarks on the span of periodic polynomials and approximations to contin
     \end{equation*}
     also known as the dot product. 
 \end{definition}
-
-
-\begin{definition}[Span]\label{def:span}
-    Let $E$ be a subset of a vector space $X$. The \emph{finite linear span}, or \emph{span} for short, is the set of all finite linear combinations of $E$, that is
-    \begin{equation*}
-        \spn{E}=\braqMed{\sum_{n=1}^N C_n v_n : N>0, v_n \in E, C_i \in \mathbb{F}}.
-    \end{equation*}
-    We say that $E$ \emph{spans} $X$ if $\spn{E} = X$.
-\end{definition}
-
-
-\begin{definition}[Closed Span]\label{def:closed_span}
-    Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\spnclos{E}$, that is
-    \begin{equation*}
-        \spnclos{E} = \braqMed{y\in X: \exists y_i\in \spn{E} \quad \text{ s.t } \quad y_i \longrightarrow y} \qedhere
-    \end{equation*}
-\end{definition}
-
-
-\begin{definition}[Closure]\label{def:closure}
-    Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$. That is the set
-    \begin{equation*}
-        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}.
-    \end{equation*}
-    Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, also note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
-\end{definition}
-\begin{remark}
-    Note that if $E$ is a subset of a metric space $X$, then
-    \begin{equation*}
-        \overline{E} = \{ y \in X : \exists y_n\in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
-    \end{equation*}
-    %proof of the above can be found in CITE: Linmet bok, page 67.
-\end{remark}
-
-
-
 
 
 \end{document}
