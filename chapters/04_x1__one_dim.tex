@@ -10,19 +10,18 @@
 % // this is strikethrough
 
 
-\begin{document}  %! BEVISET har ikke tatt høyde for at vi har indikatorfunksjonen forran://
-In one dimension, the unit cube is simply the unit interval $I=\bras{0,1}$. It is a well-known result from Fourier Analysis that $\Lambda = \Z$ is a spectrum for $I$. In fact, not only is the system
+\begin{document}
+In one dimension, the unit cube is simply the unit interval $I=\bras{0,1}$. It is a well-known result from Fourier analysis that $\Lambda = \Z$ is a spectrum for $I$. In fact, not only is the system
 \begin{equation*}
     E(\Z) = \braqMed{\indicator{I}{t} e^{2\pi i t \lambda} : \lambda \in \Z}
-    %E(\Z) = \braqMed{\indicator{I}{t} e^{2\pi i t \lambda} : \lambda \in \Z}
 \end{equation*} 
-an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis. %By direct application of \cref{def:spectral_set}, we have that $\brac{\Omega, \Lambda}=\brac{I,\Z}$ is a spectral pair.
+an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
 \begin{lemma}\label{lem:exp_onb_onedim}
     The set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$
     % For $t\in \R$, then the set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$
 \end{lemma}
-\begin{proof}%! legge til komposisjon med indikatorfunksjon også integrerbar
-    We begin with showing orthogonality. Let $e_{\lambda}, e_{\lambda'} \in E(\Z)$ with $\lambda \neq \lambda'$. Then, since complex exponential functions are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. We compute
+\begin{proof}
+    We begin with showing orthogonality. Let $e_{\lambda}, e_{\lambda'} \in E(\Z)$ with $\lambda \neq \lambda'$. %Then, since complex exponential functions are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. We compute
     \begin{align}\label{eq:orthog_one_dim_req}
         \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I)} &= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt \nonumber\\ 
         &= \int_0^1 e^{2 \pi i {\lambda}t} e^{-2 \pi i {\lambda'}t} dt \nonumber\\
@@ -56,49 +55,51 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis. %By 
     \end{equation}
     We then use the Weierstrass Approximation Theorem to approximate $g$ with a trigonometric polynomial. 
     \begin{theorem}[Weierstrass Approximation Theorem]\label{thrm:weierstrassApprox}
-        Let $q\in \Cper$. Then for each $\varepsilon>0$ there exists a trigonometric polynomial %of degree $N$
+        Let $q\in \Cper (I)$. Then for each $\varepsilon>0$ there exists a trigonometric polynomial %of degree $N$
         \begin{equation}
-            T(x) = \sum_{\lambda=-N}^N c_\lambda e^{2\pi i \lambda t},
+            T(t) = \sum_{\lambda=-N}^N c_\lambda e^{2\pi i \lambda t},
         \end{equation}
-        such that $|q(x)-T(x)|<\varepsilon$ for $0 \leq x \leq 1$ \cite{durenInvitationClassicalAnalysis2012}.
+        such that $|q(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$ \cite[p.~202]{durenInvitationClassicalAnalysis2012}.
     \end{theorem}
-    From \cref{thrm:weierstrassApprox}, we get immediately that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is, in fact, a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
-    \begin{equation*}  % ! HER må det evnt en indikatorfunksjon inn
-        \spn{E(\Z)}=\left\{\sum_{\lambda=-N}^N c_\lambda e_\lambda : \lambda \in \N, c_\lambda \in \C\right\}
+    From \cref{thrm:weierstrassApprox}, we get immediately that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
+    \begin{equation*}
+        \spn{E(\Z)}=\left\{\sum_{\lambda=-N}^N c_\lambda e_\lambda : N \in \N, c_\lambda \in \C\right\}
     \end{equation*}
-    is simply a set of trigonometric polynomials. Continuing on, using the \Ltwonorm we have that
+    %is simply a set of trigonometric polynomials. Continuing on, using the \Ltwonorm we have that
+    We have that
     \begin{align}\label{eq:estimate_2}
-        \| g-T \|_{L^2(I)}^2 = \int_0^1 \left|h(t)-T(t) \right|^2dt \leq \int_0^1 \varepsilon^2 dt = \varepsilon^2.
+        \| g-T \|_{L^2(I)}^2 = \int_0^1 \left|g(t)-T(t) \right|^2dt \leq \int_0^1 \varepsilon^2 dt = \varepsilon^2.
     \end{align}
-    Now, using the triangle inequality to combine the estimates in \cref{eq:estimate_1} and \cref{eq:estimate_2}, we get
-    \begin{align*} 
+    Now, using the triangle inequality to combine the estimates in \labelcref{eq:estimate_1} and \labelcref{eq:estimate_2}, we get
+    \begin{align*}
         \| f-T\|_{L^2(I)} \leq  \| f-g\|_{L^2(I)} +\| g-T\|_{L^2(I)} < \varepsilon + \varepsilon =  2 \varepsilon
     \end{align*}
     This shows that $\spn{E(\Z)}$ is dense in $L^2(I)$, which finalizes our proof.
     %For this reason, we can approximate every $f\in L^2(I)$ by a function $T \in \spn{\onedexp}$ as closely as we want. In other words, $\spnclos{\onedexp}=L^ 2(I)$, and by \cref{def:closure} $\spn{\onedexp}$ is dense in $L^2(I)$ which finalizes our proof%, and this finalizes our proof. %we have shown that $\onedexp$ indeed is complete. This 
 \end{proof}
 
-The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. This result is summarised in the following lemma.
+%The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. This result is summarised in the following lemma.
+The proof above can easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
 \begin{lemma}
     The set of exponential functions $E(\Z^d) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Z^d}$ is an orthonormal basis for $L^2(I^d)$.
 \end{lemma}
 
 However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. 
 
-We have shown that $\Lambda = \Z$ is a spectrum for $I$. What other sets have the same property? We know from \cref{eq:orthog_one_dim_req} that $e^{2\pi i(\lambda-\lambda')}$ must be equal to $1$, otherwise the elements of $E(\Z)$ are not pairwise orthogonal. From the definition of the exponential itself, this only happens when the exponent is some \emph{integer} multiple of $2 \pi i$. That is to say, $e^{2\pi i(\lambda-\lambda')} = 1$ for all $(\lambda-\lambda') \in \Z$. There are \textsc{no} other sets that satisfy this. However, observe that we have some flexibility when choosing $\Lambda = \Z$. As the following will show, we can shift $\Z$ with any fixed real number $\alpha$, and \cref{eq:orthog_one_dim_req} will still be equal to $1$. This can easily be seen from 
+%! Må skrives om når det kommer resultat om skift, i.e MÅ KORTES NED
+We have shown that $\Lambda = \Z$ is a spectrum for $I$. What other sets have the same property? We know from \cref{eq:orthog_one_dim_req} that $e^{2\pi i(\lambda-\lambda')}$ must be equal to $1$, otherwise the elements of $E(\Z)$ are not pairwise orthogonal. This only happens when the exponent  $2\pi i (\lambda - \lambda')$ is some \emph{integer} multiple of $2 \pi i$. That is to say, $e^{2\pi i(\lambda-\lambda')} = 1$ only when $(\lambda-\lambda') \in \Z$. There are \textsc{no} other sets that satisfy this. However, observe that we have some flexibility when choosing $\Lambda = \Z$. As the following will show, we can shift $\Z$ with any fixed real number $\alpha$, and \cref{eq:orthog_one_dim_req} will still be equal to $1$. This can easily be seen from 
 \begin{equation}
     \langle e_{\lambda+\alpha},e_{\lambda'+\alpha} \rangle_{L^2(I)} = \int_0^1 e^{2 \pi i ((\lambda+\alpha) - (\lambda'+\alpha))t} dt = \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt = \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I)}.
 \end{equation}
 Hence, $\Lambda = \Z + \alpha$ is also a spectrum for $I$. If $\alpha$ was not fixed we would have $(\lambda+\alpha) - (\lambda'+\alpha) \neq (\lambda - \lambda')$. Note that if $\alpha=0$, we have the original case. Thus, we technically only have a single choice for $\Lambda$ when $d=1$, that is, $\Lambda = \Z+ \alpha$. 
 
-Another question is whether we need all of $\Z +\alpha$. In other words, can one select a subset $A\subset \Z + \alpha$, where $\Lambda = A$ still is a spectral pair for $I$? Observe the following. Given $\lambda, \gamma \in \Z+\alpha$, and let $e_{\gamma}$ denote the single element not in $E(A)$. This means that $e_\gamma$ is orthogonal to all elements of $E(A)$, i.e that $\braa{e_{\lambda}, e_{\gamma}} = 0$ for all $\lambda \in \Z +\alpha\setminus \gamma$. However, as shown in \cref{lem:ONB_alternative_def}, the only element in $L^2(I)$ orthogonal to all elements $e_{\lambda} \in E(A)$ is the zero element. Thus we have a contradiction, and we must have that $A = \Z+\alpha$.
+Another question is whether we need all of $\Z +\alpha$. In other words, can one select a subset $A\subset \Z + \alpha$, where $\Lambda = A$ still is a spectral pair for $I$? Observe the following. Given $\lambda, \gamma \in \Z+\alpha$, and let $e_{\gamma}$ denote the single element not in $E(A)$. This means that $e_\gamma$ is orthogonal to all elements of $E(A)$, i.e that $\braa{e_{\lambda}, e_{\gamma}} = 0$ for all $\lambda \in \Z +\alpha\setminus \gamma$. However, as shown in \cref{lem:ONB_alternative_def}, the only element in $L^2(I)$ orthogonal to all elements $e_{\lambda} \in E(A)$ is the zero-element. Thus we have a contradiction, and we must have that $A = \Z+\alpha$.
 
-We finalize this section with the following lemma/theorem/proposition
-\begin{lemma}
+Thus, we have established the following result.
+\begin{proposition}
     For a fixed $\alpha \in \R$, the only subsets $\Lambda \in \R$ such that $\Lambda$ is a spectrum for $I$ are the translates $\Lambda_\alpha = \Z + \alpha$
-\end{lemma}
+\end{proposition}
 %In other words, we know that $\lambda$ must range over a set of integers. 
-
-\textcolor{green}{kommentar: Det er sikkert mulig å vise generelt (?, eller må man gjøre det ved å bruke eksempel som gjort over) i kapittelet om ONB at en ONB ikke kan være en ekte undermengde av en annen ONB av samme rom. Da kan man kutte ned på denne biten enda mer og bare referere dit. Biten om ortogonalitet er sikkert litt omstendelig}
-% FIN SETNING: Showing that an orthonormal basis cannot be a strict subset of another orthonormal basis for the same space. 
+%
+% FIN SETTNING: Showing that an orthonormal basis cannot be a strict subset of another orthonormal basis for the same space. 
 \end{document}

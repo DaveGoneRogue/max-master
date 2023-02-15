@@ -885,6 +885,8 @@ INPUT ./chapters/03_tilings.tex
 INPUT ./chapters/03_tilings.tex
 INPUT ./chapters/04_spectral_sets.tex
 INPUT ./chapters/04_spectral_sets.tex
+INPUT ./chapters/04_x1__one_dim.tex
+INPUT ./chapters/04_x1__one_dim.tex
 INPUT ./chapters/04_x4__higher_dim.tex
 INPUT ./chapters/04_x4__higher_dim.tex
 INPUT ./chapters/05_comparison.tex

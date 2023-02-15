@@ -59,7 +59,6 @@
 
 
 \section{Exponential functions}
-\textcolor{green}{kommentar: Har notasjonskonflikt med notasjon for $e_\lambda= e^{2 \pi i \inpl{t}}$ uten indikator funksjon, og hvor jeg senere egt bruker $e_\lambda=\indicator{\Omega}{t} e^{2 \pi i \inpl{t}}$}
 Given $\lambda \in \R^d$, the complex exponential function $e_{\lambda}: \R^d \rightarrow \C$ with frequency $\lambda$ is 
 \begin{equation}
     e_{\lambda}(t) = e^{2 \pi i \inpl{t}} = \cos{(2 \pi \inpl{t})} + i \sin{(2 \pi \inpl{t})}, \quad t\in \mathbb{R}^d.
@@ -72,26 +71,30 @@ Here, $\inpl{t}$ is the euclidean inner product as defined in \cref{def:dot_prod
     %E\brac{\Lambda} =& \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda}= \braq{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
     E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d.
 \end{align}
+Throughout the thesis, we will mainly think of $E(\Lambda)$ as a system of functions in $L^2(\Omega)$ for some subset $\Omega \subseteq \R^d$. In this setting, we intuitively understand $e_\lambda$ to be the $e_\lambda$ restricted to $\Omega$, that is $\indicatorNoVar{\Omega}$
+
 \begin{example}
     In the case where $d=1$ and $\Lambda = \Z$ we have what some authors refer to as \emph{the complex trigonometric system} \cite{heilMetricsNormsInner2018} \cite{encyclopediaofmathematicsTrigonometricSystem},
     \begin{align}
-        %E\brac{\Z} = \braqMed{e_\lambda}_{\lambda \in \Z} = \braqMed{e^{2\pi i t \lambda} : \lambda \in \Z}, %\quad t\in \R.
-        %E\brac{\Z} = \braqMed{e_\lambda : \lambda \in \Z} = \braqMed{e^{2\pi i t \lambda} : \lambda \in \Z}, \quad t\in \R.
-        E\brac{\Z} &= \braqMed{e^{2\pi i t \lambda} : \lambda \in \Z}, \quad t\in \R.\\
-        %E\brac{\Z} &= \braqMed{e_\lambda : \lambda \in \Z}\\
-        %E\brac{\Z} &= \braqMed{e_\lambda(t) : \lambda \in \Z}\quad t\in \R.
+        %E\brac{\Z} = \braqMed{e_n}_{n \in \Z} = \braqMed{e^{2\pi i t n} : n \in \Z}, %\quad t\in \R.
+        %E\brac{\Z} = \braqMed{e_n : n \in \Z} = \braqMed{e^{2\pi i t n} : n \in \Z}, \quad t\in \R.
+        E\brac{\Z} &= \braqMed{e^{2\pi i t n} : n \in \Z}, \quad t\in \R.\\
+        %E\brac{\Z} &= \braqMed{e_n : n \in \Z}\\
+        %E\brac{\Z} &= \braqMed{e_n(t) : n \in \Z}\quad t\in \R.
     \end{align}
-    Note that for an arbitrary $\lambda \in \Z$ we have
+    Note that for an arbitrary $n \in \Z$ we have
     \begin{equation}
-        \bralMed{e_{\lambda}(t) }= \bralMed{e^{2 \pi i \lambda t}} = 1 \quad \text{for all } t\in \R.
+        \bralMed{e_{n}(t) }= \bralMed{e^{2 \pi i n t}} = 1 \quad \text{for all } t\in \R.
     \end{equation}
-    Furthermore, observe that $e_\lambda$ is 1-\emph{periodic}, because
+    Furthermore, observe that $e_n$ is 1-\emph{periodic}, because
     \begin{equation}
-        e_\lambda(t+1) = e^{2 \pi i \lambda (t+1)} = e^{2 \pi i \lambda t} e^{2 \pi i \lambda} = e^{2 \pi i \lambda t} = e_\lambda(t)
+        e_n(t+1) = e^{2 \pi i n (t+1)} = e^{2 \pi i n t} e^{2 \pi i n} = e^{2 \pi i n t} = e_n(t)
     \end{equation}
-    The 1-periodicity of $e_\lambda$ is important. If we know values of $e_\lambda(t)$ for $t$ on an interval of length $1$, we know the values for all points $t\in \mathbb{R}$. For example, this allows us to restrict our domain from all of $\mathbb{R}$ to just the $t$'s that lie on the interval $[0,1]$, the unit interval. 
+    The 1-periodicity of $e_n$ is important. If we know values of $e_n(t)$ for $t$ on an interval of length $1$, we know the values for all points $t\in \mathbb{R}$. For example, this allows us to restrict our domain from all of $\mathbb{R}$ to just the $t$'s that lie on the interval $[0,1]$, the unit interval. 
 \end{example}
 %Furthermore, let $\mathbb{T}=\{z\in \mathbb{C}: |z|=1\}$ be the unit circle in the complex plane, and note that each point $z\in\mathbb{T}$ is on the form $z=e^{2 \pi it}$ for $t$ a real number 
 
 %* TANKE: noe om boundedness, og at exp lever i L(\Omega) men IKKE i L^2(R) for da går normen av exp til *helvete*
 \end{document}
+
+

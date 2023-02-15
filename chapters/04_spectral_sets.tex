@@ -26,7 +26,6 @@
 % In other words we have shown that $\brac{[0,1],\mathbb{Z}}$ is a spectral pair. This follows directly from \cref{def:spectral_set} with $\Omega = [0,1]$, $\Lambda = \Z $, $d=1$, and in conjunction with the proof that $\{ e^{2\pi i \lambda t} : \lambda \in \mathbb{Z} \}$ is an orthonormal basis for $L^2([0,1])$. As shown in \cite{taoIntroductionMeasureTheory2011}, closed sets are measurable, in our case with positive and finite measure $\operatorname{mes}(\Omega) = 1$. % * using the Lebesgue measure, state this? %! NEI, stryk measure. 
 
 % TODO
-% Todo: notation switch from $\{ e_\lambda \}_{\lambda \in \Z}$ to $\{e^{2 \pi i \dots \lambda \dots} : \lambda \in \Z \}$, go back and change
 
 %Before forming a formal definition of a spectral set, 
 %In the setting of Spectral sets in we consider two subsets $\Omega,\Lambda$ of $R^d$ where 
@@ -40,11 +39,9 @@ Given a subset with finite and positive measure $\Omega$, recall that we denote 
     %E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_{\lambda}(t) : \lambda \in \Lambda}\\
     %E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_{\lambda} : \lambda \in \Lambda}\\
 \end{align}
-in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$. Note, in the earlier instances, we omitted notation with the indicator function $\quad$ \textcolor{green}{kommentar: noe om at dette gjør at én $e_\lambda \in E(\Lambda)$ nå fører til at "bor på" $L^2(\R)$ i motsetning til tidligere hvor de kun "har bodd på"/ $L^2(\Omega)$. i.e indikatrofunksjonen redder integralet med $e_\lambda$ fra å være udefinert i $L^2(\R)$. Må da få frem at vi kun ser på om det er komplett i $\Omega$ og ikke over hele $\R$. Dette betyr dog at alle etterfølgende indreprodukt og integraler egenltig kan gjøres over hele $\R$, for å så inskrenke integrasjonsområdet pga. compact support.}
-%in the earlier instances, we have omitted notation with the indicator function defined in \cref{def:indicator}
-%we have always multiplied the exponential functions with the indicator function from \cref{def:indicator} although it was not explicitly written.
+in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$.
 \begin{definition}[Spectral set] \label{def:spectral_set}
-    Let $\Omega \subseteq \R^d$ be a subset with $0< \operatorname{mes} \Omega < \infty$. If the set of exponentials $E(\Lambda)$ form an \textsc{orthogonal} basis for $L^2 (\Omega)$ when $\lambda$ ranges over some subset $\Lambda \subset \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair} \cite{liuUniformityNonUniformGabor2003}.
+    Let $\Omega \subseteq \R^d$ be a subset with $0< \operatorname{mes} \Omega < \infty$. If the set of exponentials $E(\Lambda)$ form an \textsc{orthogonal} basis for $L^2 (\Omega)$ and $\Lambda \subseteq \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair} \cite{liuUniformityNonUniformGabor2003}.
 \end{definition}
 
 \textcolor{green}{kommentar: Her kommer det ting}
@@ -53,6 +50,9 @@ in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$. Note, in th
 \begin{equation*}
     f = \sum_{\lambda \in \Lambda} c_\lambda e_\lambda \text{<<<<----  Er unik og } c_\lambda = \braa{f,e_\lambda}
 \end{equation*}
+
+%* Resultat om at de er invariante under skift, dvs: skifter hele Omega uten at det endrer noen ting. lambda + hvasomhelst
+%* Dette resultatet er uavhengig av valg av Omega, og hvilken dimensjon vi er i
 
 We will mainly consider the case when $\Omega=I^d=\bras{0,1}^d$ is the unit cube in $\R^d$. The significance of this case lies in the connection between tiles and spectra for $\Omega=I^d$, which we will explore in \cref{chap:comparison}. Before considering spectral sets in higher dimensions, let us first consider the one-dimensional case and observe the limited flexibility we have in choosing $\Lambda$ here.
 

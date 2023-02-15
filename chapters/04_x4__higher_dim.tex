@@ -48,10 +48,10 @@ In their paper \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgense
     \end{align*}
     To show that it is complete, let $f\in L^2\brac{\Omega_1 \times \Omega_2}$ and assume it is orthogonal to $\spn{E(\Lambda)}$. For all $e_\lambda \in E(\Lambda)$ the inner product factors as follows
     \begin{align*} % REMEMBER t is a vector, i.e t=(t_1,t_2)
-        \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}} 
-        &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_2dt_1 \\   
+        \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}}
+        &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_2dt_1 \\
         &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i  (\lambda_1 t_1 + \lambda_2 t_2)} \overline{f(t_1,t_2)} dt_2 dt_1 \\
-        &= \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \int_{\Omega_2}e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2 dt_1  \\
+        &= \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \int_{\Omega_2}e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2 dt_1 \\
         %&= 0
     \end{align*}
     If we fix $\lambda_2$, we can denote the inner integral as 
