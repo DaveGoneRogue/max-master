@@ -12,10 +12,7 @@
 
 \begin{document}
 
-% Begynne med L^2 og L^p
-% Så ta for seg C([0,1]) og C_per([0,1])
-% Hvordan flette inn C(\Omega) ??
-\begin{definition}[Lebesgue Space]
+\begin{definition}[Lebesgue Space] % Heil REal analysis book page 269, citation?
     Let $E$ be a measurable subset of $\R^d$. Given $1 \leq p < \infty$ and a measurable function $f:E\rightarrow \C$, we say that $f$ is \emph{$p$-integrable} if the Lebesgue integral of $|f|^p$ is finite, that is
     \begin{equation*}
         \int_{E} |f(t)|^p dt < \infty,
@@ -25,7 +22,6 @@
         \|f\|_{L^p(E)} = \bracMed{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
     \end{equation*}
 \end{definition}
-% Heil REal analysis book page 269, citation?
 
 %! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her. Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
 The case where $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced from the inner product
@@ -44,17 +40,11 @@ Let
 \end{equation}
 denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$. The following result with proof can be found in \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}. 
 \begin{lemma}\label{lem:c_dense_L2}
-    The set of all continuous functions $C([a,b])$ is dense in $L^2([a,b])$ with respect to the \Ltwonorm .
+    The set of all continuous functions $C([a,b])$ is dense in the space $L^2([a,b])$ with respect to the \Ltwonorm.
 \end{lemma}
 
-
-%\begin{proof}
-%    $$\dots$$
-%\end{proof}
-
 %* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
-%As we advance, let
-Let
+Similarly, let
 \begin{equation*}
     \Cper([a,b])=\{f \in C[a,b]: f(a)=f(b)\}
 \end{equation*}
@@ -62,7 +52,7 @@ denote the set of all periodic, continuous, and real-valued functions on the int
 
 \textcolor{green}{kommentar: a,b ? droppe 0,1} %! Kommentar
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
-    The set of all periodic functions $\Cper([0,1])$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm.
+    The set of all periodic functions $\Cper([0,1])$ is dense in the space $L^2([0,1])$ with respect to the \Ltwonorm.
 \end{lemma}
 The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated. 
 %Although not stated as explicitly as a result, the proof of \cref{lem:c_per_dense_c_and_dense_L2} can be found in \cite[p.~228]{heilMetricsNormsInner2018}.
@@ -73,8 +63,8 @@ The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by 
         \caption{Graph}
         \label{fig:g_periodic_close_to_f}
     \end{figure}
-    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. Our goal is to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
-    \begin{equation*}
+    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
+    \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side.
         g(t) = 
         \begin{cases} 0, &  t=0,\\  
             \text{linear}, &  0<t<0+\delta,\\ 
@@ -82,8 +72,7 @@ The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by 
             \text{linear}, &  1-\delta <t<1,\\ 
             0, &  t=1,
         \end{cases}
-    \end{equation*}
-    % kan lage formel for h på ax+b formel: $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side. $dy/dx \cdot x + b$
+    \end{equation*} 
     As shown in \cref{fig:g_periodic_close_to_f}, observe that for all $t$ on the interval $[0+\delta, 1-\delta]$ we have $|f(t)-g(t)|= 0$, and for all other values of $t$ we know that
     \begin{equation*}
         |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[0,1]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |f(t)| \leq \sup_{t\in[0, 1]} |f(t)| =\| f\|_{\infty}
