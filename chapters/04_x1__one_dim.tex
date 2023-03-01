@@ -35,35 +35,31 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
         \| e_\lambda \|^2_{L^2(I)} 
         = \langle e_{\lambda},e_{\lambda} \rangle_{L^2(I)} 
         = \int_0^1 e^{2 \pi i (\lambda-\lambda)t} dt
-        = \int_0^1 e^{0} dt = 1
+        = \int_0^1 e^{0} dt = 1,
     \end{align*}
-    which shows that $E(\Z)$ is not only orthogonal, it is also orthonormal. 
-    % * ------------------------------------------------------------------
-    % * BASIS PROOOF
-
-    Let us now see that $E(\Z)$ is complete in $L^2(I)$. By \cref{thrm:orthonormal_equivalences}, this is equivalent to showing $\spn{E(\Z)}$ is dense in $L^2(I)$ with respect to the \Ltwonorm. 
+    which shows that $E(\Z)$ is orthonormal. Now, let us see that $E(\Z)$ is complete in $L^2(I)$. By \cref{eq:orthonorm_equiv}, this is equivalent to showing $\spn{E(\Z)}$ is dense in $L^2(I)$ with respect to the \Ltwonorm. 
     %More specificaly, if $\|f-f'\|_{L^2(I)} < \varepsilon'$ for $\varepsilon' > 0$ and two functions $f,f'$ where $f\in L^2(I)$ and $f'\in \spn{\onedexp}$, follows from defenition of dense that $\spn{\onedexp}$ is dense in $L^2(I)$.
     %
     %THIS IS THE SAME AS the closed span, which is the set of all elements a_i of the span(E) that converges to a. If this closed span is the whole of X, then E is dense. So by showing E is dense w.r.t a norm, is essentially showing the closed span = the set.
     %
     %More specificaly, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. If we can show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$, then we are done as this implies completeness from the definition of closed span.
     %First, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. %Our goal, in the end, is to show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$.
-
-    Fix a function $f\in L^2(I)$ and a real number $\varepsilon >0$. Since $\Cper(I)$ is dense in $L^2(I)$ by \cref{lem:c_per_dense_c_and_dense_L2}, we know that there exists a continuous function $g \in \Cper(I)$ such that
+    %
+    First, fix a function $f\in L^2(I)$ and a real number $\varepsilon >0$. Since $\Cper(I)$ is dense in $L^2(I)$ by \cref{lem:c_per_dense_c_and_dense_L2}, we know that there exists a continuous function $g \in \Cper(I)$ such that
     \begin{equation}\label{eq:estimate_1}
-        \| f-g \|_{L^2(I)}^2 = \int_0^1 \left|f(t)-g(t) \right|^2dt < \varepsilon^2
+        \| f-g \|_{L^2(I)}^2 = \int_0^1 \left|f(t)-g(t) \right|^2dt < \varepsilon^2.
     \end{equation}
-    We then use the Weierstrass Approximation Theorem to approximate $g$ with a trigonometric polynomial. 
+    We then use the Weierstrass Approximation Theorem (\cite[p.~202]{durenInvitationClassicalAnalysis2012}) to approximate $g$ with a trigonometric polynomial. 
     \begin{theorem}[Weierstrass Approximation Theorem]\label{thrm:weierstrassApprox}
         Let $q\in \Cper (I)$. Then for each $\varepsilon>0$ there exists a trigonometric polynomial %of degree $N$
-        \begin{equation}
+        \begin{equation*}
             T(t) = \sum_{\lambda=-N}^N c_\lambda e^{2\pi i \lambda t},
-        \end{equation}
-        such that $|q(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$ \cite[p.~202]{durenInvitationClassicalAnalysis2012}.
+        \end{equation*}
+        such that $|q(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$.
     \end{theorem}
     From \cref{thrm:weierstrassApprox}, we get immediately that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
     \begin{equation*}
-        \spn{E(\Z)}=\left\{\sum_{\lambda=-N}^N c_\lambda e_\lambda : N \in \N, c_\lambda \in \C\right\}
+        \spn{E(\Z)}=\braqMed{\sum_{\lambda=-N}^N c_\lambda e_\lambda : N \in \N, c_\lambda \in \C}.
     \end{equation*}
     %is simply a set of trigonometric polynomials. Continuing on, using the \Ltwonorm we have that
     We have that
@@ -79,27 +75,20 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
 \end{proof}
 
 %The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. This result is summarised in the following lemma.
-The proof above can easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
-\begin{lemma}
+
+We can easily generalize the above proof into higher dimensions, where $\Lambda = \Z^d$ would be a spectrum for $I^d$. Although we will not show this explicitly, we summarise it in the following result.
+%Using similar arguments, the above proof can be generalized into higher dimensions. That is, $\Lambda = \Z^d$ is a spectrum for $I^d$.
+%The above proof can, using similar arguments, easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
+%Original:    %The proof above can easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
+
+\begin{lemma}\label{lem:z_d_in_higer_d}
     The set of exponential functions $E(\Z^d) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Z^d}$ is an orthonormal basis for $L^2(I^d)$.
 \end{lemma}
 
-However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. 
-
-%! Må skrives om når det kommer resultat om skift, i.e MÅ KORTES NED
-We have shown that $\Lambda = \Z$ is a spectrum for $I$. What other sets have the same property? We know from \cref{eq:orthog_one_dim_req} that $e^{2\pi i(\lambda-\lambda')}$ must be equal to $1$, otherwise the elements of $E(\Z)$ are not pairwise orthogonal. This only happens when the exponent  $2\pi i (\lambda - \lambda')$ is some \emph{integer} multiple of $2 \pi i$. That is to say, $e^{2\pi i(\lambda-\lambda')} = 1$ only when $(\lambda-\lambda') \in \Z$. However, observe that we have some flexibility when choosing $\Lambda = \Z$. As the following will show, we can shift $\Z$ with any fixed real number $\alpha$, and \cref{eq:orthog_one_dim_req} will still be equal to $1$. This can easily be seen from 
-\begin{equation}
-    \langle e_{\lambda+\alpha},e_{\lambda'+\alpha} \rangle_{L^2(I)} = \int_0^1 e^{2 \pi i ((\lambda+\alpha) - (\lambda'+\alpha))t} dt = \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt = \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I)}.
-\end{equation}
-Hence, $\Lambda = \Z + \alpha$ is also a spectrum for $I$. If $\alpha$ was not fixed we would have $(\lambda+\alpha) - (\lambda'+\alpha) \neq (\lambda - \lambda')$. Note that if $\alpha=0$, we have the original case. Thus, we technically only have a single choice for $\Lambda$ when $d=1$, that is, $\Lambda = \Z+ \alpha$. 
-
-Another question is whether we need all of $\Z +\alpha$. In other words, can one select a subset $A\subset \Z + \alpha$, where $\Lambda = A$ still is a spectral pair for $I$? Observe the following. Given $\lambda, \gamma \in \Z+\alpha$, and let $e_{\gamma}$ denote the single element not in $E(A)$. This means that $e_\gamma$ is orthogonal to all elements of $E(A)$, i.e that $\braa{e_{\lambda}, e_{\gamma}} = 0$ for all $\lambda \in \Z +\alpha\setminus \gamma$. However, as shown in \cref{lem:ONB_alternative_def}, the only element in $L^2(I)$ orthogonal to all elements $e_{\lambda} \in E(A)$ is the zero-element. Thus we have a contradiction, and we must have that $A = \Z+\alpha$.
-
-Thus, we have established the following result.
+However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. As we have shown that $\Lambda = \Z$ is a spectrum for $I$, we know from \cref{lem:spectrum_shift_is_spectrum} that any shifted variant $\Lambda_\alpha = \Z + \alpha$ is also a spectrum for $I$. In other words, we have established the following result.
 \begin{proposition}
     For a fixed $\alpha \in \R$, the only subsets $\Lambda \in \R$ such that $\Lambda$ is a spectrum for $I$ are the translates $\Lambda_\alpha = \Z + \alpha$
 \end{proposition}
-%In other words, we know that $\lambda$ must range over a set of integers. 
-%
-% FIN SETTNING: Showing that an orthonormal basis cannot be a strict subset of another orthonormal basis for the same space. 
+
+
 \end{document}

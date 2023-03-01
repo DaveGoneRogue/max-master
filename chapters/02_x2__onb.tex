@@ -25,39 +25,40 @@ We begin with this section with a short introduction to
 We begin with the following. 
 
 \begin{definition}
-    Let $V$ denote an inner product space, $I$ denote an arbitrary index set, and $x_i$ denote a vector in $V$ for some $i \in I$. We have that 
-    \begin{enumerate}
-        \item Any two \textsc{elements} $x_i, x_j \in V$ are \emph{orthogonal}, denoted as $x_i \perp x_j$, if $\braa{x_i,x_j} = 0$
+    Let $V$ be an inner product space, $I$ be an arbitrary index set, and $v_i$ denote a vector in $V$ for some $i \in I$. We have that
+    \begin{itemize}%[topsep=0pt]
+        \item Any two \textsc{elements} $v_i, v_j \in V$ are \emph{orthogonal}, denoted $v_i \perp v_j$, if $\braa{v_i,v_j} = 0$
         %\item If $\braa{x_1,x_2} = 0$, then the vectors are \emph{orthogonal} to each other %$x_1$ and $_2$ are \emph{orthogonal} or \emph{pairwise orthogonal}.
-        \item A \textsc{set} of vectors $\braq{x_i : i \in I}$ is \emph{orthogonal} if $\braa{x_i,x_j} = 0$ whenever $i \neq j$ % if any two distinct elements are pairwise orthogonal
-        \item A \textsc{set} of vectors $\braq{x_i : i \in I}$ is \emph{orthonormal} if it is orthogonal, and each vector $x_i$ satisfies $\|x_i\| = 1$. %unit vector
-    \end{enumerate}\qedhere
+        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthogonal} if $\braa{v_i,v_j} = 0$ whenever $i \neq j$ % if any two distinct elements are pairwise orthogonal
+        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthonormal} if it is orthogonal, and each vector $v_i$ satisfies $\|v_i\| = 1$. %unit vector
+        \qedhere
+    \end{itemize}
 \end{definition}
-
 \begin{remark}
-    Note that any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its length. %!Thus, results stated for orthonormal sets also hold for orthogonal sets. The converse is not necessarily true. % LESE hva som står i HEIL?
+    Note that any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its own length. %!Thus, results stated for orthonormal sets also hold for orthogonal sets. The converse is not necessarily true. % LESE hva som står i HEIL?
 \end{remark}
-
+%\begin{definition}
+%    Let $H$ be a Hilbert space. A countable infinite orthonormal set $E = \braq{v_i : i \in I}$ which is complete in $H$ is called an \emph{orthonormal basis} for $H$.
+%\end{definition}
 \begin{definition}
-    Let $H$ be a Hilbert space. A countable infinite orthonormal set $E = \braq{v_i : i \in I}$ that is complete in $H$ is called an \emph{orthonormal basis} for $H$.
+    Let $H$ be a Hilbert space, and let $E = \braq{v_i : i \in I}$ be a countable infinite orthonormal set. If $E$ is complete in $H$, then $E$ is an \emph{orthonormal basis} for $H$.
 \end{definition}
-That is, all of the elements of $E$ are pairwise orthogonal, have norm one, and the linear span of $E$ is dense in $H$ with respect to the \GenNormH, meaning $\spnclos{E} = H$. Furthermore, the fact that the span of the basis vectors is dense implies that every vector $x$ in the space $H$ can be written as the sum of infinite series. That is, for a basis vector $v_i \in E$ we have that
+Recall that $E$ is complete in $H$ if the linear span of $E$ is dense in $H$ with respect to the \GenNormH, meaning that every vector $x$ in $H$ can be written as the infinite series
+%That is, all of the elements of $E$ are pairwise orthogonal, have norm one, and the linear span of $E$ is dense in $H$ with respect to the \GenNormH, meaning $\spnclos{E} = H$. Furthermore, the fact that the span of the basis vectors is dense implies that every vector $x$ in the space $H$ can be written as the sum of infinite series. That is, for a basis vector $v_i \in E$ we have that
 \begin{equation}\label{eq:orthonorm_equiv}
     x= \sum_{n=1}^{\infty} \langle x, v_i \rangle v_i . %\quad \text{for every } x\in H,
 \end{equation}
-The orthogonality property implies that the decomposition is unique, and in some sense, we can say that \cref{eq:orthonorm_equiv} \emph{characterizes} completeness.
-
-
+The orthogonality property guarantees that the decomposition is unique. %, and in some sense, we can say that \cref{eq:orthonorm_equiv} \emph{characterizes} completeness.
 An equivalent restatement of completeness is the following
-%\begin{lemma}\label{lem:ONB_alternative_def}
+%\begin{lemma}\label{lem:ONB_alternative_def} % GAMMEL
 %    An orthonormal set $\left\{ e_k \right\}$ is complete in a Hilbert space $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$.
 %\end{lemma}
 \begin{lemma}\label{lem:ONB_alternative_def}
-    An orthonormal set $E = \braq{v_i : i \in I}$ is complete in a Hilbert space $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ and an arbitrary $x\in H$, then $x$ is the zero-element of $H$.
+    Let $H$ be a Hilbert space and $x\in H$ an arbitrary element. An orthonormal set $E = \braq{v_i : i \in I}$ is complete in $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ implies that $x$ is the zero-element of $H$.
+    %An orthonormal set $E = \braq{v_i : i \in I}$ is complete in a Hilbert space $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ and an arbitrary $x\in H$, then $x$ is the zero-element of $H$.
 \end{lemma}
-
-\begin{proof}
-    Since $E$ is an orthonormal set and $x$ is orthogonal to $E$, then $x$ is orthogonal to the closure of the linear span of $E$. As $\spn{E}$ is dense in $H$ we have $\spnclos{B} = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
+\begin{proof} %! HENGER IKKE SAMMEN, hør lydlogg
+    Since $E$ is an orthonormal set and $x$ is orthogonal to $E$, we must have $x$ orthogonal to the closure of the linear span of $E$. As $\spn{E}$ is dense in $H$ we have $\spnclos{B} = H$, and the only vector orthogonal to a dense linear subspace is the zero-vector. 
 \end{proof}
 % ikke skriv $x=\overrightarrow{0}$
 % Zero vector comment
@@ -70,7 +71,8 @@ An equivalent restatement of completeness is the following
     Let $E = \braq{v_i : i \in I}$ be an orthonormal basis for a Hilbert space $H$, and $F$ denote a subset of $E$. Then $F$ cannot be an orthonormal basis for $H$ unless $F = E$.
 \end{lemma}
 \begin{proof}
-    Construct the set $F$ as a strict subset of $E$, the orthonormal basis for $H$. Naturally, $F$ is also an orthonormal set, but is it complete? Let $v_\gamma$ denote the element that is $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. This means that $e_{\gamma}$ is orthogonal to all elements of $F$. This is a contradiction, as we know from \cref{lem:ONB_alternative_def} that the only element in $H$ that is orthogonal to all elements in $E$ is the zero-element. Thus we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
+    Suppose for contradiction that $F$ is a strict subset of $E$, which is complete in $H$. Let $v_\gamma$ denote a non-zero element such that $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. Then $v_{\gamma}$ is orthogonal to all elements of $F$, then by \cref{lem:ONB_alternative_def} $v_{\gamma}$ must be the zero-element. This is a contradiction, so we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
+    %Construct the set $F$ as a strict subset of $E$, the orthonormal basis for $H$. Naturally, $F$ is also an orthonormal set, but is it complete? Let $v_\gamma$ denote the element that is $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. This means that $e_{\gamma}$ is orthogonal to all elements of $F$. This is a contradiction, as we know from \cref{lem:ONB_alternative_def} that the only element in $H$ that is orthogonal to all elements in $E$ is the zero-element. Thus we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
 \end{proof}
 
 

@@ -43,7 +43,8 @@
 % British
 \newif\ifcapitalize
 \DeclareOption{british}{
-    \capitalizetrue
+    \capitalizetrue  %! CLEVER REF CAPITALIZE av og på
+    %\capitalizefalse
     \def\papername{Paper}
     \newcommand{\NTNU}{{N}orwegian {U}niversity of {S}cience and {T}echnology}
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
@@ -66,7 +67,7 @@
 
 % American
 \DeclareOption{american}{
-    \capitalizetrue
+    \capitalizetrue  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Paper}
     \newcommand{\NTNU}{{N}orwegian {U}niversity of {S}cience and {T}echnology}
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
@@ -89,7 +90,7 @@
 
 % Bokmål
 \DeclareOption{norsk}{
-    \capitalizefalse
+    \capitalizefalse  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Artikkel}
     \newcommand{\NTNU}{{N}orges teknisk-naturvitenskapelige universitet}
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
@@ -112,7 +113,7 @@
 
 % Nynorsk
 \DeclareOption{nynorsk}{
-    \capitalizefalse
+    \capitalizefalse  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Artikkel}
     \newcommand{\NTNU}{{N}oregs teknisk-naturvitskaplege universitet}
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
@@ -227,6 +228,7 @@
 %
 
 % automatic cross references for theorems, lemmas, chapters
+%! capitalization option in language options above
 \ifcapitalize
     \RequirePackage[capitalize, noabbrev, nameinlink]{cleveref} 
 \else

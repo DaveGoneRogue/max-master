@@ -38,6 +38,9 @@
 
 
 % * --- Mathematical symbol commands --- * %
+% Symbols
+\newcommand{\nsubset}{\not\subset}
+
 % Arabic letters
 \newcommand{\N}{\mathbb{N}}  % Already defined
 \newcommand{\Z}{\mathbb{Z}}
@@ -55,7 +58,7 @@
 \newcommand{\Tau}{\mathrm{T}}
 
 
-% Z med striketrhough
+% Z with strikethrough
 \newcommand{\Zstroke}{\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$Z$\cr}}}
 \newcommand{\zstroke}{\text{\ooalign{\hidewidth -\kern-.3em-\hidewidth\cr$z$\cr}}}
 
@@ -99,25 +102,26 @@
 \newcommand{\Cper}{C_{\text{per}}}
 
 % others 
-\newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}
-\newcommand{\indicator}[2]{\mathbb{1}_{#1}(#2)}
-\newcommand{\indicatorNoVar}[1]{\mathbb{1}_{#1}}
+\newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}  % inner product w. lambda
+\newcommand{\indicator}[2]{\mathbb{1}_{#1}(#2)}  % indicator 1_A (t) 
+\newcommand{\indicatorNoVar}[1]{\mathbb{1}_{#1}}  % indicator 1_A 
 
 % Set of exponential functions
 \newcommand{\onedexp}{ \braq{e^{2\pi i \lambda t } : \lambda \in \Z} }
 \newcommand{\alldexp}{ \braq{e^{2\pi i \inpl{t}} : \lambda \in \Z^d} }
 
 % text replacements
-\newcommand{\Ltwonorm}{$\|\cdot\|_{L^2}$-norm}  %! Uten dollartegn, rett i teksten
-\newcommand{\LPnorm}{$\|\cdot\|_{L^p}$-norm}
+\newcommand{\Ltwonorm}{$\|\cdot\|_{L^2}$-norm}  %! Uten dollartegn, rett i teksten, ikke siste ord i setningen, husk \space etter komandoen
+\newcommand{\LPnorm}{$\|\cdot\|_{L^p}$-norm}  
 \newcommand{\GenNormX}{$\|\cdot\|_{X}$-norm}
 \newcommand{\GenNormH}{$\|\cdot\|_{H}$-norm}
 
 % * --- Other Settings --- * %
 % \newcommand{\masl}{m.a.s.l}
 
-\newcommand{\defqed}{$\diamondsuit$}
-\newcommand{\nsubset}{\not\subset}
 
+\newcommand{\mycomment}[1]{} %! Block comment
+\newcommand{\SigridComment}[1]{\textcolor{green}{kommentar: #1}}
 
-\newcommand{\mycomment}[1]{}
+% For use in enumerate, itemize, description write \item \printvalues to get the following values
+\newcommand{\printvalues}{topsep=\the\topsep; itemsep=\the\itemsep; parsep=\the\parsep; partopsep=\the\partopsep}

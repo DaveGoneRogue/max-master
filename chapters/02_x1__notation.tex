@@ -22,47 +22,50 @@
     \end{equation*}
     where $dt= dt_1 \dots dt_d$. We define the \emph{Lebesgue space} $L^p(E)$ as the set of all $p$-integrable functions on $E$, and equip it with the norm
     \begin{equation*}
-        \|f\|_{L^p(E)} = \brac{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
+        \|f\|_{L^p(E)} = \bracMed{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
     \end{equation*}
 \end{definition}
 % Heil REal analysis book page 269, citation?
 
-Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm is induced from the inner product
+%! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her. Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
+The case where $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced from the inner product
 \begin{equation}
-    \langle f, g\rangle_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt.
+    \langle f, g\rangle_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation}
-for two functions $f,g\in L^2(E)$. In addition, from the Riesz-Fischer Theorem \cite[p.~279]{heilIntroductionRealAnalysis2019} all $L^p$ spaces are complete with respect to the \LPnorm. Hence, $L^2(E)$ is a Hilbert space. 
+for two functions $f,g\in L^2(E)$. By the Riesz-Fischer theorem \cite[p.~279]{heilIntroductionRealAnalysis2019}, all $L^p$ spaces are complete with respect to the \LPnorm. Hence, $L^2(E)$ is a Hilbert space. 
 
 
-\colorbox{BurntOrange}{Overgang}
+%! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her
 
 %* —————————————————————————————————————— C Cont. FUNCTIONS ——————————————————————————————————————
 Let
 \begin{equation}
     C([a,b]) = \{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]\}
 \end{equation}
-denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$.
-
+denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$. The following result with proof can be found in \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}. 
 \begin{lemma}\label{lem:c_dense_L2}
-    The set of all continuous functions $C([a,b])$ is dense in $L^2([a,b])$ with respect to the \Ltwonorm \space \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}.
+    The set of all continuous functions $C([a,b])$ is dense in $L^2([a,b])$ with respect to the \Ltwonorm .
 \end{lemma}
 
-\begin{proof}
-    $$\dots$$
-\end{proof}
+
+%\begin{proof}
+%    $$\dots$$
+%\end{proof}
 
 %* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
-As we advance, let
+%As we advance, let
+Let
 \begin{equation*}
     \Cper([a,b])=\{f \in C[a,b]: f(a)=f(b)\}
 \end{equation*}
 denote the set of all periodic, continuous, and real-valued functions on the interval $[a,b]$. Similar to \cref{lem:c_dense_L2} we will show the following
 
-\textcolor{green}{kommentar: a,b ?}
+\textcolor{green}{kommentar: a,b ? droppe 0,1} %! Kommentar
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
     The set of all periodic functions $\Cper([0,1])$ is dense in $L^2([0,1])$ with respect to the \Ltwonorm.
 \end{lemma}
-
+The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated. 
+%Although not stated as explicitly as a result, the proof of \cref{lem:c_per_dense_c_and_dense_L2} can be found in \cite[p.~228]{heilMetricsNormsInner2018}.
 \begin{proof}
     \begin{figure} %!! Lag figur
         \centering
@@ -70,7 +73,7 @@ denote the set of all periodic, continuous, and real-valued functions on the int
         \caption{Graph}
         \label{fig:g_periodic_close_to_f}
     \end{figure}
-    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. Our goal is to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
+    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. Our goal is to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
     \begin{equation*}
         g(t) = 
         \begin{cases} 0, &  t=0,\\  
@@ -96,17 +99,17 @@ denote the set of all periodic, continuous, and real-valued functions on the int
         &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
         &= \varepsilon^2
     \end{align*}
-    This shows that $\Cper([0,1])$ is dense in $C([0,1])$. Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it follows that $\Cper([0,1])$ is dense in $L^2([0,1])$, which finalizes our proof \cite[p.~228]{heilMetricsNormsInner2018}.
+    This shows that $\Cper([0,1])$ is dense in $C([0,1])$. Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it follows that $\Cper([0,1])$ is dense in $L^2([0,1])$, which finalizes our proof.
 \end{proof}
 
 %* —————————————————————————————————————— Indicator function  ——————————————————————————————————————
 \begin{definition}(Indicator function)\label{def:indicator}
-    Let $A$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function}, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
+    Let $E$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function} of $E$, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
     \begin{equation*}
         \indicator{E}{t}  = 
         \begin{cases} 
-            1, &  t\in X,\\
-            0, &  t \notin X.
+            1, &  t\in E,\\
+            0, &  t \notin E.
         \end{cases}
         \qedhere
     \end{equation*}
