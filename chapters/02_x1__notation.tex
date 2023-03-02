@@ -19,51 +19,60 @@
     \end{equation*}
     where $dt= dt_1 \dots dt_d$. We define the \emph{Lebesgue space} $L^p(E)$ as the set of all $p$-integrable functions on $E$, and equip it with the norm
     \begin{equation*}
-        \|f\|_{L^p(E)} = \bracMed{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
+        \bral{f}_{L^p(E)} = \bracMed{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
     \end{equation*}
 \end{definition}
 
 %! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her. Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
 The case where $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced from the inner product
 \begin{equation}
-    \langle f, g\rangle_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
+    \braaMed{f, g}_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation}
 for two functions $f,g\in L^2(E)$. By the Riesz-Fischer theorem \cite[p.~279]{heilIntroductionRealAnalysis2019}, all $L^p$ spaces are complete with respect to the \LPnorm. Hence, $L^2(E)$ is a Hilbert space. 
 
-
 %! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her
-
 %* —————————————————————————————————————— C Cont. FUNCTIONS ——————————————————————————————————————
 Let
 \begin{equation}
-    C([a,b]) = \{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]\}
+    C([a,b]) = \braq{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]}
 \end{equation}
-denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$. The following result with proof can be found in \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}. 
+denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$. The following useful result with proof can be found in \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}. 
 \begin{lemma}\label{lem:c_dense_L2}
     The set of all continuous functions $C([a,b])$ is dense in the space $L^2([a,b])$ with respect to the \Ltwonorm.
 \end{lemma}
 
 %* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
-Similarly, let
-\begin{equation*}
-    \Cper([a,b])=\{f \in C[a,b]: f(a)=f(b)\}
-\end{equation*}
-denote the set of all periodic, continuous, and real-valued functions on the interval $[a,b]$. Similar to \cref{lem:c_dense_L2} we will show the following
-
+%Similarly, let
+Similarly, let 
+\begin{equation}
+    \Cper([a,b])= \braqMed{f \in C[a,b]: f(a)=f(b)}
+\end{equation}
+denote the set of all continuous, real-valued functions on the interval $\bras{a,b}$ satisfying $f(a)=f(b)$. It is periodic in the sense that each element $f$ can be extended to the whole real line by setting 
+\begin{equation}
+    f(t+Pn) = f(t), \quad t\in \bras{a,b},
+\end{equation}
+for $n\in \Z$, and with $P=b-a$. We say that the extended function $f$ is $P$\emph{-periodic} as it repeats after $P$ units, meaning
+\begin{equation}
+    f(t+P) = f(t), \quad t\in \R
+\end{equation}
+The converse is also true, meaning we have a one-to-one correspondence between elements of $\Cper([a,b])$ and functions that are $P$-periodic on the real line. % if $f'$ is a $P$-periodic function on $\R$, then when $f'$ is restricted to the domain $\bras{a,b}$ it is also an element of $\Cper([a,b])$.
+Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$, and note that the proof closely follows the one by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated.
 \textcolor{green}{kommentar: a,b ? droppe 0,1} %! Kommentar
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
     The set of all periodic functions $\Cper([0,1])$ is dense in the space $L^2([0,1])$ with respect to the \Ltwonorm.
 \end{lemma}
-The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated. 
+%* The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated. 
 %Although not stated as explicitly as a result, the proof of \cref{lem:c_per_dense_c_and_dense_L2} can be found in \cite[p.~228]{heilMetricsNormsInner2018}.
 \begin{proof}
-    \begin{figure} %!! Lag figur
+    \begin{figure}
         \centering
-        \includegraphics [width=0.45\textwidth]{ntnu.png}
+        \includegraphics[width=0.45\textwidth]{cper_dense_c.png}
         \caption{Graph}
         \label{fig:g_periodic_close_to_f}
     \end{figure}
-    Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
+    %Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it will then follow that $\Cper([0,1])$ is dense in $L^2([0,1])$ if we can show that $\Cper([0,1])$ is dense in $C([0,1])$.
+    %If we can show that $\Cper([0,1])$ is dense in $C([0,1])$, it will follow that $\Cper([0,1])$ is dense in $L^2([0,1])$, since we know from \cref{lem:c_dense_L2} that $C([0,1])$ is dense in $L^2([0,1])$. 
+    If we can show that $\Cper([0,1])$ is dense in $C([0,1])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([0,1])$ is dense in $L^2([0,1])$, since $C([0,1])$ is dense in $L^2([0,1])$. Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
     \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side.
         g(t) = 
         \begin{cases} 0, &  t=0,\\  
@@ -88,7 +97,7 @@ The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by 
         &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
         &= \varepsilon^2
     \end{align*}
-    This shows that $\Cper([0,1])$ is dense in $C([0,1])$. Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it follows that $\Cper([0,1])$ is dense in $L^2([0,1])$, which finalizes our proof.
+    This shows that $\Cper([0,1])$ is dense in $C([0,1])$, which finalizes our proof.
 \end{proof}
 
 %* —————————————————————————————————————— Indicator function  ——————————————————————————————————————

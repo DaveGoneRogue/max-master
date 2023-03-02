@@ -144,8 +144,7 @@
 
 % * CLASS FILE LOADING
 \LoadClass[a4paper,11pt,openright, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
-\usepackage{sectsty}
-\let\underline\undefined % here - PS
+\usepackage{sectsty}\let\underline\undefined % here - PS 
 \let\underbar\undefined % here - PS
 \allsectionsfont{\sffamily}
 
