@@ -1,13 +1,14 @@
 \documentclass[../thesis.tex]{subfiles}
-% Separate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
 
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
 % // this is strikethrough
+
 
 \begin{document}
 
@@ -22,14 +23,14 @@
 \begin{definition}[Closure]\label{def:closure}
     Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$. That is the set
     \begin{equation*}
-        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}.
+        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}. \qedhere
     \end{equation*}
-    Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
 \end{definition}
+Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
 \begin{remark}
     Note that if $E$ is a subset of a metric space $X$, then
     \begin{equation*}
-        \overline{E} = \{ y \in X : \exists y_n\in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
+        \overline{E} = \{ y \in X : \exists \space \bracMed{y_n}_{n\geq 1} \in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
     \end{equation*}
     %proof of the above can be found in CITE: Linmet bok, page 67.
 \end{remark}
@@ -37,21 +38,17 @@
 \begin{definition}[Closed Span]\label{def:closed_span}
     Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\spnclos{E}$, that is
     \begin{equation*}
-        \spnclos{E} = \braqMed{y\in X: \exists y_i\in \spn{E} \quad \text{ s.t } \quad y_i \longrightarrow y} \qedhere
+        \spnclos{E} = \braqMed{y\in X: \exists \space y_i\in \spn{E} \quad \text{ s.t } \quad y_i \longrightarrow y}. \qedhere
     \end{equation*}
 \end{definition}
 
-
-
 \begin{definition}[Complete]\label{def:complete}
-    Let $E$ be a subset of a normed space $X$. If $\spnclos{E} = X$, that is, $\spn{E}$ being dense in $X$ with respect to the \GenNormX, then we say that $E$ is \emph{complete}, \emph{fundamental}, or \emph{total}.
+    Let $E$ be a subset of a normed space $X$. If $\spnclos{E} = X$, that is, $\spn{E}$ being dense in $X$ with respect to the \GenNormX, then we say that $E$ is \emph{complete}.  %, \emph{fundamental}, or \emph{total}.
 \end{definition}
 
 %* —————————————————————————————— Importing files ———————————————————————————————
 \section{Notation}
     \subfile{02_x1__notation.tex}
-%! Notasjon i L^2 og i L^P
-%! C(Omega), C([0,1]), C_per(0,1)
 
 \section{Orthonormal Bases}
     \subfile{02_x2__onb.tex}
@@ -59,41 +56,7 @@
 
 
 \section{Exponential functions}
-Given $\lambda \in \R^d$, the complex exponential function $e_{\lambda}: \R^d \rightarrow \C$ with frequency $\lambda$ is 
-\begin{equation}
-    e_{\lambda}(t) = e^{2 \pi i \inpl{t}} = \cos{(2 \pi \inpl{t})} + i \sin{(2 \pi \inpl{t})}, \quad t\in \mathbb{R}^d.
-\end{equation}
-Here, $\inpl{t}$ is the euclidean inner product defined in \cref{def:dot_prod}. Throughout this thesis we denote by $E\brac{\Lambda}$ the exponential system
-\begin{align} %! Ikke referert til
-    %E\brac{\Lambda} = \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \lambda t } : \lambda \in \Lambda}
-    % E\brac{\Lambda} = \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
-    %*DENNNEE\brac{\Lambda} =& \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.\\
-    %E\brac{\Lambda} =& \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda}= \braq{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
-    E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d.
-\end{align}
-We will mainly think of $E(\Lambda)$ as a system of functions in $L^2(\Omega)$ for some subset $\Omega \subseteq \R^d$. In this setting, we intuitively understand $e_\lambda$ to be the $e_\lambda$ restricted to $\Omega$, that is $\indicatorNoVar{\Omega}$
-
-\begin{example}
-    In the case where $d=1$ and $\Lambda = \Z$ we have what some authors refer to as \emph{the complex trigonometric system} \cite{heilMetricsNormsInner2018} \cite{encyclopediaofmathematicsTrigonometricSystem},
-    \begin{align}
-        %E\brac{\Z} = \braqMed{e_n}_{n \in \Z} = \braqMed{e^{2\pi i t n} : n \in \Z}, %\quad t\in \R.
-        %E\brac{\Z} = \braqMed{e_n : n \in \Z} = \braqMed{e^{2\pi i t n} : n \in \Z}, \quad t\in \R.
-        E\brac{\Z} &= \braqMed{e^{2\pi i t n} : n \in \Z}, \quad t\in \R.
-        %E\brac{\Z} &= \braqMed{e_n : n \in \Z}\\
-        %E\brac{\Z} &= \braqMed{e_n(t) : n \in \Z}\quad t\in \R.
-    \end{align}
-    Note that for an arbitrary $n \in \Z$ we have
-    \begin{equation}
-        \bralMed{e_{n}(t) }= \bralMed{e^{2 \pi i n t}} = 1 \quad \text{for all } t\in \R.
-    \end{equation}
-    Furthermore, observe that $e_n$ is 1-\emph{periodic}, because
-    \begin{equation}
-        e_n(t+1) = e^{2 \pi i n (t+1)} = e^{2 \pi i n t} e^{2 \pi i n} = e^{2 \pi i n t} = e_n(t).
-    \end{equation}
-    %The 1-periodicity of $e_n$ is important. If we know values of $e_n(t)$ for $t$ on an interval of length $1$, we know the values for all points $t\in \mathbb{R}$. For example, this allows us to restrict our domain from all of $\mathbb{R}$ to just the $t$'s that lie on the interval $[0,1]$, the unit interval. 
-    If we know values of $e_n(t)$ for $t$ on an interval of length $1$, we know the values for all points $t\in \mathbb{R}$. This allows us to restrict our domain from all of $\mathbb{R}$ to the unit interval $[0,1]$.
-\end{example}
-%Furthermore, let $\mathbb{T}=\{z\in \mathbb{C}: |z|=1\}$ be the unit circle in the complex plane, and note that each point $z\in\mathbb{T}$ is on the form $z=e^{2 \pi it}$ for $t$ a real number 
+    \subfile{02_x3__exponential_function.tex}
 
 %* TANKE: noe om boundedness, og at exp lever i L(\Omega) men IKKE i L^2(R) for da går normen av exp til *helvete*
 \end{document}

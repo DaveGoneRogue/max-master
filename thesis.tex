@@ -4,27 +4,27 @@
 \usepackage{import}
 \usepackage{preamble/head_mk2}  % import allows for self made .sty files
 
-% --- Import support files --- %
+%* --- Import support files --- %
     %\input{support_files/glossary.tex}  % add glossary and acronym lists before document. Add \printglossaries after \tableofcontents to print
     \input{support_files/commands.tex}  % add commands before document
     % Bibliography file
     \addbibresource{support_files/Mastergrad.bib}
+
+    % title if using "titlepage" option in \documentclass, which now is commented out
+    %\input{support_files/title_ntnu.tex}
 % ---
 
-% title if using "titlepage" option in documentclass
-%\input{support_files/title_ntnu.tex}
 
 \begin{document}
-
-    % --- Opening --- %
-    \input{support_files/titlepage_max.tex}  % title for max titlepage
-
+    %* --- Opening --- %
+    \input{support_files/titlepage_max.tex}  % title for max title page
     %\setcounter{tocdepth}{2}
     \tableofcontents
+    % ---
 
 
-    % --- DOCUMENT START --- %
-    % --- NOTE: Folder structure --- %
+    %* --- DOCUMENT START --- %
+    %? --- NOTE: Folder structure --- %
     % Allows compilation of each subfile rather than compiling everything at once each time
     % Subfiles must have this file as an option while using the "documentclass" subfile
     % Loading a subfile is done with \subfile{"path-to-file"}

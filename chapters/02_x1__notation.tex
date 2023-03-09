@@ -1,9 +1,9 @@
 \documentclass[../thesis.tex]{subfiles}
-% Separate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
 
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
@@ -42,7 +42,6 @@ denote the set of all continuous, scalar-valued functions whose domain is the cl
 \end{lemma}
 
 %* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
-%Similarly, let
 Similarly, let 
 \begin{equation}
     \Cper([a,b])= \braqMed{f \in C[a,b]: f(a)=f(b)}
@@ -51,15 +50,14 @@ denote the set of all continuous, real-valued functions on the interval $\bras{a
 \begin{equation}
     f(t+Pn) = f(t), \quad t\in \bras{a,b},
 \end{equation}
-for $n\in \Z$, and with $P=b-a$. We say that the extended function $f$ is $P$\emph{-periodic} as it repeats after $P$ units, meaning
+for $n\in \Z$ and $P=b-a$. We say that the extended function $f$ is $P$\emph{-periodic} as it repeats after $P$ units, meaning
 \begin{equation}
-    f(t+P) = f(t), \quad t\in \R
+    f(t+P) = f(t), \quad t\in \R.
 \end{equation}
 The converse is also true, meaning we have a one-to-one correspondence between elements of $\Cper([a,b])$ and functions that are $P$-periodic on the real line. % if $f'$ is a $P$-periodic function on $\R$, then when $f'$ is restricted to the domain $\bras{a,b}$ it is also an element of $\Cper([a,b])$.
-Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$, and note that the proof closely follows the one by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated.
-\textcolor{green}{kommentar: a,b ? droppe 0,1} %! Kommentar
+Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$, and note that the proof closely follows the one by Heil in \cite[p.~228]{heilMetricsNormsInner2018}.  % although it is never explicitly stated.
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}
-    The set of all periodic functions $\Cper([0,1])$ is dense in the space $L^2([0,1])$ with respect to the \Ltwonorm.
+    The set of all periodic functions $\Cper([a,b])$ is dense in the space $L^2([a,b])$ with respect to the \Ltwonorm.
 \end{lemma}
 %* The proof of \cref{lem:c_per_dense_c_and_dense_L2} closely follows the proof by Heil in \cite[p.~228]{heilMetricsNormsInner2018} although it is never explicitly stated. 
 %Although not stated as explicitly as a result, the proof of \cref{lem:c_per_dense_c_and_dense_L2} can be found in \cite[p.~228]{heilMetricsNormsInner2018}.
@@ -70,34 +68,34 @@ Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_den
         \caption{Graph}
         \label{fig:g_periodic_close_to_f}
     \end{figure}
-    %Since $C([0,1])$ is dense in $L^2([0,1])$ from \cref{lem:c_dense_L2}, it will then follow that $\Cper([0,1])$ is dense in $L^2([0,1])$ if we can show that $\Cper([0,1])$ is dense in $C([0,1])$.
-    %If we can show that $\Cper([0,1])$ is dense in $C([0,1])$, it will follow that $\Cper([0,1])$ is dense in $L^2([0,1])$, since we know from \cref{lem:c_dense_L2} that $C([0,1])$ is dense in $L^2([0,1])$. 
-    If we can show that $\Cper([0,1])$ is dense in $C([0,1])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([0,1])$ is dense in $L^2([0,1])$, since $C([0,1])$ is dense in $L^2([0,1])$. Let $f \in C([0,1])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[0+\delta,1-\delta ]$ and which attains the value $g = 0$ on the endpoints, making $g\in \Cper$. We will see that this will not change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$. In other words, allowing us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way
-    \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(1-\delta) / \delta \cdot x + g(1-\delta)/ \delta $ <- dette er høyre side.
+    %Since $C([a,b])$ is dense in $L^2([a,b])$ from \cref{lem:c_dense_L2}, it will then follow that $\Cper([a,b])$ is dense in $L^2([a,b])$ if we can show that $\Cper([a,b])$ is dense in $C([a,b])$.
+    %If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow that $\Cper([a,b])$ is dense in $L^2([a,b])$, since we know from \cref{lem:c_dense_L2} that $C([a,b])$ is dense in $L^2([a,b])$. 
+    If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([a,b])$ is dense in $L^2([a,b])$, since $C([a,b])$ is dense in $L^2([a,b])$. Let $f \in C([a,b])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[a+\delta,b-\delta ]$ and which attains the value $g = 0$ at the endpoints, making $g\in \Cper([a,b])$. We will see that this will change the \Ltwonorm \space by a negligible amount. In other words, this allows us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way  % We will see that this will change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$
+    \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(b-\delta) / \delta \cdot x + g(b-\delta)/ \delta $ <- dette er høyre side.
         g(t) = 
-        \begin{cases} 0, &  t=0,\\  
-            \text{linear}, &  0<t<0+\delta,\\ 
-            f(t), & 0+\delta \leq t \leq 1-\delta,\\ 
-            \text{linear}, &  1-\delta <t<1,\\ 
-            0, &  t=1,
+        \begin{cases} a, &  t=a,\\  
+            \text{linear}, &  0<t<a+\delta,\\ 
+            f(t), & a+\delta \leq t \leq b-\delta,\\ 
+            \text{linear}, &  b-\delta <t<b,\\ 
+            a, &  t=b,
         \end{cases}
     \end{equation*} 
-    As shown in \cref{fig:g_periodic_close_to_f}, observe that for all $t$ on the interval $[0+\delta, 1-\delta]$ we have $|f(t)-g(t)|= 0$, and for all other values of $t$ we know that
+    as illustrated in \cref{fig:g_periodic_close_to_f}. Observe that for all $t$ on the interval $[a+\delta, b-\delta]$ we have $|f(t)-g(t)|= 0$, and for all other values of $t$ we know that
     \begin{equation*}
-        |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[0,1]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |g(t)| = \sup_{t\in[0+\delta, 1-\delta]} |f(t)| \leq \sup_{t\in[0, 1]} |f(t)| =\| f\|_{\infty}
+        |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[a,b]} |g(t)| = \sup_{t\in[a+\delta, b-\delta]} |g(t)| = \sup_{t\in[a+\delta, b-\delta]} |f(t)| \leq \sup_{t\in[a, b]} |f(t)| =\| f\|_{\infty}
     \end{equation*}
-    with equality in the third step using the fact that $g$ is linear and goes towards zero as it approaches $0$ or $1$, and therefore attains its greatest value on the interval $[0+\delta,1-\delta]$ where it is equal to $f$. Using this, as well as the triangle inequality, we have that
+    with equality in the third step using the fact that $g$ is linear and goes towards zero as it approaches $0$ or $b$, and therefore attains its greatest value on the interval $[a+\delta,b-\delta]$ where it is equal to $f$. Using this, as well as the triangle inequality, we have that
     \begin{equation*}
         \left|f(t)-g(t) \right| \leq |f(t)| + |-g(t)| \leq \|f \|_{\infty} + \|f \|_{\infty} = 2 \|f \|_{\infty}
     \end{equation*}
-    for all $t$ on the intervals $[0, 0+\delta]$ and $[1-\delta,1]$. Now,
+    for all $t$ on the intervals $[a, a+\delta]$ and $[b-\delta,b]$. Now,
     \begin{align*}
-        \| f-g \|_{L^2}^2 &=  \int_0^{0+\delta} \left|f(t)-g(t) \right|^2dt + \int_{0+\delta}^{1-\delta} \left|f(t)-g(t) \right|^2dt +\int_{1-\delta}^{1} \left|f(t)-g(t) \right|^2dt\\ 
-        &\leq \int_0^{0+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{1-\delta}^{1} (2 \| f\|_\infty)^2dt\\
+        \| f-g \|_{L^2}^2 &=  \int_0^{a+\delta} \left|f(t)-g(t) \right|^2dt + \int_{a+\delta}^{b-\delta} \left|f(t)-g(t) \right|^2dt +\int_{b-\delta}^{b} \left|f(t)-g(t) \right|^2dt\\ 
+        &\leq \int_0^{a+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{b-\delta}^{b} (2 \| f\|_\infty)^2dt\\
         &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
         &= \varepsilon^2
     \end{align*}
-    This shows that $\Cper([0,1])$ is dense in $C([0,1])$, which finalizes our proof.
+    This shows that $\Cper([a,b])$ is dense in $C([a,b])$, which finalizes our proof.
 \end{proof}
 
 %* —————————————————————————————————————— Indicator function  ——————————————————————————————————————
@@ -115,7 +113,7 @@ Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_den
 
 
 \begin{definition}\label{def:dot_prod}
-    Let $t=(t_1,\dots t_d)$ and $\lambda=(\lambda_1, \dots, \lambda_d)$ be two vectors in $\R^d$. The inner product, denoted $\langle \cdot, \cdot \rangle$, between $t$ and $\lambda$ is the following 
+    Let $t=(t_1,\dots t_d)$ and $\lambda=(\lambda_1, \dots, \lambda_d)$ be two vectors in $\R^d$. The inner product, denoted $\langle \cdot, \cdot \rangle$, between $t$ and $\lambda$ is
     \begin{equation*}
         \langle t, \lambda \rangle = \sum_{n=1}^d t_n \lambda_n = t_1\lambda_1 + \dots + t_d\lambda_d,
     \end{equation*}

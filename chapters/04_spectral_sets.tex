@@ -1,9 +1,9 @@
 \documentclass[../thesis.tex]{subfiles}
-% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
 
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
@@ -35,77 +35,53 @@
 
 Given a subset with finite and positive measure $\Omega$, recall that we denote by $E(\Lambda)$ the set of exponentials
 \begin{align}\label{eq:exp_set_all_d}
-    E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Lambda} = \braqMed{\indicator{\Omega}{t} e^{2 \pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d%\\
-    %E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_{\lambda}(t) : \lambda \in \Lambda}\\
-    %E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_{\lambda} : \lambda \in \Lambda}\\
+    E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Lambda} = \braqMed{\indicator{\Omega}{t} e^{2 \pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d
 \end{align}
 in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$.
-\begin{definition}[Spectral set] \label{def:spectral_set} 
-    %\textcolor{green}{Endret fra: $\Omega \subseteq \R^d$}
+\begin{definition}[Spectral set] \label{def:spectral_set}
     Let $\Omega \subset \R^d$ be a bounded subset with $0< \operatorname{mes} \Omega < \infty$. If the set of exponentials $E(\Lambda)$ form an \textsc{orthogonal} basis for $L^2 (\Omega)$ and $\Lambda \subseteq \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair} \cite{liuUniformityNonUniformGabor2003}.
 \end{definition} 
 
-%* ALT 1
-There are many arguments for why spectral sets and spectra are useful and interesting. One evident reason follows directly from the basis property. That is, every function $f \in L^2(\Omega)$ has a series expansion given by
+%! Synes ikke denne setningen starter meningsfult
+Spectral sets and spectra are useful and interesting. One evident reason follows directly from the basis property. That is, every function $f \in L^2(\Omega)$ has a series expansion given by
 \begin{equation}
     f = \sum_{\lambda \in \Lambda} c_{\lambda} e_{\lambda},
 \end{equation}
-with $e_\lambda \in E(\Lambda)$, and constants explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. However, more important is the fact that the series expansion is \emph{unique}, which the orthogonality condition guarantees. In other words, $E(\Lambda)$ is not only a basis but something even stronger.
+with $e_\lambda \in E(\Lambda)$, and constants explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. Moreover, the orthogonality condition guarantees that the series expansion is \emph{unique}.
 
-%* ALT 2
-There are many arguments for why spectral sets and spectra are useful and interesting. One evident reason is that every function $f \in L^2(\Omega)$ has a unique series expansion given by
-\begin{equation}
-    f = \sum_{\lambda \in \Lambda} c_{\lambda} e_{\lambda},
-\end{equation}
-with constants $c_{\lambda}$ and $e_\lambda \in E(\Lambda)$, which follows directly from the orthogonal basis property. And not only that, the constants are explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. %In addition. The constants are explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. % ? And not only that, the constants can be explicitly calculated by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$.
-
-%* continuing here
-Furthermore, due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making it/them a highly rigid structure. In other words, not many sets have the property of being spectral, making them a rarity. However, once we have one spectrum for a spectral set, any shifted spectrum variant will preserve this property. 
-%! Avsnittet over: it/them
-
-%Furthermore, due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making it a highly rigid structure. Therefore, the property of being a spectral pair is a rarity. 
-%
-%Furthermore, the notable restriction from the orthogonality requirement makes the construction of spectral sets a highly rigid structure. This limited flexibility makes the property of being a spectral set a rarity. 
-%
-%Furthermore, the construction of spectral sets is rigid due to the restrictions imposed by the orthogonality requirement. This limited flexibility makes the property of being a spectral set a rarity. 
-%
-%!Also, spectral sets are a rarity, as most sets do not have any spectra, which makes $\Omega$ a spectral set. 
-%! Also, spectral sets are a rarity as very few sets satisfy all the conditions. Even classifying all spectra for certain sets is not a trivial case. which is why the spectral conjecture of Fuglede is so important. 
+Due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making them highly rigid structures. In other words, not many sets $\Omega$ have the property of being spectral. However, once we have one spectrum for a spectral set, observe that the spectrum is shift-invariant.
+%* Also, spectral sets are a rarity as very few sets satisfy all the conditions. Even classifying all spectra for certain sets is not a trivial case. which is why the spectral conjecture of Fuglede is so essential. 
 \begin{lemma}\label{lem:spectrum_shift_is_spectrum}
-    Let $\Lambda$ be a spectrum for a spectral set $\Omega \subset \R^d$. Then $\Lambda_\alpha = \Lambda + \alpha$ is also a spectrum for $\Omega$ for any shift $\alpha \in \R^d$.
+    Let $\Lambda$ be a spectrum for a spectral set $\Omega \subset \R^d$. Then $\Lambda_\alpha = \Lambda + \alpha$ is also a spectrum for $\Omega$ for any $\alpha \in \R^d$.
 \end{lemma}
-In the following proof, we will show that there are two conditions we must satisfy. The first condition related to orthogonality is that the inner product for two elements $e_{\lambda},e_{\lambda'} \in E(\Lambda_\alpha)$ is unaffected by any shift $\alpha \in \R^d$. Meaning,
-\begin{equation}
-    \braaMed{e_{\lambda+\alpha},e_{\lambda'+\alpha}}_{L^2(\Omega)} = \braaMed{e_{\lambda},e_{\lambda'}}_{L^2(\Omega)}.
-\end{equation}
-The second condition related to completeness is that $E(\Lambda_\alpha)$ is still complete in $L^2(\Omega)$.
+
 \begin{proof}
-    Assume that $\Lambda$ is a spectrum for $\Omega\in \R^d$, and fix $\alpha\in \R^d$. If $\alpha = 0$, then $\Lambda + 0 = \Lambda$, and we are done since $\Lambda$ was assumed to be a spectrum. Therefore, let $\alpha\neq 0$. Now, for $e_{\lambda},e_{\lambda'} \in E(\Lambda_\alpha)$ the inner product factors as 
+    Assume that $\Lambda$ is a spectrum for $\Omega\in \R^d$, and fix $\alpha\in \R^d$. Given $\lambda,\lambda' \in \Lambda$ the inner product factors as
     \begin{align*}
         \braaMed{e_{\lambda+\alpha},e_{\lambda'+\alpha}}_{L^2(\Omega)} =& \int_{\Omega} e_{\lambda+\alpha}(t)\overline{e_{\lambda'+\alpha}(t)} dt\\
         =& \int_{\Omega} e^{2\pi i \braa{\lambda+\alpha,t}} e^{-2 \pi i \braa{\lambda'+\alpha,t}} dt\\
-        =& \int_{\Omega} e^{2\pi i  ((\lambda_1+\alpha)t_1 + \dots +(\lambda_d+\alpha) t_d)} e^{-2\pi i  ((\lambda_1'+\alpha) t_1 + \dots +(\lambda_d'+\alpha) t_d)} dt\\
-        =& \int_{\Omega} e^{2\pi i  ((\lambda_1+\alpha) -(\lambda_1'+\alpha))t_1} \cdots e^{2\pi i  ((\lambda_d+\alpha) -(\lambda_d'+\alpha))t_d} dt\\
+        =& \int_{\Omega} e^{2\pi i  ((\lambda_1+\alpha_1)t_1 + \dots +(\lambda_d+\alpha_d) t_d)} e^{-2\pi i  ((\lambda_1'+\alpha_1) t_1 + \dots +(\lambda_d'+\alpha_d) t_d)} dt\\
+        =& \int_{\Omega} e^{2\pi i  ((\lambda_1+\alpha_1) -(\lambda_1'+\alpha_1))t_1} \cdots e^{2\pi i  ((\lambda_d+\alpha_d) -(\lambda_d'+\alpha_d))t_d} dt\\
         =& \int_{\Omega} e^{2\pi i  (\lambda_1 -\lambda_1')t_1} \cdots e^{2\pi i  (\lambda_d -\lambda_d')t_d} dt\\
-        =& \braaMed{e_{\lambda},e_{\lambda'}}_{L^2(\Omega)}
+        =& \braaMed{e_{\lambda},e_{\lambda'}}_{L^2(\Omega)}.
     \end{align*}
-    Showing that $E(\Lambda_\alpha)$ is orthogonal since $\Lambda$ was assumed to be a spectrum. Now, to show completeness assume that $f\in L^2(\Omega)$ satisfies $\braaMed{f,e_{\lambda + \alpha}} = 0$ for all $\lambda\in \Lambda_\alpha$, and observe that
+    This shows that $E(\Lambda_\alpha)$ is orthogonal since $\Lambda$ is a spectrum. Now, to show completeness assume that $f\in L^2(\Omega)$ satisfies $\braaMed{f,e_{\lambda + \alpha}} = 0$ for all $\lambda\in \Lambda_\alpha$, and observe that
     \begin{align*}
-        \braaMed{f,e_{\lambda+\alpha}}_{L^2(\Omega)} =& \int_{\Omega} f(t) e^{-2\pi i  ((\lambda_1+\alpha) t_1 + \dots +(\lambda_d+\alpha) t_d)} dt\\
-        =& \int_{\Omega} f(t) e^{-2\pi i  (\lambda_1+\alpha)t_1} \dots e^{-2\pi i  (\lambda_d+\alpha)t_d} dt\\
-        =& \int_{\Omega} f(t) e^{-2\pi i  \lambda_1 t_1}e^{-2\pi i  \alpha t_1} \dots e^{-2\pi i  \lambda_1 t_d}e^{-2\pi i  \alpha t_d} dt\\
-        =& \int_{\Omega} f(t) e^{-2\pi i  \alpha (t_1 + \dots + t_d) }  e^{-2\pi i  (\lambda_1t_1 + \dots + \lambda_d t_d)}dt\\
-        =& \int_{\Omega} f(t) e^{-2\pi i \alpha t }  e^{-2\pi i  \braa{\lambda, t}}dt\\
-        =& \braaMed{f e^{-2\pi i  \alpha t },e_{\lambda}}_{L^2(\Omega)}
+        \braaMed{f,e_{\lambda+\alpha}}_{L^2(\Omega)} =& \int_{\Omega} f(t) e^{-2\pi i  ((\lambda_1+\alpha_1) t_1 + \dots +(\lambda_d+\alpha_d) t_d)} dt\\
+        =& \int_{\Omega} f(t) e^{-2\pi i  (\lambda_1+\alpha_1)t_1} \dots e^{-2\pi i  (\lambda_d+\alpha_d)t_d} dt\\
+        =& \int_{\Omega} f(t) e^{-2\pi i  \lambda_1 t_1}e^{-2\pi i  \alpha_1 t_1} \dots e^{-2\pi i  \lambda_1 t_d}e^{-2\pi i  \alpha_d t_d} dt\\
+        =& \int_{\Omega} f(t) e^{-2\pi i  (\alpha_1t_1 + \dots + \alpha_dt_d) }  e^{-2\pi i  (\lambda_1t_1 + \dots + \lambda_d t_d)}dt\\
+        =& \int_{\Omega} f(t) e^{-2\pi i \braa{\alpha, t} }  e^{-2\pi i  \braa{\lambda, t}}dt\\
+        =& \braaMed{f e^{-2\pi i  \braa{\alpha, t} },e_{\lambda}}_{L^2(\Omega)}
     \end{align*}
-    That is, we must have $\braaMed{f e^{2\pi i  \alpha t },e_{\lambda}} = 0$ for all $\Lambda \in \Lambda$. Since $\Lambda$ is a spectrum, we know that for almost all $t \in \Omega$ 
+    That is, we must have $\braaMed{f e^{2\pi i  \braa{\alpha, t} },e_{\lambda}} = 0$ for all $\Lambda \in \Lambda$. Since $\Lambda$ is a spectrum, we know that 
     \begin{equation*}
-        f e^{-2 \pi i \alpha t} = 0.
+        f(t) e^{-2 \pi i \braa{\alpha, t}} = 0
     \end{equation*}
-    As $e^{-2 \pi i \alpha t} \neq 0$ for all $t\in \Omega$, this implies that $f = 0$ almost everywhere for $t\in \Omega$. This shows that $E(\Lambda_\alpha)$ is complete in $L^2(\Omega)$. Since we arbitrarily fixed $\alpha$, this concludes the proof. 
+    for almost all $t \in \Omega$. As $e^{-2 \pi i \braa{\alpha, t}} \neq 0$ for all $t\in \Omega$, this implies that $f = 0$ almost everywhere on $\Omega$. This shows that $E(\Lambda_\alpha)$ is complete in $L^2(\Omega)$. In other words, in both the orthogonality and completeness, $E(\Lambda_\alpha)$ was unaffected by the shift $\alpha \in \R^d$. Since $\alpha$ was arbitrary, this concludes the proof. 
 \end{proof}
 
-We will mainly consider the case when $\Omega=I^d=\bras{0,1}^d$ is the unit cube in $\R^d$. The significance of this case lies in the connection between tiles and spectra for $\Omega=I^d$, which we will explore in \cref{chap:comparison}. Before considering spectral sets in higher dimensions, let us first consider the one-dimensional case and observe our limited flexibility in choosing $\Lambda$ here.
+We will mainly consider the case when $\Omega=I^d=\bras{0,1}^d$ is the unit cube in $\R^d$, and study the connection between tiles and spectra for $\Omega=I^d$. Before considering spectral sets for $I^d$ in higher dimensions, let us first consider the one-dimensional case and observe our limited flexibility in choosing $\Lambda$ here.
 
 \section{The unit cube in dimension one}\label{sec:complx_trig_1d}
     %* Hvilken flex har  vi? Jo, nær sagt ingen

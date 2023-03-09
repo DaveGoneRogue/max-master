@@ -1,9 +1,9 @@
 \documentclass[../thesis.tex]{subfiles}
-% Separate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
 
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
@@ -11,19 +11,19 @@
 
 
 \begin{document}
-In one dimension, the unit cube is simply the unit interval $I=\bras{0,1}$. It is a well-known result from Fourier analysis that $\Lambda = \Z$ is a spectrum for $I$. In fact, not only is the system
+In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$. It is a well-known result from Fourier analysis that $\Lambda = \Z$ is a spectrum for $I$. In fact, not only is the system
 \begin{equation*}
     E(\Z) = \braqMed{\indicator{I}{t} e^{2\pi i t \lambda} : \lambda \in \Z}
 \end{equation*} 
-an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
-\begin{lemma}\label{lem:exp_onb_onedim}
-    The set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$
+an orthogonal basis for $L^2(\Omega)$, it is an orthonormal basis.
+\begin{theorem}\label{lem:exp_onb_onedim}
+    The set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$.
     % For $t\in \R$, then the set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$
-\end{lemma}
+\end{theorem}
 \begin{proof}
     We begin with showing orthogonality. Let $e_{\lambda}, e_{\lambda'} \in E(\Z)$ with $\lambda \neq \lambda'$. %Then, since complex exponential functions are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. We compute
     \begin{align}\label{eq:orthog_one_dim_req}
-        \langle e_{\lambda},e_{\lambda'} \rangle_{L^2(I)} &= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt \nonumber\\ 
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I)} &= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt \nonumber\\ 
         &= \int_0^1 e^{2 \pi i {\lambda}t} e^{-2 \pi i {\lambda'}t} dt \nonumber\\
         &= \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt \nonumber\\
         &=\frac{1}{2 \pi i (\lambda-\lambda')} \brac{e^{2 \pi i (\lambda - \lambda')} -1} \\
@@ -33,14 +33,14 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
     Hence the system $E(\Lambda)$ is orthogonal. Furthermore, if $\lambda =\lambda'$ then the inner product is
     \begin{align*}\label{eq:exp_norm_one}
         \| e_\lambda \|^2_{L^2(I)} 
-        = \langle e_{\lambda},e_{\lambda} \rangle_{L^2(I)} 
+        = \braaMed{e_{\lambda},e_{\lambda} }_{L^2(I)} 
         = \int_0^1 e^{2 \pi i (\lambda-\lambda)t} dt
         = \int_0^1 e^{0} dt = 1,
     \end{align*}
     which shows that $E(\Z)$ is orthonormal. Now, let us see that $E(\Z)$ is complete in $L^2(I)$. By \cref{def:closed_span}, this is equivalent to showing $\spn{E(\Z)}$ is dense in $L^2(I)$ with respect to the \Ltwonorm. 
     %More specificaly, if $\|f-f'\|_{L^2(I)} < \varepsilon'$ for $\varepsilon' > 0$ and two functions $f,f'$ where $f\in L^2(I)$ and $f'\in \spn{\onedexp}$, follows from defenition of dense that $\spn{\onedexp}$ is dense in $L^2(I)$.
     %
-    %THIS IS THE SAME AS the closed span, which is the set of all elements a_i of the span(E) that converges to a. If this closed span is the whole of X, then E is dense. So by showing E is dense w.r.t a norm, is essentially showing the closed span = the set.
+    %THIS IS THE SAME AS the closed span, which is the set of all elements a_i of the span(E) that converges to a. If this closed span is the whole of X, then E is dense. So by showing E is dense w.r.t a norm, it essentially shows the closed span = the set.
     %
     %More specificaly, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. If we can show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$, then we are done as this implies completeness from the definition of closed span.
     %First, choose any function $f\in L^2(I)$ and fix a real number $\varepsilon >0$. %Our goal, in the end, is to show that there is a function $T \in \spn{\onedexp}$ such that $\|f-T\|_{L^2(I)} < 3 \varepsilon$.
@@ -57,11 +57,11 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
         \end{equation*}
         such that $|q(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$.
     \end{theorem}
-    From \cref{thrm:weierstrassApprox}, we get immediately that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
+    From \cref{thrm:weierstrassApprox}, we immediately get that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
     \begin{equation*}
         \spn{E(\Z)}=\braqMed{\sum_{\lambda=-N}^N c_\lambda e_\lambda : N \in \N, c_\lambda \in \C}.
     \end{equation*}
-    %is simply a set of trigonometric polynomials. Continuing on, using the \Ltwonorm we have that
+    %is simply a set of trigonometric polynomials. Continuing, using the \Ltwonorm, we have that
     We have that
     \begin{align}\label{eq:estimate_2}
         \| g-T \|_{L^2(I)}^2 = \int_0^1 \left|g(t)-T(t) \right|^2dt \leq \int_0^1 \varepsilon^2 dt = \varepsilon^2.
@@ -73,22 +73,25 @@ an orthogonal basis for $L^2(\Omega)$, but it is also an orthonormal basis.
     This shows that $\spn{E(\Z)}$ is dense in $L^2(I)$, which finalizes our proof.
     %For this reason, we can approximate every $f\in L^2(I)$ by a function $T \in \spn{\onedexp}$ as closely as we want. In other words, $\spnclos{\onedexp}=L^ 2(I)$, and by \cref{def:closure} $\spn{\onedexp}$ is dense in $L^2(I)$ which finalizes our proof%, and this finalizes our proof. %we have shown that $\onedexp$ indeed is complete. This 
 \end{proof}
+%The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. We summarise this result in the following lemma.
 
-%The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. This result is summarised in the following lemma.
-
-We can easily generalize the above proof into higher dimensions, where $\Lambda = \Z^d$ would be a spectrum for $I^d$. Although we will not show this explicitly, we summarise it in the following result.
-%Using similar arguments, the above proof can be generalized into higher dimensions. That is, $\Lambda = \Z^d$ is a spectrum for $I^d$.
+One can easily generalize the above proof to higher dimensions, where $\Lambda = \Z^d$ would be a spectrum for $I^d$. %*Although we will not show this explicitly, we summarise it in the following result.
+%Using similar arguments, one can generalize the above proof into higher dimensions. That is, $\Lambda = \Z^d$ is a spectrum for $I^d$.
 %The above proof can, using similar arguments, easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
 %Original:    %The proof above can easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
 
-\begin{lemma}\label{lem:z_d_in_higer_d}
+\begin{theorem}\label{lem:z_d_in_higer_d}
     The set of exponential functions $E(\Z^d) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Z^d}$ is an orthonormal basis for $L^2(I^d)$.
-\end{lemma}
-
-However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. As we have shown that $\Lambda = \Z$ is a spectrum for $I$, we know from \cref{lem:spectrum_shift_is_spectrum} that any shifted variant $\Lambda_\alpha = \Z + \alpha$ is also a spectrum for $I$. In other words, we have established the following result.
-\begin{proposition}
+\end{theorem}
+However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. That is to say, it is easy to classify all of them, and they are all closely related since they are alterations of the same set.  %? other spectra than the integers?
+\begin{proposition}\label{prop:class_all_shift}
     For a fixed $\alpha \in \R$, the only subsets $\Lambda \in \R$ such that $\Lambda$ is a spectrum for $I$ are the translates $\Lambda_\alpha = \Z + \alpha$
 \end{proposition}
-
-
+\begin{proof} %* Gitt et vilkårlig spektrum, vis at det må være Z, ingen andre mengder, og at Z+alpha er det eneste
+    Given an arbitrary spectrum $\Lambda$ for $I$, choose any $\lambda,\lambda'$ from that set. Then, for the elements to be orthogonal, we must have
+    \begin{equation}\label{eq:zero_set_equation}
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I)} = \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt =\frac{e^{2 \pi i (\lambda - \lambda')} -1}{2 \pi i (\lambda-\lambda')} = 0,
+    \end{equation}
+    as from the proof of \cref{lem:exp_onb_onedim} above. Observe that this can only happen if and only if $e^{2\pi i (\lambda-\lambda')} = 1$, which can only be the case if the difference $(\lambda-\lambda') \in \Z$. In addition, this also implies that if we fix $\lambda$ to be any (real) number, then all other elements $\lambda'$ must lie in $\Lambda+\lambda = \Z + \lambda$ for the orthogonality condition to hold. In other words, we know that our arbitrary $\Lambda$ must lie in $\Lambda+\alpha$ for some real number $\alpha$. More specifically, $\Lambda \subset \Z+\alpha$. However, as we know from \cref{lem:onb_direct_subset}, we cannot have an orthogonal basis as a direct subset of another orthogonal basis. Thus we must have $\Lambda = \Z+\alpha$, and there are no other spectra for $I$ in dimension $d=1$.
+\end{proof}
 \end{document}

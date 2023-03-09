@@ -1,9 +1,9 @@
 \documentclass[../thesis.tex]{subfiles}
-% Seperate preamble for this subfile. This preamble is loaded last, so it may be used to override various functions.
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
 
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
@@ -16,10 +16,6 @@
 % ? \section[]{INtro ishh}
 % * Def complete i form av “and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. (fundamental/total)"
 %intro til orthogonal bases 
-%
-%
-
-
 We begin with this section with a short introduction to 
 
 We begin with the following. 
@@ -35,7 +31,8 @@ We begin with the following.
     \end{itemize}
 \end{definition}
 \begin{remark}
-    Note that any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its own length. %!Thus, results stated for orthonormal sets also hold for orthogonal sets. The converse is not necessarily true. % LESE hva som står i HEIL?
+    % Note that any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its own length. %!Thus, results stated for orthonormal sets also hold for orthogonal sets. The converse is not necessarily true. % LESE hva som står i HEIL?
+    Any set of nonzero orthogonal vectors can be turned into an orthonormal set by dividing each vector by its own length.
 \end{remark}
 %\begin{definition}
 %    Let $H$ be a Hilbert space. A countable infinite orthonormal set $E = \braq{v_i : i \in I}$ which is complete in $H$ is called an \emph{orthonormal basis} for $H$.
@@ -54,24 +51,24 @@ An equivalent restatement of completeness is the following
 %    An orthonormal set $\left\{ e_k \right\}$ is complete in a Hilbert space $H$ if and only if $\langle x, e_k \rangle_{H} = 0$ for all $k\in B$ and some $x\in H$, then $x$ is the zero element of $H$.
 %\end{lemma}
 \begin{lemma}\label{lem:ONB_alternative_def}
-    Let $H$ be a Hilbert space and $x\in H$ an arbitrary element. An orthonormal set $E = \braq{v_i : i \in I}$ is complete in $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ implies that $x$ is the zero-element of $H$.
+    Let $H$ be a Hilbert space and $x\in H$ an arbitrary element. An orthonormal set $E = \braq{v_i: i \in I}$ is complete in $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ implies that $x$ is the zero-element of $H$.
     %An orthonormal set $E = \braq{v_i : i \in I}$ is complete in a Hilbert space $H$ if and only if $\braa{x, v_i}_{H} = 0$ for all $v_i\in E$ and an arbitrary $x\in H$, then $x$ is the zero-element of $H$.
 \end{lemma}
-\begin{proof} %! HENGER IKKE SAMMEN, hør lydlogg
+\begin{proof}
     Since $E$ is an orthonormal set and $x$ is orthogonal to $E$, we must have $x$ orthogonal to the closure of the linear span of $E$. As the closure of the linear span of $E$ is all of $H$, that is $\spnclos{E} = H$, this implies that $x=0$. %* Det er det eneste elementet med denne egenskapen
 \end{proof}
 % ikke skriv $x=\overrightarrow{0}$
 % Zero vector comment
-%Furthermore, given $\Omega \subset \mathbb{R}^d$ have finite positive lebesgue measure, and let $L^2(\Omega)$ be the corresponding Hilbert space of $L^2$ functions on $\Omega$. Completeness can be restated into showing that $f=0$, for $f \in L^2(\Omega)$, is the only solution to $\langle f,e_\lambda \rangle_{H} = 0$ for all $\lambda \in \Lambda$. This comes from the fact that the  only vector/function $v$ orthogonal to a dense linear subspace is the zero vector/function. That is to say, since $B$ is any orthonormal set/family, and $v$ is orthonormal to $B$, then $v$ is also orthogonal to $\overline{\operatorname{span}(B)}$ , which is the whole space $H$. Ref linmet bok og paperet om spectral pairs.
+%Furthermore, given $\Omega \subset \mathbb{R}^d$ have finite positive lebesgue measure, and let $L^2(\Omega)$ be the corresponding Hilbert space of $L^2$ functions on $\Omega$. Completeness can be restated into showing that $f=0$, for $f \in L^2(\Omega)$, is the only solution to $\langle f,e_\lambda \rangle_{H} = 0$ for all $\lambda \in \Lambda$. This comes from the fact that the only vector/function $v$ orthogonal to a dense linear subspace is the zero vector/function. That is to say since $B$ is any orthonormal set/family, and $v$ is orthonormal to $B$, then $v$ is also orthogonal to $\overline{\operatorname{span}(B)}$ , which is the whole space $H$. Ref linmet bok og paperet om spectral pairs.
 
-% ? Note, the fact that the span of the basis vectors is dense implies that every vector in H can be written as the sum of an infinite series, and the orthogonality imply that the decomposition is unique.
+% ? Note that the fact that the span of the basis vectors is dense implies that every vector in H can be written as the sum of an infinite series. The orthogonality implies that the decomposition is unique.
 % Merk overgang fra $\left\{ e_{n} \right\}_{n\in \mathbb{N}}$ til $\left\{ e_{\lambda} \right\}_{\lambda \in \mathbb{Z}}$ 
 
-\begin{lemma}
-    Let $E = \braq{v_i : i \in I}$ be an orthonormal basis for a Hilbert space $H$, and $F$ denote a subset of $E$. Then $F$ cannot be an orthonormal basis for $H$ unless $F = E$.
+\begin{lemma}\label{lem:onb_direct_subset}
+    Let $E = \braq{v_i: i \in I}$ be an orthonormal basis for a Hilbert space $H$, and $F$ denote a subset of $E$. Then $F$ cannot be an orthonormal basis for $H$ unless $F = E$.
 \end{lemma}
 \begin{proof}
-    Suppose for contradiction that $F$ is a strict subset of $E$, which is complete in $H$. Let $v_\gamma$ denote a non-zero element such that $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. Then $v_{\gamma}$ is orthogonal to all elements of $F$, then by \cref{lem:ONB_alternative_def} $v_{\gamma}$ must be the zero-element. This is a contradiction, so we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
+    Suppose for contradiction that $F$ is a strict subset of $E$, which is complete in $H$. Let $v_\gamma$ denote a non-zero element such that $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. Then $v_{\gamma}$ is orthogonal to all elements of $F$, so by \cref{lem:ONB_alternative_def} $v_{\gamma}$ must be the zero-element. This is a contradiction, so we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
     %Construct the set $F$ as a strict subset of $E$, the orthonormal basis for $H$. Naturally, $F$ is also an orthonormal set, but is it complete? Let $v_\gamma$ denote the element that is $v_{\gamma}\in E$ and $v_{\gamma}\notin F$. This means that $e_{\gamma}$ is orthogonal to all elements of $F$. This is a contradiction, as we know from \cref{lem:ONB_alternative_def} that the only element in $H$ that is orthogonal to all elements in $E$ is the zero-element. Thus we must have that $F=E$ if $F$ is to be an orthonormal basis for $H$.
 \end{proof}
 

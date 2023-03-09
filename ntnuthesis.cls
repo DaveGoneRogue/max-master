@@ -212,8 +212,8 @@
     minbibnames=3,
     maxcitenames=2,
     mincitenames=1,
-    % citestyle=numeric-comp,
-    sorting=none
+    % citestyle=numeric-comp,               % 
+    sorting=anyt                             % none -> citation order / anyt -> label, name, year, volume, title / nyt -> name, year, title
     % dashed=false
 ]{biblatex}                                 % for bibliography
 \RequirePackage{booktabs}                   % better formatting of tables

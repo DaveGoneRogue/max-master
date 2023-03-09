@@ -1,13 +1,40 @@
 % Better comment extension for Vscode colors these comments differently
 % Normal comment color
-% * Important information is highlighted
+% * Important information
 % ! ALERT
 % ? Question
 % TODO stuff to do
 % // this is strikethrough
 
 
+
 MY NOTEPAD, this is not imported anywhere
+
+
+%* 
+Til bruk for plotsene
+When representing this in a figure, one should note the similarity to a cross product of spaces such as $\Z \times \Z$ or $\R \times \R$. Most important in the construction of spectra presented \cref{thrm:construction_spectra} is that it opens up the possibility of having a different discrete set at each $\lambda_1$-value. This newfound flexibility will be discussed after the proof of the \namecref{thrm:construction_spectra}.
+%? VURDERE. Før "When representing" ha: Note that we would still have that the zero-element is the only element that is orthogonal to both sets.
+
+
+
+% * In \cite{jorgensenSpectralPairsCartesian2001} Steen P. and Palle E. presented a method on the construction of spectral pairs in higher dimensions. It is a recursive technique in what they dub "a cross-product construction" using "factors" in lower dimensions and applies for any two spectral pairs $\brac{\Omega_i,\Lambda_i}$ where $i=1,2$ and in arbitrary dimensions $d_1$ and $d_2$. The technique is presented in the following theorem
+
+
+
+%* Second construction
+\begin{example}\label{exmp:second_construction}
+    Let $\brac{\Omega_1,\Lambda_1} = \brac{I^2, \Lambda}$, where $\Lambda$ is as given in \labelcref{eq:first_construction}. If we again let 
+    $\brac{\Omega_2,\Lambda(\lambda_1)} = \brac{I, \Z}$ for all $\lambda_1 \in \Lambda_1$ as in the previous \namecref{exmp:first_construction}, it then also follows from \cref{thrm:construction_spectra} that $\brac{I^2 \times I, \Lambda'}$ is a spectral pair in $2+1=3$ dimensions where 
+    \begin{equation*}
+        \Lambda'=\braq{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Lambda, \lambda_2 \in \Z }.
+    \end{equation*}
+    Similarly, we can also show that $\brac{I^2 \times I^2, \Lambda''}$ is a spectral pair in $2+2=4$ dimensions with
+    \begin{equation*}
+        \Lambda''=\braq{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Lambda, \lambda_2 \in \Lambda} \qedhere
+    \end{equation*}
+\end{example}
+
 
 
 
