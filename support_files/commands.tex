@@ -100,6 +100,7 @@
 
 
 \newcommand{\Cper}{C_{\text{per}}}
+\newcommand{\intnozero}{\Z\setminus\braq{0}} 
 
 % others 
 \newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}  % inner product w. lambda
@@ -116,8 +117,10 @@
 \newcommand{\GenNormX}{$\|\cdot\|_{X}$-norm}
 \newcommand{\GenNormH}{$\|\cdot\|_{H}$-norm}
 
-\newcommand{\lambfunc}{\mathcal{L}(\lambda_1)}  % will type L(lambda_1)  consider: \mathsf{}, \mathbf{}, or L
-\newcommand{\lambfuncGen}[1]{\mathcal{L}(#1)}  % general, must give input
+\newcommand{\lambfunc}{\mathbf{L}(\lambda_1)}  % will type L(lambda_1)  consider: \mathsf{}, \mathbf{}, or L
+\newcommand{\lambfuncGen}[1]{\mathbf{L}(#1)}  % general, must give input
+\newcommand{\betafunc}{\bm{\beta}} 
+
 
 % * --- Other Settings --- * %
 % \newcommand{\masl}{m.a.s.l}
@@ -125,6 +128,7 @@
 
 \newcommand{\mycomment}[1]{} %! Block comment
 \newcommand{\SigridComment}[1]{\textcolor{green}{kommentar: #1}}
+\newcommand{\SigridChange}[1]{\textcolor{green}{#1}}
 
 % For use in enumerate, itemize, description write \item \printvalues to get the following values
 \newcommand{\printvalues}{topsep=\the\topsep; itemsep=\the\itemsep; parsep=\the\parsep; partopsep=\the\partopsep}

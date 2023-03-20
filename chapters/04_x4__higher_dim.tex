@@ -13,26 +13,27 @@
 \begin{document}
 
 Before tackling spectral sets in higher dimensions, we first emphasize the importance of \cref{eq:zero_set_equation} and generalize it to higher dimensions. 
-\begin{lemma}
+\begin{lemma}\label{lem:zero_set_jp_1_5}
     Let $\Omega=I^d$. The zero-set for the function
     \begin{equation*}
-        F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt  = \int_\Omega e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)}
+        F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt
     \end{equation*}
     is the following set
     \begin{equation*}
-        \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \Z\setminus \braqMed{0}}
+        \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}
     \end{equation*}
 \end{lemma}
 
 \begin{example}
     The zero-set for $F_{\Omega}$ when $d=1$ is the following
     \begin{equation*}
-        \Zstroke_{I} = \braqMed{ z \in \C \setminus \braqMed{0} : \exists \space z \in  \Z\setminus \braqMed{0}} = \Z 
+        %\Zstroke_{I} = \braqMed{ z \in \C \setminus \braqMed{0} : \exists \space z \in  \intnozero} = \braq{z: z \in \intnozero}
+        \Zstroke_{I} = \braq{z: z \in \intnozero}
     \end{equation*}
 \end{example}
 
 \begin{proof}
-    
+    BEVIS, kommer, må skrives om
 \end{proof}
 
 \begin{remark}
@@ -42,14 +43,21 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     \end{equation*}
     Then it follows that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{\Omega}$. More specifically, if $(I^d,\Lambda)$ is a spectral pair, then
     \begin{equation*}
-        \Lambda - \Lambda \subset \Z_{I^d} \cup \braq{0}. 
+        \Lambda - \Lambda \subset \Zstroke_{I^d} \cup \braq{0}
     \end{equation*}
+    for non-zero elements of $\Lambda-\Lambda$. This follows immediately from the following observation
+    \begin{equation*}
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_\Omega e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = \int_\Omega e^{2 \pi i \braa{z,t}} dt  = F_{\Omega} (z),
+    \end{equation*}
+    which is zero whenever $\lambda \neq \lambda'$, that is $\lambda-\lambda'\neq 0$, which imply $\lambda-\lambda' \in \Z_{I^d}$
 \end{remark}
 
 \begin{example}
-    Observe that for $\Lambda=\Z$, the non-zero elements of $\Lambda - \Lambda$ is $\Z\setminus \braq{0}$
+    Observe that for $\Lambda=\Z$, the non-zero elements of $\Lambda - \Lambda$ is simply $\intnozero$. Clearly
+    \begin{equation*}
+        \intnozero \subset \Zstroke_{I} \cup \braq{0} = \Z
+    \end{equation*}
 \end{example}
-
 
 %! BEGYN HER
 %* —————————————————————————————————————
@@ -104,9 +112,9 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
         F(t_1) := \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2,
     \end{equation}
     and make a note that $F\in L^2(\Omega_1)$. We thus have % This allows us to rewrite our initial inner product into
-    \begin{equation}\label{eq:outter_eq}
+    \begin{equation*}%\label{eq:outter_eq}
         \braa{e_{\lambda}, f}_{L^2(\Omega_1\times \Omega_2)} = \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} F(t_1) dt_1 = \braa{e_{\lambda_1}, F}_{L^2(\Omega_1)} = 0, \quad \text{ for all } \lambda_1 \in \Lambda_1 .
-    \end{equation}
+    \end{equation*}
     Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} that $F(t_1)=0$ for almost every $t_1 \in \Omega_1$. Now as we must have \labelcref{eq:inner_eq} equal to zero, observe that since $\lambda_2$ was arbitrarily, and we know that $E(\lambfunc)$ is complete in $L^2(\Omega_2)$, then using \cref{lem:ONB_alternative_def} again implies that $f=0$ a.e. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes the proof.
     %Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} and almost all $t_1 \in \Omega_1$, that the only element in $L^2(\Omega_1)$ that results in $\braa{e_{\lambda_1}, F} = 0$ for all $e_{\lambda_1} \in E(\Lambda_1)$ is the zero-element $F=0$. Now as we must have \cref{eq:inner_eq} equal to zero, observe that as we fixed $\lambda_2$ arbitrarily, and we know that $E(\Lambda_2)$ is complete in $L^2(\Omega_2)$, then the same lemma also implies $f=0$. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes our proof.
     %For almost all $t_1 \in \Omega_1$ \cref{eq:outter_eq}
@@ -114,33 +122,106 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
 
 Let us now do some examples of \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
 \begin{example}\label{exmp:first_construction}
-    Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\Lambda(\lambda_1) = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
+    Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\lambfunc = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
     \begin{equation}\label{eq:first_construction}
         \Lambda  = \braq{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \Z },
     \end{equation}
-    it follows directly from \cref{thrm:construction_spectra} that $\brac{I \times I, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
+    it follows directly from \cref{thrm:construction_spectra} that $\brac{I^2, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
 \end{example}
 
 Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \cref{thrm:construction_spectra} $d$-times will provide a proof of this result. In addition, \cref{exmp:first_construction} is also an example of a lattice spectrum. %This becomes evident when looking at FIGUREXX, which illustrates the grid-like pattern of a lattice. 
-However, the increase in dimension allows for more flexibility in that we can have spectra that are not lattices. For instance, we can have the spectrum 
-\begin{align*}
-    \Lambda(\lambda_1) = \begin{cases}        
-        \mathbb{Z} & \text{for all } \lambda_1 \in \Lambda_1 \text{ except one}\\        
-        \mathbb{Z}+\alpha & \text{for the one, where } \alpha \in \mathbb{R}   
+Moreover, the increase in dimension allows for more flexibility in that we can have spectra that are not lattices. For instance, we can have the spectrum given by 
+\begin{align}\label{eq:single_shift_func}
+    \lambfunc = \begin{cases}        
+        \Z & \text{for all } \lambda_1 \in \Lambda_1 \text{ except one}\\        
+        \Z+\beta & \text{for the one, where } \beta \in \mathbb{R}   
     \end{cases}
-\end{align*}
-illustrated in FIGUREXX.
+\end{align}
+for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$. Furthermore, we can shift on any number of the vertical axes, not just the one, and we can shift them with different amounts. In this case, we can have the spectrum given by \SigridComment{Begrense oss til kun skift mindre enn 1, og nevne at de kan være høyere, men det har ikke noe å si, eller innkludere skift på $15$. Nevner ikke noe om dette tidligere tror jeg}
+\begin{align}\label{eq:multiple_shit_func}
+    \lambfunc = \begin{cases}
+        \vdots\\        
+        \Z+0 & \text{for } \lambda_1 = -1 \in \Lambda_1\\
+        \Z+0.3 & \text{for } \lambda_1 = \text{\space\space\space} 0 \in \Lambda_1\\
+        \Z+0.8 & \text{for } \lambda_1 = \text{\space\space\space} 1 \in \Lambda_1\\
+        \Z+0.5 & \text{for } \lambda_1 = \text{\space\space\space} 2 \in \Lambda_1\\
+        \Z+0.9 & \text{for } \lambda_1 = \text{\space\space\space} 3 \in \Lambda_1\\
+        \Z-0.3 & \text{for } \lambda_1 = \text{\space\space\space} 4 \in \Lambda_1\\
+        \vdots
+    \end{cases}
+\end{align}
+for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illustrated in \cref{fig:multiple_shift_vertical}. Moreover, we can, in addition to the individual vertical shifts given by $\lambfunc$ in \labelcref{eq:multiple_shit_func}, also shift our other spectral pair $\brac{I,\Z}$ with, for example, $\alpha = 0.4$ as illustrated in \cref{fig:multiple_shift_horizontal}. At last, these shifts will also be accurate in the opposite direction by flipping the notation order, meaning $\Lambda_1$ is on the vertical axis, and $\lambfunc$ is on the horizontal axis.
 
 %! FIGURE INPUT
 \input{figures/figure-tex/spectra_figures.tex}
 
+\SigridComment{ BEGYN HER MAX}
+\begin{lemma}\label{lem:beta_shift}
+    Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$ respectivly. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$ to denote the shift in the spectrum for $\Omega_2$ at each $\lambda_1$-value, and let
+    \begin{equation}
+        \Lambda = \Lambda_\beta
+        = \braqMed{\begin{pmatrix}
+            \lambda_1 \\
+            \lambda_2+\betafunc(\lambda_1)
+            \end{pmatrix}
+        : \lambda_1 \in \Lambda_1 \text{ and } \lambda_2 \in \Lambda_2}.
+    \end{equation}
+    Then $\brac{\Omega_1 \times \Omega_2,\Lambda_\beta}$ is a spectral pair in $d_1+d_2$ dimensions. 
+\end{lemma}
+\begin{remark}
+    We can also shift the spectrum for $\Omega_1$, in which case
+    \begin{equation*}
+        \Lambda = \Lambda_{\alpha,\beta} 
+        = \braqMed{\begin{pmatrix}
+            \lambda_1 +\alpha\\
+            \lambda_2+\betafunc(\lambda_1)
+            \end{pmatrix}
+        : \lambda_1 \in \Lambda_1 \text{ and } \lambda_2 \in \Lambda_2}.
+    \end{equation*}
+\end{remark}
+%! Her representerer "funksjonen" vi hadde over, både en plaserings funksjon på \lambda_1, i tillegg til å skifte spektrumet akk. her med en reel verdi 
+%! Funksjonen beta, poppulerer vektoren beta med elementer som er gitt av funksjonen. 
+\begin{proof}
+    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
+\end{proof}
+
+\begin{example}
+    For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is also a spectral pair where
+    \begin{equation*}
+        \Lambda_{\alpha,\beta} 
+        = \braqMed{\begin{pmatrix}
+            \lambda_1 +\alpha\\
+            \lambda_2+\betafunc_2(\lambda_1)
+            \end{pmatrix}
+        : \lambda_1 \in \Z +\alpha \text{ and } \lambda_2 \in \Z}. \qedhere
+    \end{equation*}
+\end{example}
+
+
+\begin{example}
+    By repeated application of \cref{lem:beta_shift} it will follow that $\brac{\Omega,\Lambda}= \brac{I^d, \Lambda}$ is a spectral pair where 
+    the spectrum $\Lambda$ is the set of points given by
+    \begin{equation*}
+        \begin{pmatrix}
+            \lambda_1 +\alpha\\
+            \lambda_2+\beta_2(\lambda_1)\\
+            \lambda_3+\beta_3(\lambda_1,\lambda_2)\\
+            \vdots\\
+            \lambda_d+\beta_d(\lambda_1,\dots,\lambda_{d-1})\\
+        \end{pmatrix}
+    \end{equation*}
+    where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\beta_{i+1}:\Z^{i} \rightarrow [0,1)$ are fixed functions.
+    %* Skriv om; It is clear that the modifications result from the permutation of the $d$ coordinates.
+\end{example}
+
+
+
 As with \cref{prop:class_all_shift}, we can classify all spectra in dimension two as follows. This significant result was proven by Pedersen and Jorgensen in the same paper \cite{jorgensenSpectralPairsCartesian2001}. 
 
-\SigridComment{De nevner $\alpha$ bare som en index, og et "random" tall (ikke R), samt det virker mer som de indekserer med $m,n$ heller en $\alpha$, og det er heller ikke indeks på $\Lambda$ i seg selv for å få frem hva slags skift vi har}
 \begin{theorem}\label{thrm:class_all_shift_2d}
     %$\braq{\beta_m \in [0,1) : m \in \Z}$ ANDRE skrivemåten for beta_m
-    For a fixed $\alpha \in \R$ and an infinite sequence $\brac{\beta_m}_{m\in \Z}$, $\beta_m \in [0,1)$, the only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $I^2$ are either one of the two classes:
-    \begin{equation}
+    For a fixed value $\alpha \in \R$ and an infinite sequence $\brac{\beta_m}_{m\in \Z}$, $\beta_m \in [0,1)$, the only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $I^2$ are either one of the two classes:
+    \begin{equation}\label{eq:2d_all_shift_class_1}
         \Lambda = \braqMed{
             \begin{pmatrix}
             \alpha + m\\
@@ -149,7 +230,7 @@ As with \cref{prop:class_all_shift}, we can classify all spectra in dimension tw
             }
     \end{equation}
     or
-    \begin{equation}
+    \begin{equation}\label{eq:2d_all_shift_class_2}
         \Lambda = \braqMed{
             \begin{pmatrix}
             \beta_n + m\\
@@ -157,16 +238,63 @@ As with \cref{prop:class_all_shift}, we can classify all spectra in dimension tw
             \end{pmatrix} : m,n \in  \Z
             }
     \end{equation}
-    \SigridComment{ekskludert delen om at det også er et tiling set, det er vel hensiktsmessik og splitte disse opp, og komme tilbake til det i neste del, for å så komme med fulle og hele theorem 3.2.} 
+    %! \SigridComment{ekskludert delen om at det også er et tiling set, det er vel hensiktsmessik og splitte disse opp, og komme tilbake til det i neste del, for å så komme med fulle og hele theorem 3.2.} 
 \end{theorem}
-remark on the half open interval
-remark om hvorfor sequencen er essensiell i dette tilfellet for å klassifisere alle skiftene %, samenlignet bare med bare noen random skift
+%!remark on the half open interval\\
+%!remark om hvorfor sequencen er essensiell i dette tilfellet for å klassifisere alle skiftene\\ %, samenlignet bare med bare noen random skift
+%!remark om at vi ikke kan ha ulike skift i to retninger, skiftene i den ene retningen må være fiksert.\\
 
 
-remark om at vi ikke kan ha skift i to retninger, tegne dette
 
 \begin{proof}
+    It follows directly from \cref{lem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
+    \begin{equation}\label{eq:inclusion_dim_2}
+        \Lambda - \Lambda \subset \Zstroke_{I^2} \cup \braq{0}
+    \end{equation}
+    where the zero-set $\Zstroke_{I^2}$ given in \cref{lem:zero_set_jp_1_5} is
+    \begin{equation}\label{eq:zeroset_dim_2}
+        \Zstroke_{I^2} = \braqMed{z = \brac{z_1,z_2} \in \C^2 : \exists \space j \in \braq{1,2} \text{ such that } z_j \in \intnozero}.
+    \end{equation}
+    To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$, and only assume that the other element is the zero-element. From \labelcref{eq:inclusion_dim_2} we must have
+    \begin{equation*}%* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
+        \brac{\lambda_1, \lambda_2} - \brac{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}
+    \end{equation*}
+    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer. We will use this to show that both must be integers where one is non-zero. Now, take another arbitrary distinct element $\lambda'$ from $\Lambda$ using the two latter assumptions established for elements of $\Lambda$, but with opposite assumptions than for $\lambda$. There are two possibilities to do this, so first take $\lambda_1$ and $\lambda_2'$ to be non-zero integers, and take $\lambda_2$ and $\lambda_1'$ to be non-integers. Then, using  \labelcref{eq:inclusion_dim_2} and the fact that both 
+    \begin{align*}
+        \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
+        \quad \text{and} \quad
+        \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\in \intnozero}} \notin \intnozero
+    \end{align*}
+    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. As such, we must have at least $\lambda_1'\in \Z$ for any element $\lambda'\in \Lambda$, since this implies $\brac{\lambda_1 - \lambda_1'}\in \intnozero$ and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. We have, however, not excluded the possibility that $\lambda_2$, and hence also $\brac{\lambda_2 - \lambda_2'}$, must also be an integer.
     
+    \SigridComment{stemmer denne siste setningen, eller kan man nå egentlig direkte argumentere for at elementene fra $\Lambda$ er heltall i begge "koordinater".} 
+    
+    To show this, take $\lambda_1,\lambda'_1 \in \Z$ (not $\intnozero$!), and let $\lambda_1 = \lambda'_1$. We need no assumptions on $\lambda_2$ and $\lambda'_2$. Recall that $\lambda,\lambda'$ are distinct points. Then, from \labelcref{eq:inclusion_dim_2} and the fact that $\brac{\lambda_1-\lambda'_1}\in \Z$ we must have $\brac{\lambda_2-\lambda_2'} \in \Z$. And not only that, but from
+    \begin{equation*}
+        \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{0,\lambda_2-\lambda'_2}\in \Zstroke_{I^2},
+    \end{equation*}
+    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. By interchanging the vector notation from row to column form, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1} with $\alpha = 0$, $m = \lambda_1$ and $n = \lambda_2$, as we have shown $\lambda_1, \lambda_2 \in \Z$ for all $\lambda \in \Lambda$. Furthermore, we know from \cref{lem:onb_direct_subset} that we cannot have an orthonormal basis as a direct subset of another orthonormal basis, thus we must have equality, and we have that $\Lambda$ is given by \labelcref{eq:2d_all_shift_class_1}.
+
+    Let us now go back a few steps, and consider the other possibility. That is, take $\lambda_1$ and $\lambda_2'$ to be non-integers, and take $\lambda_2$ and $\lambda_1'$ to be non-zero integers. Then, from the fact that both 
+    \begin{align*}
+        \brac{\underbrace{\lambda_1}_{\notin \Z}-\underbrace{\lambda_1'}_{\in \intnozero}} \notin \intnozero
+        \quad \text{and} \quad
+        \brac{\underbrace{\lambda_2}_{\in \intnozero}-\underbrace{\lambda_2'}_{\notin \Z}} \notin \intnozero
+    \end{align*}
+    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$, and we must have at least $\lambda_2'\in \Z$ for any element $\lambda'\in \Lambda$. To exclude the possibility that $\lambda_1$ is an integer, take $\lambda_2,\lambda'_2 \in \Z$ and let $\lambda_2 = \lambda'_2$. Since we still have the assumtion that $\lambda, \lambda'$ are distinct points, then from \labelcref{eq:inclusion_dim_2} and the fact that $\brac{\lambda_1-\lambda'_1}\in \Z$ we must have $\brac{\lambda_2-\lambda_2'} \in \Z$. And not only that, but from
+    \begin{equation*}
+        \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{\lambda_1-\lambda'_1,0}\in \Zstroke_{I^2},
+    \end{equation*}
+    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Again, by interchanging the vector notation we get that $\Lambda$ is a subset of \labelcref{eq:2d_all_shift_class_2} with $\alpha = 0$, $m = \lambda_1$ and $n = \lambda_2$, as $\lambda_1, \lambda_2 \in \Z$ for all $\lambda \in \Lambda$. Using \cref{lem:onb_direct_subset} we get that it cannot be a subset given by \labelcref{eq:2d_all_shift_class_2}, and we must have equality.
+
+    We now have established that $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2} and that there are no other spectra for $I$ in dimension $d=2$. 
+
+
+    %* dette er det vi viser heelt til slutt
+    %, and if the other element is the non-zero element, then at least one of $\lambda_1,\lambda_2$ must be non-zero. 
+
+    %* sistebiten, kanskje nyttig
+    % Now, we must also verify that $\Lambda$ must be a subset of a set given by \labelcref{eq:2d_all_shift_class_1}, and also exclude the possibility that $\brac{\lambda_2 - \lambda_2'}$ is not an integer (not necessarily a non-zero one).
 \end{proof}
 
 

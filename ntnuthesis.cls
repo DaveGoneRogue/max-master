@@ -143,10 +143,12 @@
 
 
 % * CLASS FILE LOADING
-\LoadClass[a4paper,11pt,openright, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
-\usepackage{sectsty}\let\underline\undefined % here - PS 
+\LoadClass[a4paper, 11pt, openright, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
+
+\let\underline\undefined % here - PS 
 \let\underbar\undefined % here - PS
-\allsectionsfont{\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}  % Dette fikset font erroren!!
 
 % F*** Standard latex rport style, go KOMA-style report type w
 %\LoadClass[a4paper,11pt,openright, \paging]{scrreprt}  % i.e load the standard LaTeX Report class which this is based on
@@ -186,13 +188,21 @@
 % * --- Math --- * %
 %\usepackage{ bbold }  %\mathbb{1}
 %\usepackage{ dsfont }  % \mathds{1}
+
+\RequirePackage{bm}  % Has troubles with defining to many symbols
+\let\boldsymbol\undefined
+\let\heavysymbol\undefined
+
 \RequirePackage{amsmath}                    % advanced math typesetting
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}                     % theorem environments
 \RequirePackage[                            % subfigures with captions within figures
     font=small,                             % and customisation of captions
     labelfont=bf,
-    margin=\parindent
+    margin=\parindent,
+    textfont=sf                            %! Dette funket ikke å endre font i caption
+    %textfont={Linux Libertine O}
+    %textfont={normalfont}
 ]{caption}
 \RequirePackage[                           % and subfigures with captions within figures
     font=small,
