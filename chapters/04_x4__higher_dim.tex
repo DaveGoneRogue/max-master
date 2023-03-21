@@ -18,7 +18,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     \begin{equation*}
         F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt
     \end{equation*}
-    is the following set
+    is the set
     \begin{equation*}
         \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}
     \end{equation*}
@@ -28,28 +28,46 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     The zero-set for $F_{\Omega}$ when $d=1$ is the following
     \begin{equation*}
         %\Zstroke_{I} = \braqMed{ z \in \C \setminus \braqMed{0} : \exists \space z \in  \intnozero} = \braq{z: z \in \intnozero}
-        \Zstroke_{I} = \braq{z: z \in \intnozero}
+        \Zstroke_{I} = \braq{z: z \in \intnozero} \qedhere
     \end{equation*}
 \end{example}
 
-\begin{proof}
-    BEVIS, kommer, må skrives om
+\begin{proof}[Proof of  \cref{lem:zero_set_jp_1_5}]
+    Given a vector $z \in C^d$ we can factor $F_{\Omega}$ for $\Omega = I^d$ as follows
+    \begin{align*}
+        F_{I^d} (z) &= \int_{I^d} e^{2 \pi i \braa{z,t}} dt\\
+        &= \int_{I^d} e^{2\pi i  (z_1 t_1 + \dots +z_d t_d)} dt\\
+        &= \int_{I^d} e^{2\pi i z_1 t_1}  \cdots e^{2\pi i z_d t_d}  dt\\
+        &= \int_{I} e^{2\pi i z_1 t_1} \int_{I} e^{2\pi i z_2 t_2}  \cdots \int_{I} e^{2\pi i z_d t_d}  dt_1 dt_2\dots dt_d\\
+        &=\prod_{j=1}^d \int_I e^{2\pi i z_j t_j} dt_j
+    \end{align*}
+    If $z=0$, then $e^{2\pi i z_j t_j} = 1$ and
+    \begin{align*}
+        F_{I^d} (0) = \prod_{j=1}^d \int_I 1 \space dt_j = \brac{\mes{I}}^d = 1.
+    \end{align*}
+    Thus we must have $z\in \C^d\setminus\braq{0}$. Assume now that $z\neq 0$. Integration yields
+    \begin{align*}
+        F_{I^d} (z) = \prod_{j=1}^d \frac{e^{2 \pi i z_j} -1}{2 \pi i z_j}.
+    \end{align*}
+    This equation is zero whenever at least one element $z_j\in \intnozero$ using that the exponential equals one in this case, and also not to get an undefined fraction. Thus, the zero set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof.
 \end{proof}
 
 \begin{remark}
-    Given a spectral pair $(I^d,\Lambda)$ and the following set 
+    Given a spectral pair $(I^d,\Lambda)$, consider the set
     \begin{equation*}
         \Lambda - \Lambda = \braqMed{\lambda-\lambda' : \lambda,\lambda' \in \Lambda}.
     \end{equation*}
-    Then it follows that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{\Omega}$. More specifically, if $(I^d,\Lambda)$ is a spectral pair, then
+    %! Sjekk opp denne med lydlog
+    It follows that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{\Omega}$. More specifically, if $(I^d,\Lambda)$ is a spectral pair, then
     \begin{equation*}
         \Lambda - \Lambda \subset \Zstroke_{I^d} \cup \braq{0}
     \end{equation*}
-    for non-zero elements of $\Lambda-\Lambda$. This follows immediately from the following observation
+    This follows immediately from the observation that
     \begin{equation*}
-        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_\Omega e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = \int_\Omega e^{2 \pi i \braa{z,t}} dt  = F_{\Omega} (z),
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_\Omega e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = F_{\Omega} (\lambda-\lambda'),
     \end{equation*}
-    which is zero whenever $\lambda \neq \lambda'$, that is $\lambda-\lambda'\neq 0$, which imply $\lambda-\lambda' \in \Z_{I^d}$
+    %which is zero whenever $\lambda \neq \lambda'$, that is $\lambda-\lambda'\neq 0$, which imply $\lambda-\lambda' \in \Z_{I^d}$
+    which is zero whenever $\lambda \neq \lambda'$, which implies $\lambda-\lambda' \in \Zstroke_{I^d}$
 \end{remark}
 
 \begin{example}
@@ -66,19 +84,19 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
 In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a way of constructing spectral pairs in higher dimensions from spectral pairs in lower dimensions. 
 
 \begin{theorem}[Construction of spectra]\label{thrm:construction_spectra}
-    Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in dimension $d_1$, and let $\Omega_2$ be a set of positive finite measure in dimension $d_2$. Suppose for each $\lambda_1 \in \Lambda_1$ that $\lambfunc$ is a discrete subset of $\R^{d_2}$ such that $\brac{\Omega_2,\lambfunc}$ is a spectral pair. If 
+    Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in $\R^{d_1}$, and let $\Omega_2$ be a set of positive finite measure in $\R^{d_2}$. Suppose for each $\lambda_1 \in \Lambda_1$ that $\lambfunc$ is a discrete subset of $\R^{d_2}$ such that $\brac{\Omega_2,\lambfunc}$ is a spectral pair. If 
     \begin{equation*}
         \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Lambda_1, \lambda_2 \in \lambfunc} 
     \end{equation*}
-    then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $d_1+d_2$ dimensions. 
+    then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $\R^{d_1+d_2}$ dimensions. 
 \end{theorem}
 
 \begin{remark}
-    It can be helpful to think of $\lambfunc$ as a function that assigns a discrete subset to each $\lambda_1$-value such that $\brac{\Omega_2,\lambfunc}$ is itself a spectral pair. However, $\lambfunc$ should never be considered anything other than a set of points. 
+    It can be helpful to think of $\lambfuncNoVar$ as a function that assigns a discrete subset in $\R^{d_2}$ to each $\lambda_1$-value such that $\brac{\Omega_2,\lambfunc}$ is itself a spectral pair. However, $\lambfunc$ should never be considered anything other than a set of points. 
 \end{remark}
 
 \begin{proof}
-    Given $\Lambda$ as constructed in \cref{thrm:construction_spectra}, we start by showing that the set of exponentials $E(\Lambda)$ is pairwise orthogonal in $L^2\brac{\Omega_1 \times \Omega_2}$. For two elements $e_\lambda,e_{\lambda'} \in E(\Lambda)$ we have %the following inner product %Note that $t$ denotes the vector $(t_1,t_2)$ where $t_1 in \Omega_1$ and $t_2 \in \Omega_2$
+    Given $\Lambda$ as constructed in \cref{thrm:construction_spectra}, we start by showing that the set of exponentials $E(\Lambda)$ is orthogonal in $L^2\brac{\Omega_1 \times \Omega_2}$. For two elements $e_\lambda,e_{\lambda'} \in E(\Lambda)$ we have %the following inner product %Note that $t$ denotes the vector $(t_1,t_2)$ where $t_1 in \Omega_1$ and $t_2 \in \Omega_2$
     \begin{align*}
         \braa{e_\lambda,e_{\lambda'}}_{L^2\brac{\Omega_1 \times \Omega_2}} 
         &= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda'}(t)} dt_2 dt_1\\ 
@@ -87,7 +105,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
         &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \brac{\lambda_1- \lambda_1'}t_1} e^{2\pi i \brac{\lambda_2 - \lambda_2'}t_2} dt_2 dt_1\\ 
         &= \int_{\Omega_1} e^{2\pi i  \brac{\lambda_1- \lambda_1'}t_1} \bracMed{\int_{\Omega_2}  e^{2\pi i \brac{\lambda_2 - \lambda_2'}t_2} dt_2} dt_1.
     \end{align*}
-    Note the following. If $\lambda_2 \neq \lambda_2'$, then as $\lambda_2, \lambda_2' \in \lambfunc$ the inner integral will be zero from the fact that $\brac{\Omega_2, \lambfunc}$ is a spectral pair. Conversely, if $\lambda_2 = \lambda_2'$ the resulting integral will factor as % THE inner integral will be equal to $\mes{\Omega_2}$, and the resulting integral will be
+    If $\lambda_2 \neq \lambda_2'$, then as $\lambda_2, \lambda_2' \in \lambfunc$ the inner integral will be zero from the fact that $\brac{\Omega_2, \lambfunc}$ is a spectral pair. Conversely, if $\lambda_2 = \lambda_2'$ the resulting integral will factor as % THE inner integral will be equal to $\mes{\Omega_2}$, and the resulting integral will be
     \begin{align*}
         = \mes{\Omega_2} \int_{\Omega_1} e^{2\pi i  \brac{\lambda_1- \lambda_1'}t_1} dt_1.
     \end{align*}
@@ -95,7 +113,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     \begin{align*}
         \braa{e_\lambda, e_\lambda}_{L^2\brac{\Omega_1 \times \Omega_2}}
         &= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda}(t)} dt_2 dt_1
-        =\int_{\Omega_1} \int_{\Omega_2} |e^{2 \pi i \lambda t}|^2 dt_2 dt_1
+        =\int_{\Omega_1} \int_{\Omega_2} |e^{2 \pi i \braa{\lambda, t}}|^2 dt_2 dt_1
         = \int_{\Omega_1} \int_{\Omega_2} |1|^2 dt_2 dt_1\\
         &= \mes{\Omega_2}\mes{\Omega_1} \neq 0
     \end{align*}
@@ -111,7 +129,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     \begin{equation}\label{eq:inner_eq}
         F(t_1) := \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2,
     \end{equation}
-    and make a note that $F\in L^2(\Omega_1)$. We thus have % This allows us to rewrite our initial inner product into
+    and note that $F\in L^2(\Omega_1)$. We thus have % This allows us to rewrite our initial inner product into
     \begin{equation*}%\label{eq:outter_eq}
         \braa{e_{\lambda}, f}_{L^2(\Omega_1\times \Omega_2)} = \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} F(t_1) dt_1 = \braa{e_{\lambda_1}, F}_{L^2(\Omega_1)} = 0, \quad \text{ for all } \lambda_1 \in \Lambda_1 .
     \end{equation*}
@@ -120,7 +138,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     %For almost all $t_1 \in \Omega_1$ \cref{eq:outter_eq}
 \end{proof}
 
-Let us now do some examples of \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
+Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
 \begin{example}\label{exmp:first_construction}
     Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\lambfunc = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
     \begin{equation}\label{eq:first_construction}
@@ -129,12 +147,12 @@ Let us now do some examples of \cref{thrm:construction_spectra} to illustrate it
     it follows directly from \cref{thrm:construction_spectra} that $\brac{I^2, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
 \end{example}
 
-Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \cref{thrm:construction_spectra} $d$-times will provide a proof of this result. In addition, \cref{exmp:first_construction} is also an example of a lattice spectrum. %This becomes evident when looking at FIGUREXX, which illustrates the grid-like pattern of a lattice. 
-Moreover, the increase in dimension allows for more flexibility in that we can have spectra that are not lattices. For instance, we can have the spectrum given by 
+Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \cref{thrm:construction_spectra} $d$ times will provide a proof of this result. \cref{exmp:first_construction} is an example of a lattice spectrum, but the increase in dimension allows for more flexibility in that we can also construct spectra that are not lattices. For instance, we can have the spectrum given by 
+%This becomes evident when looking at FIGUREXX, which illustrates the grid-like pattern of a lattice. 
 \begin{align}\label{eq:single_shift_func}
     \lambfunc = \begin{cases}        
-        \Z & \text{for all } \lambda_1 \in \Lambda_1 \text{ except one}\\        
-        \Z+\beta & \text{for the one, where } \beta \in \mathbb{R}   
+        \Z & \text{for all } \lambda_1 \in \Lambda_1\setminus\braq{\lambda'}\\        
+        \Z+\beta & \text{for } \lambda=\lambda',\text{ where } \beta \in \mathbb{R}   
     \end{cases}
 \end{align}
 for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$. Furthermore, we can shift on any number of the vertical axes, not just the one, and we can shift them with different amounts. In this case, we can have the spectrum given by \SigridComment{Begrense oss til kun skift mindre enn 1, og nevne at de kan være høyere, men det har ikke noe å si, eller innkludere skift på $15$. Nevner ikke noe om dette tidligere tror jeg}
@@ -157,7 +175,8 @@ for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illus
 
 \SigridComment{ BEGYN HER MAX}
 \begin{lemma}\label{lem:beta_shift}
-    Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$ respectivly. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$ to denote the shift in the spectrum for $\Omega_2$ at each $\lambda_1$-value, and let
+    Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$ respectivly. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$, and let
+    % $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$ to denote the shift in the spectrum for $\Omega_2$ at each $\lambda_1$-value, and let %* unødvendig?
     \begin{equation}
         \Lambda = \Lambda_\beta
         = \braqMed{\begin{pmatrix}
@@ -168,25 +187,26 @@ for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illus
     \end{equation}
     Then $\brac{\Omega_1 \times \Omega_2,\Lambda_\beta}$ is a spectral pair in $d_1+d_2$ dimensions. 
 \end{lemma}
+\begin{proof}
+    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
+\end{proof}
 \begin{remark}
-    We can also shift the spectrum for $\Omega_1$, in which case
+    We can also shift the spectrum for $\Omega_1$ by a vector $\alpha \in \R^{d_1}$, to obtain the spectrum 
     \begin{equation*}
         \Lambda = \Lambda_{\alpha,\beta} 
         = \braqMed{\begin{pmatrix}
             \lambda_1 +\alpha\\
             \lambda_2+\betafunc(\lambda_1)
             \end{pmatrix}
-        : \lambda_1 \in \Lambda_1 \text{ and } \lambda_2 \in \Lambda_2}.
+        : \lambda_1 \in \Lambda_1 \text{ and } \lambda_2 \in \Lambda_2}
     \end{equation*}
+    for $\Omega_1 \times \Omega_2$.
 \end{remark}
 %! Her representerer "funksjonen" vi hadde over, både en plaserings funksjon på \lambda_1, i tillegg til å skifte spektrumet akk. her med en reel verdi 
 %! Funksjonen beta, poppulerer vektoren beta med elementer som er gitt av funksjonen. 
-\begin{proof}
-    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
-\end{proof}
 
 \begin{example}
-    For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is also a spectral pair where
+    For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is a spectral pair where
     \begin{equation*}
         \Lambda_{\alpha,\beta} 
         = \braqMed{\begin{pmatrix}
@@ -199,8 +219,7 @@ for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illus
 
 
 \begin{example}
-    By repeated application of \cref{lem:beta_shift} it will follow that $\brac{\Omega,\Lambda}= \brac{I^d, \Lambda}$ is a spectral pair where 
-    the spectrum $\Lambda$ is the set of points given by
+    By repeated application of \cref{lem:beta_shift} it will follow that $\brac{\Omega,\Lambda}= \brac{I^d, \Lambda}$ is a spectral pair if $\Lambda$ is given by % where the spectrum $\Lambda$ is the set of points given by
     \begin{equation*}
         \begin{pmatrix}
             \lambda_1 +\alpha\\
@@ -214,13 +233,13 @@ for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illus
     %* Skriv om; It is clear that the modifications result from the permutation of the $d$ coordinates.
 \end{example}
 
-
-
-As with \cref{prop:class_all_shift}, we can classify all spectra in dimension two as follows. This significant result was proven by Pedersen and Jorgensen in the same paper \cite{jorgensenSpectralPairsCartesian2001}. 
+%As with \cref{prop:class_all_shift}, we can classify all spectra in dimension two as follows. This significant result was proven by Pedersen and Jorgensen in the same paper \cite{jorgensenSpectralPairsCartesian2001}. 
+We can now classify all spectra in dimension two as follows (\cite{jorgensenSpectralPairsCartesian2001}). 
 
 \begin{theorem}\label{thrm:class_all_shift_2d}
-    %$\braq{\beta_m \in [0,1) : m \in \Z}$ ANDRE skrivemåten for beta_m
-    For a fixed value $\alpha \in \R$ and an infinite sequence $\brac{\beta_m}_{m\in \Z}$, $\beta_m \in [0,1)$, the only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $I^2$ are either one of the two classes:
+    %$\braq{\beta_m \in [0,1) : m \in \Z}$  %* ANDRE skrivemåten for beta_m
+    %For a fixed value $\alpha \in \R$ and an infinite sequence $\brac{\beta_m}_{m\in \Z}$, $\beta_m \in [0,1)$,  %* gammel
+    The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $\Omega = I^2$ are either one of the two classes
     \begin{equation}\label{eq:2d_all_shift_class_1}
         \Lambda = \braqMed{
             \begin{pmatrix}
@@ -238,6 +257,7 @@ As with \cref{prop:class_all_shift}, we can classify all spectra in dimension tw
             \end{pmatrix} : m,n \in  \Z
             }
     \end{equation}
+    where $\alpha \in \R$ is fixed and $\brac{\beta_m}_{m\in \Z}$ is an infinite sequence with $\beta_m \in [0,1)$.
     %! \SigridComment{ekskludert delen om at det også er et tiling set, det er vel hensiktsmessik og splitte disse opp, og komme tilbake til det i neste del, for å så komme med fulle og hele theorem 3.2.} 
 \end{theorem}
 %!remark on the half open interval\\
@@ -255,11 +275,11 @@ As with \cref{prop:class_all_shift}, we can classify all spectra in dimension tw
     \begin{equation}\label{eq:zeroset_dim_2}
         \Zstroke_{I^2} = \braqMed{z = \brac{z_1,z_2} \in \C^2 : \exists \space j \in \braq{1,2} \text{ such that } z_j \in \intnozero}.
     \end{equation}
-    To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$, and only assume that the other element is the zero-element. From \labelcref{eq:inclusion_dim_2} we must have
+    To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$. From \labelcref{eq:inclusion_dim_2} we must have
     \begin{equation*}%* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
         \brac{\lambda_1, \lambda_2} - \brac{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}
     \end{equation*}
-    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer. We will use this to show that both must be integers where one is non-zero. Now, take another arbitrary distinct element $\lambda'$ from $\Lambda$ using the two latter assumptions established for elements of $\Lambda$, but with opposite assumptions than for $\lambda$. There are two possibilities to do this, so first take $\lambda_1$ and $\lambda_2'$ to be non-zero integers, and take $\lambda_2$ and $\lambda_1'$ to be non-integers. Then, using  \labelcref{eq:inclusion_dim_2} and the fact that both 
+    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This means that at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer for every $\lambda \in \Lambda$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer. Now, take another arbitrary distinct element $\lambda'$ from $\Lambda$ using the two latter assumptions established for elements of $\Lambda$, but with opposite assumptions than for $\lambda$. There are two possibilities to do this, so first take $\lambda_1$ and $\lambda_2'$ to be non-zero integers, and take $\lambda_2$ and $\lambda_1'$ to be non-integers. Then, using  \labelcref{eq:inclusion_dim_2} and the fact that both 
     \begin{align*}
         \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
         \quad \text{and} \quad

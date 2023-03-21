@@ -25,17 +25,17 @@
 
 %! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her. Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
 The case where $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced from the inner product
-\begin{equation}
+\begin{equation*}
     \braaMed{f, g}_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
-\end{equation}
+\end{equation*}
 for two functions $f,g\in L^2(E)$. By the Riesz-Fischer theorem \cite[p.~279]{heilIntroductionRealAnalysis2019}, all $L^p$ spaces are complete with respect to the \LPnorm. Hence, $L^2(E)$ is a Hilbert space. 
 
 %! \colorbox{BurntOrange}{Overgang} Synes det trengs overgang her
 %* —————————————————————————————————————— C Cont. FUNCTIONS ——————————————————————————————————————
 Let
-\begin{equation}
+\begin{equation*}
     C([a,b]) = \braq{f:[a,b] \rightarrow \mathbb{C}: f \text{ is continuous on } [a,b]}
-\end{equation}
+\end{equation*}
 denote the set of all continuous, scalar-valued functions whose domain is the closed and bounded interval $\bras{a,b}$. The following useful result with proof can be found in \cite[p.~326]{rudinPrinciplesMathematicalAnalysis20}. 
 \begin{lemma}\label{lem:c_dense_L2}
     The set of all continuous functions $C([a,b])$ is dense in the space $L^2([a,b])$ with respect to the \Ltwonorm.
@@ -43,17 +43,17 @@ denote the set of all continuous, scalar-valued functions whose domain is the cl
 
 %* —————————————————————————————————————— C PERIODIC FUNCTIONS ——————————————————————————————————————
 Similarly, let 
-\begin{equation}
+\begin{equation*}
     \Cper([a,b])= \braqMed{f \in C[a,b]: f(a)=f(b)}
-\end{equation}
+\end{equation*}
 denote the set of all continuous, real-valued functions on the interval $\bras{a,b}$ satisfying $f(a)=f(b)$. It is periodic in the sense that each element $f$ can be extended to the whole real line by setting 
-\begin{equation}
+\begin{equation*}
     f(t+Pn) = f(t), \quad t\in \bras{a,b},
-\end{equation}
+\end{equation*}
 for $n\in \Z$ and $P=b-a$. We say that the extended function $f$ is $P$\emph{-periodic} as it repeats after $P$ units, meaning
-\begin{equation}
+\begin{equation*}
     f(t+P) = f(t), \quad t\in \R.
-\end{equation}
+\end{equation*}
 The converse is also true, meaning we have a one-to-one correspondence between elements of $\Cper([a,b])$ and functions that are $P$-periodic on the real line. % if $f'$ is a $P$-periodic function on $\R$, then when $f'$ is restricted to the domain $\bras{a,b}$ it is also an element of $\Cper([a,b])$.
 Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$, and note that the proof closely follows the one by Heil in \cite[p.~228]{heilMetricsNormsInner2018}.  % although it is never explicitly stated.
 \begin{lemma}\label{lem:c_per_dense_c_and_dense_L2}

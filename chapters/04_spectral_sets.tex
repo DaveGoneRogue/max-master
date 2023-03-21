@@ -34,9 +34,9 @@
 %When considering
 
 Given a subset with finite and positive measure $\Omega$, recall that we denote by $E(\Lambda)$ the set of exponentials
-\begin{align}\label{eq:exp_set_all_d}
-    E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Lambda} = \braqMed{\indicator{\Omega}{t} e^{2 \pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d
-\end{align}
+\begin{align*}%\label{eq:exp_set_all_d}
+    E(\Lambda) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Lambda} = \braqMed{\indicator{\Omega}{t} e^{2 \pi i \braa{\lambda, t}} : \lambda \in \Lambda}, \quad t\in \R^d
+\end{align*}
 in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$.
 \begin{definition}[Spectral set] \label{def:spectral_set}
     Let $\Omega \subset \R^d$ be a bounded subset with $0< \operatorname{mes} \Omega < \infty$. If the set of exponentials $E(\Lambda)$ form an \textsc{orthogonal} basis for $L^2 (\Omega)$ and $\Lambda \subseteq \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair} \cite{liuUniformityNonUniformGabor2003}.
@@ -44,9 +44,9 @@ in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$.
 
 %! Synes ikke denne setningen starter meningsfult
 Spectral sets and spectra are useful and interesting. One evident reason follows directly from the basis property. That is, every function $f \in L^2(\Omega)$ has a series expansion given by
-\begin{equation}
+\begin{equation*}
     f = \sum_{\lambda \in \Lambda} c_{\lambda} e_{\lambda},
-\end{equation}
+\end{equation*}
 with $e_\lambda \in E(\Lambda)$, and constants explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. Moreover, the orthogonality condition guarantees that the series expansion is \emph{unique}.
 
 Due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making them highly rigid structures. In other words, not many sets $\Omega$ have the property of being spectral. However, once we have one spectrum for a spectral set, observe that the spectrum is shift-invariant.
