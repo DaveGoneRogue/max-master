@@ -223,13 +223,13 @@ for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$ which is illus
     \begin{equation*}
         \begin{pmatrix}
             \lambda_1 +\alpha\\
-            \lambda_2+\beta_2(\lambda_1)\\
-            \lambda_3+\beta_3(\lambda_1,\lambda_2)\\
+            \lambda_2+\betafunc_2(\lambda_1)\\
+            \lambda_3+\betafunc_3(\lambda_1,\lambda_2)\\
             \vdots\\
-            \lambda_d+\beta_d(\lambda_1,\dots,\lambda_{d-1})\\
+            \lambda_d+\betafunc_d(\lambda_1,\dots,\lambda_{d-1})\\
         \end{pmatrix}
     \end{equation*}
-    where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\beta_{i+1}:\Z^{i} \rightarrow [0,1)$ are fixed functions.
+    where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\betafunc_{i+1}:\Z^{i} \rightarrow [0,1)$ are fixed functions.
     %* Skriv om; It is clear that the modifications result from the permutation of the $d$ coordinates.
 \end{example}
 
@@ -243,8 +243,8 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
     \begin{equation}\label{eq:2d_all_shift_class_1}
         \Lambda = \braqMed{
             \begin{pmatrix}
-            \alpha + m\\
-            \beta_m + n
+            m + \alpha \\
+            n + \beta_m
             \end{pmatrix} : m,n \in  \Z
             }
     \end{equation}
@@ -252,8 +252,8 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
     \begin{equation}\label{eq:2d_all_shift_class_2}
         \Lambda = \braqMed{
             \begin{pmatrix}
-            \beta_n + m\\
-            \alpha + n
+            m + \beta_n\\
+            n + \alpha
             \end{pmatrix} : m,n \in  \Z
             }
     \end{equation}
@@ -265,35 +265,80 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
 %!remark om at vi ikke kan ha ulike skift i to retninger, skiftene i den ene retningen må være fiksert.\\
 
 
-
 \begin{proof}
     It follows directly from \cref{lem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
     \begin{equation}\label{eq:inclusion_dim_2}
         \Lambda - \Lambda \subset \Zstroke_{I^2} \cup \braq{0}
     \end{equation}
     where the zero-set $\Zstroke_{I^2}$ given in \cref{lem:zero_set_jp_1_5} is
-    \begin{equation}\label{eq:zeroset_dim_2}
+    \begin{equation*}\label{eq:zeroset_dim_2}
         \Zstroke_{I^2} = \braqMed{z = \brac{z_1,z_2} \in \C^2 : \exists \space j \in \braq{1,2} \text{ such that } z_j \in \intnozero}.
-    \end{equation}
+    \end{equation*}
     To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$. From \labelcref{eq:inclusion_dim_2} we must have
     \begin{equation*}%* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
-        \brac{\lambda_1, \lambda_2} - \brac{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}
+        \bracMed{\lambda_1, \lambda_2} - \bracMed{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}.
     \end{equation*}
-    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This means that at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer for every $\lambda \in \Lambda$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer. Now, take another arbitrary distinct element $\lambda'$ from $\Lambda$ using the two latter assumptions established for elements of $\Lambda$, but with opposite assumptions than for $\lambda$. There are two possibilities to do this, so first take $\lambda_1$ and $\lambda_2'$ to be non-zero integers, and take $\lambda_2$ and $\lambda_1'$ to be non-integers. Then, using  \labelcref{eq:inclusion_dim_2} and the fact that both 
+    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This means that at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer for every $\lambda \in \Lambda$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer so that we have $\lambda\notin \Z^2$. There are two ways to do this, take first $\lambda_1$ to be a non-zero integer, and take $\lambda_2$ to be a non-integer. Now, take another arbitrary element $\lambda'$ from $\Lambda$ such that $\lambda'\neq \lambda$. Again, using our assumptions, we have two ways to choose $\lambda_1'$ and $\lambda_2'$. Take $\lambda_1'$ to be a non-integer and $\lambda_2'$ to be a non-zero integer. Then, the fact that we now have 
+    \begin{align*} %* husk at vi "er glad i non-zero" kun hvis vi sammelinger med null elemenntet i minusstykket $\lambda- (0,0) \in \Zstroke$.
+        \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
+        \quad \text{and} \quad
+        \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\in \intnozero}} \notin \intnozero,
+    \end{align*}
+    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. As such, with our initial assumptions for $\lambda$, we must have the other choice for $\lambda_1'$ and $\lambda_2'$. That is, $\lambda_1'$ must be an integer for any element $\lambda'\in \Lambda$, since this implies
+    \begin{align*} %*, which corresponds to the fact that the "x-axis values" distribution is an integer!
+        \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\in \Z}} \in \intnozero
+        \quad \text{and} \quad
+        \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\notin \Z}} \notin \intnozero.
+    \end{align*}
+    and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. 
+    We now have %! Sier vel egentlig her at $\lambda_1 = m + \alpha$
+    \begin{align*}
+        \Lambda = \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R}.
+    \end{align*}
+    %* For et gitt punkt har jeg et heltall her (i 1. koord.). DET presser frem at den andre, med mindre det er et element i Z^2 , medfølger at alle andre elementer må ha et heltall i første koordinat. KRITISK. 
+    %* DVS, forskjellige linjer på x-aksen, da trenger det ikke være en sammenheng
+    %* MEN to punkter på samme linje, da skjer det ting -> da må differansen være et heltall
+    Going forward, take $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_1,\lambda'_1 \in \Z$ with $\lambda_1 = \lambda'_1$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have 
+    \begin{equation*}
+        \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{0,\lambda_2-\lambda'_2}\in \Zstroke_{I^2},
+    \end{equation*}
+    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. Note that since we still have $\lambda_2\in \R$ we can always write $\lambda_2 = n+\beta_{\lambda_1}$ where $n\in \Z$ and $\beta_{\lambda_1}\in [0,1)$ denotes the shift.
+    Furthermore, interchanging the vector notation from row to column form, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ and $\lambda_2 = n+\beta_m$ where $\alpha = 0$. That is,
+    \begin{equation*}
+        \Lambda = \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z} 
+    \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
+    From \cref{lem:onb_direct_subset}, we know that we cannot have an orthonormal basis as a direct subset of another orthonormal basis. Thus we must have equality, and $\Lambda$ must(, in this first case,) be equal to \labelcref{eq:2d_all_shift_class_1}.
+    %*which corresponds to the fact that the distribution of 
+    %*the elements are at different $\lambda_1$ points fo, \SigridComment{har lyst til å si "x-akse", eller forskjellige linjer, men finner ikke helt riktig ordvalg her} har lyst til å 
+
+    
+    
+    In other words, we cannot have opposite assumptions for $\lambda_1'$ and $\lambda_2'$, and have shown that 
+
+    tilfelle 2, vet da at vi må ha ikke motsatte assumptions for å ikke få contradiction. Dvs, 
+    ligning. 
+    
+
+
+    
+    using the two latter assumptions established for elements of $\Lambda$, but with opposite assumptions than for $\lambda$. There are two possibilities to do this, so first take $\lambda_1$ and $\lambda_2'$ to be non-zero integers, and take $\lambda_2$ and $\lambda_1'$ to be non-integers. Then, using  \labelcref{eq:inclusion_dim_2} and the fact that both 
     \begin{align*}
         \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
         \quad \text{and} \quad
         \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\in \intnozero}} \notin \intnozero
     \end{align*}
     we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. As such, we must have at least $\lambda_1'\in \Z$ for any element $\lambda'\in \Lambda$, since this implies $\brac{\lambda_1 - \lambda_1'}\in \intnozero$ and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. We have, however, not excluded the possibility that $\lambda_2$, and hence also $\brac{\lambda_2 - \lambda_2'}$, must also be an integer.
+
+
+
+    To show this, take $\lambda_1,\lambda'_1 \in \Z$ (not $\intnozero$!), and let $\lambda_1 = \lambda'_1$. We need no assumptions on $\lambda_2$ and $\lambda'_2$. Recall that $\lambda,\lambda'$ are distinct points. 
     
-    \SigridComment{stemmer denne siste setningen, eller kan man nå egentlig direkte argumentere for at elementene fra $\Lambda$ er heltall i begge "koordinater".} 
-    
-    To show this, take $\lambda_1,\lambda'_1 \in \Z$ (not $\intnozero$!), and let $\lambda_1 = \lambda'_1$. We need no assumptions on $\lambda_2$ and $\lambda'_2$. Recall that $\lambda,\lambda'$ are distinct points. Then, from \labelcref{eq:inclusion_dim_2} and the fact that $\brac{\lambda_1-\lambda'_1}\in \Z$ we must have $\brac{\lambda_2-\lambda_2'} \in \Z$. And not only that, but from
+    Then, from \labelcref{eq:inclusion_dim_2} and the fact that $\brac{\lambda_1-\lambda'_1}\in \Z$ we must have $\brac{\lambda_2-\lambda_2'} \in \Z$. And not only that, but from
     \begin{equation*}
         \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{0,\lambda_2-\lambda'_2}\in \Zstroke_{I^2},
     \end{equation*}
-    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. By interchanging the vector notation from row to column form, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1} with $\alpha = 0$, $m = \lambda_1$ and $n = \lambda_2$, as we have shown $\lambda_1, \lambda_2 \in \Z$ for all $\lambda \in \Lambda$. Furthermore, we know from \cref{lem:onb_direct_subset} that we cannot have an orthonormal basis as a direct subset of another orthonormal basis, thus we must have equality, and we have that $\Lambda$ is given by \labelcref{eq:2d_all_shift_class_1}.
+    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. 
+    By interchanging the vector notation from row to column form, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1} with $\alpha = 0$, $m = \lambda_1$ and $n = \lambda_2$, as we have shown $\lambda_1, \lambda_2 \in \Z$ for all $\lambda \in \Lambda$. Furthermore, we know from \cref{lem:onb_direct_subset} that we cannot have an orthonormal basis as a direct subset of another orthonormal basis, thus we must have equality, and we have that $\Lambda$ is given by \labelcref{eq:2d_all_shift_class_1}.
 
     Let us now go back a few steps, and consider the other possibility. That is, take $\lambda_1$ and $\lambda_2'$ to be non-integers, and take $\lambda_2$ and $\lambda_1'$ to be non-zero integers. Then, from the fact that both 
     \begin{align*}
