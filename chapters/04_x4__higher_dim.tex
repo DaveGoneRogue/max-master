@@ -142,9 +142,9 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
 Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
 \begin{example}\label{ex:first_construction}
     Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\lambfunc = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
-    \begin{equation*}%\label{eq:first_construction}
-        \Lambda  = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \in \lambfunc },
-    \end{equation*}
+    \begin{equation}\label{eq:first_construction}
+        \Lambda  = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc },
+    \end{equation}
     it follows directly from \cref{thrm:construction_spectra} that $\brac{I^2, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
 \end{example}
 
@@ -157,42 +157,45 @@ Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \
             \Z+\beta & \text{if } \lambda_1=\lambda_1',\text{ where } \beta \in \mathbb{R}.   
         \end{cases}
     \end{align}
-    Then the resulting spectrum for $I^2$ is 
-    \begin{equation}\label{eq:single_shift_vertical_spectrum}
-        \Lambda = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc},
-    \end{equation}
-    which is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$
+    Then the resulting spectrum for $I^2$ will be the same as \labelcref{eq:first_construction} in \cref{ex:first_construction} but with $\lambfuncNoVar$ now given by \labelcref{eq:single_shift_vertical}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical} with $\beta = 0.5$.
+    %\begin{equation}\label{eq:single_shift_vertical_spectrum}
+    %    \Lambda = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc},
+    %\end{equation}
+    %which is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$.
 \end{example} %* for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$. NEI, dette er et valg av L(.) mer enn et spektrum.  og i den grad det er et spektrum så er jo hvert enkelt L(.) et spektrum for I.
 
 Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ value as done in \cref{ex:single_shift_vertical}. 
-\begin{example}\label{ex:eq:multiple_shift_vertical}
-    For instance, letting $\Omega_1=\Omega_2 = I$ in \cref{thrm:construction_spectra}, we can choose $\Lambda_1 = \Z$ and 
-    \begin{align}\label{eq:multiple_shit_func}
+\begin{example}\label{ex:multiple_shift_vertical}
+    Again, letting $\Omega_1=\Omega_2 = I$ in \cref{thrm:construction_spectra}, we can choose $\Lambda_1 = \Z$ and 
+    \begin{align}\label{eq:multiple_shift_vertical}
         \lambfunc = \begin{cases}
-            \vdots\\        
+            & \text{ \space \space }\vdots\\        
             \Z+0 & \text{for } \lambda_1 = -1 \in \Lambda_1\\
             \Z+0.3 & \text{for } \lambda_1 = \text{\space\space\space} 0 \in \Lambda_1,\\
             \Z+0.8 & \text{for } \lambda_1 = \text{\space\space\space} 1 \in \Lambda_1,\\
             \Z+0.5 & \text{for } \lambda_1 = \text{\space\space\space} 2 \in \Lambda_1,\\
             \Z+0.9 & \text{for } \lambda_1 = \text{\space\space\space} 3 \in \Lambda_1,\\
             \Z-0.3 & \text{for } \lambda_1 = \text{\space\space\space} 4 \in \Lambda_1,\\
-            \vdots
+            & \text{ \space \space }\vdots
         \end{cases}
     \end{align}
-    Then $\Lambda$ in \labelcref{eq:single_shift_vertical_spectrum} is the resulting spectrum for $I^2$ with $\lambfuncNoVar$ now given by \labelcref{eq:multiple_shit_func}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical}. Note that there is no reason to consider shifts $\beta \geq 1$ as we can always write the shift as some value $n+\beta$ where $n\in \Z$ and $\beta \in [0,1)$.
+    Then $\Lambda$ in \labelcref{eq:first_construction} is the resulting spectrum for $I^2$ with $\lambfuncNoVar$ now given by \labelcref{eq:multiple_shift_vertical}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical}. Note that there is no reason to consider shifts $\beta \geq 1$ as we can always write the shift as some value $n+\beta$ where $n\in \Z$ and $\beta \in [0,1)$.
 \end{example}
 
 \begin{remark}
-    Moreover, we can, in addition to choosing $\Omega_1=\Omega_2 = I$ and $\lambfuncNoVar$ given by \labelcref{eq:multiple_shit_func} as in \cref{ex:eq:multiple_shift_vertical} also shift $\Lambda_1$, with, for example, $\alpha = 0.4$ as illustrated in \cref{fig:multiple_shift_horizontal}.
+    Moreover, we can, in addition to choosing $\Omega_1=\Omega_2 = I$ and $\lambfuncNoVar$ given by \labelcref{eq:multiple_shift_vertical} as in \cref{ex:multiple_shift_vertical} also shift $\Lambda_1$, with, for example, $\alpha = 0.4$. %as illustrated in \cref{fig:multiple_shift_horizontal}.
     At last, we can also shift the roles of $\Lambda_1$ and $\Lambda_2$ to get a new spectrum. That is,
     \begin{equation*}
+        \Lambda = \braqMed{\bracMed{\lambda_1, \lambda_2}: \lambda_1 \in \lambfuncGen{\lambda_2}, \lambda_2 \in \Lambda_2 },
         %\Lambda = \braqMed{\begin{pmatrix}\lambda_1 \\ \lambda_2 \end{pmatrix}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc}
-        \Lambda = \begin{pmatrix}\lambfuncGen{\lambda_2} \\ \Lambda_2 \end{pmatrix}
+        %\Lambda = \begin{pmatrix}\lambfuncGen{\lambda_2} \\ \Lambda_2 \end{pmatrix}
     \end{equation*}
+    %The latter of which is illustrated in \cref{fig:multiple_shift_horizontal}.
+    which is illustrated in \cref{fig:multiple_shift_horizontal}.
 \end{remark}
 
-%! Sjekke figurteksten
-%! OVERGANG til lemma, se ark til venstre
+As has been observed, increasing the dimension by one from one opens up several new possibilities in our choices for the spectrum. This is most evident in our many choices for $\lambfuncNoVar$. To capture the flexibility illustrated in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we introduce the following \namecref{lem:beta_shift}.
+%! Ikke whitespace i multiple references.
 
 %! FIGURE INPUT
 \input{figures/figure-tex/spectra_figures.tex}
@@ -211,9 +214,9 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
     \end{equation}
     Then $\brac{\Omega_1 \times \Omega_2,\Lambda_\beta}$ is a spectral pair in $d_1+d_2$ dimensions. 
 \end{lemma}
-\begin{proof}
-    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
-\end{proof}
+%\begin{proof} %! No proof needed here
+%    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
+%\end{proof}
 \begin{remark}
     We can also shift the spectrum for $\Omega_1$ by a vector $\alpha \in \R^{d_1}$, to obtain the spectrum 
     \begin{equation*}
@@ -226,8 +229,8 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
     \end{equation*}
     for $\Omega_1 \times \Omega_2$.
 \end{remark}
-%! Her representerer "funksjonen" vi hadde over, både en plaserings funksjon på \lambda_1, i tillegg til å skifte spektrumet akk. her med en reel verdi 
-%! Funksjonen beta, poppulerer vektoren beta med elementer som er gitt av funksjonen. 
+%* Her representerer "funksjonen" vi hadde over, både en plaserings funksjon på \lambda_1, i tillegg til å skifte spektrumet akk. her med en reel verdi 
+%* Funksjonen beta, poppulerer vektoren beta med elementer som er gitt av funksjonen. 
 
 \begin{example}
     For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is a spectral pair where
@@ -254,7 +257,8 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
         \end{pmatrix}
     \end{equation*}
     where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\betafunc_{i+1}:\Z^{i} \rightarrow [0,1)$ are fixed functions.
-    %* Skriv om; It is clear that the modifications result from the permutation of the $d$ coordinates.
+    %* Skriv om fra JP; It is clear that the modifications result from the permutation of the $d$ coordinates. 
+    %! Trengs det egt? Bedre å ikke nevne?
 \end{example}
 
 %* ———————————————————————————————————————— Del 5, Klassefisering av alle
@@ -287,7 +291,6 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
 %!remark on the half open interval\\
 %!remark om hvorfor sequencen er essensiell i dette tilfellet for å klassifisere alle skiftene\\ %, samenlignet bare med bare noen random skift
 %!remark om at vi ikke kan ha ulike skift i to retninger, skiftene i den ene retningen må være fiksert.\\
-
 
 \begin{proof}
     It follows directly from \cref{lem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
@@ -355,7 +358,5 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
     From \cref{lem:onb_direct_subset}, we once more get that $\Lambda$ cannot be a subset of \labelcref{eq:2d_all_shift_class_2} and that we must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}, and there are no other spectra for $I$ in dimension $d=2$.
 \end{proof}
-
-
 
 \end{document}
