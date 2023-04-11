@@ -36,23 +36,20 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
 }
 
 \begin{proof} %! [Proof of  \cref{lem:zero_set_jp_1_5}] % Hvis proof med navn
-    Given a vector $z \in C^d$ we can factor $F_{\Omega}$ for $\Omega = I^d$ as follows
+    Given a vector $z \in \C^d$ we can factor $F_{\Omega}$ for $\Omega = I^d$ as follows
     \begin{align*}
         F_{I^d} (z) &= \int_{I^d} e^{2 \pi i \braa{z,t}} dt\\
         &= \int_{I^d} e^{2\pi i  (z_1 t_1 + \dots +z_d t_d)} dt\\
         &= \int_{I^d} e^{2\pi i z_1 t_1}  \cdots e^{2\pi i z_d t_d}  dt\\
-        &= \int_{I} e^{2\pi i z_1 t_1} \int_{I} e^{2\pi i z_2 t_2}  \cdots \int_{I} e^{2\pi i z_d t_d}  dt_1 dt_2\dots dt_d\\
-        &=\prod_{j=1}^d \int_I e^{2\pi i z_j t_j} dt_j
+        &= \int_{I} e^{2\pi i z_1 t_1} \int_{I} e^{2\pi i z_2 t_2}  \cdots \int_{I} e^{2\pi i z_d t_d}  dt_1 dt_2\dots dt_d\\ %! DENNE kan sløyfes
+        &= \prod_{j=1}^d \int_I e^{2\pi i z_j t_j} dt_j\\
+        &= \prod_{j=1}^d \frac{e^{2 \pi i z_j} -1}{2 \pi i z_j}
     \end{align*}
-    If $z=0$, then $e^{2\pi i z_j t_j} = 1$ and
-    \begin{align*}
-        F_{I^d} (0) = \prod_{j=1}^d \int_I 1 \space dt_j = \brac{\mes{I}}^d = 1.
-    \end{align*}
-    Thus we must have $z\in \C^d\setminus\braq{0}$. Assume now that $z\neq 0$. Integration yields
-    \begin{align*}
-        F_{I^d} (z) = \prod_{j=1}^d \frac{e^{2 \pi i z_j} -1}{2 \pi i z_j}.
-    \end{align*}
-    This equation is zero whenever at least one element $z_j\in \intnozero$ using that the exponential equals one in this case, and also not to get an undefined fraction. Thus, the zero set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof.
+    Note that if any $z_j = 0$, we interpret the corresponding factor in the product as $1$. Furthermore, assume that $z\neq 0$ as this implies that at least one factor $z_j\neq 0$. In this case, observe that the equation is zero whenever at least one element $z_j\in \intnozero$ using that the exponential equals one in this case. Thus, the zero set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof. %* Første setning: In other words, reducing the total number of factors in the product.
+    %If $z=0$, then we would have $e^{2\pi i z_j t_j} = 1$ and %* Trengs ikke, fordi vi er ute etter når det bir null
+    %\begin{align*}
+    %    F_{I^d} (0) = \prod_{j=1}^d \int_I 1 \space dt_j = \brac{\mes{I}}^d = 1.
+    %\end{align*}
 \end{proof}
 
 \begin{remark}
@@ -72,7 +69,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     which is zero whenever $\lambda \neq \lambda'$, which implies $\lambda-\lambda' \in \Zstroke_{I^d}$
 \end{remark}
 
-\begin{example}
+\begin{example} %! Opp til deg, derfor vi ikke har tatt det vekk
     As we have verified in \labelcref{eq:zero_set_equation}, the zero-set for $F_{I}$ is  $\Zstroke_{I} = \intnozero$. Furthermore, when $\Lambda=\Z$, the non-zero elements of $\Lambda - \Lambda$ is simply $\intnozero$. then clearly
     \begin{equation*}
         \intnozero \subset \Zstroke_{I} \cup \braq{0} = \Z.
@@ -85,9 +82,9 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
 
 \begin{theorem}[Construction of spectra]\label{thrm:construction_spectra}
     Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in $\R^{d_1}$, and let $\Omega_2$ be a set of positive finite measure in $\R^{d_2}$. Suppose for each $\lambda_1 \in \Lambda_1$ that $\lambfunc$ is a discrete subset of $\R^{d_2}$ such that $\brac{\Omega_2,\lambfunc}$ is a spectral pair. If 
-    \begin{equation*}
+    \begin{equation}\label{eq:construction_spectra}
         \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Lambda_1, \lambda_2 \in \lambfunc} 
-    \end{equation*}
+    \end{equation}
     then $\brac{\Omega_1\times\Omega_2, \Lambda}$ is a spectral pair in $\R^{d_1+d_2}$ dimensions. 
 \end{theorem}
 
@@ -142,9 +139,13 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
 Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
 \begin{example}\label{ex:first_construction}
     Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\lambfunc = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
-    \begin{equation}\label{eq:first_construction}
+    %\begin{equation*}
+    %    \lambfunc = \Z \text{ for all } \lambda_1 \in \Lambda_1
+    %\end{equation*}
+    %Now, letting 
+    \begin{equation*}%\label{eq:first_construction}
         \Lambda  = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc },
-    \end{equation}
+    \end{equation*}
     it follows directly from \cref{thrm:construction_spectra} that $\brac{I^2, \Lambda}$ is a spectral pair in $1+1=2$ dimensions.
 \end{example}
 
@@ -157,7 +158,12 @@ Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \
             \Z+\beta & \text{if } \lambda_1=\lambda_1',\text{ where } \beta \in \mathbb{R}.   
         \end{cases}
     \end{align}
-    Then the resulting spectrum for $I^2$ will be the same as \labelcref{eq:first_construction} in \cref{ex:first_construction} but with $\lambfuncNoVar$ now given by \labelcref{eq:single_shift_vertical}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical} with $\beta = 0.5$.
+    %! VURDER Å LEGGE INN $\Lambda$ inn i: ... resulting spectrum $\Lambda$ for $I^2$...
+    Then the resulting spectrum for $I^2$ will be given by \labelcref{eq:construction_spectra} with $\lambfuncNoVar$ now given by \labelcref{eq:single_shift_vertical}. That is,
+    \begin{equation*}
+        \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc}.
+    \end{equation*}
+    This spectrum is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$.
     %\begin{equation}\label{eq:single_shift_vertical_spectrum}
     %    \Lambda = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc},
     %\end{equation}
@@ -179,12 +185,16 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
             & \text{ \space \space }\vdots
         \end{cases}
     \end{align}
-    Then $\Lambda$ in \labelcref{eq:first_construction} is the resulting spectrum for $I^2$ with $\lambfuncNoVar$ now given by \labelcref{eq:multiple_shift_vertical}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical}. Note that there is no reason to consider shifts $\beta \geq 1$ as we can always write the shift as some value $n+\beta$ where $n\in \Z$ and $\beta \in [0,1)$.
+    Then $\Lambda$ given by \labelcref{eq:construction_spectra} is the resulting spectrum for $I^2$ with $\lambfuncNoVar$ now given by \labelcref{eq:multiple_shift_vertical}. That is,
+    \begin{equation*}
+        \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc}.
+    \end{equation*}
+    This spectrum is illustrated in \cref{fig:multiple_shift_vertical}. Note that there is no reason to consider shifts $\beta \geq 1$ as we can always write the shift as some value $n+\beta$ where $n\in \Z$ and $\beta \in [0,1)$.
 \end{example}
 
-\begin{remark}
+\begin{remark}\label{rem:switch_lambda}
     Moreover, we can, in addition to choosing $\Omega_1=\Omega_2 = I$ and $\lambfuncNoVar$ given by \labelcref{eq:multiple_shift_vertical} as in \cref{ex:multiple_shift_vertical} also shift $\Lambda_1$, with, for example, $\alpha = 0.4$. %as illustrated in \cref{fig:multiple_shift_horizontal}.
-    At last, we can also shift the roles of $\Lambda_1$ and $\Lambda_2$ to get a new spectrum. That is,
+    At last, we can also change the roles of $\Lambda_1$ and $\Lambda_2$ to get a new spectrum. That is,
     \begin{equation*}
         \Lambda = \braqMed{\bracMed{\lambda_1, \lambda_2}: \lambda_1 \in \lambfuncGen{\lambda_2}, \lambda_2 \in \Lambda_2 },
         %\Lambda = \braqMed{\begin{pmatrix}\lambda_1 \\ \lambda_2 \end{pmatrix}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc}
@@ -194,8 +204,11 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
     which is illustrated in \cref{fig:multiple_shift_horizontal}.
 \end{remark}
 
-As has been observed, increasing the dimension by one from one opens up several new possibilities in our choices for the spectrum. This is most evident in our many choices for $\lambfuncNoVar$. To capture the flexibility illustrated in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we introduce the following \namecref{lem:beta_shift}.
+As has been observed, increasing the dimension from one to two opens up several new possibilities in our choices for the spectrum. This is most evident in our many choices for $\lambfuncNoVar$. To capture the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we summarize this in the following \namecref{lem:beta_shift}. 
 %! Ikke whitespace i multiple references.
+%To summarize and capture the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we capture the flexibility in the following \namecref{lem:beta_shift}. 
+%To sumarize the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we introduce the following \namecref{lem:beta_shift}. 
+
 
 %! FIGURE INPUT
 \input{figures/figure-tex/spectra_figures.tex}
@@ -217,7 +230,7 @@ As has been observed, increasing the dimension by one from one opens up several 
 %\begin{proof} %! No proof needed here
 %    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
 %\end{proof}
-\begin{remark}
+\begin{remark} %! Denne vil sigrid fjerne
     We can also shift the spectrum for $\Omega_1$ by a vector $\alpha \in \R^{d_1}$, to obtain the spectrum 
     \begin{equation*}
         \Lambda = \Lambda_{\alpha,\beta} 
@@ -231,14 +244,15 @@ As has been observed, increasing the dimension by one from one opens up several 
 \end{remark}
 %* Her representerer "funksjonen" vi hadde over, både en plaserings funksjon på \lambda_1, i tillegg til å skifte spektrumet akk. her med en reel verdi 
 %* Funksjonen beta, poppulerer vektoren beta med elementer som er gitt av funksjonen. 
+%* ikke sagt noe om dimensjon her
 
 \begin{example}
-    For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is a spectral pair where
+    For two spectral sets $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z+\alpha}$ and $\brac{\Omega_2,\Lambda_2}=\brac{I, \Z}$ a direct application of \cref{lem:beta_shift} would imply that $\brac{I^2,\Lambda_{\alpha,\beta}}$ is a spectral pair where $\betafunc: \Z+\alpha \rightarrow \R$ and
     \begin{equation*}
         \Lambda_{\alpha,\beta} 
         = \braqMed{\begin{pmatrix}
             \lambda_1 +\alpha\\
-            \lambda_2+\betafunc_2(\lambda_1)
+            \lambda_2+\betafunc(\lambda_1) %* FØR eksempel 4.19 hvor vi introduserer $\betafunc_2$ notasjonen, derfor kan vi ikke ha dette her, selv om det er korrekt
             \end{pmatrix}
         : \lambda_1 \in \Z +\alpha \text{ and } \lambda_2 \in \Z}. \qedhere
     \end{equation*}
@@ -256,18 +270,19 @@ As has been observed, increasing the dimension by one from one opens up several 
             \lambda_d+\betafunc_d(\lambda_1,\dots,\lambda_{d-1})\\
         \end{pmatrix}
     \end{equation*}
-    where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\betafunc_{i+1}:\Z^{i} \rightarrow [0,1)$ are fixed functions.
+    where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\betafunc_{i+1}:\Z^{i} \rightarrow [0,1)$ is a fixed function.
     %* Skriv om fra JP; It is clear that the modifications result from the permutation of the $d$ coordinates. 
     %! Trengs det egt? Bedre å ikke nevne?
 \end{example}
 
 %* ———————————————————————————————————————— Del 5, Klassefisering av alle
 %As with \cref{prop:class_all_shift}, we can classify all spectra in dimension two as follows. This significant result was proven by Pedersen and Jorgensen in the same paper \cite{jorgensenSpectralPairsCartesian2001}. 
-We can now classify all spectra in dimension two as follows (\cite{jorgensenSpectralPairsCartesian2001}). 
+We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPairsCartesian2001}). 
+%* spektra kan være for så mangt, og det finnes mange i dimensjon to som ikke knytter seg til enhetskuben.
 \begin{theorem}\label{thrm:class_all_shift_2d}
     %$\braq{\beta_m \in [0,1) : m \in \Z}$  %* ANDRE skrivemåten for beta_m
     %For a fixed value $\alpha \in \R$ and an infinite sequence $\brac{\beta_m}_{m\in \Z}$, $\beta_m \in [0,1)$,  %* gammel
-    The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $\Omega = I^2$ are either one of the two classes
+    The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a spectrum for $\Omega = I^2$ belong to one of the two classes
     \begin{equation}\label{eq:2d_all_shift_class_1}
         \Lambda = \braqMed{
             \begin{pmatrix}
@@ -293,7 +308,7 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
 %!remark om at vi ikke kan ha ulike skift i to retninger, skiftene i den ene retningen må være fiksert.\\
 
 \begin{proof}
-    It follows directly from \cref{lem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
+    It follows directly from \cref{lem:beta_shift} and \cref{rem:switch_lambda} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
     \begin{equation}\label{eq:inclusion_dim_2}
         \Lambda - \Lambda \subset \Zstroke_{I^2} \cup \braq{0}
     \end{equation}
@@ -302,59 +317,69 @@ We can now classify all spectra in dimension two as follows (\cite{jorgensenSpec
         \Zstroke_{I^2} = \braqMed{z = \brac{z_1,z_2} \in \C^2 : \exists \space j \in \braq{1,2} \text{ such that } z_j \in \intnozero}.
     \end{equation*}
     To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$. From \labelcref{eq:inclusion_dim_2} we must have
-    \begin{equation*}%* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
+    \begin{equation*}  %* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
         \bracMed{\lambda_1, \lambda_2} - \bracMed{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}.
-    \end{equation*}%! SIGRID CHANGE INNE I HER
-    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This means that at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer for every $\lambda \in \Lambda$. This argument greatly reduces the possibilities as at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer. Assume the minimum, with the added assumption that the other is anything but an integer so that we have $\lambda\notin \Z^2$. There are two ways to do this. The first possibility is to take $\lambda_1$ to be a non-zero integer and take $\lambda_2$ to be a non-integer. Now, take another arbitrary element \SigridChange{$\lambda' = \brac{\lambda_1',\lambda_2'}$} from $\Lambda$ such that $\lambda'\neq \lambda$. Again, using our assumptions, we have two ways to choose $\lambda_1'$ and $\lambda_2'$. Take $\lambda_1'$ to be a non-integer and $\lambda_2'$ to be a non-zero integer. Then, the fact that we now have 
-    \begin{align*} %* husk at vi "er glad i non-zero" kun hvis vi sammelinger med null elemenntet i minusstykket $\lambda- (0,0) \in \Zstroke$.
+    \end{equation*}
+    That is, $\Lambda \subset \Zstroke_{I^2} \cup \braq{0}$. This means that at least one of $\lambda_1$ or $\lambda_2$ must be a non-zero integer for every $\lambda \in \Lambda$. This argument greatly reduces the possibilities. Assume now $\lambda\notin \Z^2$. Here we have two possibilities. The first is to take $\lambda_1$ to be a non-zero integer so that $\lambda_2$ is a non-integer. Now, take another arbitrary element $\lambda' = \brac{\lambda_1',\lambda_2'}$ from $\Lambda$ such that $\lambda'\neq \lambda$. Again, using our assumptions, we have two ways to choose $\lambda_1'$. Take $\lambda_1'$ to be a non-integer so that $\lambda_2'$ is a non-zero integer. Then, the fact that we now have 
+    \begin{align*}  %* husk at vi "er glad i non-zero" kun hvis vi sammelinger med null elemenntet i minusstykket $\lambda- (0,0) \in \Zstroke$.
         \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
         \quad \text{and} \quad
         \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\in \intnozero}} \notin \intnozero,
     \end{align*}
-    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. As such, with our initial assumptions for $\lambda$, we must have the other choice for $\lambda_1'$ and $\lambda_2'$. That is, $\lambda_1'$ must be an integer for any element $\lambda'\in \Lambda$, since this implies
-    \begin{align*} %*, which corresponds to the fact that the "x-axis values" distribution is an integer!
+    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. Thus, $\lambda_1'$ must be an integer for any element $\lambda'\in \Lambda$ since this implies
+    \begin{align*}  %*, which corresponds to the fact that the "x-axis values" distribution is an integer! we disregard the other values (lambda_2) completely
         \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\in \Z}} \in \intnozero
-        \quad \text{and} \quad
-        \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\notin \Z}} \notin \intnozero,
+        %\quad \text{and} \quad
+        %\brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\notin \Z}} \notin \intnozero, %* denne er beviselig feil 3.5 - 0.5 = 3 som er helt klart et heltall
     \end{align*}
-    and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. We now have that %! Sier vel egentlig her at $\lambda_1 = m + \alpha$
-    \begin{align*}
-        \Lambda = \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R}.
+    and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. We conclude that %! Sier vel egentlig her at $\lambda_1 = m + \alpha$
+    \begin{align*}  %* ————  den mengden til høyre er ALLTID større en Lambda ———— 
+        \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R}.
     \end{align*}
     %* For et gitt punkt har jeg et heltall her (i 1. koord.). DET presser frem at den andre, med mindre det er et element i Z^2 , medfølger at alle andre elementer må ha et heltall i første koordinat. KRITISK. 
     %* DVS, forskjellige linjer på x-aksen, da trenger det ikke være en sammenheng
     %* MEN to punkter på samme linje, da skjer det ting -> da må differansen være et heltall
-    Going forward, take $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_1,\lambda'_1 \in \Z$ with $\lambda_1 = \lambda'_1$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have 
+    %* DRITER I HVA LAMBDA_2 og LAMBDA_2' er, det viktige er hva antagelsen gjør med det vi har antatt av at $\lambda\notin \Z$ samt $\lambda_1\in\Z$
+    %* og at det tvinger $\lambda_1'$ til å også være et heltall
+    Going forward, take $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_1 = \lambda'_1$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have  %* fjernet merknaded i antagelsen om at $\lambda_1,\lambda'_1 \in \Z$
     \begin{equation*}
         \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{0,\lambda_2-\lambda'_2}\in \Zstroke_{I^2},
     \end{equation*}
-    it follows that $\brac{\lambda_2- \lambda_2'} \in \intnozero$. Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. Note that since we still have $\lambda_2\in \R$ we can always write $\lambda_2 = n+\beta_{\lambda_1}$ where $n\in \Z$ and $\beta_{\lambda_1}\in [0,1)$ is the shift. %! NOT, shift at the point $lambda_1$ we only consider points here, and all points are shifted $\beta_m$ amount from their closest integer rounded down. So the construction of $\Lambda$ here is somehwat different from the one we have looked at earlier as we here only consider points in both directions, not how they are placed in relation to one another as the construction lemma!!
-    Furthermore, interchanging the vector notation from row to column form, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ and $\lambda_2 = n+\beta_m$ where $\alpha = 0$. That is,
+    it follows that $\brac{\lambda_2 - \lambda_2'} \in \intnozero$ to not get the contradiction that $\lambda=\lambda'$.  %Otherwise, we would allow for $\lambda_2-\lambda_2'=0$ which would imply that $\lambda=\lambda'$ and yield a contradiction on our assumption that $\lambda\neq\lambda'$. 
+    This conclusion allows us to write the link between all $\lambda_2$ and $\lambda_2'$ values as $\lambda_2' = \lambda_2 + k$ where $k\in \Z$. In addition, we highlight the fact that we have made no individual assumptions about what $\lambda_2$ and $\lambda_2'$ are. However, observe that we can always write $\lambda_2 = n+\beta_{\lambda_1}$ where we choose $n$ to be the largest integer so that the shift $\beta_{\lambda_1}\in [0,1)$. Similarly, we can for $\lambda_2'$ write
     \begin{equation*}
-        \Lambda = \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z} 
+        \lambda_2' = \lambda_2 + k = (n+k) +  \beta_{\lambda_1},
+    \end{equation*}
+    where $(n+k)\in \Z$, meaning $\lambda_2' \in \Z + \beta_{\lambda_1}$. That is, we have one form to express all $\lambda_2$ and $\lambda_2'$ values. %! NOT, shift at the point $lambda_1$ we only consider points here, and all points are shifted $\beta_m$ amount from their closest integer rounded down. So the construction of $\Lambda$ here is somewhat different from the one we looked at earlier as we here only consider points in both directions, not how they are placed in relation to one another as the construction lemma!!
+    Furthermore, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ and $\lambda_2 = n+\beta_m$ where $\alpha = 0$. That is,
+    \begin{equation*}  %* ———— DENNE inklusjonen DERIMOT, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
+        \Lambda \subseteq \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
-    From \cref{lem:onb_direct_subset}, we know that we cannot have an orthonormal basis as a direct subset of another orthonormal basis. Thus we must have equality, and $\Lambda$ must, in this first case, be equal to \labelcref{eq:2d_all_shift_class_1}.
+    From \cref{lem:onb_direct_subset}, we know that we cannot have an orthonormal basis as a direct subset of another orthonormal basis. Thus we must have equality, and $\Lambda$ must, in this first case, be of the form \labelcref{eq:2d_all_shift_class_1}.
     %*which corresponds to the fact that the distribution of 
     %*the elements are at different $\lambda_1$ points fo, \SigridComment{har lyst til å si "x-akse", eller forskjellige linjer, men finner ikke helt riktig ordvalg her} har lyst til å si at minusstykket må være et heltall, og det er det vi vet. Hvis de er på forskjellige x-verdier er det null stress for da er integralet null kunn hvis differansen i eksponenten er et HELTALL!! som er DET MEST eSSensielle her. Er det noe annet er ekspoenenten ikke null, og da er det heller ikke en del av nullmengen.  
 
-    %! SIGRID CHANGE INNE I HER
-    Let us go back a few steps and consider the second possibility \SigridChange{for $\lambda = \brac{\lambda_1,\lambda_2}$}. That is, take $\lambda_1$ to be a non-integer and $\lambda_2$ to be a non-zero integer. Now, take another arbitrary element \SigridChange{$\lambda' = \brac{\lambda_1',\lambda_2'}$} from $\Lambda$ such that $\lambda'\neq \lambda$. We showed in the first case that we could not choose $\lambda_1'$ to be a non-integer if $\lambda_1$ was a non-zero integer. Since $\lambda_2$ now is the non-zero integer, we must have that $\lambda_2'$ is an integer for any element $\lambda'\in \Lambda$ to avoid getting a contradiction. Hence
+    Let us go back a few steps and consider the second possibility for $\lambda$. That is, take the other element $\lambda_2$ to be a non-zero integer so that $\lambda_1$ is a non-integer. Again, take another arbitrary element $\lambda'$ from $\Lambda$ such that $\lambda'\neq \lambda$. We showed in the first case that we could not choose $\lambda_1'$ to be a non-integer if $\lambda_1$ was a non-zero integer. Since $\lambda_2$ now is the non-zero integer, we must have that $\lambda_2'$ is an integer for any element $\lambda'\in \Lambda$ to avoid getting a contradiction. Hence
     \begin{align*}
-        \brac{\underbrace{\lambda_1}_{\notin \Z}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero
-        \quad \text{and} \quad
+        %\brac{\underbrace{\lambda_1}_{\notin \Z}-\underbrace{\lambda_1'}_{\notin \Z}} \notin \intnozero %* igjen beviselig feil, 3.5-0.5 = 3, HELTALL
+        %\quad \text{and} \quad
         \brac{\underbrace{\lambda_2}_{\in \intnozero}-\underbrace{\lambda_2'}_{\in \Z}} \in \intnozero,
     \end{align*}
     which gives us that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. We now have
     \begin{align*}
-        \Lambda = \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \R, \lambda_2 \in \Z}.
+        \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \R, \lambda_2 \in \Z}.
     \end{align*}
-    As in the first case, take now $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_2,\lambda'_2 \in \Z$ with $\lambda_2 = \lambda'_2$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have 
+    As in the first case, take now $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_2 = \lambda'_2$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have 
     \begin{equation*}
         \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{\lambda_1-\lambda'_1,0}\in \Zstroke_{I^2},
     \end{equation*}
-    it follows that $\brac{\lambda_1- \lambda_1'} \in \intnozero$ to not get the contradiction that $\lambda=\lambda'$. Again, interchanging the vector notation from row to column form, observe $\Lambda$ is, a subset given by \labelcref{eq:2d_all_shift_class_2}, with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n+\alpha$ where $\alpha = 0$. That is,
+    it follows that $\brac{\lambda_1- \lambda_1'} \in \intnozero$. Again we have that we can write $\lambda_1  = m+\beta_{\lambda_2}$ and 
     \begin{equation*}
-        \Lambda = \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z} 
+        \lambda_1'  = \lambda_1 + k = (m+k) + \beta_{\lambda_2},
+    \end{equation*}
+    where $k \in \Z$, and $m$ is chosen to to be the largest integer so that the shift $\beta_{\lambda_2} \in [0,1)$. Now, observe that $\Lambda$ is a subset given by \labelcref{eq:2d_all_shift_class_2} with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n+\alpha$ where $\alpha = 0$. That is,
+    \begin{equation*}  %* ———— OG DENNE inklusjonen, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
+        \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z} 
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
     From \cref{lem:onb_direct_subset}, we once more get that $\Lambda$ cannot be a subset of \labelcref{eq:2d_all_shift_class_2} and that we must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}, and there are no other spectra for $I$ in dimension $d=2$.
 \end{proof}

@@ -68,6 +68,7 @@ Equivalently to \cref{lem:c_dense_L2}, we have a similar \namecref{lem:c_per_den
         \caption{Graph}
         \label{fig:g_periodic_close_to_f}
     \end{figure}
+    \input{figures/figure-tex/test.tex}
     %Since $C([a,b])$ is dense in $L^2([a,b])$ from \cref{lem:c_dense_L2}, it will then follow that $\Cper([a,b])$ is dense in $L^2([a,b])$ if we can show that $\Cper([a,b])$ is dense in $C([a,b])$.
     %If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow that $\Cper([a,b])$ is dense in $L^2([a,b])$, since we know from \cref{lem:c_dense_L2} that $C([a,b])$ is dense in $L^2([a,b])$. 
     If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([a,b])$ is dense in $L^2([a,b])$, since $C([a,b])$ is dense in $L^2([a,b])$. Let $f \in C([a,b])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[a+\delta,b-\delta ]$ and which attains the value $g = 0$ at the endpoints, making $g\in \Cper([a,b])$. We will see that this will change the \Ltwonorm \space by a negligible amount. In other words, this allows us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. We construct $g$ in the following way  % We will see that this will change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$
