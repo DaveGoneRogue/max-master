@@ -1,14 +1,12 @@
 
 
-
-
 \begin{tikzpicture}[xscale=6,yscale=2]
     %* Draw axes
-    \draw[->] (-0.3,0) -- (1.5,0) node[right] {$t$};  % går fra -0.3 til 1.5 på X aksen
+    \draw[->] (-0.1,0) -- (1.5,0) node[right] {$t$};  % går fra -0.3 til 1.5 på X aksen
     \draw[->] (0,-0.4) -- (0,1.5); %node[above] {$y$};  % går fra -0.4 til 1.5 på Y aksen
     
     %* Plot polynomial function
-    \draw[cyan, thick, domain=-0.3:1.5] plot (\x, {(\x-1)^3 - (\x-1) + 1}) node[above, yshift=1mm] {$f(t)$};
+    \draw[cyan, thick, domain = -0.1:1.5] plot (\x, {(\x-1)^3 - (\x-1) + 1}) node[above, yshift=1mm] {$f(t)$};
 
 
     %* Draw labeled marks on the x-axis
@@ -55,8 +53,7 @@
 \end{tikzpicture}
 
 
-
-
+\mycomment{  %! Whole middle fill with dotted lines
 \begin{tikzpicture}[xscale=6,yscale=2]
     %* Draw axes
     \draw[->] (-0.3,0) -- (1.5,0) node[right] {$t$};  % går fra -0.3 til 1.5 på X aksen
@@ -103,9 +100,9 @@
     %\fill[gray, opacity=0.3] (0.2,0) -- (0.2,{(0.2-1)^3 - (0.2-1) + 1}) -- (0.4,{(0.4-1)^3 - (0.4-1) + 1}) -- (0.4,0) -- cycle;
 
 \end{tikzpicture}
+}
 
-
-
+\mycomment{  %! Whole middle fill with dashed lines
 \begin{tikzpicture}[xscale=6,yscale=2]
     %* Draw axes
     \draw[->] (-0.3,0) -- (1.5,0) node[right] {$t$};  % går fra -0.3 til 1.5 på X aksen
@@ -152,9 +149,10 @@
     %\fill[gray, opacity=0.3] (0.2,0) -- (0.2,{(0.2-1)^3 - (0.2-1) + 1}) -- (0.4,{(0.4-1)^3 - (0.4-1) + 1}) -- (0.4,0) -- cycle;
 
 \end{tikzpicture}
+}
 
 
-
+\mycomment{  %! Whole middle fill with dashed lines and solid lines at the end
 \begin{tikzpicture}[xscale=6,yscale=2]
     %* Draw axes
     \draw[->] (-0.3,0) -- (1.5,0) node[right] {$t$};  % går fra -0.3 til 1.5 på X aksen
@@ -201,3 +199,4 @@
     %\fill[gray, opacity=0.3] (0.2,0) -- (0.2,{(0.2-1)^3 - (0.2-1) + 1}) -- (0.4,{(0.4-1)^3 - (0.4-1) + 1}) -- (0.4,0) -- cycle;
 
 \end{tikzpicture}
+}

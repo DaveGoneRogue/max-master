@@ -53,27 +53,6 @@
 %\RequirePackage{sansmath}
 % \DeclareCaptionFont{sansmath}{\sansmath}
 
-\usepackage{caption}
-\captionsetup{
-	format=plain, 	% hang, plain
-	labelformat=simple,	 % default, empty, simple, brace, parens
-	labelfont={bf,up}, 
-	labelsep=colon,	 % none, colon, period, space, quad, newline, endash
-	textformat=simple,  % empty, simple, period
-	justification=justified,  % text alignment: justified, centering, centerlast, centerfirst, raggedright, raggedleft
-	margin=5mm,
-	font={footnotesize, sf, sansmath},  % bf, it, up
-	labelfont={bf},
-	textfont={sf,sansmath},
-%	textfont=up,
-	skip=5mm,  % spacing between captions and content of the environment
-%	singlelinecheck=false  % set automatic text centering on/off 
-}
-
-\usepackage{subcaption}  % enables depiction of several images amongst each other (\subcaptionbox)
-
-\usepackage{placeins}  % Control float placement with /FloatBarrier
-
 
 % ------------------------------------------------------------------
 % Graphics, colors etc
@@ -139,3 +118,9 @@
 frak=mma,
 frakscaled=.97,
 scr=rsfs]{mathalpha}
+
+
+\usepackage{bbm}  % For indicator function
+%\usepackage{dsfont} alternative math fonts? for $\mathds{1}$
+
+%\usepackage{tocloft}

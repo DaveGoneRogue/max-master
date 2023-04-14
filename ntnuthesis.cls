@@ -148,7 +148,7 @@
 \let\underline\undefined % here - PS 
 \let\underbar\undefined % here - PS
 \usepackage{sectsty}
-\allsectionsfont{\sffamily}  % Dette fikset font erroren!!
+\allsectionsfont{\sffamily}  % Dette fikset font erroren, dvs det er sans-serif og ikke serif!!
 
 % F*** Standard latex rport style, go KOMA-style report type w
 %\LoadClass[a4paper,11pt,openright, \paging]{scrreprt}  % i.e load the standard LaTeX Report class which this is based on
@@ -196,21 +196,39 @@
 \RequirePackage{amsmath}                    % advanced math typesetting
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}                     % theorem environments
-\RequirePackage[                            % subfigures with captions within figures
-    font=small,                             % and customisation of captions
-    labelfont=bf,
+\RequirePackage[                            % figures with captions
+    %margin=5mm,
     margin=\parindent,
-    textfont=sf                            %! Dette funket ikke å endre font i caption
-    %textfont={Linux Libertine O}
-    %textfont={normalfont}
 ]{caption}
+%* Del 2 av caption setup
+\captionsetup{
+    % There are three font options which affects different parts of the caption: 
+    % 1. One affecting the whole caption (font), 
+    % 2. one which only affects the caption label and separator (labelfont) 
+    % 3. and at least one which only affects the caption text (textfont). 
+	format=plain, 	% hang, plain
+    font={small, sf},  % bf, it, up
+    % font={small, sf, sansmath},
+	% labelfont={sf,up, bf}, 
+    labelfont={up, bf},
+    labelformat=simple,	 % default, empty, simple, brace, parens
+	labelsep=colon,	 % none, colon, period, space, quad, newline, endash
+	%textfont={rm,sansmath},
+	%textfont={rm, up}, 
+    textformat=simple,  % empty, simple, period
+    justification=justified,  % text alignment: justified, centering, centerlast, centerfirst, raggedright, raggedleft
+	skip=5mm,  % spacing between captions and content of the environment
+    %	singlelinecheck=false  % set automatic text centering on/off 
+}
+
 \RequirePackage[                           % and subfigures with captions within figures
     font=small,
     labelfont=bf,
     margin=\parindent
-]{subcaption}
+]{subcaption}  % enables depiction of several images amongst each other (\subcaptionbox)
 
 
+\usepackage{placeins}  % Control float placement with /FloatBarrier
 
 % * --- Bibliography --- * %
 \RequirePackage{babel}                      % language specifics

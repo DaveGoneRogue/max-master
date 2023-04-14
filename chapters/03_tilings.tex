@@ -7,7 +7,7 @@
 % ! ALERT
 % ? Question
 % TODO stuff to do
-% // this is strikethrough
+% // This is strikethrough
 
 
 \begin{document}
@@ -42,9 +42,135 @@
 %When  $\Omega = I^d$ the connection between tiles and spectrum is more direct than for other examples of sets $\Omega$. As shown in sigrid_note:lagarias_reeds_wang and Spectral and tiling properties of the unit cube_ALEX IOSEVICH AND STEEN PEDERSEN it is possible to classify all spectra by showing that $\Lambda$ is a spectrum for the unit cube $I^d$, if and only if $I^d$ tiles $\mathbb{R}^d$ by $\Lambda$-translates.
 
 
+\mycomment{
+
+Den tiden som gjennstår:
+
+
+Jo høyere dimensjon vi får jo mer eksotisk kan disse tilingene bli. Står noe referanser til i paperet. 
+Keller hadde en teori om at enhver tiling må være av den typen -- (Se for deg enhetskuben i 2D)
+enhver tiling nødvendigvis medføre at,
+alle tiles har en full felles kant med en annen tile
+
+i 2D gjelder det her med at man har to kanter hvor man har en full felles kant (med den over og den under)
+
+
+i 1D har man ingen sidekant, det er et punkt
+men poenget er at i veldig høye dimensjoner så kan tilingene bli mer eksotiske, og et utrykk for det er at du ikke trenger å ha en full kant med noen som helst annen tile
+dimensjon > 7
+}
+
+
+
+%!  Uformell definisjon av hva vi mener med det
+%* Figurer og eksempler, 1 eller 2D, trenger ikke gå opp til 3D.
+%* Det må inn noen figurer som gjør at når det kommer til tilings, så finnes det noen mengder som bare tiler med translasjoner, og noen mengder som vil krevet at man roterer eller speiling, og at vi skal holde oss til de som er kun med translasjon.
+
+
+Given a subset $\Omega$ of $\R^d$ and a discrete set $\Lambda$ of $\R^d$, we denote by $T(\Lambda)$ the set of translates 
+\begin{equation*}  %* Cover the whole space
+    T(\Lambda) = \braq{\Omega+\lambda : \lambda\in \Lambda},
+\end{equation*}
+where $\Omega + \lambda$ is the translate of $\Omega$ by the vector $\lambda$. That is the set
+\begin{equation*}
+    \braq{\omega + \lambda : \omega \in \Omega}.
+\end{equation*}
+
+\begin{definition}[Tiling set]
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subset \R^d$. If $T(\Lambda)$ cover $\R^d$ up to measure zero, and if all intersections of 
+    \begin{equation*}  %* NON OVERLAPPING
+        (\Omega+\lambda) \cap (\Omega+\lambda')
+    \end{equation*}
+    for $\lambda\neq \lambda'$ in $\Lambda$ have measure zero, then $\Omega$ is called a \emph{tile}, and $\Lambda$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{tiling pair}. 
+\end{definition}
+\begin{definition}
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subseteq \R^d$. If the following two conditions are satisfied, then $\Omega$ is called a \emph{tile}, and $\Lambda$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{tiling pair}. 
+    \begin{itemize}
+        \item If $T(\Lambda)$ cover $\R^d$ up to measure zero. That is,  %* Cover the whole space
+        \begin{equation*}
+            \bigcup_{\lambda \in \Lambda} (\Omega + \lambda) = \R^d
+        \end{equation*}
+        \item If all intersections of $(\Omega+\lambda) \cap (\Omega+\lambda')$ for $\lambda\neq \lambda'$ in $\Lambda$ have measure zero. %* Mutually NON-OVERLAPPING 
+    \end{itemize}
+\end{definition}
+
+In other words, the shifts $\Omega + \Lambda$ constitute a \emph{measuredisjoint covering} of $\R^d$, and we can say that $\Omega$ \emph{tile} $\R^d$ \emph{by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. 
+
+We can also define tilings simply in terms of the equation
+\begin{equation*}
+    \sum_{\lambda \in \Lambda} \indicator{\Omega}{x-\lambda} = 1 \space a.e , \quad x \in \R^d.
+\end{equation*}
+
+
+%* En bit om eksotiske tilings ? 
+
+
+
+\subsection{The unit cube in dimension one / Tilings in dimension one}
+%* Hva vet vi om tilings i en dimensjon for unit cube, jo der har vi bare et alternativ og det er det samme alternativet som for spectral Set
+%* paper + andre kilder, søke opp
+In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
+\begin{theorem}  %* Bruker alle elementene i T for å flytte på I, da dekker vi hele $\R$.  
+    Let $\Omega = I$. If $T=\Z$, then $T$ is a tiling set for $I$.
+\end{theorem}
+
+\begin{proof}
+    It is clear that
+    \begin{align*}
+        %\bigcup_{\lambda\in \Z} (I + \lambda) &= \bigcup_{\lambda\in \Z} \braq{\omega + \lambda : \omega \in I}\\
+        \bigcup_{\lambda\in \Z} (I + \lambda) &= \dots (I-1) \cup (I-0) \cup (I+1) \dots\\ 
+        &= \dots [-1,0] \cup [0,1] \cup [1,2] \dots\\
+        &= \R
+    \end{align*}
+    This shows that the set of translates $T(\Lambda)$ covers $\R$ up to measure zero. 
+    
+    Now take $\lambda,\lambda' \in \Z$. If $\lambda = \lambda'$ we have that
+    \begin{equation*}
+        \mes{(I+\lambda) \cap (I+\lambda')} = \mes{(I+\lambda)} = (1+\lambda) - (0+\lambda) = 1.
+    \end{equation*}
+    And if $\lambda \neq \lambda'$ we have that 
+    \begin{equation*}
+        \mes{(I+\lambda) \cap (I+\lambda')} = \mes{\emptyset} = 0,
+    \end{equation*}
+    showing that the cubes are non-overlapping for all distinct $\lambda , \lambda' \in T$. 
+\end{proof}
+
+
+\subsection{The unit cube in higher dimensions / Tilings in higher dimensions}
+%* når det er større en 1 har vi flere muligheter
+%* en begrensing legges av Kellers theorem, 
+
+% Following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
+\begin{theorem}\label{thrm:keller_tiling}
+    Given a discrete subset $T\subset \R^d$. If $T$ is a tiling set for $\Omega$, then given any pair $\lambda, \lambda' \in T$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
+\end{theorem}
+
+xxxxx
+
+essensielt samme som \cref{lem:zero_set_jp_1_5}. %* Denne er en omskriving av det som står i paperet
+\begin{lemma}[Spectral version of Kellers theorem]\label{lem:zero_set_AiSp}
+    %* JP: If $\brac{I^d,T}$ is a tiling pair, then $T-T \subset \Zstroke_{I^d}\cup \braq{0}$.\\
+    Let $T\subset \R^d$ be a discrete subset. The pair $\brac{\Omega,T}$ is orthogonal if and only if given any pair $\lambda, \lambda' \in T$, such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
+\end{lemma}
+
+%* Korolar om ortogonalitet er mulig å si som et resultat av kellers
+The following \labelcref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem, \cref{thrm:keller_tiling}, and \cref{lem:zero_set_AiSp}.
+\begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
+    If $\brac{I^d,T}$ is a tiling pair, then $\brac{I^d,T}$ is orthogonal. That is,
+    \begin{equation*}
+        T-T \subset \Zstroke_{I^d}\cup \braq{0}
+    \end{equation*}
+\end{corollary}
+
+
+%* Viktig, må inn en bit her om 
+%* som en konsekvens av Kellers theorem så får vi nå akkurat den samme formen på disse tilings settene 
+%* de må ligge inneholt i akkurat de samme typene mengder, og de kan ikke være ekte mindre for da får vi ikke oppfylt tiling kravet mitt.
 
 
 
 
 
 \end{document}
+
+
