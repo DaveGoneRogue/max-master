@@ -12,36 +12,6 @@
 
 \begin{document}
 
-
-
-%! Generelt intro ish til det under
-\section{Tiling sets for the n-cube}
-
-
-% ! Def tiling ??
-
-%\begin{definition}[Tiling set]
-%    Let $\Omega \subset \mathbb{R}^d$ be a subset with nonzero measure, and consider a set $T \subseteq \mathbb{R}^d$. If the set of translates ${}$$\{\Omega+l: l\in T\}$ cover $\mathbb{R^d}$ up to measure zero, and if all intersections $(\Omega+l) \cap (\Omega+l')$  for $l\neq l'$ in $L$ have measure zero, then $\Omega$ is called a \emph{tile}, and $T$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, T)$ is a \emph{tiling pair}. 
-%\end{definition}
-
-%In other words, the shifts $\Omega + T$ constitute a \emph{measuredisjoint covering} of $\mathbb{R}^d$, and we can say that $\Omega$ \emph{tiles} $\mathbb{R}^d$ \emph{by translation}, or that $\Omega+T$ is a \emph{tiling} of $\mathbb{R}^d$.
-
-
-% Fuglede’s spectral set conjecture. Let $\Omega$􏱁 be a set in $\mathbb{R}^d$ with positive and finite Lebesgue measure. Then 􏱁$\Omega$ is a spectral set if and only if $\Omega$􏱁 tiles $\mathbb{R}^d$ by translation.
-
-% An equivalent restatment of Fuglede was presented in JorgenPedersen. 
-
-% Let $\Omega \subset \mathbb{R}^d$ have positive and finite Lebesgue measure. Then $\Omega$ is a spectral set if and only if $\Omega$ is a tile, i.e., there exists a set $\Lambda$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Lambda^{\prime}$ so that $\left(\Omega, \Lambda^{\prime}\right)$ is a tiling pair.
-
-%with the following dual conjectures.
-
-% Conjecture 1.3: Let $\Lambda \subset \mathbb{R}^d$. Then $\Lambda$ is a spectrum if and only if $\Lambda$ is a tiling set, i.e., there exists a set $\Omega$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Omega^{\prime}$ so that $\left(\Omega^{\prime}, \Lambda\right)$ is a tiling pair.
-
-% Conjecture 1.4: Let $\Lambda \subset \mathbb{R}^d$. Then $\left(I^d, \Lambda\right)$ is a spectral pair if and only if $\left(I^d, \Lambda\right)$ is a tiling pair.
-
-%When  $\Omega = I^d$ the connection between tiles and spectrum is more direct than for other examples of sets $\Omega$. As shown in sigrid_note:lagarias_reeds_wang and Spectral and tiling properties of the unit cube_ALEX IOSEVICH AND STEEN PEDERSEN it is possible to classify all spectra by showing that $\Lambda$ is a spectrum for the unit cube $I^d$, if and only if $I^d$ tiles $\mathbb{R}^d$ by $\Lambda$-translates.
-
-
 \mycomment{
 
 Den tiden som gjennstår:
@@ -62,20 +32,98 @@ dimensjon > 7
 
 
 
+
 %!  Uformell definisjon av hva vi mener med det
 %* Figurer og eksempler, 1 eller 2D, trenger ikke gå opp til 3D.
 %* Det må inn noen figurer som gjør at når det kommer til tilings, så finnes det noen mengder som bare tiler med translasjoner, og noen mengder som vil krevet at man roterer eller speiling, og at vi skal holde oss til de som er kun med translasjon.
 
+Informally, to tile refers to the process of covering some surface with objects. These objects are called tiles and come in a variety of shapes and sizes. When we are tiling, we essentially place copies of the tile next to each other in a systematic way, intending to leave no gaps and no overlaps between the tiles. The resulting tiling can be as simple as the one shown in \cref{fig:tiling_one} where we have used a single tile, the unit square, to tile the plane, or as complex as \cref{fig:tiling_two} where we have used four different tiles to tile the plane. The first is an example of what is known as a \emph{monohedral tiling} in which all tiles are congruent \cite[p. 20]{grunbaumTilingsPatterns1987}, and the latter is an example of a Penrose tiling which are well known for being non-periodic \cite{penrosePentaplexityClassNonPeriodic1979}. %* PAge 535 har også penrose tilings
+% non-periodic tiling, meaning that there is no period paralellogram \SigridChange{KORT FORTALT}. 
 
-Given a subset $\Omega$ of $\R^d$ and a discrete set $\Lambda$ of $\R^d$, we denote by $T(\Lambda)$ the set of translates 
-\begin{equation*}  %* Cover the whole space
+
+\input{figures/figure-tex/tiling_one.tex}
+
+Another interesting monohedral tiling 
+\SigridChange{rotation and reflections}
+%  https://www.wikiart.org/en/m-c-escher/flying-fish    
+%  https://www.wikiart.org/en/m-c-escher/lizard-1}
+\input{figures/figure-tex/tiling_two.tex}
+
+
+However interesting the Penrose and Escher tilings are, we will only consider tilings of $\R^d$ by translation and using only the unit cube as our tile. Considering only cube-tilings might seem simple initially, but we will see that as we increase the dimension, we get increased flexibility and more complex tilings. This is especially true in higher dimensions, where highly exotic and counter-intuitive tilings exist compared to fundamental/straightforward/simple/basic lattice tilings \cite{iosevichSpectralTilingProperties1998}. One indicator of this characteristic follows/ from Keller's conjecture \cite{ott-heinrichkellerUberLuckenloseErfullung1930}. 
+
+\begin{conjecture}
+    All tilings of $\R^d$ by translations of the unit cube contain two cubes that share an entire $(d-1)$-dimensional face.
+\end{conjecture}
+If the dimension is two, the squares share a line; if the dimension is three, they share a face. This conjecture is now known to be true for all $d\leq 7$ after it was recently proven true in dimension seven \cite{brakensiekResolutionKellerConjecture2020}. 
+% and we can still have quite the exotic and counter-intuitive tiling. %Worth emphasizing is the fact that we lack a method for determining whether a tile is the prototile of a monohedral tiling 
+
+
+To begin, given a subset $\Omega$ of $\R^d$ and a discrete set $\Lambda$ of $\R^d$, we denote by $T(\Lambda)$ the set of translates 
+\begin{equation*}
     T(\Lambda) = \braq{\Omega+\lambda : \lambda\in \Lambda},
 \end{equation*}
 where $\Omega + \lambda$ is the translate of $\Omega$ by the vector $\lambda$. That is the set
 \begin{equation*}
-    \braq{\omega + \lambda : \omega \in \Omega}.
+    \Omega + \lambda = \braq{\omega + \lambda : \omega \in \Omega}.
 \end{equation*}
+Rather than defining tiling in terms of non-overlapping and covering of the space, we will instead define tiling in the Fourier domain, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
 
+\begin{definition}[Tiling set]
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subset \R^d$. If
+    \begin{equation}\label{eq:tiling_set}
+        \sum_{\lambda \in \Lambda} \indicator{\Omega}{x-\lambda} = 1 \text{\space} a.e , \quad x \in \R^d,
+    \end{equation}
+    then $\Omega$ is called a \emph{tile}, and $\Lambda$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{tiling pair}.
+\end{definition}
+
+%In other words, the shifts $\Omega + \lambda$ constitute a \emph{measuredisjoint covering} of $\R^d$, and we can say that $\Omega$ \emph{tile $\R^d$ by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. 
+With other words, we can also say that $\Omega$ \emph{tile $\R^d$ by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. 
+
+\SigridComment{INTRO  Keller}
+
+%* Viktig, må inn en bit her om 
+%* som en konsekvens av Kellers theorem så får vi nå akkurat den samme formen på disse tilings settene 
+%* de må ligge inneholt i akkurat de samme typene mengder, og de kan ikke være ekte mindre for da får vi ikke oppfylt tiling kravet mitt.
+
+
+% Following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
+
+%\begin{theorem}\label{thrm:keller_tiling} %* Orginale keller fra paperet
+%    Given a discrete subset $T\subset \R^d$. If $T$ is a tiling set for $\Omega$, then given any pair $\lambda, \lambda' \in T$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
+%\end{theorem}
+\begin{theorem}[Keller's Theorem]\label{thrm:keller_tiling}
+    Given a discrete subset $\Lambda \subset \R^d$. If $\Lambda$ is a tiling set for $\Omega$, then given any pair $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\lambda_j -\lambda_j' \in \intnozero$
+\end{theorem}
+
+
+example/lemma
+
+In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$. 
+
+\begin{lemma}\label{lem:tiling_unit_1d}
+    The set of translates $T\brac{\Lambda}$ for $\Lambda = \Z +\alpha$ for some value $\alpha\in \R$ constitutes a tiling set for the unit cube.
+\end{lemma}
+%\begin{theorem}  %* Bruker alle elementene i T for å flytte på I, da dekker vi hele $\R$.  
+%    Let $\Omega = I$. If $T=\Z$, then $T$ is a tiling set for $I$.
+%\end{theorem}
+%\begin{proof}
+%    This follows directly from \cref{thrm:keller_tiling}. Take $\lambda, \lambda' \in \Lambda$. 
+%\end{proof}
+
+The proof of \cref{lem:tiling_unit_1d} follows directly from \cref{thrm:keller_tiling} as it tells us directly that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ where $\Lambda \subset \Z +\alpha$. Note that the value $\alpha$ cancels out. In addition, we must have equality, that is, $\Lambda = \Z +\alpha$. Otherwise, we would not satisfy \labelcref{eq:tiling_set} since we would have an entire interval with measure not equal to one.
+
+Increasing the dimension by one 
+
+\SigridComment{opppskalering til 2D}
+\SigridComment{usikker på strukturen og hvordan jeg skal skrive og forklare inneholdet her}
+
+samme figur som for spektra, men her med tilings
+\input{figures/figure-tex/tiling_figures.tex}
+
+
+\clearpage
+\SigridComment{Gammelt, med gammel struktur}
 \begin{definition}[Tiling set]
     Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subset \R^d$. If $T(\Lambda)$ cover $\R^d$ up to measure zero, and if all intersections of 
     \begin{equation*}  %* NON OVERLAPPING
@@ -94,19 +142,9 @@ where $\Omega + \lambda$ is the translate of $\Omega$ by the vector $\lambda$. T
     \end{itemize}
 \end{definition}
 
-In other words, the shifts $\Omega + \Lambda$ constitute a \emph{measuredisjoint covering} of $\R^d$, and we can say that $\Omega$ \emph{tile} $\R^d$ \emph{by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. 
 
-We can also define tilings simply in terms of the equation
-\begin{equation*}
-    \sum_{\lambda \in \Lambda} \indicator{\Omega}{x-\lambda} = 1 \space a.e , \quad x \in \R^d.
-\end{equation*}
-
-
-%* En bit om eksotiske tilings ? 
-
-
-
-\subsection{The unit cube in dimension one / Tilings in dimension one}
+\section{Tiling sets for the n-cube}
+\section{The unit cube in dimension one / Tilings in dimension one}
 %* Hva vet vi om tilings i en dimensjon for unit cube, jo der har vi bare et alternativ og det er det samme alternativet som for spectral Set
 %* paper + andre kilder, søke opp
 In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
@@ -121,6 +159,10 @@ In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
         \bigcup_{\lambda\in \Z} (I + \lambda) &= \dots (I-1) \cup (I-0) \cup (I+1) \dots\\ 
         &= \dots [-1,0] \cup [0,1] \cup [1,2] \dots\\
         &= \R
+    \end{align*}
+    and that 
+    \begin{align*}
+        \mesMed{\R \setminus \bigcup_{\lambda\in \Z} (I + \lambda) } = \mesMed{\emptyset} = 0.
     \end{align*}
     This shows that the set of translates $T(\Lambda)$ covers $\R$ up to measure zero. 
     
@@ -137,35 +179,37 @@ In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
 
 
 \subsection{The unit cube in higher dimensions / Tilings in higher dimensions}
-%* når det er større en 1 har vi flere muligheter
-%* en begrensing legges av Kellers theorem, 
+-> når det er større en 1 har vi flere muligheter
 
-% Following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
-\begin{theorem}\label{thrm:keller_tiling}
-    Given a discrete subset $T\subset \R^d$. If $T$ is a tiling set for $\Omega$, then given any pair $\lambda, \lambda' \in T$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
-\end{theorem}
-
-xxxxx
-
-essensielt samme som \cref{lem:zero_set_jp_1_5}. %* Denne er en omskriving av det som står i paperet
-\begin{lemma}[Spectral version of Kellers theorem]\label{lem:zero_set_AiSp}
-    %* JP: If $\brac{I^d,T}$ is a tiling pair, then $T-T \subset \Zstroke_{I^d}\cup \braq{0}$.\\
-    Let $T\subset \R^d$ be a discrete subset. The pair $\brac{\Omega,T}$ is orthogonal if and only if given any pair $\lambda, \lambda' \in T$, such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
-\end{lemma}
-
-%* Korolar om ortogonalitet er mulig å si som et resultat av kellers
-The following \labelcref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem, \cref{thrm:keller_tiling}, and \cref{lem:zero_set_AiSp}.
-\begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
-    If $\brac{I^d,T}$ is a tiling pair, then $\brac{I^d,T}$ is orthogonal. That is,
-    \begin{equation*}
-        T-T \subset \Zstroke_{I^d}\cup \braq{0}
-    \end{equation*}
-\end{corollary}
+-> en begrensing legges av Kellers theorem, 
 
 
-%* Viktig, må inn en bit her om 
-%* som en konsekvens av Kellers theorem så får vi nå akkurat den samme formen på disse tilings settene 
-%* de må ligge inneholt i akkurat de samme typene mengder, og de kan ikke være ekte mindre for da får vi ikke oppfylt tiling kravet mitt.
+\SigridComment{END}
+
+
+
+% ! Def tiling
+%\begin{definition}[Tiling set]
+%    Let $\Omega \subset \mathbb{R}^d$ be a subset with nonzero measure, and consider a set $T \subseteq \mathbb{R}^d$. If the set of translates ${}$$\{\Omega+l: l\in T\}$ cover $\mathbb{R^d}$ up to measure zero, and if all intersections $(\Omega+l) \cap (\Omega+l')$  for $l\neq l'$ in $L$ have measure zero, then $\Omega$ is called a \emph{tile}, and $T$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, T)$ is a \emph{tiling pair}. 
+%\end{definition}
+
+%In other words, the shifts $\Omega + T$ constitute a \emph{measuredisjoint covering} of $\mathbb{R}^d$, and we can say that $\Omega$ \emph{tiles} $\mathbb{R}^d$ \emph{by translation}, or that $\Omega+T$ is a \emph{tiling} of $\mathbb{R}^d$.
+
+
+% Fuglede’s spectral set conjecture. Let $\Omega$􏱁 be a set in $\mathbb{R}^d$ with positive and finite Lebesgue measure. Then 􏱁$\Omega$ is a spectral set if and only if $\Omega$􏱁 tiles $\mathbb{R}^d$ by translation.
+
+% An equivalent restatement of Fuglede was presented in Jorgen/Pedersen. 
+
+% Let $\Omega \subset \mathbb{R}^d$ have positive and finite Lebesgue measure. Then $\Omega$ is a spectral set if and only if $\Omega$ is a tile, i.e., there exists a set $\Lambda$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Lambda^{\prime}$ so that $\left(\Omega, \Lambda^{\prime}\right)$ is a tiling pair.
+
+%with the following dual conjectures.
+
+% Conjecture 1.3: Let $\Lambda \subset \mathbb{R}^d$. Then $\Lambda$ is a spectrum if and only if $\Lambda$ is a tiling set, i.e., there exists a set $\Omega$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Omega^{\prime}$ so that $\left(\Omega^{\prime}, \Lambda\right)$ is a tiling pair.
+
+% Conjecture 1.4: Let $\Lambda \subset \mathbb{R}^d$. Then $\left(I^d, \Lambda\right)$ is a spectral pair if and only if $\left(I^d, \Lambda\right)$ is a tiling pair.
+
+%When  $\Omega = I^d$ the connection between tiles and spectrum is more direct than for other examples of sets $\Omega$. As shown in sigrid_note:lagarias_reeds_wang and Spectral and tiling properties of the unit cube_ALEX IOSEVICH AND STEEN PEDERSEN it is possible to classify all spectra by showing that $\Lambda$ is a spectrum for the unit cube $I^d$, if and only if $I^d$ tiles $\mathbb{R}^d$ by $\Lambda$-translates.
+
 
 
 

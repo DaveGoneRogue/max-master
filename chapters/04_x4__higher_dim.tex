@@ -45,7 +45,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
         &= \prod_{j=1}^d \int_I e^{2\pi i z_j t_j} dt_j\\
         &= \prod_{j=1}^d \frac{e^{2 \pi i z_j} -1}{2 \pi i z_j}
     \end{align*}
-    Note that if any $z_j = 0$, we interpret the corresponding factor in the product as $1$. Furthermore, assume that $z\neq 0$ as this implies that at least one factor $z_j\neq 0$. In this case, observe that the equation is zero whenever at least one element $z_j\in \intnozero$ using that the exponential equals one in this case. Thus, the zero set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof. %* Første setning: In other words, reducing the total number of factors in the product.
+    Note that if any $z_j = 0$, we interpret the corresponding factor in the product as $1$. Furthermore, assume that $z\neq 0$ as this implies that at least one factor $z_j\neq 0$. In this case, observe that the equation is zero whenever at least one element $z_j\in \intnozero$ using that the exponential equals one in this case. Thus, the zero set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof. %* First sentence: In other words, reducing the total number of factors in the product.
     %If $z=0$, then we would have $e^{2\pi i z_j t_j} = 1$ and %* Trengs ikke, fordi vi er ute etter når det bir null
     %\begin{align*}
     %    F_{I^d} (0) = \prod_{j=1}^d \int_I 1 \space dt_j = \brac{\mes{I}}^d = 1.
@@ -117,22 +117,32 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     To show that $E(\Lambda)$ is complete in $L^2(\Omega_1 \times \Omega_2)$, let $f\in L^2\brac{\Omega_1 \times \Omega_2}$ and assume it is orthogonal to $\spn{E(\Lambda)}$. For all $e_\lambda \in E(\Lambda)$ the inner product is
     \begin{align*} % REMEMBER t is a vector, i.e t=(t_1,t_2)
         \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}}
-        &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_2dt_1 \\
-        &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i  (\lambda_1 t_1 + \lambda_2 t_2)} \overline{f(t_1,t_2)} dt_2 dt_1 \\
-        &= \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \int_{\Omega_2}e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2 dt_1
+        &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_1dt_2 \\
+        &= \int_{\Omega_2} \int_{\Omega_1} e^{2\pi i  (\lambda_2 t_2+\lambda_1 t_1)} \overline{f(t_1,t_2)} dt_2 dt_1 \\
+        &= \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} \int_{\Omega_1}e^{2 \pi i \lambda_1 t_1} \overline{f(t_1,t_2)} dt_1 dt_2
         %&= 0
     \end{align*}
-    If we fix $\lambda_2$, we denote the inner integral by \SigridComment{Fiksere $\lambda_2$ er unødvendig? må ikke da F, være en funksjon av $\lambda_2$ også?}
-    \begin{equation}\label{eq:inner_eq}
-        F(t_1) := \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} \overline{f(t_1,t_2)} dt_2,
-    \end{equation}
-    and note that $F\in L^2(\Omega_1)$. We thus have % This allows us to rewrite our initial inner product into
-    \begin{equation*}%\label{eq:outter_eq}
-        \braa{e_{\lambda}, f}_{L^2(\Omega_1\times \Omega_2)} = \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} F(t_1) dt_1 = \braa{e_{\lambda_1}, F}_{L^2(\Omega_1)} = 0, \quad \text{ for all } \lambda_1 \in \Lambda_1 .
+    If we fix $\lambda_1$ and the integral vanishes for all $\lambda_2 \in \lambfunc$, then this implies 
+    \begin{equation*}
+        \int_{\Omega_1}e^{2 \pi i \lambda_1 t_1} \overline{f(t_1,t_2)} dt_1 dt_2 = 0
     \end{equation*}
+    for almost every $t_2\in \Omega_2$. This follows from $(\Omega_2,\lambfunc)$ being a spectral pair. Now, since $\lambda_1$ was arbitrarily and $(\Omega_1,\Lambda_1)$ is a spectral pair we have that $f(t_1, t_2)=0$ for almost every $(t_1,t_2) \in \Omega_1 \times \Omega_2$. 
+    This shows that $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$, and concludes the proof that $(\Lambda, \Omega_1\times \Omega_2)$ is a spectral pair.
+
+    \mycomment{  %* Old variant
+    If we fix $\lambda_2$, we denote the inner integral by
+    \begin{equation*}%\label{eq:inner_eq}
+        F(t_2) := \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \overline{f(t_1,t_2)} dt_1,
+    \end{equation*}
+    and note that $F\in L^2(\Omega_2)$. We thus have % This allows us to rewrite our initial inner product into
+    \begin{equation*}%\label{eq:outter_eq}
+        \braa{e_{\lambda}, f}_{L^2(\Omega_1\times \Omega_2)} = \int_{\Omega_2} e^{2 \pi i \lambda_2 t_2} F(t_2) dt_2 = \braa{e_{\lambda_2}, F}_{L^2(\Omega_2)} = 0, \quad \text{ for all } \lambda_2 \in \Lambda_2 .
+    \end{equation*}
+
     Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} that $F(t_1)=0$ for almost every $t_1 \in \Omega_1$. Now as we must have \labelcref{eq:inner_eq} equal to zero a.e. observe that since $\lambda_2$ was arbitrarily, and we know that $E(\lambfunc)$ is complete in $L^2(\Omega_2)$, then using \cref{lem:ONB_alternative_def} again implies that $f=0$ a.e. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes the proof.
     %Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} and almost all $t_1 \in \Omega_1$, that the only element in $L^2(\Omega_1)$ that results in $\braa{e_{\lambda_1}, F} = 0$ for all $e_{\lambda_1} \in E(\Lambda_1)$ is the zero-element $F=0$. Now as we must have \cref{eq:inner_eq} equal to zero, observe that as we fixed $\lambda_2$ arbitrarily, and we know that $E(\Lambda_2)$ is complete in $L^2(\Omega_2)$, then the same lemma also implies $f=0$. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes our proof.
     %For almost all $t_1 \in \Omega_1$ \cref{eq:outter_eq}
+    }
 \end{proof}
 
 %* ———————————————————————————————————————— Del 3, Eksempler på theoremet
@@ -150,6 +160,11 @@ Let us now give some examples using \cref{thrm:construction_spectra} to illustra
 \end{example}
 
 Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \cref{thrm:construction_spectra} $d$ times will provide a proof of this result. \cref{ex:first_construction} is an example of a lattice spectrum, but the increase in dimension allows for more flexibility in that we can also construct spectra that are not lattices. %This becomes evident when looking at FIGUREXX, which illustrates the grid-like pattern of a lattice. 
+
+%! FIGURE INPUT
+\input{figures/figure-tex/spectra_figures.tex}
+\SigridComment{1: tykke linjer vs tynne linjer. 2. Piler ved beta verdiene, ikke piler ved beta verdiene}
+
 \begin{example}\label{ex:single_shift_vertical}
     For instance, letting $\Omega_1=\Omega_2 = I$ in \cref{thrm:construction_spectra}, we can choose $\Lambda_1 = \Z$ and 
     \begin{align}\label{eq:single_shift_vertical}
@@ -205,13 +220,9 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
 \end{remark}
 
 As has been observed, increasing the dimension from one to two opens up several new possibilities in our choices for the spectrum. This is most evident in our many choices for $\lambfuncNoVar$. To capture the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we summarize this in the following \namecref{lem:beta_shift}. 
-%! Ikke whitespace i multiple references.
+%! No whitespace in multiple references 
 %To summarize and capture the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we capture the flexibility in the following \namecref{lem:beta_shift}. 
 %To sumarize the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we introduce the following \namecref{lem:beta_shift}. 
-
-
-%! FIGURE INPUT
-\input{figures/figure-tex/spectra_figures.tex}
 
 %* ———————————————————————————————————————— Del 4, Lemma som fanger den nye fleksibiliteten
 \begin{lemma}\label{lem:beta_shift}
@@ -227,7 +238,7 @@ As has been observed, increasing the dimension from one to two opens up several 
     \end{equation}
     Then $\brac{\Omega_1 \times \Omega_2,\Lambda_\beta}$ is a spectral pair in $d_1+d_2$ dimensions. 
 \end{lemma}
-%\begin{proof} %! No proof needed here
+%\begin{proof} %! No proof is needed here
 %    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
 %\end{proof}
 \begin{remark} %! Denne vil sigrid fjerne
@@ -272,7 +283,7 @@ As has been observed, increasing the dimension from one to two opens up several 
     \end{equation*}
     where all the elements $\lambda_1, \dots, \lambda_d \in \Z$ and each $\betafunc_{i+1}:\Z^{i} \rightarrow [0,1)$ is a fixed function.
     %* Skriv om fra JP; It is clear that the modifications result from the permutation of the $d$ coordinates. 
-    %! Trengs det egt? Bedre å ikke nevne?
+    %! Is this needed? Better to not mention it? 
 \end{example}
 
 %* ———————————————————————————————————————— Del 5, Klassefisering av alle

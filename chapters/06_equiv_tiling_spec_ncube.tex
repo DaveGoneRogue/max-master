@@ -12,9 +12,25 @@
 
 \begin{document}
 
-
 \section{Equivalence of tiling sets and spectral sets for the n-cube}
+%* Sammenligning tiling sets <--> spectral sets
 
+essensielt samme som \cref{lem:zero_set_jp_1_5}. %* Denne er en omskriving av det som står i paperet
+
+
+\begin{lemma}[Spectral version of Kellers theorem]\label{lem:zero_set_AiSp}
+    %* JP: If $\brac{I^d,T}$ is a tiling pair, then $T-T \subset \Zstroke_{I^d}\cup \braq{0}$.\\
+    Let $T\subset \R^d$ be a discrete subset. The pair $\brac{\Omega,T}$ is orthogonal if and only if given any pair $\lambda, \lambda' \in T$, such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
+\end{lemma}
+
+
+The following \namecref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem (\cref{thrm:keller_tiling}), and \cref{lem:zero_set_AiSp}.
+\begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
+    If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,T}$ is orthogonal. Meaning that 
+    \begin{equation*}
+        T-T \subset \Zstroke_{I^d}\cup \braq{0}
+    \end{equation*}
+\end{corollary}
 
 
 
