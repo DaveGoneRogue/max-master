@@ -48,6 +48,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}  % Already defined
+\newcommand{\F}{\mathbb{F}}  % Already defined
 
 \newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\Fq}{\mathbb{F}_q}
@@ -86,6 +87,9 @@
 %% Absolute values
 \newcommand{\bral}[1]{|#1|}
 \newcommand{\bralMed}[1]{\left|#1\right|}
+%% Normed values
+\newcommand{\bran}[1]{\|#1\|}
+\newcommand{\branMed}[1]{\left \|#1\right \|}
 
 
 % Operator names  
@@ -127,8 +131,17 @@
 
 
 \newcommand{\mycomment}[1]{} %! Block comment
-\newcommand{\SigridComment}[1]{\textcolor{green}{kommentar: #1}}
+\newcommand{\SigridComment}[1]{\textcolor{green}{Comment: #1}}
 \newcommand{\SigridChange}[1]{\textcolor{green}{#1}}
 
 % For use in enumerate, itemize, description write \item \printvalues to get the following values
 \newcommand{\printvalues}{topsep=\the\topsep; itemsep=\the\itemsep; parsep=\the\parsep; partopsep=\the\partopsep}
+
+
+
+\let\abstracttwo\abstract
+\let\endabstracttwo\endabstract
+\patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
+\patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
+
+\newcommand{\abstracttwoname}{Sammendrag}

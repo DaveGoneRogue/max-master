@@ -12,53 +12,49 @@
 
 \begin{document}
 
-\begin{definition}[Span]\label{def:span}
-    Let $E$ be a subset of a vector space $X$. The \emph{finite linear span}, or \emph{span} for short, is the set of all finite linear combinations of $E$, that is
-    \begin{equation*}
-        \spn{E}=\braqMed{\sum_{n=1}^N C_n v_n : N>0, v_n \in E, C_i \in \mathbb{F}}.
-    \end{equation*}
-    We say that $E$ \emph{spans} $X$ if $\spn{E} = X$.
-\end{definition}
+\SigridChange{Intro text for what the contents of this chapter is about. (and reference to main sources?) }
+The main sources for this chapter are different sections from both \cite{heilMetricsNormsInner2018} and \cite{heilIntroductionRealAnalysis2019}.
+\textbf{alternative} For more details on this chapter, the reader is referred to chapters two, three, and four of \cite{heilMetricsNormsInner2018}.
 
-\begin{definition}[Closure]\label{def:closure}
-    Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$. That is the set
+Perhaps in its own section labeled notation, maybe we can fill in some more here
+\textcolor{orange}{
+%* —————————————————————————————————————— Indicator function  ——————————————————————————————————————
+\begin{definition}(Indicator function)\label{def:indicator}
+    Let $E$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function} of $E$, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
     \begin{equation*}
-        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}. \qedhere
+        \indicator{E}{t}  = 
+        \begin{cases} 
+            1, &  t\in E,\\
+            0, &  t \notin E.
+        \end{cases}
+        \qedhere
     \end{equation*}
-\end{definition}
-Furthermore, if $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
-\begin{remark}
-    Note that if $E$ is a subset of a metric space $X$, then
+\end{definition}}
+
+\textcolor{orange}{
+\begin{definition}\label{def:dot_prod}
+    Let $t=(t_1,\dots t_d)$ and $\lambda=(\lambda_1, \dots, \lambda_d)$ be two vectors in $\R^d$. The inner product, denoted $\langle \cdot, \cdot \rangle$, between $t$ and $\lambda$ is
     \begin{equation*}
-        \overline{E} = \{ y \in X : \exists \space \bracMed{y_n}_{n\geq 1} \in E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
+        \langle t, \lambda \rangle = \sum_{n=1}^d t_n \lambda_n = t_1\lambda_1 + \dots + t_d\lambda_d,
     \end{equation*}
-    %proof of the above can be found in CITE: Linmet bok, page 67.
-\end{remark}
-
-\begin{definition}[Closed Span]\label{def:closed_span}
-    Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\spnclos{E}$, that is
-    \begin{equation*}
-        \spnclos{E} = \braqMed{y\in X: \exists \space y_i\in \spn{E} \quad \text{ s.t } \quad y_i \longrightarrow y}. \qedhere
-    \end{equation*}
+    also known as the dot product. 
 \end{definition}
+}
 
-\begin{definition}[Complete]\label{def:complete}
-    Let $E$ be a subset of a normed space $X$. If $\spnclos{E} = X$, that is, $\spn{E}$ being dense in $X$ with respect to the \GenNormX, then we say that $E$ is \emph{complete}.  %, \emph{fundamental}, or \emph{total}.
-\end{definition}
+\section{section title / results on ... / Further results on function spaces (and move section after 2.2) }
+    \subfile{02_x1__asec.tex}
 
-%* —————————————————————————————— Importing files ———————————————————————————————
-\section{Notation}
-    \subfile{02_x1__notation.tex}
+\section{Vector spaces / Vector spaces of functions}
+    \subfile{02_x2__vecspace.tex}
 
 \section{Orthonormal Bases}
-    \subfile{02_x2__onb.tex}
-% ! ONB generelt, men ikke mer enn nødvendig, og da kanskje spesifisert for L^2
-
+    \subfile{02_x3__onb.tex}
 
 \section{Exponential functions}
-    \subfile{02_x3__exponential_function.tex}
+    \subfile{02_x4__exponential_function.tex}
+    %* TANKE: noe om boundedness, og at exp lever i L(\Omega) men IKKE i L^2(R) for da går normen av exp til *helvete*
 
-%* TANKE: noe om boundedness, og at exp lever i L(\Omega) men IKKE i L^2(R) for da går normen av exp til *helvete*
+
 \end{document}
 
 

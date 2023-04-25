@@ -1,0 +1,53 @@
+\documentclass[../thesis.tex]{subfiles}
+% Separate preamble for this subfile. This preamble is loaded last, so one can override various functions before \begin{document}
+
+% Better comment extension for Vscode colors these comments differently
+% Normal comment color
+% * Important information
+% ! ALERT
+% ? Question
+% TODO stuff to do
+% // This is strikethrough
+
+
+\begin{document}
+
+\SigridComment{1. Set $\F=\R$ since we don't use $\F=\C$, or keep it general and explain $\F$.}\\
+\SigridComment{2. Switch from $N> 0$ to $N \in \N$}
+\begin{definition}[Span]\label{def:span}  %? Page 159, chapter 4, Heil metrics norms
+    Let $E$ be a subset of a vector space $X$. The \emph{finite linear span}, or \emph{span} for short, is the set of all finite linear combinations of $E$, that is
+    \begin{equation*}
+        \spn{E}=\braqMed{\sum_{n=1}^N C_n v_n : N>0, v_n \in E, C_i \in \F}.
+    \end{equation*}
+    We say that $E$ \emph{spans} $X$ if $\spn{E} = X$.
+\end{definition}
+
+\begin{definition}[Closure]\label{def:closure}  %? Page 66, chapter 2, Heil metrics norms
+    Let $X$ be an arbitrary set. Given a subset $E \subseteq X$, the \emph{closure} of $E$, denoted $\overline{E}$, is the smallest closed set containing $E$. The closure is expressed as the intersection of all closed sets containing $E$,
+    \begin{equation*}
+        \overline{E} = \bigcap \braqMed{F \subseteq X : F \text{ closed, and } E \subseteq F}. \qedhere
+    \end{equation*}
+\end{definition}
+If $\overline{E} = X$ then we say that $E$ is \emph{dense} in $X$. Also, if $E$ is closed, then $\overline{E}=E$. In this regard, note that any intersection of closed sets is closed, implying that $\overline{E}$ is closed.
+\SigridComment{page 67 \cite{heilMetricsNormsInner2018}, states this remark using "element of notation" }
+\begin{remark} %? Page 67, chapter 2, Heil metrics norms, proof can also be found here
+    If $E$ is a subset of a metric space $X$, then
+    \begin{equation*} % can also use $n \in \N$ notation here for the sequence
+        \overline{E} = \{ y \in X : \exists \space \bracMed{y_n}_{n\geq 1} \subseteq E \quad \text{ s.t }\quad y_n \longrightarrow y\}.
+    \end{equation*}
+\end{remark}
+
+\SigridComment{page 159 \cite{heilMetricsNormsInner2018}, states the defenition using "element of" notation. Sigrid wants to change to the above notation, where we now use sequence notation. What is correct here, or does it not matter as long as I am consistent? See also attached image in e-mail}
+\begin{definition}[Closed Span]\label{def:closed_span}  %? Page 159, chapter 4, Heil metrics norms
+    Let $E$ be a subset of a normed space $X$. The \emph{closed linear span} or \emph{closed span} of $E$ is the closure of $\spn{E}$, that is
+    \begin{equation*}
+        \spnclosMed{E} = \braqMed{y\in X: \exists \space \bracMed{y_n}_{n\geq 1} \subseteq \spn{E} \quad \text{ s.t } \quad y_n \longrightarrow y}. \qedhere
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Complete]\label{def:complete}  %? Page 160, chapter 4, Heil metrics norms
+    Let $E$ be a subset of a normed space $X$. If $\spnclos{E} = X$, meaning, $\spn{E}$ is dense in $X$ with respect to the \GenNormX, then we say that $E$ is \emph{complete} in $X$.  %, \emph{fundamental}, or \emph{total}.
+\end{definition}
+\SigridComment{only complete in italic or both complete and in?}
+
+\end{document}

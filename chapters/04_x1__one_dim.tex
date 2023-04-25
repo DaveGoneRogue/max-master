@@ -13,7 +13,7 @@
 \begin{document}
 In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$. It is a well-known result from Fourier analysis that $\Lambda = \Z$ is a spectrum for $I$. In fact, not only is the system
 \begin{equation*}
-    E(\Z) = \braqMed{\indicator{I}{t} e^{2\pi i t \lambda} : \lambda \in \Z}
+    E(\Z) = \braqMed{\indicator{I}{t} e^{2\pi i t n} : n \in \Z}
 \end{equation*} 
 an orthogonal basis for $L^2(\Omega)$, it is an orthonormal basis.
 \begin{theorem}\label{lem:exp_onb_onedim}
@@ -21,20 +21,20 @@ an orthogonal basis for $L^2(\Omega)$, it is an orthonormal basis.
     % For $t\in \R$, then the set of exponential functions $E\brac{\Z}$ is an orthonormal basis for $L^2(I)$
 \end{theorem}
 \begin{proof}
-    We begin with showing orthogonality. Let $e_{\lambda}, e_{\lambda'} \in E(\Z)$ with $\lambda \neq \lambda'$. %Then, since complex exponential functions are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. We compute
+    We begin with showing orthogonality. Let $e_{n}, e_{m} \in E(\Z)$ with $n \neq m$. %Then, since complex exponential functions are continuous and Rienman integrable on $I$, they are also Lebesgue integrable on $I$. We compute
     \begin{align}\label{eq:orthog_one_dim_req}
-        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I)} &= \int_0^1 e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt \nonumber\\ 
-        &= \int_0^1 e^{2 \pi i {\lambda}t} e^{-2 \pi i {\lambda'}t} dt \nonumber\\
-        &= \int_0^1 e^{2 \pi i (\lambda-\lambda')t} dt \nonumber\\
-        &=\frac{1}{2 \pi i (\lambda-\lambda')} \brac{e^{2 \pi i (\lambda - \lambda')} -1} \\
-        &=\frac{1-1}{2 \pi i (\lambda-\lambda')} & (\text{since } e^{2 \pi i (\lambda-\lambda')} = 1) \nonumber\\
+        \braaMed{e_{n},e_{m} }_{L^2(I)} &= \int_0^1 e_{n}(t)\overline{e_{m}(t)} dt \nonumber\\ 
+        &= \int_0^1 e^{2 \pi i {n}t} e^{-2 \pi i {m}t} dt \nonumber\\
+        &= \int_0^1 e^{2 \pi i (n-m)t} dt \nonumber\\
+        &=\frac{1}{2 \pi i (n-m)} \brac{e^{2 \pi i (n - m)} -1} \\
+        &=\frac{1-1}{2 \pi i (n-m)} & (\text{since } e^{2 \pi i (n-m)} = 1) \nonumber\\
         &= 0 \nonumber.
     \end{align}
-    Hence the system $E(\Lambda)$ is orthogonal. Furthermore, if $\lambda =\lambda'$ then the inner product is
+    Hence the system $E(\Z)$ is orthogonal. Furthermore, if $n =m$ then the inner product is
     \begin{align*}\label{eq:exp_norm_one}
-        \| e_\lambda \|^2_{L^2(I)} 
-        = \braaMed{e_{\lambda},e_{\lambda} }_{L^2(I)} 
-        = \int_0^1 e^{2 \pi i (\lambda-\lambda)t} dt
+        \| e_n \|^2_{L^2(I)} 
+        = \braaMed{e_{n},e_{n} }_{L^2(I)} 
+        = \int_0^1 e^{2 \pi i (n-n)t} dt
         = \int_0^1 e^{0} dt = 1,
     \end{align*}
     which shows that $E(\Z)$ is orthonormal. Now, let us see that $E(\Z)$ is complete in $L^2(I)$. By \cref{def:closed_span}, this is equivalent to showing $\spn{E(\Z)}$ is dense in $L^2(I)$ with respect to the \Ltwonorm. 
@@ -53,20 +53,20 @@ an orthogonal basis for $L^2(\Omega)$, it is an orthonormal basis.
     \begin{theorem}[Weierstrass Approximation Theorem]\label{thrm:weierstrassApprox}
         Let $q\in \Cper (I)$. Then for each $\varepsilon>0$ there exists a trigonometric polynomial %of degree $N$
         \begin{equation*}
-            T(t) = \sum_{\lambda=-N}^N c_\lambda e^{2\pi i \lambda t},
+            T(t) = \sum_{n=-N}^N c_n e^{2\pi i n t},
         \end{equation*}
         such that $|q(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$.
     \end{theorem}
     From \cref{thrm:weierstrassApprox}, we immediately get that there exists a trigonometric polynomial $T(t)$ such that $|g(t)-T(t)|<\varepsilon$ for $0 \leq t \leq 1$. Note that $T(t)$ is a member of $\spn{E(\Z)}$ since % N er degree! mao, lambda er degreE? / frequency?
     \begin{equation*}
-        \spn{E(\Z)}=\braqMed{\sum_{\lambda=-N}^N c_\lambda e_\lambda : N \in \N, c_\lambda \in \C}.
+        \spn{E(\Z)}=\braqMed{\sum_{n=-N}^N c_n e_n : N \in \N, c_n \in \C}.
     \end{equation*}
     %is simply a set of trigonometric polynomials. Continuing, using the \Ltwonorm, we have that
     We have that
     \begin{align}\label{eq:estimate_2}
         \| g-T \|_{L^2(I)}^2 = \int_0^1 \left|g(t)-T(t) \right|^2dt \leq \int_0^1 \varepsilon^2 dt = \varepsilon^2.
     \end{align}
-    Now, using the triangle inequality to combine the estimates in \labelcref{eq:estimate_1} and \labelcref{eq:estimate_2}, we get
+    Now, using the triangle inequality and combining the estimates in \labelcref{eq:estimate_1} and \labelcref{eq:estimate_2}, we get
     \begin{align*}
         \| f-T\|_{L^2(I)} \leq  \| f-g\|_{L^2(I)} +\| g-T\|_{L^2(I)} < \varepsilon + \varepsilon =  2 \varepsilon
     \end{align*}
@@ -74,8 +74,8 @@ an orthogonal basis for $L^2(\Omega)$, it is an orthonormal basis.
     %For this reason, we can approximate every $f\in L^2(I)$ by a function $T \in \spn{\onedexp}$ as closely as we want. In other words, $\spnclos{\onedexp}=L^ 2(I)$, and by \cref{def:closure} $\spn{\onedexp}$ is dense in $L^2(I)$ which finalizes our proof%, and this finalizes our proof. %we have shown that $\onedexp$ indeed is complete. This 
 \end{proof}
 %The proof above can easily be generalized to higher dimensions, where one can see that $\Lambda = \Z^d$ is a spectrum for $I^d$. We summarise this result in the following lemma.
-
-One can easily generalize the above proof to higher dimensions, where $\Lambda = \Z^d$ would be a spectrum for $I^d$. %*Although we will not show this explicitly, we summarise it in the following result.
+\SigridComment{put the following sentence in a remark?}
+One can generalize the above proof to higher dimensions, where $\Lambda = \Z^d$ would be a spectrum for $I^d$. %*Although we will not show this explicitly, we summarise it in the following result.
 %Using similar arguments, one can generalize the above proof into higher dimensions. That is, $\Lambda = \Z^d$ is a spectrum for $I^d$.
 %The above proof can, using similar arguments, easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
 %Original:    %The proof above can easily be generalized to higher dimensions, where $\Lambda = \Z^d$ is a spectrum for $I^d$.
@@ -83,7 +83,8 @@ One can easily generalize the above proof to higher dimensions, where $\Lambda =
 \begin{theorem}\label{lem:z_d_in_higer_d}
     The set of exponential functions $E(\Z^d) = \braqMed{\indicator{\Omega}{t} e_\lambda(t) : \lambda \in \Z^d}$ is an orthonormal basis for $L^2(I^d)$.
 \end{theorem}
-However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. That is to say, it is easy to classify all of them, and they are all closely related since they are alterations of the same set.  %? other spectra than the integers?
+However, whereas we will see in \cref{sec:spec_higher_dim} that $I^d$ for $d>1$ has many other spectra, the flexibility for $d=1$ is minimal. % It is easy to classify all spectra, and they are all closely related since they are translations of the same set.
+\colorbox{BurntOrange}{More transition text here?}
 \begin{proposition}\label{prop:class_all_shift}
     The only subsets $\Lambda \subseteq \R$ such that $\Lambda$ is a spectrum for $I$ are the translates $\Lambda_\alpha = \Z + \alpha$ for a fixed value $\alpha \in \R$.
 \end{proposition}
