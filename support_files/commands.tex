@@ -102,11 +102,12 @@
 \newcommand{\mesMed}[1]{\operatorname{mes}\bracMed{#1}}
 
 
-\newcommand{\Cper}{C_{\text{per}}}
-\newcommand{\intnozero}{\Z\setminus\braq{0}} 
-
 % others 
 \newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}  % inner product w. lambda
+\newcommand{\Cper}{C_{\text{per}}}  % C_per for set of continuous and periodic functions
+\newcommand{\intnozero}{\Z\setminus\braq{0}}   % for the integers setminus zero
+
+% Indicator funtion
 \newcommand{\indicator}[2]{\mathbbm{1}_{#1}(#2)}  % indicator 1_A (t) 
 \newcommand{\indicatorNoVar}[1]{\mathbbm{1}_{#1}}  % indicator 1_A 
 
@@ -114,12 +115,14 @@
 \newcommand{\onedexp}{ \braq{e^{2\pi i \lambda t } : \lambda \in \Z} }
 \newcommand{\alldexp}{ \braq{e^{2\pi i \inpl{t}} : \lambda \in \Z^d} }
 
+
 % text replacements
 \newcommand{\Ltwonorm}{$\|\cdot\|_{L^2}$-norm}  %! Uten dollartegn, rett i teksten ->
 \newcommand{\LPnorm}{$\|\cdot\|_{L^p}$-norm}  %! HUSK, hvis det ikke er siste ord i setningen, bruk \space etter komandoen
 \newcommand{\GenNormX}{$\|\cdot\|_{X}$-norm}
 \newcommand{\GenNormH}{$\|\cdot\|_{H}$-norm}
 
+% Lambda "function." 
 \newcommand{\lambfunc}{\mathbf{L}(\lambda_1)}  % will type L(lambda_1)  consider: \mathsf{}, \mathbf{}, or L
 \newcommand{\lambfuncNoVar}{\mathbf{L}}  % no variable
 \newcommand{\lambfuncGen}[1]{\mathbf{L}(#1)}  % general, must give input
@@ -138,10 +141,9 @@
 \newcommand{\printvalues}{topsep=\the\topsep; itemsep=\the\itemsep; parsep=\the\parsep; partopsep=\the\partopsep}
 
 
-
+% Some abstract test
 \let\abstracttwo\abstract
 \let\endabstracttwo\endabstract
 \patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
 \patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
-
 \newcommand{\abstracttwoname}{Sammendrag}
