@@ -942,9 +942,6 @@ INPUT ./figures/figure-tex/tiling_two.tex
 INPUT ./figures/figure-png/lizard-1.jpg
 INPUT ./figures/figure-png/lizard-1.jpg
 INPUT ./figures/figure-png/lizard-1.jpg
-INPUT ./figures/figure-png/flying-fish.jpg
-INPUT ./figures/figure-png/flying-fish.jpg
-INPUT ./figures/figure-png/flying-fish.jpg
 INPUT ./figures/figure-tex/tiling_figures.tex
 INPUT ./figures/figure-tex/tiling_figures.tex
 INPUT ./chapters/04_spectral_sets.tex
