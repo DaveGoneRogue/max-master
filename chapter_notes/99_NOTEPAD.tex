@@ -9,6 +9,18 @@
 
 MY NOTEPAD, this is not imported anywhere
 
+%-----------
+Heltall er gir flislegging gir veldig mening gitt kelles dimensjonsuavhengige theorem (to ulike lambdaer, heltallsdistanse mellom!)
+Samme theorem gir også at det ikke finnes andre flislegginger for enhetskuben enn akkurat heltallene
+
+For spektra har vi lignende resulater, og der følger det egentlig at det er heltallene som gjør at eksponentialfunksjonen er lik én
+og når vi da har integrert og har denne brøken, så vil vi da få 1-1 = 0 som beviser ortogonalitet, som er selve KRAVET for å være et spektra
+(to ulike lambdaer, heltallsdistanse melleom!). 
+
+
+linken mellom flislegging og spektra ligger i linken mellom kellers vanlige resultat og kellers spectral resulat
+
+Derfor, ingen andre spektra en heltallene
 
 %-----------
 TANKE, språk på om vi ser på ONB, spectra, etc.
@@ -19,10 +31,105 @@ Even classifying all spectra for certain sets is not a trivial case. which is wh
 
 
 %-----------
-FIN SETTNING: Showing that an orthonormal basis cannot be a strict subset of another orthonormal basis for the same space. 
+FIN setning: Showing that an orthonormal basis cannot be a strict subset of another orthonormal basis for the same space. 
+
 
 %-----------
-Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, som jo burde stemme.
+Tilings gammelt
+
+%* Gammelt
+%* denne introen til tilings kan vurderes å droppes for T(\Lambda) ville da vært en tiling OG IKKE et tiling set
+To begin, given a subset $\Omega$ of $\R^d$ and a discrete set $\Lambda$ of $\R^d$, we denote by $T(\Lambda)$ the set of translates 
+\begin{equation*}
+    T(\Lambda) = \braq{\Omega+\lambda : \lambda\in \Lambda},
+\end{equation*}
+where $\Omega + \lambda$ is the translate of $\Omega$ by the vector $\lambda$. That is the set
+\begin{equation*}
+    \Omega + \lambda = \braq{\omega + \lambda : \omega \in \Omega}.
+\end{equation*}
+Rather than defining tiling in terms of non-overlapping and covering of the space, we will instead define tiling in the Fourier domain, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
+%* ———————
+%* Old tiling definition in two variations
+\begin{definition}[Tiling set]
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subset \R^d$. If $T(\Lambda)$ covers $\R^d$ up to measure zero, and if all intersections 
+    \begin{equation*}  %* NON OVERLAPPING
+        (\Omega+\lambda) \cap (\Omega+\lambda')
+    \end{equation*}
+    for $\lambda\neq \lambda'$ in $\Lambda$ have measure zero, then $\Omega$ is called a \emph{tile}, and $\Lambda$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{tiling pair}. 
+\end{definition}
+\begin{definition}  %* Sigrid would not want to use the above rather than this one
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subseteq \R^d$. If the following two conditions are satisfied, then $\Omega$ is called a \emph{tile}, and $\Lambda$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{tiling pair}. 
+    \begin{itemize}
+        \item If $T(\Lambda)$ cover $\R^d$ up to measure zero. That is,  %* Cover the whole space
+        \begin{equation*}
+            \bigcup_{\lambda \in \Lambda} (\Omega + \lambda) = \R^d
+        \end{equation*}
+        \item If all intersections of $(\Omega+\lambda) \cap (\Omega+\lambda')$ for $\lambda\neq \lambda'$ in $\Lambda$ have measure zero. %* Mutually NON-OVERLAPPING 
+    \end{itemize}
+\end{definition}
+%* ———————
+%* Old proof
+In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
+\begin{theorem}  %* Bruker alle elementene i T for å flytte på I, da dekker vi hele $\R$.  
+    Let $\Omega = I$. If $\Lambda=\Z$, then $\Lambda$ is a tiling set for $I$.
+\end{theorem}
+
+\begin{proof}
+    It is clear that
+    \begin{align*}
+        %\bigcup_{\lambda\in \Z} (I + \lambda) &= \bigcup_{\lambda\in \Z} \braq{\omega + \lambda : \omega \in I}\\
+        \bigcup_{\lambda\in \Z} (I + \lambda) &= \dots (I-1) \cup (I-0) \cup (I+1) \dots\\ 
+        &= \dots [-1,0] \cup [0,1] \cup [1,2] \dots\\
+        &= \R
+    \end{align*}
+    
+    and that  %* consider deleting this
+    \begin{align*}  %* consider deleting this
+        \mesMed{\R \setminus \bigcup_{\lambda\in \Z} (I + \lambda) } = \mesMed{\emptyset} = 0.
+    \end{align*}
+    This shows that the set of translates $T(\Lambda)$ covers $\R$. % up to measure zero. 
+    
+    Now take $\lambda,\lambda' \in \Z$. %If $\lambda = \lambda'$ we have that
+    %\begin{equation*}
+    %    \mes{(I+\lambda) \cap (I+\lambda')} = \mes{(I+\lambda)} = (1+\lambda) - (0+\lambda) = 1.
+    %\end{equation*}
+    %And if $\lambda \neq \lambda'$ we have that 
+    If $\lambda \neq \lambda'$ we have that 
+    \begin{equation*}
+        \mes{(I+\lambda) \cap (I+\lambda')} = \mes{\emptyset} = 0,
+    \end{equation*}
+    showing that the cubes are non-overlapping for all distinct $\lambda , \lambda' \in \Lambda$. 
+\end{proof}
+%* ———————
+%*  Def tiling from Notion page, which again comes from one of the earliest papers from Sigrid
+\begin{definition}[Tiling set]
+    Let $\Omega \subset \mathbb{R}^d$ be a subset with nonzero measure, and consider a set $T \subseteq \mathbb{R}^d$. If the set of translates ${}$$\{\Omega+l: l\in T\}$ cover $\mathbb{R^d}$ up to measure zero, and if all intersections $(\Omega+l) \cap (\Omega+l')$  for $l\neq l'$ in $L$ have measure zero, then $\Omega$ is called a \emph{tile}, and $T$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, T)$ is a \emph{tiling pair}. 
+\end{definition}
+
+In other words, the shifts $\Omega + T$ constitute a \emph{measuredisjoint covering} of $\mathbb{R}^d$, and we can say that $\Omega$ \emph{tiles} $\mathbb{R}^d$ \emph{by translation}, or that $\Omega+T$ is a \emph{tiling} of $\mathbb{R}^d$.
+
+%* Fuglede
+Fuglede's spectral set conjecture. Let $\Omega$ be a set in $\mathbb{R}^d$ with positive and finite Lebesgue measure. Then $\Omega$ is a spectral set if and only if $\Omega$ tiles $\mathbb{R}^d$ by translation.
+
+An equivalent restatement of Fuglede was presented in Jorgen/Pedersen. 
+
+Let $\Omega \subset \mathbb{R}^d$ have positive and finite Lebesgue measure. Then $\Omega$ is a spectral set if, and only if $\Omega$ is a tile, i.e., there exists a set $\Lambda$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Lambda^{\prime}$ so that $\left(\Omega, \Lambda^{\prime}\right)$ is a tiling pair.
+
+
+Jorgen/Pedersen added the following dual conjectures 1.3 and 1.4. after Fuglede.
+
+
+Conjecture 1.3: Let $\Lambda \subset \mathbb{R}^d$. Then $\Lambda$ is a spectrum if, and only if $\Lambda$ is a tiling set, i.e., there exists a set $\Omega$ so that $(\Omega, \Lambda)$ is a spectral pair if and only if there exists a set $\Omega^{\prime}$ so that $\left(\Omega^{\prime}, \Lambda\right)$ is a tiling pair.
+
+Conjecture 1.4: Let $\Lambda \subset \mathbb{R}^d$. Then $\left(I^d, \Lambda\right)$ is a spectral pair if and only if $\left(I^d, \Lambda\right)$ is a tiling pair.
+
+When $\Omega = I^d$, the connection between tiles and spectrum is more direct than for other examples of sets $\Omega$. As shown in sigrid_note:lagarias_reeds_wang and Spectral and tiling properties of the unit cube_ALEX IOSEVICH AND STEEN PEDERSEN, it is possible to classify all spectra by showing that $\Lambda$ is a spectrum for the unit cube $I^d$, if and only if $I^d$ tiles $\mathbb{R}^d$ by $\Lambda$-translates.
+
+
+%* ———————
+%* Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, som jo stemmer.
+%* Ikke vist formelt i teksen, men løst
+
 \begin{lemma}
     The set of exponential functions $\alldexp$ is an orthonormal basis for $L^2(I^d)$
 \end{lemma}
@@ -43,7 +150,7 @@ Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, s
     if $\lambda \neq \lambda'$, then we must show that for some index $n$ we have that $\lambda_n \neq \lambda_n'$ which is equal to 0, forcing everyting to be 0, i.e integral with index n vanish.
     That is orthonormality.
 
-    Show basis either by generalising the proof over to d dimensions
+    Show basis either by generalizing the proof over to d dimensions
     
     or by using stone-weierstrass in the complex version to show the system is first dense in $C_{per}(I^d)$
     and then, since $C_{per}(I^d)$ is dense in $L^2(I^d)$, then the system is dense in $L^2(I^d)$. 
