@@ -14,13 +14,13 @@
 
 Before tackling spectral sets in higher dimensions, we first emphasize the importance of \cref{eq:zero_set_equation} and generalize it to higher dimensions. 
 \begin{lemma}\label{lem:zero_set_jp_1_5}
-    Let $\Omega=I^d$. The zero-set for the function
+    \sout{Let $\Omega=I^d$.} The zero-set for the function
     \begin{equation*}
-        F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt
+        F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt,
     \end{equation*}
-    is the set
+    \SigridChange{when $\Omega=I^d$} is the set
     \begin{equation*}
-        \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}
+        \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}.
     \end{equation*}
 \end{lemma}
 
@@ -53,22 +53,27 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     %\end{align*}
 \end{proof}
 
-\begin{remark}\label{rem:zero_set_orthogonal}
+\SigridComment{To big to be a remark? Also, is the opposite statement correctly phrased?}
+\begin{remark}\label{rem:zero_set_orthogonal} 
     Given a spectral pair $(I^d,\Lambda)$, consider the set
-    \begin{equation*}
+    \begin{equation}\label{eq:zero_set_orthogonal}
         \Lambda - \Lambda = \braqMed{\lambda-\lambda' : \lambda,\lambda' \in \Lambda}.
-    \end{equation*}
-    It follows from \cref{lem:zero_set_jp_1_5} that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{\Omega}$, meaning 
-    \begin{equation*} %! En veis implikasjon !! spectral pair ->> DEtte stemmer. Lignende resultat for dette er Keller, og er ikke trivielt
+    \end{equation}
+    It follows from \cref{lem:zero_set_jp_1_5} that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{I^d}$, meaning 
+    \begin{equation*}  %! En veis implikasjon !! spectral pair ->> DEtte stemmer. Lignende resultat for dette er Keller, og er ikke trivielt
         \Lambda - \Lambda \subset \Zstroke_{I^d} \cup \braq{0},
     \end{equation*}
     and that the set $E(\Lambda)$ is complete in $L^2(\Omega)$. This follows immediately from the observation that
     \begin{equation*}
-        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_\Omega e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = F_{\Omega} (\lambda-\lambda'),
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_{I^d} e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = F_{I^d} (\lambda-\lambda'),
     \end{equation*}
     %which is zero whenever $\lambda \neq \lambda'$, that is $\lambda-\lambda'\neq 0$, which imply $\lambda-\lambda' \in \Z_{I^d}$
-    which is zero whenever $\lambda \neq \lambda'$, which implies $\lambda-\lambda' \in \Zstroke_{I^d}$
+    which is zero whenever $\lambda \neq \lambda'$ from the orthogonality of $E(\Lambda)$. Hence, $(\lambda-\lambda') \in \Zstroke_{I^d}$. On the other hand, if we assume \labelcref{eq:zero_set_orthogonal}, we immediately get that $\lambda \neq \lambda'$ since $(\lambda-\lambda') \in \Zstroke_{I^d}$, which implies the orthogonality.  % vet at for forskjellige lambda, så er integralet null. Det viktige her er at vi med en gang vet at de er forskjellige, siden de er et element av null-mengden til F, og vi vet at det kun er ikke-null elementer som er med der. MAO kan de ikke være like.
+    
+    %Thus, $F_{I^d}(\lambda-\lambda') = 0 = \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)}$
+    % that $F_{I^d}(\lambda-\lambda')=0$ since we know $\lambda \neq \lambda'$ from fact that $\lambda - \lambda' \neq 0 \Leftrightarrow (\lambda-\lambda') \in \Zstroke_{I^d}$ 
 \end{remark}
+This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_all_shift_2d}. %! Max lurer på om dette er nødvendig ??
 
 \SigridComment{Sigrid wants to "consider cutting" this example. Reason being: Unclear what it illustrates for the reader}
 \begin{example} %! Opp til deg, derfor vi ikke har tatt det vekk
@@ -102,22 +107,27 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
         &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \braa{\lambda, t} } e^{-2\pi i  \braa{\lambda', t}} dt_2 dt_1\\ 
         &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \brac{\lambda_1 t_1+\lambda_2 t_2}} e^{-2\pi i\brac{\lambda_1' t_1+\lambda_2' t_2}} dt_2 dt_1\\ 
         &= \int_{\Omega_1} \int_{\Omega_2} e^{2\pi i \brac{\lambda_1- \lambda_1'}t_1} e^{2\pi i \brac{\lambda_2 - \lambda_2'}t_2} dt_2 dt_1\\ 
-        &= \int_{\Omega_2} e^{2\pi i  \brac{\lambda_2- \lambda_2'}t_2} \bracMed{\int_{\Omega_1}  e^{2\pi i \brac{\lambda_1 - \lambda_1'}t_2} dt_1} dt_2.
+        &= \int_{\Omega_2} e^{2\pi i  \brac{\lambda_2- \lambda_2'}t_2} \bracMed{\int_{\Omega_1}  e^{2\pi i \brac{\lambda_1 - \lambda_1'}t_2} dt_1} dt_2.\\
+        \intertext{Consider first $\lambda_1, \lambda_1' \in \Lambda_1$. If $\lambda_1 \neq \lambda_1'$, which results in $\lambda_2\in \lambfunc$ and $\lambda_2'\in \lambfuncGen{\lambda_1'}$, we would have that the inner integral will be zero because $\brac{\Omega_1, \Lambda_1}$ is a spectral pair. Conversely, if $\lambda_1 = \lambda_1'$ the resulting integral will factor as}
+        &= \mes{\Omega_1} \int_{\Omega_2} e^{2\pi i  \brac{\lambda_2- \lambda_2'}t_2} dt_2.\\
+        \intertext{Now, if one assumes $\lambda_2 \neq \lambda_2'$, then as both $\lambda_2, \lambda_2' \in \lambfunc$ the integral will be zero from the fact that $\brac{\Omega_2, \lambfunc}$ is a spectral pair. However, if $\lambda_2 = \lambda_2'$, observe that we have the case where $\lambda = \lambda'$, and}
+        &= \mes{\Omega_1}\mes{\Omega_2} \neq 0.
     \end{align*}
-    \SigridComment{how is the wording in this orange highlighted part }\textcolor{orange}{
+    \mycomment{  %! Block comment, this is now in \intertext to get the alignment right. \phantom{text} to create invisible eq. w. alignment did not work
     Consider first $\lambda_1, \lambda_1' \in \Lambda_1$. If $\lambda_1 \neq \lambda_1'$, which results in $\lambda_2\in \lambfunc$ and $\lambda_2'\in \lambfuncGen{\lambda_1'}$, we would have that the inner integral will be zero because $\brac{\Omega_1, \Lambda_1}$ is a spectral pair. Conversely, if $\lambda_1 = \lambda_1'$ the resulting integral will factor as % THE inner integral will be equal to $\mes{\Omega_1}$, and the resulting integral will be
     \begin{align*}
-        = \mes{\Omega_1} \int_{\Omega_2} e^{2\pi i  \brac{\lambda_2- \lambda_2'}t_2} dt_2.
+        &= \mes{\Omega_1} \int_{\Omega_2} e^{2\pi i  \brac{\lambda_2- \lambda_2'}t_2} dt_2.
     \end{align*}
     Now, if one assumes $\lambda_2 \neq \lambda_2'$, then as both $\lambda_2, \lambda_2' \in \lambfunc$ the integral will be zero from the fact that $\brac{\Omega_2, \lambfunc}$ is a spectral pair. However, if $\lambda_2 = \lambda_2'$, observe that we have the case where $\lambda = \lambda'$, and
     \begin{align*}
-        \braa{e_\lambda, e_\lambda}_{L^2\brac{\Omega_1 \times \Omega_2}}
-        &= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda}(t)} dt_2 dt_1
-        =\int_{\Omega_1} \int_{\Omega_2} |e^{2 \pi i \braa{\lambda, t}}|^2 dt_2 dt_1
-        = \int_{\Omega_1} \int_{\Omega_2} |1|^2 dt_2 dt_1\\
-        &= \mes{\Omega_2}\mes{\Omega_1} \neq 0
+        %\braa{e_\lambda, e_\lambda}_{L^2\brac{\Omega_1 \times \Omega_2}}
+        %&= \int_{\Omega_1} \int_{\Omega_2} e_{\lambda}(t) \overline{e_{\lambda}(t)} dt_2 dt_1
+        %=\int_{\Omega_1} \int_{\Omega_2} |e^{2 \pi i \braa{\lambda, t}}|^2 dt_2 dt_1
+        %= \int_{\Omega_1} \int_{\Omega_2} |1|^2 dt_2 dt_1\\
+        %= \mes{\Omega_2}\mes{\Omega_1} \neq 0  %? Either commentet, or not commented solution
+        &= \mes{\Omega_1}\mes{\Omega_2} \neq 0.
     \end{align*}
-    }
+    }  %! end
     To show that $E(\Lambda)$ is complete in $L^2(\Omega_1 \times \Omega_2)$, let $f\in L^2\brac{\Omega_1 \times \Omega_2}$ and assume it is orthogonal to $\spn{E(\Lambda)}$. For all $e_\lambda \in E(\Lambda)$ the inner product is
     \begin{align*} % REMEMBER t is a vector, i.e t=(t_1,t_2)
         \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}}
@@ -132,7 +142,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     \end{equation*}
     for almost every $t_2\in \Omega_2$. This follows from $(\Omega_2,\lambfunc)$ being a spectral pair. Now, since $\lambda_1$ was arbitrary and $(\Omega_1,\Lambda_1)$ is a spectral pair we have that $f(t_1, t_2)=0$ for almost every $(t_1,t_2) \in \Omega_1 \times \Omega_2$. 
     This shows that $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$, and concludes the proof that $(\Lambda, \Omega_1\times \Omega_2)$ is a spectral pair.
-    \mycomment{  %* Old variant
+    \mycomment{  %! Block comment %* Old variant
     If we fix $\lambda_2$, we denote the inner integral by
     \begin{equation*}%\label{eq:inner_eq}
         F(t_2) := \int_{\Omega_1} e^{2 \pi i \lambda_1 t_1} \overline{f(t_1,t_2)} dt_1,
@@ -145,7 +155,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} that $F(t_1)=0$ for almost every $t_1 \in \Omega_1$. Now as we must have \labelcref{eq:inner_eq} equal to zero a.e. observe that since $\lambda_2$ was arbitrarily, and we know that $E(\lambfunc)$ is complete in $L^2(\Omega_2)$, then using \cref{lem:ONB_alternative_def} again implies that $f=0$ a.e. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes the proof.
     %Using the fact that $E(\Lambda_1)$ is complete in $L^2(\Omega_1)$, we have from \cref{lem:ONB_alternative_def} and almost all $t_1 \in \Omega_1$, that the only element in $L^2(\Omega_1)$ that results in $\braa{e_{\lambda_1}, F} = 0$ for all $e_{\lambda_1} \in E(\Lambda_1)$ is the zero-element $F=0$. Now as we must have \cref{eq:inner_eq} equal to zero, observe that as we fixed $\lambda_2$ arbitrarily, and we know that $E(\Lambda_2)$ is complete in $L^2(\Omega_2)$, then the same lemma also implies $f=0$. Thus, $E(\Lambda)$ is complete in $L^2\brac{\Omega_1 \times \Omega_2}$ which finalizes our proof.
     %For almost all $t_1 \in \Omega_1$ \cref{eq:outter_eq}
-    }
+    }  %! end
 \end{proof}
 %* ———————————————————————————————————————— Del 3, Eksempler på theoremet
 Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
@@ -165,7 +175,6 @@ Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \
 
 %! FIGURE INPUT
 \input{figures/figure-tex/spectra_figures.tex}
-\SigridComment{1: thick lines (figure 4.1) vs. thin lines (figure 4.2). 2. Arrow symbol at the beta values or no arrows at the beta values. 3. Figure caption}
 
 \begin{example}\label{ex:single_shift_vertical}
     Letting $\Omega_1=\Omega_2 = I$ in \cref{thrm:construction_spectra}, we can choose $\Lambda_1 = \Z$ and 
@@ -175,19 +184,14 @@ Recall our unproven \cref{lem:z_d_in_higer_d}. It is easy to see that applying \
             \Z+\beta & \text{if } \lambda_1=\lambda_1',\text{ where } \beta \in \mathbb{R}.   
         \end{cases}
     \end{align}
-    %! VURDER Å LEGGE INN $\Lambda$ inn i: ... resulting spectrum $\Lambda$ for $I^2$...
     Then the resulting spectrum for $I^2$ will be
     \begin{equation}\label{eq:lam_single_shift_vertical}
-        \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc},
+        \Lambda = \braqMed{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc},
     \end{equation}
     with $\lambfuncNoVar$ given by \labelcref{eq:single_shift_vertical}. This spectrum is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$.
-    %\begin{equation}\label{eq:single_shift_vertical_spectrum}
-    %    \Lambda = \braqMed{\brac{\lambda_1,\lambda_2}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc},
-    %\end{equation}
-    %which is illustrated in \cref{fig:single_shift_vertical} with $\beta = 0.5$.
 \end{example} %* for the two spectral pairs $\brac{I,\Z}$ and $\brac{I,\lambfunc}$. NEI, dette er et valg av L(.) mer enn et spektrum.  og i den grad det er et spektrum så er jo hvert enkelt L(.) et spektrum for I.
 %! Sigrid wants to delete "value" in the next sentence
-Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ value as done in \cref{ex:single_shift_vertical}. 
+Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ as done in \cref{ex:single_shift_vertical}. 
 \begin{example}\label{ex:multiple_shift_vertical}
     Again, letting $\Omega_1=\Omega_2 = I$ in \cref{thrm:construction_spectra}, we can choose $\Lambda_1 = \Z$ and 
     \begin{align}\label{eq:multiple_shift_vertical}
@@ -204,7 +208,7 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
     \end{align}
     Then the resulting spectrum for $I^2$ will be
     \begin{equation}\label{eq:lam_multiple_shift_vertical}
-        \Lambda = \braq{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc},
+        \Lambda = \braqMed{\brac{\lambda_1, \lambda_2}: \lambda_1\in \Z, \lambda_2 \in \lambfunc},
     \end{equation}
     with $\lambfuncNoVar$ given by \labelcref{eq:multiple_shift_vertical}. This spectrum is illustrated in \cref{fig:multiple_shift_vertical}. Note that there is no reason to consider shifts $\beta \geq 1$ as we can always write the shift as some value $n+\beta$ where $n\in \Z$ and $\beta \in [0,1)$.
 \end{example}
@@ -310,14 +314,12 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
             }
     \end{equation}
     where $\alpha \in \R$ is fixed and $\brac{\beta_m}_{m\in \Z}$ is an infinite sequence with $\beta_m \in [0,1)$.
-    %! \SigridComment{ekskludert delen om at det også er et tiling set, det er vel hensiktsmessik og splitte disse opp, og komme tilbake til det i neste del, for å så komme med fulle og hele theorem 3.2.} 
 \end{theorem}
-%!remark on the half open interval\\
 %!remark om hvorfor sequencen er essensiell i dette tilfellet for å klassifisere alle skiftene\\ %, samenlignet bare med bare noen random skift
 %!remark om at vi ikke kan ha ulike skift i to retninger, skiftene i den ene retningen må være fiksert.\\
 
 \begin{proof}
-    It follows directly from \cref{lem:beta_shift,rem:switch_lambda,rem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, we will make use of the inclusion
+    It follows directly from \cref{lem:beta_shift,rem:switch_lambda,rem:beta_shift} that both classes given by \labelcref{eq:2d_all_shift_class_1} and \labelcref{eq:2d_all_shift_class_2} make $\brac{I^2,\Lambda}$ a spectral pair. To show that there are no other possibilities for $\Lambda$, as we noted in \cref{rem:zero_set_orthogonal}, we will make use of the inclusion
     \begin{equation}\label{eq:inclusion_dim_2}
         \Lambda - \Lambda \subset \Zstroke_{I^2} \cup \braq{0}
     \end{equation}
@@ -336,15 +338,7 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
         \quad \text{and} \quad
         \brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\in \intnozero}} \notin \intnozero,
     \end{align*}
-    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. Thus, $\lambda_1'$ must be an integer for any element $\lambda'\in \Lambda$ as this implies
-    \begin{align*}  %*, which corresponds to the fact that the "x-axis values" distribution is an integer! we disregard the other values (lambda_2) completely
-        \brac{\underbrace{\lambda_1}_{\in \intnozero}-\underbrace{\lambda_1'}_{\in \Z}} \in \intnozero. %* this is the one that is correct
-        %\quad \text{and} \quad
-        %\brac{\underbrace{\lambda_2}_{\notin \Z}-\underbrace{\lambda_2'}_{\notin \Z}} \notin \intnozero, %* denne er beviselig feil 3.5 - 0.5 = 3 som er helt klart et heltall
-    \end{align*}
-    \SigridComment{Sigrid wanted to consider cutting this because I was saying the same two times. I have now deleted the last statement and changed the wording. Would you say it is better now, or would you rather remove the whole equation as well}
-    %and that $\brac{\lambda-\lambda'} \in \Zstroke_{I^2}$. 
-    We conclude that %! Sier vel egentlig her at $\lambda_1 = m + \alpha$
+    we get that $\brac{\lambda-\lambda'} \notin \Zstroke_{I^2}$ which contradicts \labelcref{eq:inclusion_dim_2}. Thus, $\lambda_1'$ must be an integer for any element $\lambda'\in \Lambda$. We conclude that %! Sier vel egentlig her at $\lambda_1 = m + \alpha$
     \begin{align*}  %* ————  den mengden til høyre er ALLTID større en Lambda ———— 
         \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R}.
     \end{align*}
@@ -353,7 +347,7 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
     %* MEN to punkter på samme linje, da skjer det ting -> da må differansen være et heltall
     %* DRITER I HVA LAMBDA_2 og LAMBDA_2' er, det viktige er hva antagelsen gjør med det vi har antatt av at $\lambda\notin \Z$ samt $\lambda_1\in\Z$
     %* og at det tvinger $\lambda_1'$ til å også være et heltall
-    Going forward, take $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_1 = \lambda'_1$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have  %* fjernet merknaded i antagelsen om at $\lambda_1,\lambda'_1 \in \Z$
+    Going forward, take $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq \lambda'$, and assume $\lambda_1 = \lambda'_1$. Then, from \labelcref{eq:inclusion_dim_2} and the fact that we must have  %* fjernet merknaded i antagelsen om at $\lambda_1,\lambda'_1 \in \Z$ som jo følger fra tidligere
     \begin{equation*}
         \brac{\lambda_1-\lambda'_1,\lambda_2-\lambda'_2} = \brac{0,\lambda_2-\lambda'_2}\in \Zstroke_{I^2},
     \end{equation*}
@@ -363,9 +357,11 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
         \lambda_2' = \lambda_2 + k = (n+k) +  \beta_{\lambda_1},
     \end{equation*}
     where $(n+k)\in \Z$, meaning $\lambda_2' \in \Z + \beta_{\lambda_1}$. That is, we have one form to express all $\lambda_2$ and $\lambda_2'$ values. %! NOT, shift at the point $lambda_1$ we only consider points here, and all points are shifted $\beta_m$ amount from their closest integer rounded down. So the construction of $\Lambda$ here is somewhat different from the one we looked at earlier as we here only consider points in both directions, not how they are placed in relation to one another as the construction lemma!!
-    Furthermore, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ for $\alpha = 0$ and $\lambda_2 = n+\beta_m$. That is, \space \SigridComment{Sigrid wanted to delete the $\alpha$ and $\alpha=0$ parts. Does this work better, or would you say that this is obvious and there is no need to mention it all?}
+    Furthermore, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ for $\alpha = 0$ and $\lambda_2 = n+\beta_m$. That is,
+    %! ABOVE
+    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which means she thinks it is wrong — is it wrong?}
     \begin{equation*}  %* ———— DENNE inklusjonen DERIMOT, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
-        \Lambda \subseteq \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}
+        \Lambda \subseteq \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}.
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
     From \cref{lem:onb_direct_subset}, we know that we cannot have an orthonormal basis as a direct subset of another orthonormal basis. Thus we must have equality, and $\Lambda$ must in this first case be of the form \labelcref{eq:2d_all_shift_class_1}.
     %*which corresponds to the fact that the distribution of 
@@ -383,10 +379,11 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
     \begin{equation*}
         \lambda_1'  = \lambda_1 + k = (m+k) + \beta_{\lambda_2},
     \end{equation*}
+    %! HERE
+    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which means she thinks it is wrong — is it wrong?}
     where $k \in \Z$, and $m$ is chosen to be the integer so that the shift $\beta_{\lambda_2} \in [0,1)$. Now, observe that $\Lambda$ is a subset given by \labelcref{eq:2d_all_shift_class_2} with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n+\alpha$ where $\alpha = 0$. That is,
-    \space \SigridComment{ same comment about $\alpha$ here}
     \begin{equation*}  %* ———— OG DENNE inklusjonen, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
-        \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z} 
+        \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}.
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
     From \cref{lem:onb_direct_subset}, we once more get that $\Lambda$ cannot be a subset of \labelcref{eq:2d_all_shift_class_2} and that we must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}, and there are no other spectra for $I$ in dimension $d=2$.
 \end{proof}

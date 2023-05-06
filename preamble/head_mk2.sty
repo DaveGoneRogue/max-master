@@ -124,3 +124,15 @@ scr=rsfs]{mathalpha}
 %\usepackage{dsfont} alternative math fonts? for $\mathds{1}$
 
 %\usepackage{tocloft}
+
+
+% For text with strikethrough and similar
+\usepackage{cancel}
+% \cancel{text to cancel} draws a diagonal line (slash) through its argument
+% \bcancel{text to cancel} uses the negative slope (a backslash)
+% \xcancel{text to cancel} draws an X (actually \cancel plus \bcancel)
+% \cancelto{〈value〉}{〈expression〉} draws a diagonal arrow through the 〈expression〉pointing to the 〈value〉 (math-mode only)
+
+\usepackage[normalem]{ulem}  % The problem that ulem affects some bibliography styles where otherwise italicised text is then underlined can be remedied through the »normalem«-option in the preamble
+% \sout{text to be striked out}
+% \xout{text to be crossed out}

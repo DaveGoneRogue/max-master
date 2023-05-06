@@ -12,48 +12,23 @@
 
 \begin{document}
 
-\mycomment{
-
-Den tiden som gjennstår:
-
-
-Jo høyere dimensjon vi får jo mer eksotisk kan disse tilingene bli. Står noe referanser til i paperet. 
-Keller hadde en teori om at enhver tiling må være av den typen -- (Se for deg enhetskuben i 2D)
-enhver tiling nødvendigvis medføre at,
-alle tiles har en full felles kant med en annen tile
-
-i 2D gjelder det her med at man har to kanter hvor man har en full felles kant (med den over og den under)
-
-
-i 1D har man ingen sidekant, det er et punkt
-men poenget er at i veldig høye dimensjoner så kan tilingene bli mer eksotiske, og et utrykk for det er at du ikke trenger å ha en full kant med noen som helst annen tile
-dimensjon > 7
-
-
-%! 
--> når det er større en 1 har vi flere muligheter
-
--> en begrensing legges av Kellers theorem, 
-}
-
-Informally, to tile refers to the process of covering some surface with objects. These objects are called tiles and come in a variety of shapes and sizes. When we are tiling, we essentially place copies of the tile next to each other in a systematic way, intending to leave no gaps and no overlaps between the tiles. The resulting tiling can be as simple as the one shown in \cref{fig:tiling_one} where we have used a single tile, the unit square, to tile the plane, or as complex as \cref{fig:tiling_two} where we have used four different tiles to tile the plane. The first is an example of what is known as a \emph{monohedral tiling} in which all tiles are congruent \cite[p. 20]{grunbaumTilingsPatterns1987}, and the latter is an example of a Penrose tiling which are well known for being non-periodic \cite{penrosePentaplexityClassNonPeriodic1979}. %* 1979 page 535 har også penrose tilings
-% non-periodic tiling, meaning that there is no period parallelogram \SigridChange{KORT FORTALT}.  % Worth emphasizing is the fact that we lack a method for determining whether a tile is the prototile of a monohedral tiling 
+Informally, to tile refers to the process of covering some surface with objects. These objects are called tiles and come in a variety of shapes and sizes. When we are tiling, we essentially place copies of the tile next to each other in a systematic way, intending to leave no gaps and no overlaps between the tiles \cite{kolountzakisTilingsTranslation2010}. The resulting tiling can be as simple as the one shown in \cref{fig:tiling_one} where we have used a single tile, the unit square, to tile the plane, or as complex as \cref{fig:tiling_two} where we have used four different tiles to tile the plane. The first is an example of what is known as a \emph{monohedral tiling} in which all tiles are congruent \cite[p. 20]{grunbaumTilingsPatterns1987}, and the latter is an example of a Penrose tiling which are well known for being non-periodic \cite{penrosePentaplexityClassNonPeriodic1979}. %* 1979 page 535 har også penrose tilings
+% non-periodic tiling, meaning that there is no period parallelogram.  % Worth emphasizing is the fact that we lack a method for determining whether a tile is the prototile of a monohedral tiling 
 
 \input{figures/figure-tex/tiling_one.tex}
 
-Another interesting monohedral tiling is given in \cref{fig:tiling_three}. This is an example of an Escher tiling in which a lizard tiles the plane \cite{kolountzakisTilingsTranslation2010}. Note that in comparison to the square tilings in \cref{fig:tiling_one}, there is important to highlight a fundamental difference between the square and lizard tilings. In the latter, one needs to rotate the lizard tile in order to cover the entire surface. 
-Last, in addition to translation and rotation, one can have reflections \cite{grunbaumTilingsPatterns1987}. Although this is not exactly shown in any figure, one can find reflection points/lines for parts of the tiles in \cref{fig:tilings_one_two,fig:tiling_three}. 
-\SigridComment{how does this work for the lattice tile? Does one consider it to have an infinite amount of reflection lines or none at all?}
-% However, it is essential to highlight a fundamental difference between the square tilings in \cref{fig:tiling_one} and the lizard tilings in \cref{fig:tiling_three}. In the latter, one needs to rotate the tile in order to cover the entire surface. 
+Another interesting pair of monohedral tilings is given in \cref{fig:tiling_three,fig:tiling_four}. These are both examples of an Escher tiling in which a lizard and horseman tile the plane. Note that in comparison to the square tilings in \cref{fig:tiling_one}, there is important to highlight two fundamental differences between the square and Escher tilings. The first is that one needs to rotate the lizard to cover the entire surface, and the second is that one needs to reflect the horseman to cover the entire surface. It is these three motions and combinations of them that we use when tiling in general \cite[p. 26]{kolountzakisTilingsTranslation2010,grunbaumTilingsPatterns1987}. 
+% It is these three motions that in literature often exhibit interesting behavior \cite{kolountzakisTilingsTranslation2010}. 
+% This latter is the last one of the \emph{group of rigid motions} of the Euclidean group one usually considers in tilings. %* Fant bare wikipedia kilde her
+% Last, in addition to translation and rotation, one can have reflections \cite{kolountzakisTilingsTranslation2010}. An example of this can be seen in \cref{fig:tiling_four}, where a reflected tile is also used.
+%* Important distinction between reflection symmetry and tiling by reflection (AND translation!)
+% The first can clearly be found in the Penrose figure with reflection LINES passing through the middle. 
+% Tilings by reflection uses a reflected variant of the tile in addition to the "normal" tile AND then uses translation to cover the surface. Sometimes one also needs to rotate in addition in order to cover the entire surface. Think about the examples on page 35/36 in \cite{grunbaumTilingsPatterns1987}
+% Note that one would be hard-pressed to find a reflection line in the aperiodic tiling of \cref{fig:tiling_two}; however, reflection lines exist for individual fragments of the tiling. DETTE ER FEIL! Fant refleksjonslinje på figuren vist.
+% Full group of rigid motions is a subgroup of the Euclidian group https://en.wikipedia.org/wiki/Euclidean_group
+% translation, rotation $\subset$ translation, rotation, reflection
+%* KAN IKKE FINNE I lizards, jo hvis man reflekterer to ganger en vertikal og en horisontal, og så translerer 
 
-\mycomment{ %! If we bring in reflection —— We don't ——
-However, it is important to highlight a fundamental difference between the square tilings in \cref{fig:tiling_one}, the lizard tilings in \cref{fig:tiling_three}, and the BLABLA tilings in \cref{fig:tiling_four}. Each represents a way to cover the entire surface exclusively using either translation, rotation, or reflection in that order.  
-% OPTION 1: Delete "in that order" and write: Meaning square tilings need only translation to cover the entire surface, lizard tilings need only rotation, and BLABLA only needs reflection.
-% OPTION2: It means square tilings can cover the entire surface using translation, lizard tilings need only rotation, and BLABLA only needs reflection. 
-% OPTION 3: The first, \cref{fig:tiling_one}, can tile the surface using translation only, \cref{fig:tiling_three} can tile using rotation only, and \cref{fig:tiling_four} can tile using reflection only.
-}
-%  https://www.wikiart.org/en/m-c-escher/flying-fish    
-%  https://www.wikiart.org/en/m-c-escher/lizard-1} 
 \input{figures/figure-tex/tiling_two.tex}
 
 However interesting the Penrose and Escher tilings appear, we will only focus on tilings of $\R^d$ by translation and using only the unit cube as our tile. Considering only cube-tilings might seem simple initially, but we will see that as we increase the dimension, we get increased flexibility and more complex tilings. It turns out that in higher dimensions, highly exotic and counterintuitive cube tilings exist. The fact that this kind of tiling exists in the first place is surprising in light of Keller's theorem \cite{iosevichSpectralTilingProperties1998}.  %This is Perhaps surprising in light of Keller's theorem. 
@@ -68,65 +43,35 @@ However interesting the Penrose and Escher tilings appear, we will only focus on
 %    \end{equation*}
 %\end{theorem}
 \begin{theorem}[Keller's Theorem]\label{thrm:keller_tiling}
-    Let $\Lambda \subset \R^d$ be a discrete subset. If $\Lambda$ is a tiling set for the unit cube $\bras{0,1}^d$, then given any pair $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\lambda_j -\lambda_j' \in \intnozero$.
+    Let $\Lambda \subset \R^d$ be a discrete subset. If $\Lambda$ is a tiling set for the unit cube $\bras{0,1}^d$, then given any pair $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
 \end{theorem}
-%? ——————————————————————————————————  Info  ——————————————————————————————————
-%? Timeline. Keller's theorem and conjecture are both from Keller's paper from 1930. Although, they are never stated as "Keller's theorem"  or "Keller's Conjecture" until after. At least, that is my Thought. I think the first time these names appears is in a paper by his student Perron in 1940.
-%? ——————————————————————————————————  Short version [Kellers Theorem]  ——————————————————————————————————
-%? Kellers theorem was prooved by Keller \cite{ott-heinrichkellerUberLuckenloseErfullung1930} in 1930. A detailed proof appears in Perron \cite{perronUeberLueckenloseAusfuellung1940} satz 9 in chapter 3 on page 11. Source for this is \cite[p. 8]{iosevichSpectralTilingProperties1998}. Furthermore, Perron writes in the intro of his paper \cite{perronUeberLueckenloseAusfuellung1940} that Keller proved his theorem and will do this in chapter 3 while adding some more info to the problem (blue). Additionally, it is important to mention that in Remark 1.2 in \cite{iosevichSpectralTilingProperties1998}, they present Theorem 1.1, which is essentially my master, and some valuable insight into the importance of this, as well as on the topic of exotic tilings.
-%? ——————————————————————————————————  Short version [Kellers Conjecture]  ——————————————————————————————————
-%? In their paper \cite[p. 2]{iosevichSpectralTilingProperties1998}, they briefly introduce the problem's history. They state, "Keller, while working on Minkowski's conjecture, made the stronger conjecture that one could omit the lattice assumption in Minkowski's conjecture." Furthermore, Perron, in the intro of his paper \cite{perronUeberLueckenloseAusfuellung1940}, discusses this further. The most interesting part is that Keller later doubted his conjecture. He also states that Keller only sketched the proof and that it was hard to follow for dimensions 5 and 6. Worth mentioning that Perron proves this for $n \leq 6$. Furthermore, The paper on the resolution of Keller's conjecture \cite{brakensiekResolutionKellerConjecture2020} states that the conjecture originates from \cite{kellerUberLuckenloseErfullung1930}. They also write that Perron proved this over two papers (the one above and in a paper I have downloaded but not cited) and that Minkowski's conjecture was proved in 1942 by Hajós (no citation here).
-%? ——————————————————————————————————  Sigrid Note  ——————————————————————————————————
-%? The existence of exotic tilings is perhaps surprising in light of Keller's theorem. If anything, Sigrid would say that the conjecture hints at the opposite. That such exotic tilings do NOT exist. That is to say, Keller made the thoughts that led to his conjecture after he had proved his theorem (or while doing it). He also later doubted this (see intro in Perron). Sigrid emphasizes that if one can show the integer difference independent of the lattice assumption (and dimension), then it is reasonable to assume that one can strengthen the Minkowski conjecture into Keller's conjecture. By lattice assumption, we mean that the integer difference exists whether it is a lattice or not. It is important to remark that the conjecture does not support that exotic tilings should exist. Rather, the opposite. It indicates some rigidity. However, as we know it to be untrue for $d>7$, we have that these exotic tilings appear. 
+Following this informal discussion on exotic tilings, we will formally define what we mean by a \emph{tiling set} from \cref{thrm:keller_tiling}. Now, although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, Iosevich and Pedersen provide an English proof in their paper \cite{iosevichSpectralTilingProperties1998}. Furthermore, in the same paper by Keller, he also conjectured the following. 
 
-%* Hvis jeg kan vise at jeg alltid har denne heltalls-differansen så er det naturlig å anta at jeg kan styrke denne mikovsky conjecturen.
-%* Dette er fordi  han viser theoremet uavhengig av om det er en lattice eller ikke
+\begin{conjecture}[Keller's conjecture]\label{conj:keller_tiling}
+    All tilings of $\R^d$ by translations of the unit cube contain \textsc{two} cubes that share an entire $(d-1)$-dimensional face.
+\end{conjecture}  %* For å kaste lys på at de kan være eksotiske så er det det at de er usant over 7 som er det relevante her. 
 
-%* Derfor blir følgende er ikke helt riktig:
-%* "One indicator of this characteristic follows from Keller's conjecture \cite{ott-heinrichkellerUberLuckenloseErfullung1930}."
+If the dimension is two, the squares share an edge; if the dimension is three, they share a face. Furthermore, when $d\geq 3$, it is not necessarily true that \emph{all} cubes shared a whole $(n-1)$-dimensional face with one of its neighbors \cite{perronUeberLueckenloseAusfuellung1940}. It is important to \SigridChange{remark/emphasize} that the conjecture does not support the existence of exotic tilings. Instead, it indicates the opposite — rigidity in the tiling of the space. %/ $\R^d$.
+However, after being first proven true for $d\leq 6$ by Perron in 1940 \cite{perronModulartigeLueckenloseAusfuellung1940,perronModulartigeLueckenloseAusfuellung1940a}, it has since then gradually been proved false for all $d\geq10$ \cite{lagariasKellerCubetilingConjecture1992} and later all $d\geq8$ \cite{mackeyCubeTilingDimension2002}. The last remaining dimension was finally solved in 2020, where it was proven to be true \cite{brakensiekResolutionKellerConjecture2020}, leading us to a solution in all dimensions for Keller's \namecref{conj:keller_tiling}.%, \cref{conj:keller_tiling}. 
 
-\SigridComment{Difficult transition here }
+\begin{theorem}
+    In all tilings of $\R^d$ by translations of the unit cube, Keller's \namecref{conj:keller_tiling}, \cref{conj:keller_tiling}, is false for all dimensions $d>7$.
+\end{theorem}
+It is precisely the higher dimensional tilings that counterexample Keller's conjecture that we intuitively \SigridChange{define/understand} to be the exotic and counterintuitive tilings.
 
-Although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, Iosevich and Pedersen also provide an English proof in their paper \cite{iosevichSpectralTilingProperties1998}. Furthermore, in the same paper by Keller, he also conjectured the following. \SigridChange{/} Additionally, the same paper by Keller also conjectured the following. \SigridChange{/} Following his theorem, Keller also conjectured the following. %In the same paper, Keller conjectured the following. % Keller conjectured that
-
-\begin{conjecture}[Keller's conjecture]
-    All tilings of $\R^d$ by translations of the unit cube contain two cubes that share an entire $(d-1)$-dimensional face.
-\end{conjecture}
-
-%* Known to be true... d<=7, but in fact false when d>7...
-%* For å kaste lys på at de kan være eksotiske så er det det at de er usant over 7 som er det relevante her. 
-If the dimension is two, the squares share an edge; if the dimension is three, they share a face. It is important to remark/emphasize that the conjecture does not support the existence of exotic tilings. Instead, it indicates the opposite — rigidity in the tiling of the space/$\R^d$. However, after it was recently proven true in dimension seven, we now know the conjecture to be false for all $d>7$ \cite{brakensiekResolutionKellerConjecture2020}. 
-
-\SigridComment{same, but opposite order of the second statement. I have a preference for the first, but it might be wrong in terms of the use of "however" here.}
-
-If the dimension is two, the squares share an edge; if the dimension is three, they share a face. It is important to remark/emphasize that the conjecture indicates a rigidity in the tiling of the space/$\R^d$. It does not indicate the existence of exotic tilings. However, after it was recently proven true in dimension seven, we now know the conjecture to be false for all $d>7$ \cite{brakensiekResolutionKellerConjecture2020}.
-
-
-It is precisely in the higher dimensions where Keller's conjecture fails that we get the tilings we consider highly exotic and counterintuitive.
-
-\SigridComment{Other, variants. not quite sure what terminology to use}
-
-It is \SigridChange{these} higher dimensional tilings we \SigridChange{consider to be/categorize as /classify as} highly exotic and counterintuitive.\\
-/ It is precisely where Keller's conjecture fails that we get the tilings \SigridChange{that are both/we consider to be/categorize/classify as} highly exotic and counterintuitive. %both
-
-
-\SigridChange{ ———————————}
-
-
-% This conjecture does not support the fact that exotic tilings could exist, as it indicates a rigidity in tiling the space. However, it is now known to be false for all dimensions greater than seven after being proven true in dimension seven.
-
-% It is the higher dimensional tilings in which two cubes do not share an entire $(d-1)$-dimensional face we classify as being exotic and counterintuitive.
-% It is these higher dimensional tilings in which the property of two cubes not sharing an entire $(d-1)$-dimensional face that makes so the tilings are considered highly exotic and counterintuitive. 
-% These higher dimensional tilings in which the property of two cubes not sharing an entire $(d-1)$-dimensional face make the tilings highly exotic and counterintuitive. 
-%  as we now know the conjecture to be false for all dimensions greater than seven, we have that these exotic tilings do exist. 
+\begin{remark}  \SigridComment{Not a remark per se, move the entire thing as a footnote, or as a "fun fact" ish kinda thing?}
+    What is interesting is the fact that Keller himself later doubted whether his conjecture was actually true. Furthermore, Keller also wrote a paper claiming to solve his conjecture for $d\geq 6$ \SigridComment{reference to this? It can be found as a citation in \cite{perronUeberLueckenloseAusfuellung1940}}. However, Perron later described Keller's solution for $d=5$ and $d=6$ as \emph{"quite incomprehensible to me"} and \emph{"very sketchy"} in the literal sense of the word \cite{perronUeberLueckenloseAusfuellung1940} \footnote[1]{Perron's origninal description of Keller's solution to his conjecture: \emph{— Enthält einen sehr skizzenhaften mir ziemlich unverständlichen Beweis für die Richtigkeit der Kellerchen Vermutung im Falle n=5 unt n=6.}}.
+\end{remark}
 %* ———————————————————————————— Tilings ——————————————————
-%* Tenk overgang, vurder intro med non overlappings og coverings, litt uformelt, ingen def, dvs det fra gammelt med gammel struktur og så lede over til vår def
 % In defining tilings formally, we use indicator functions \cite{kolountzakisTilingsTranslation2010}. 
-\SigridComment{Sigrid laid out two options here. I have tried incorporating the second option by defining it with "words" and a bit more informally so that I only have \emph{one} formal definition of tilings.}
-In defining tilings more formally/rigorously/using our geometric intuition/$\dots$, one often defines it as a non-overlapping covering of the space \cite{iosevichSpectralTilingProperties1998}. By this, we mean that a subset $\Omega \subset \R^d$ of non-zero measure is a tile, and a set $\Lambda \subset \R^d$ is a tiling set if they satisfy both of the following conditions. First, (the union of) $\Omega+\lambda$ for (all) $\lambda \in \Lambda$ must cover $\R^d$ up to measure zero. Secondly, all intersections $(\Omega+\lambda) \cap (\Omega+\lambda')$ of distinct elements $\lambda,\lambda' \in \Lambda$ must have measure zero. Note that $\Omega+\lambda$ denotes the translate of $\Omega$ by the vector $\lambda$. More formally/Nevertheless, tilings can also be expressed using indicator functions as follows \cite{kolountzakisTilingsTranslation2010}. \SigridChange{/} We will, however, define tilings in terms of indicator functions as follows \cite{kolountzakisTilingsTranslation2010}.
-% Rather than defining tiling in terms of a non-overlapping covering of the space, we will instead define tiling by the indicator function, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
+% In defining tilings more formally/rigorously/using our geometric intuition/$\dots$,
+% In defining a tiling more formally, one intuitive way is to define it as a non-overlapping covering of the space.
+% One possible approach to providing a more formal definition of a tiling is to define it as a non-overlapping covering of the space.
+In defining a tiling more formally, one possible approach is to define it as a non-overlapping covering of the space. By this, we mean that a subset $\Omega \subset \R^d$ of non-zero measure is a tile, and a set $\Lambda \subset \R^d$ is a tiling set if they satisfy both of the following conditions. First, $\Omega+\lambda$ for $\lambda \in \Lambda$ must cover $\R^d$ up to measure zero. Secondly, all intersections $(\Omega+\lambda) \cap (\Omega+\lambda')$ of distinct elements $\lambda,\lambda' \in \Lambda$ must have measure zero. Note that $\Omega+\lambda$ denotes the translate of $\Omega$ by the vector $\lambda$. However, instead of the more intuitive geometric definition, we use the following \namecref{def:tiling} in terms of indicator functions as our working \namecref{def:tiling} \cite{kolountzakisTilingsTranslation2010,kolountzakisStructureTilingsLine1996}.  % - However, instead of the more intuitive geometric definition, we use the following as our working definition in terms of indicator functions \cite{kolountzakisTilingsTranslation2010,kolountzakisStructureTilingsLine1996}.
+% - More formally/Nevertheless, tilings can also be expressed using indicator functions as follows \cite{kolountzakisTilingsTranslation2010}. \SigridChange{/} We will, however, define tilings in terms of indicator functions as follows \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStructureTilingsLine1996}.
+% - Rather than defining tiling in terms of a non-overlapping covering of the space, we will instead define tiling by the indicator function, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
 \begin{definition}[Tiling set]\label{def:tiling}
-    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a \SigridChange{discrete (or just a set?)} set $\Lambda \subset \R^d$. If
+    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a discrete set $\Lambda \subset \R^d$. If
     \begin{equation}\label{eq:tiling_set}
         \sum_{\lambda \in \Lambda} \indicator{\Omega}{x-\lambda} = 1, \text{\space} a.e. \quad x \in \R^d,
     \end{equation}
@@ -136,35 +81,42 @@ In defining tilings more formally/rigorously/using our geometric intuition/$\dot
     We can also say that $\Omega$ \emph{tiles $\R^d$ by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. 
 \end{remark}
 \begin{remark}
-    One can define tilings more generally. By this, we mean that in place of the indicator function, we can have a non-negative, integrable function $f$. Other than allowing for any other constant value than $1$, the definition is the same. \textcolor{orange}{Note that we still require the same constant value almost everywhere.} The reader is referred to \cite{kolountzakisTilingsTranslation2010} for more details on this topic. \SigridComment{1. Is the last sentence worth mentioning? 2. is the orange sentence an unnecessary note, as there is little ambiguity in the previous sentence? 3. is this whole remark unnecessary? That is, it is better to leave it out and move on. Am I diving too much into tilings in general and moving away from the "red thread" of the link between spectra and tilings.}
+    Additionally, one can define tilings more generally. By this, we mean that in place of the indicator function, we can have a non-negative, integrable function $f$. Other than allowing for any other constant value than $1$, the definition is the same. The reader is referred to \cite{kolountzakisTilingsTranslation2010,kolountzakisStructureTilingsLine1996} for more details on this topic.
 \end{remark}
-
-\SigridComment{remarks, or direct in text}
-
-
-In other words, we can also say that $\Omega$ \emph{tiles $\R^d$ by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. Additionally, one can define tilings more generally. By this, we mean that in place of the indicator function, we can have a non-negative, integrable function $f$. Other than allowing for any other constant value than $1$, the definition is the same. Note that we still require the same constant value almost everywhere. The reader is referred to \cite{kolountzakisTilingsTranslation2010} for more details on this topic.
+% Direct in text:
+% In other words, we can also say that $\Omega$ \emph{tiles $\R^d$ by translation}, or that $\Omega$ is a \emph{tiling} of $\R^d$. Additionally, one can define tilings more generally. By this, we mean that in place of the indicator function, we can have a non-negative, integrable function $f$. Other than allowing for any other constant value than $1$, the definition is the same. Note that we still require the same constant value almost everywhere. The reader is referred to \cite{kolountzakisTilingsTranslation2010} for more details on this topic.
 %* ———————————————————————————— One dimension  ——————————————————
 %* Viktig, må inn en bit her om 
 %* som en konsekvens av Kellers theorem så får vi nå akkurat den samme formen på disse tilings settene 
 %* de må ligge inneholt i akkurat de samme typene mengder, og de kan ikke være ekte mindre for da får vi ikke oppfylt tiling kravet mitt.
-\SigridChange{(continue here)} If we now restrict our attention to the unit cube in d-dimensions, Keller's theorem immediately gives the following for $d=1$. Here, the unit cube is simply the unit interval $I = \bras{0,1}$. %In dimension one, the unit cube is simply the unit interval $I = \bras{0,1}$. 
+If we now restrict our attention to the unit cube in d-dimensions, Keller's theorem immediately gives the following for $d=1$. Here, the unit cube is simply the unit interval $I = \bras{0,1}$. %In dimension one, the unit cube is simply the unit interval $I = \bras{0,1}$. 
 
 \begin{lemma}\label{lem:tiling_unit_1d}
-    The set $\Lambda = \Z +\alpha$ for some value $\alpha\in \R$ constitutes a tiling set for $I$.
+    %The set $\Lambda = \Z +\alpha$ for some value $\alpha\in \R$ constitutes a tiling set for $I$.
+    %The only subsets $\Lambda \in \R$ such that $\Lambda$ is a tiling set for $I$ are $\Lambda = \Z +\alpha$ for some value $\alpha\in \R$.
+    The only subsets $\Lambda \in \R$ such that $\Lambda$ is a tiling set for $I$ are the translates $\Lambda = \Z +\alpha$ for a fixed value $\alpha\in \R$. 
 \end{lemma}
+
 %\begin{theorem}  %* Bruker alle elementene i T for å flytte på I, da dekker vi hele $\R$.  
 %    Let $\Omega = I$. If $T=\Z$, then $T$ is a tiling set for $I$.
 %\end{theorem}
-
 \begin{proof}  % This follows directly from \cref{thrm:keller_tiling}. Take $\lambda, \lambda' \in \Lambda$. 
     %  Må konkret gå tilbake til definisjonen du har valgt. For den kan vi bruke eksplisitt til å si:
     %Det Keller's theorem forteller meg, er at jeg må ha noe som er en undermengde av $\Lambda = \Z + \alpha$, og i og med at jeg må ha 1 almost everywhere, så gjør det at hvis jeg tar bort et punkt fra $\Lambda$ slik at vi har $\Lambda \subset \Z + \alpha$, så vil jeg få et intervall hvor jeg har 0.
     %  La oss nå si at et punkt er utelatt. Det betyr at $\sum \indicator{\Omega}{t} = 0$ og vi kan si nøyaktig hvor det er null, for det er på det punktet vi har utelatt. Dvs, $x\in I+\lambda'$, hvor $\lambda'$ er punktet vi utelot fra flisleggingsmengden. Videre, så er målet av $I+\lambda'$ positivt, det er ikke neglisjerbart. Dvs, der du ikke har verdien 1, de områdene, de er ikke neglisjerbare. Og videre vet vi at vi har $x\in I+\lambda'$, dvs et helt slikt interval, hvor $\sum \indicator{\Omega}{t} = 0$, og dette området har positivt mål. 
-    Let $\Lambda \subset \R^d$. Using \cref{thrm:keller_tiling}, we instantly get that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ in a tiling set for $I$ \SigridChange{/} if $\Lambda$ is to be a tiling set for $I$. Hence, we know that $\Lambda \subseteq \Z +\alpha$. Now, given an arbitrary point $\lambda' \in \Z +\alpha$, assume that $\lambda'\notin \Lambda$ so that we have a case where $\Lambda \subset \Z+\alpha$. However, by using \cref{def:tiling}, observe now that we have an entire interval, specifically $I+\lambda'$, where $\indicator{I}{x - \lambda'} = 0$. As $\mes{I+\lambda'} = 1 $, we do not have
+    Let $\Lambda \subset \R^d$. Using \cref{thrm:keller_tiling}, we instantly get that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I$. Hence, we know that $\Lambda \subseteq \Z +\alpha$ for a fixed $\alpha\in \R$. Now, given an arbitrary point $\lambda' \in \Z +\alpha$, assume that $\lambda'\notin \Lambda$ so that we have a case where $\Lambda \subset \Z+\alpha$. However, by using \cref{def:tiling}, observe now that we have an entire interval, specifically $I+\lambda'$, where $\indicator{I}{x - \lambda'} = 0$. As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve
     \begin{equation*}
         \sum_{\lambda \in \Lambda\setminus \braq{\lambda'}} \indicator{I}{x-\lambda} = 1, \text{\space} a.e. \quad x \in \R^d.
     \end{equation*}
-    That is, we have a non-negligible region with a value not equal to one. Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$ and that $\Lambda$ is a tiling set for $I$. %for a tiling set $\Lambda$ of $I$.
+    % That is, we have a non-negligible region with a value not equal to one.
+    % almost everywhere for $x\in\R^d$ with the set $\Lambda\setminus \braq{\lambda'}$. 
+    Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$. This concludes the proof that there are no other tiling sets for $I$ in dimension $d=1$. %and that $\Lambda$ is a tiling set for $I$ . %for a tiling set $\Lambda$ of
+\end{proof}
+\begin{proof}  % This follows directly from \cref{thrm:keller_tiling}. Take $\lambda, \lambda' \in \Lambda$. 
+    %  Må konkret gå tilbake til definisjonen du har valgt. For den kan vi bruke eksplisitt til å si:
+    %Det Keller's theorem forteller meg, er at jeg må ha noe som er en undermengde av $\Lambda = \Z + \alpha$, og i og med at jeg må ha 1 almost everywhere, så gjør det at hvis jeg tar bort et punkt fra $\Lambda$ slik at vi har $\Lambda \subset \Z + \alpha$, så vil jeg få et intervall hvor jeg har 0.
+    %  La oss nå si at et punkt er utelatt. Det betyr at $\sum \indicator{\Omega}{t} = 0$ og vi kan si nøyaktig hvor det er null, for det er på det punktet vi har utelatt. Dvs, $x\in I+\lambda'$, hvor $\lambda'$ er punktet vi utelot fra flisleggingsmengden. Videre, så er målet av $I+\lambda'$ positivt, det er ikke neglisjerbart. Dvs, der du ikke har verdien 1, de områdene, de er ikke neglisjerbare. Og videre vet vi at vi har $x\in I+\lambda'$, dvs et helt slikt interval, hvor $\sum \indicator{\Omega}{t} = 0$, og dette området har positivt mål. 
+    Let $\Lambda \subset \R^d$. Using \cref{thrm:keller_tiling}, we instantly get that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I$. Hence, we know that $\Lambda \subseteq \Z +\alpha$ for a fixed $\alpha\in \R$. Now, given an arbitrary point $\lambda' \in \Z +\alpha$, assume that $\lambda'\notin \Lambda$ so that we have a case where $\Lambda \subset \Z+\alpha$. However, by using \cref{def:tiling}, observe now that we have an entire interval, specifically $I+\lambda'$, where $\indicator{I}{x - \lambda'} = 0$. \SigridChange{As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve $\indicator{I}{x-\lambda} = 1$ almost everywhere for $x\in\R^d$ with the set $\Lambda\setminus \braq{\lambda'}$.} Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$. This concludes the proof that there are no other tiling sets for $I$ in dimension $d=1$. %and that $\Lambda$ is a tiling set for $I$ . %for a tiling set $\Lambda$ of $I$.
 \end{proof}
 
 Increasing the dimension by one,
@@ -176,6 +128,15 @@ Increasing the dimension by one,
 
 %* change the lattice tiling 
 \input{figures/figure-tex/tiling_figures.tex}
+
+
+%* Prove the equivalence in chapter five. Here only show. 
+%* Chapter 5, the part I showed in the spectra, also classifies all tiling sets.
+%* Here, discussion of higher dimension, and then presumably Keller's theorem. 
+
+%\section{Proof of Keller's theorem}
+
+
 \end{document}
 
 

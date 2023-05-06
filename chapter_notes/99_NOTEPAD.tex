@@ -37,7 +37,7 @@ FIN setning: Showing that an orthonormal basis cannot be a strict subset of anot
 %-----------
 Tilings gammelt
 
-%* Gammelt
+%* generelt
 %* denne introen til tilings kan vurderes å droppes for T(\Lambda) ville da vært en tiling OG IKKE et tiling set
 To begin, given a subset $\Omega$ of $\R^d$ and a discrete set $\Lambda$ of $\R^d$, we denote by $T(\Lambda)$ the set of translates 
 \begin{equation*}
@@ -49,6 +49,8 @@ where $\Omega + \lambda$ is the translate of $\Omega$ by the vector $\lambda$. T
 \end{equation*}
 Rather than defining tiling in terms of non-overlapping and covering of the space, we will instead define tiling in the Fourier domain, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
 %* ———————
+
+
 %* Old tiling definition in two variations
 \begin{definition}[Tiling set]
     Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a set $\Lambda \subset \R^d$. If $T(\Lambda)$ covers $\R^d$ up to measure zero, and if all intersections 
@@ -68,7 +70,9 @@ Rather than defining tiling in terms of non-overlapping and covering of the spac
     \end{itemize}
 \end{definition}
 %* ———————
-%* Old proof
+
+
+%* Old proof of dimension one case
 In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
 \begin{theorem}  %* Bruker alle elementene i T for å flytte på I, da dekker vi hele $\R$.  
     Let $\Omega = I$. If $\Lambda=\Z$, then $\Lambda$ is a tiling set for $I$.
@@ -101,12 +105,16 @@ In dimension one, the unit cube is simply the unit interval $I=\bras{0,1}$.
     showing that the cubes are non-overlapping for all distinct $\lambda , \lambda' \in \Lambda$. 
 \end{proof}
 %* ———————
+
+
 %*  Def tiling from Notion page, which again comes from one of the earliest papers from Sigrid
 \begin{definition}[Tiling set]
     Let $\Omega \subset \mathbb{R}^d$ be a subset with nonzero measure, and consider a set $T \subseteq \mathbb{R}^d$. If the set of translates ${}$$\{\Omega+l: l\in T\}$ cover $\mathbb{R^d}$ up to measure zero, and if all intersections $(\Omega+l) \cap (\Omega+l')$  for $l\neq l'$ in $L$ have measure zero, then $\Omega$ is called a \emph{tile}, and $T$ is called a \emph{tiling set} for $\Omega$. We say that $(\Omega, T)$ is a \emph{tiling pair}. 
 \end{definition}
 
 In other words, the shifts $\Omega + T$ constitute a \emph{measuredisjoint covering} of $\mathbb{R}^d$, and we can say that $\Omega$ \emph{tiles} $\mathbb{R}^d$ \emph{by translation}, or that $\Omega+T$ is a \emph{tiling} of $\mathbb{R}^d$.
+%* ———————
+
 
 %* Fuglede
 Fuglede's spectral set conjecture. Let $\Omega$ be a set in $\mathbb{R}^d$ with positive and finite Lebesgue measure. Then $\Omega$ is a spectral set if and only if $\Omega$ tiles $\mathbb{R}^d$ by translation.
@@ -124,9 +132,10 @@ Conjecture 1.3: Let $\Lambda \subset \mathbb{R}^d$. Then $\Lambda$ is a spectrum
 Conjecture 1.4: Let $\Lambda \subset \mathbb{R}^d$. Then $\left(I^d, \Lambda\right)$ is a spectral pair if and only if $\left(I^d, \Lambda\right)$ is a tiling pair.
 
 When $\Omega = I^d$, the connection between tiles and spectrum is more direct than for other examples of sets $\Omega$. As shown in sigrid_note:lagarias_reeds_wang and Spectral and tiling properties of the unit cube_ALEX IOSEVICH AND STEEN PEDERSEN, it is possible to classify all spectra by showing that $\Lambda$ is a spectrum for the unit cube $I^d$, if and only if $I^d$ tiles $\mathbb{R}^d$ by $\Lambda$-translates.
-
-
 %* ———————
+
+
+%* Generelt bevis for noe
 %* Vet ikke hvor jeg vil ha denne, generalisering av ONB for hele $L^2([0,1]^d)$, som jo stemmer.
 %* Ikke vist formelt i teksen, men løst
 
