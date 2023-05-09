@@ -10,24 +10,48 @@
         \begin{tikzpicture}[scale=1]
             % Define the tile
             \def\tile{
-              % Draw the unit square
-              \draw (0,0) rectangle (1,1);
+            \draw[fill=white] (0,0) rectangle (1,1);
             }
-          
+            \def\tiletwo{
+            \draw[fill=gray!65] (0,0) rectangle (1,1);
+            }
+            
             % Draw the tiling pattern
-            \foreach \x in {0,1,2,3,4,5}{
-              \foreach \y in {0,1,2,3,4}{
-                \pgfmathsetmacro{\shiftX}{\x} % Set horizontal shift
-                \pgfmathsetmacro{\shiftY}{\y} % Set vertical shift
-                \begin{scope}[shift={(\shiftX,\shiftY)}]
-                  \tile % Draw the tile
-                \end{scope}
-              }
+            % Everything else
+            \foreach \y in {0,1,3,4}{
+                \foreach \x in {0,1,2,3,4,5}{
+                    \pgfmathsetmacro{\shiftX}{\x} % Set horizontal shift
+                    \pgfmathsetmacro{\shiftY}{\y}
+                    \begin{scope}[shift={(\shiftX,\shiftY)}]
+                        \tile
+                    \end{scope}
+                }
+            }
+            % Shifted line
+            \foreach \x in {0}{
+            \draw[gray!65, fill=gray!65] (\x-0.2,2) rectangle (\x+0.5,3);
+            }
+            \foreach \x in {6}{
+            \draw[gray!65, fill=gray!65] (\x+0.2,2) rectangle (\x-0.5,3);
+            }
+            % Middle line, must be after the above code in order to get black lines at correct spots
+            \foreach \y in {2}{
+                \foreach \x in {0,1,2,3,4}{
+                    \pgfmathsetmacro{\shiftX}{\x+0.5} % Set horizontal shift
+                    \pgfmathsetmacro{\shiftY}{\y}
+                    \begin{scope}[shift={(\shiftX,\shiftY)}]
+                        \tiletwo
+                    \end{scope}
+                }
+            }
+            % small black lines at the top and bottom
+            \foreach \y in {0,1,2,3,4,5}{
+                \draw (0-0.2,\y) -- (6+0.2,\y);
             }
         \end{tikzpicture}
         %* —————————————————
-        \caption{Lattice tiling}
-        \label{fig:lattice_tiling}
+        \caption{Single row shift}
+        \label{fig:single_shift_horizontal_tiling}
     \end{subfigure}\quad
     \begin{subfigure}{.47\textwidth}
         \centering
@@ -36,39 +60,58 @@
         \begin{tikzpicture}[scale=1]
             % Define the tile
             \def\tile{
-            % Draw the unit square
-            \draw (0,0) rectangle (1,1);
+            \draw[fill=white] (0,0) rectangle (1,1);
             }
-            \def\BetaSingle{0.5}
-          
+            \def\tiletwo{
+            \draw[fill=gray!65] (0,0) rectangle (1,1);
+            }
+            
             % Draw the tiling pattern
-            \foreach \x in {0,1,2,3,4,5}{
-            \foreach \y in {0,1,2,3,4}{
-                \ifnum\x=2 % Set vertical shift for the third column only
-                    \pgfmathsetmacro{\shiftX}{\x} % No vertical shift for other columns
-                    \pgfmathsetmacro{\shiftY}{\y + \BetaSingle} % Shift one unit upward
-                \else
-                    \pgfmathsetmacro{\shiftX}{\x} % No vertical shift for other columns
-                    \pgfmathsetmacro{\shiftY}{\y} % No vertical shift
-                \fi
-                \begin{scope}[shift={(\shiftX,\shiftY)}]
-                \tile % Draw the tile
-                \end{scope}
-            }}
+            % Everything else
+            \foreach \x in {0,1,3,4,5}{
+                \foreach \y in {0,1,2,3,4}{
+                    \pgfmathsetmacro{\shiftX}{\x} % Set horizontal shift
+                    \pgfmathsetmacro{\shiftY}{\y}
+                    \begin{scope}[shift={(\shiftX,\shiftY)}]
+                        \tile
+                    \end{scope}
+                }
+            }
+            % Shifted line
+            \foreach \y in {0}{
+            \draw[gray!65, fill=gray!65] (2,\y-0.2) rectangle (3,\y+0.5);
+            }
+            \foreach \y in {5}{
+            \draw[gray!65, fill=gray!65] (2,\y+0.2) rectangle (3,\y-0.5);
+            }
+            % Middle line, must be after the above code in order to get black lines at correct spots
+            \foreach \x in {2}{
+                \foreach \y in {0,1,2,3}{
+                    \pgfmathsetmacro{\shiftX}{\x} % Set horizontal shift
+                    \pgfmathsetmacro{\shiftY}{\y+0.5}
+                    \begin{scope}[shift={(\shiftX,\shiftY)}]
+                        \tiletwo
+                    \end{scope}
+                }
+            }
+            % small black lines at the top and bottom
+            \foreach \x in {0,1,2,3,4,5,6}{
+                \draw (\x,0-0.2) -- (\x,5+0.2);
+            }
         \end{tikzpicture}
         %* —————————————————
-        \caption{Single shift vertical}
+        \caption{Single column shift}
         \label{fig:single_shift_vertical_tiling}
     \end{subfigure}\\
     \begin{subfigure}{.47\textwidth}
         \centering
         %\includegraphics[width=0.9\linewidth]{multiple_shift_left_zero.jpg}
         %* Figure 3
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=1]
             % Define the tile
             \def\tile{
             % Draw the unit square
-            \draw (0,0) rectangle (1,1);
+            \draw[fill=white] (0,0) rectangle (1,1);
             }
 
             % Shift list
@@ -77,8 +120,10 @@
             \def\BetaOne{0.7}
             \def\BetaTwo{0.4}
             \def\BetaThree{0.6}
-            \def\BetaFour{-0.4}
+            \def\BetaFour{-0.1}
             
+            \input{figures/figure-tex/grid_tiling.tex}
+
             % Draw the tiling pattern
             \foreach \x in {0,1,2,3,4,5}{
             \foreach \y in {0,1,2,3,4}{
@@ -119,11 +164,11 @@
         \centering
         %\includegraphics[width=0.9\linewidth]{multiple_shift_left_zero_horizontal.jpg}
         %* Figure 4
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=1]
             % Define the tile
             \def\tile{
             % Draw the unit square
-            \draw (0,0) rectangle (1,1);
+            \draw[fill=white] (0,0) rectangle (1,1);
             }
 
             % Shift list
@@ -132,8 +177,9 @@
             \def\BetaOne{0.7}
             \def\BetaTwo{0.4}
             \def\BetaThree{0.6}
-            \def\BetaFour{-0.4}
             
+            \input{figures/figure-tex/grid_tiling.tex}
+
             % Draw the tiling pattern
             \foreach \x in {0,1,2,3,4,5}{
             \foreach \y in {0,1,2,3,4}{

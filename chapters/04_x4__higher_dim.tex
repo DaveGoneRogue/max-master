@@ -74,6 +74,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     % that $F_{I^d}(\lambda-\lambda')=0$ since we know $\lambda \neq \lambda'$ from fact that $\lambda - \lambda' \neq 0 \Leftrightarrow (\lambda-\lambda') \in \Zstroke_{I^d}$ 
 \end{remark}
 This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_all_shift_2d}. %! Max lurer på om dette er nødvendig ??
+%! Higlighte om at vi med lemma 4.7 og remark 4.8 essensielt erstatter ortogonalitetskravet med L-L inne i null mengen. 
 
 \SigridComment{Sigrid wants to "consider cutting" this example. Reason being: Unclear what it illustrates for the reader}
 \begin{example} %! Opp til deg, derfor vi ikke har tatt det vekk
@@ -99,7 +100,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Pedersen and Jorgensen present a 
     It can be helpful to think of $\lambfuncNoVar$ as a function that assigns a discrete subset in $\R^{d_2}$ to each $\lambda_1$-value such that $\brac{\Omega_2,\lambfunc}$ is itself a spectral pair. %However, $\lambfunc$ should never be considered anything other than a set of points. 
 \end{remark}
 
-\begin{proof}[Proof of  \cref{thrm:construction_spectra}] %* Meningen med to mellomrom før \cref her for bedre spacing:)
+\begin{proof}[Proof of \cref{thrm:construction_spectra}]
     Given $\Lambda$ as  in \cref{eq:construction_spectra}, we start by showing that the set of exponentials $E(\Lambda)$ is orthogonal in $L^2\brac{\Omega_1 \times \Omega_2}$. For two elements $e_\lambda,e_{\lambda'} \in E(\Lambda)$ we have %the following inner product %Note that $t$ denotes the vector $(t_1,t_2)$ where $t_1 in \Omega_1$ and $t_2 \in \Omega_2$
     \begin{align*}
         \braa{e_\lambda,e_{\lambda'}}_{L^2\brac{\Omega_1 \times \Omega_2}} 
@@ -380,7 +381,7 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
         \lambda_1'  = \lambda_1 + k = (m+k) + \beta_{\lambda_2},
     \end{equation*}
     %! HERE
-    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which means she thinks it is wrong — is it wrong?}
+    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which most likly means she thinks it is wrong — is it wrong?}
     where $k \in \Z$, and $m$ is chosen to be the integer so that the shift $\beta_{\lambda_2} \in [0,1)$. Now, observe that $\Lambda$ is a subset given by \labelcref{eq:2d_all_shift_class_2} with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n+\alpha$ where $\alpha = 0$. That is,
     \begin{equation*}  %* ———— OG DENNE inklusjonen, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
         \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}.
