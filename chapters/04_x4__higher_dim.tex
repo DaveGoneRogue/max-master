@@ -14,13 +14,17 @@
 
 Before tackling spectral sets in higher dimensions, we first emphasize the importance of \cref{eq:zero_set_equation} and generalize it to higher dimensions. 
 \begin{lemma}\label{lem:zero_set_jp_1_5}
-    \sout{Let $\Omega=I^d$.} The zero-set for the function
+    Let $\Omega\subset\R^d$ be a subset with finite measure. The zero-set for the function
     \begin{equation*}
         F_{\Omega} (z):= \int_\Omega e^{2 \pi i \braa{z,t}} dt,
     \end{equation*}
-    \SigridChange{when $\Omega=I^d$} is the set
+    is the set
+
+\SigridComment{Neinei}
+%! Max comment, de har faktisk splittet det opp med vilje her!!!!! Faen heller, se på ny struktur her på nytt. 
+
     \begin{equation*}
-        \Zstroke_{I^d} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}.
+        \Zstroke_{\Omega} = \braqMed{ z = \brac{z_1,\dots,z_d}\in \C^d \setminus \braqMed{0} : \exists \space j \in \braqMed{1,\dots, d} \text{ such that } z_j \in  \intnozero}.
     \end{equation*}
 \end{lemma}
 
@@ -358,9 +362,7 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
         \lambda_2' = \lambda_2 + k = (n+k) +  \beta_{\lambda_1},
     \end{equation*}
     where $(n+k)\in \Z$, meaning $\lambda_2' \in \Z + \beta_{\lambda_1}$. That is, we have one form to express all $\lambda_2$ and $\lambda_2'$ values. %! NOT, shift at the point $lambda_1$ we only consider points here, and all points are shifted $\beta_m$ amount from their closest integer rounded down. So the construction of $\Lambda$ here is somewhat different from the one we looked at earlier as we here only consider points in both directions, not how they are placed in relation to one another as the construction lemma!!
-    Furthermore, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m + \alpha$ for $\alpha = 0$ and $\lambda_2 = n+\beta_m$. That is,
-    %! ABOVE
-    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which means she thinks it is wrong — is it wrong?}
+    Furthermore, observe $\Lambda$ is, in fact, a subset given by \labelcref{eq:2d_all_shift_class_1}, with $\lambda_1 = m$ and $\lambda_2 = n+\beta_m$. That is,
     \begin{equation*}  %* ———— DENNE inklusjonen DERIMOT, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
         \Lambda \subseteq \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}.
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
@@ -381,13 +383,16 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
         \lambda_1'  = \lambda_1 + k = (m+k) + \beta_{\lambda_2},
     \end{equation*}
     %! HERE
-    \SigridComment{Doubblechecked. Sigrid actually wants to delete the $\alpha$ values, which most likly means she thinks it is wrong — is it wrong?}
-    where $k \in \Z$, and $m$ is chosen to be the integer so that the shift $\beta_{\lambda_2} \in [0,1)$. Now, observe that $\Lambda$ is a subset given by \labelcref{eq:2d_all_shift_class_2} with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n+\alpha$ where $\alpha = 0$. That is,
+    where $k \in \Z$, and $m$ is chosen to be the integer so that the shift $\beta_{\lambda_2} \in [0,1)$. Now, observe that $\Lambda$ is a subset given by \labelcref{eq:2d_all_shift_class_2} with $\lambda_1 = m + \beta_n$ and $\lambda_2 = n$. That is,
     \begin{equation*}  %* ———— OG DENNE inklusjonen, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
         \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}.
     \end{equation*} %for all $\lambda = \begin{pmatrix} m \\ n+\beta_m\end{pmatrix} \in \Lambda$.
     From \cref{lem:onb_direct_subset}, we once more get that $\Lambda$ cannot be a subset of \labelcref{eq:2d_all_shift_class_2} and that we must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}, and there are no other spectra for $I$ in dimension $d=2$.
 \end{proof}
 
+\SigridComment{Ish, needs to be rewritten.}
+\begin{remark}
+    Avid readers will notice the fact that we did not show the proof using fixed $\alpha$. However, in this case, we showed for $\alpha =0$. One should note that the $\alpha$ values cancel out in the subtractions. 
+\end{remark}
 
 \end{document}
