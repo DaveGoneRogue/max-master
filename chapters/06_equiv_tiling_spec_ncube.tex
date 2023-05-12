@@ -45,21 +45,66 @@ The following \namecref{cor:tiling_pair_implies_orthogonal} follows directly fro
 
 %* "Vi har sett at vi har akkurat de samme tiling mengdene som spektral mengdene for en dimensjon, og nå skal vi se det for to dimensjoner og der har vi et analogt resulat til 4.20 og beviset vil følge de samme linjene. (Nå for tilings!)
 
-Moreover, as a consequence of Keller's theorem, we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
+We have now seen that we have exactly the same tiling sets as spectra for $I^d$ in dimension one, and we will now show it for dimension two. Here we have an analogous result to \cref{thrm:class_all_shift_2d}, which we state in its entirety for convenience. It is worth noting that it is as a consequence of Keller's theorem that we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
 
-%* This section will be closely related to theorem 4.20 and its proof
+%* If one knows that we have a tiling set for the unit cube in two dimensions, then this is our only two possibilities. 
 \begin{theorem}\label{thrm:class_all_tiling_2d}
-    %* If one knows that we have a tiling set for the unit cube in two dimensions, then this is our only two possibilities. 
+    The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a \SigridChange{tiling set/\textsc{tiling set}} for $\Omega = I^2$ belong to one of the two classes
+    \begin{equation}\label{eq:2d_all_shift_class_1_tiling}
+        \Lambda = \braqMed{
+            \begin{pmatrix}
+            m + \alpha \\
+            n + \beta_m
+            \end{pmatrix} : m,n \in  \Z
+            }
+    \end{equation}
+    or
+    \begin{equation}\label{eq:2d_all_shift_class_2_tiling}
+        \Lambda = \braqMed{
+            \begin{pmatrix}
+            m + \beta_n\\
+            n + \alpha
+            \end{pmatrix} : m,n \in  \Z
+            }
+    \end{equation}
+    where $\alpha \in \R$ is fixed and $\brac{\beta_m}_{m\in \Z}$ is an infinite sequence with $\beta_m \in [0,1)$.
+    
 \end{theorem}
 
 \begin{proof}
     %* similar proof of the one of theorem 4.20, and which considers exactly the same
     %* redusert versjon, når du ser det blir helt likt referert tilbake til theorem 4.20. 
     %* Her vil man bruke keller til dette
+    Let $\Lambda \subset \R^d$. Using \cref{thrm:keller_tiling}, we instantly get that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I$. Hence, we know that $\Lambda \subseteq \Z +\alpha$ for a fixed $\alpha\in \R$. Now, given an arbitrary point $\lambda' \in \Z +\alpha$, assume that $\lambda'\notin \Lambda$ so that we have a case where $\Lambda \subset \Z+\alpha$. However, by using \cref{def:tiling}, observe now that we have an entire interval, specifically $I+\lambda'$, where $\indicator{I}{x - \lambda'} = 0$. As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve
+    \begin{equation*}
+        \sum_{\lambda \in \Lambda\setminus \braq{\lambda'}} \indicator{I}{x-\lambda} = 1, \text{\space} a.e. \quad x \in \R^d.
+    \end{equation*}
+    %* As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve $\indicator{I}{x-\lambda} = 1$ almost everywhere for $x\in\R^d$ with the set $\Lambda\setminus \braq{\lambda'}$. % In short: That is, we have a non-negligible region with a value not equal to one.
+    Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$. This concludes the proof that there are no other tiling sets for $I$ in dimension $d=1$. 
+
+    %* Beginning
+    Let $\Lambda \subset \R^d$. \cref{thrm:keller_tiling} immediately shows that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in  $\intnozero$. As in the proof of \cref{thrm:class_all_shift_2d}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$.  if we also assume $\lambda\notin \Z^2$. 
+    
+    \SigridComment{Se på første antagelse, og så si noe om hvorfor lambda_2 også må være et heltall og at vi da tilslutt lander på rød stjærne}
+
+    If $\lambda'=(0,0)$ this gives us that either $\lambda_1\in \intnozero$ or $\lambda_2\in \intnozero$ for every $\lambda \in \Lambda$. Let us first assume that $\lambda_1\in \intnozero$. 
+    %* middle
+    Furthermore, by following the same argument as in the proof of \cref{thrm:class_all_shift_2d}, we now have that $\Lambda$ is, in fact, a subset of \labelcref{eq:2d_all_shift_class_1_tiling}. That is, 
+    \begin{equation*}  %* ———— DENNE inklusjonen DERIMOT, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
+        \Lambda \subseteq \underbrace{\braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}}_{A}.
+    \end{equation*}
+    Now, if we assume that $\Lambda$ is incomplete with respect to the set $A$, then there would be an arbitrary point $\lambda' \in A$ that is not in $\Lambda$. However, $\Lambda$ would not be a tiling set anymore. Observe that we would have an entire square, specifically the square at
+    \begin{equation*}
+        %I^2 + \lambda' = \bras{0+\lambda_1,1+\lambda_1}\times \bras{0+\lambda_2,1+\lambda_2} = \bras{0+m,1+m}\times \bras{0+n+\beta_m,1+n+\beta_m}, 
+        %I^2 + \lambda' = \bras{\bras{0+m}},1+m}\times \bras{0+n+\beta_m,1+n+\beta_m}, 
+        I^2 + \lambda' = \bras{\bracMed{0+m},\bracMed{1+m}}\times \bras{\bracMed{0+n+\beta_m},\bracMed{1+n+\beta_m}}, 
+    \end{equation*}
+    where we would not achieve the value of $1$ when applying \cref{def:tiling}. We require the value of $1$ almost everywhere for $x\in \R^2$, and $\mes{I^2 + \lambda'}$ is non-negligible. Hence $\lambda'\in \Lambda$ for $\Lambda$ to be a tiling set. This shows that $\Lambda$ cannot be a direct subset of $A$, which means that we must have equality, and $\Lambda$ must in this first case be of the form \labelcref{eq:2d_all_shift_class_1_tiling}.
+
+
+
 \end{proof}
 
-%! Fra 4.20
-%! \SigridComment{ekskludert delen om at det også er et tiling set, det er vel hensiktsmessik og splitte disse opp, og komme tilbake til det i neste del, for å så komme med fulle og hele theorem 3.2.} 
 
 
 
