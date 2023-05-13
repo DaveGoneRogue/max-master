@@ -76,20 +76,12 @@ We have now seen that we have exactly the same tiling sets as spectra for $I^d$ 
     %* similar proof of the one of theorem 4.20, and which considers exactly the same
     %* redusert versjon, når du ser det blir helt likt referert tilbake til theorem 4.20. 
     %* Her vil man bruke keller til dette
-    Now, given an arbitrary point $\lambda' \in \Z +\alpha$, assume that $\lambda'\notin \Lambda$ so that we have a case where $\Lambda \subset \Z+\alpha$. However, by using \cref{def:tiling}, observe now that we have an entire interval, specifically $I+\lambda'$, where $\indicator{I}{x - \lambda'} = 0$. As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve
-    \begin{equation*}
-        \sum_{\lambda \in \Lambda\setminus \braq{\lambda'}} \indicator{I}{x-\lambda} = 1, \text{\space} a.e. \quad x \in \R^d.
-    \end{equation*}
-    %* As $\mes{I+\lambda'} = 1 $, this is non-negligible, and we do not achieve $\indicator{I}{x-\lambda} = 1$ almost everywhere for $x\in\R^d$ with the set $\Lambda\setminus \braq{\lambda'}$. % In short: That is, we have a non-negligible region with a value not equal to one.
-    Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$. This concludes the proof that there are no other tiling sets for $I$ in dimension $d=1$. 
-
-    %* Beginning
     % If we now consider a second element $\lambda'\in \Lambda$ with the opposite assumptions for $\lambda_1'$ and $\lambda_2'$ we have exactly the same case 
     % Likewise, if we follow the exact same arguments following the above result in the proof of \cref{thrm:class_all_shift_2d}, we can first show that 
 
     %Likewise, if we further assume $\lambda\notin \Z^2$, and first take $\lambda_1 \in \intnozero$ we also get that $\lambda_2\notin \Z$. By now, following the exact same arguments following the above assumption from the proof of \cref{thrm:class_all_shift_2d}, we can first show that 
 
-    Let $\Lambda \subset \R^d$. Keller's theorem, \cref{thrm:keller_tiling}, immediately shows that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in $\intnozero$. As in the proof of \cref{thrm:class_all_shift_2d}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$. That is, at least one of them must be a non-zero integer. Likewise, if we further assume $\lambda\notin \Z^2$, and that $\lambda_1 \in\intnozero$, we have a case that is identical to the first of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. If we now follow the exact same arguments from the previous proof, we can first show that 
+    Let $\Lambda \subset \R^d$. Keller's theorem, \cref{thrm:keller_tiling}, immediately shows that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in $\intnozero$. As in the proof of \cref{thrm:class_all_shift_2d}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$. That is, at least one of them must be a non-zero integer. Likewise, if we further assume $\lambda\notin \Z^2$, and that $\lambda_1 \in\intnozero$, we have a case identical to the first of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. If we now follow the exact same arguments from that proof, we can first show that 
     \begin{align*}  %* ————  den mengden til høyre er ALLTID større en Lambda ———— 
         \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R},
     \end{align*}
@@ -104,10 +96,13 @@ We have now seen that we have exactly the same tiling sets as spectra for $I^d$ 
         %I^2 + \lambda' = \bras{\bras{0+m}},1+m}\times \bras{0+n+\beta_m,1+n+\beta_m}, 
         I^2 + \lambda' = \bras{\bracMed{0+m},\bracMed{1+m}}\times \bras{\bracMed{0+n+\beta_m},\bracMed{1+n+\beta_m}}, 
     \end{equation*}
-    with no value, violating the tiling condition in \cref{def:tiling} as we require the value of $1$ almost everywhere for all $x\in \R^2$, and $\mes{I^2 + \lambda'}$ is non-negligible. Hence $\lambda'\in \Lambda$ for $\Lambda$ to be a tiling set. This shows that $\Lambda$ cannot be a direct subset of $A$, which means that we must have equality, and $\Lambda$ must in this first case be of the form \labelcref{eq:2d_all_shift_class_1_tiling}. %where we would not have the value of $1$, violating the tiling condition in \cref{def:tiling}. We require the value of $1$ almost everywhere for $x\in \R^2$, and $\mes{I^2 + \lambda'}$ is non-negligible.
-
-
-
+    with no value. As $\mes{I^2 + \lambda'}$ is non-negligible, this violates \cref{def:tiling} where we require the value of $1$ for almost every $x\in \R^2$. Hence $\lambda'\in \Lambda$ for $\Lambda$ to be a tiling set. This shows that $\Lambda$ cannot be a direct subset of $A$, which means that we must have equality, and $\Lambda$ must in this first case be of the form \labelcref{eq:2d_all_shift_class_1_tiling}. %where we would not have the value of $1$, violating the tiling condition in \cref{def:tiling}. We require the value of $1$ almost everywhere for $x\in \R^2$, and $\mes{I^2 + \lambda'}$ is non-negligible.
+    
+    If we now go back a few steps and assume the opposite, that is $\lambda_2 \in \intnozero$; we have a case identical to the second of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. Again, by following the same arguments, we can show that $\Lambda$ is a subset of \labelcref{eq:2d_all_shift_class_2_tiling}. That is,
+    \begin{equation*}  %* ———— OG DENNE inklusjonen, der er mengden til høyre POTENSIELT større en Lambda, men vi må ha likhet ————
+        \Lambda \subseteq \underbrace{\braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}}_{B}.
+    \end{equation*}
+    If we again assume that $\Lambda$ is incomplete with respect to the set $B$, we can show that $\Lambda$ cannot be a direct subset of $B$. We must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a tiling pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}, and there are no other spectra for the unit cube in dimension $d=2$.
 \end{proof}
 
 
