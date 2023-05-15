@@ -1,0 +1,28 @@
+
+
+
+
+%* MERK, denne bruker Jorgen Pedersen sin notasjon på F_Omega, så det skal egt være e^-2 pi i... 
+%* og bytte rekkefølge på \lambda og \lambda' slik at vi har \lambda'-\lambda
+
+\begin{remark}\label{rem:zero_set_orthogonal} 
+    Given a spectral pair $(I^d,\Lambda)$, consider the set
+    \begin{equation}\label{eq:zero_set_orthogonal}
+        \Lambda - \Lambda = \braqMed{\lambda-\lambda' : \lambda,\lambda' \in \Lambda}.
+    \end{equation}
+    It follows from \cref{lem:zero_set_jp_1_5} that the spectral pair property is equivalent to the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{I^d}$, meaning 
+    \begin{equation*}  %! En veis implikasjon !! spectral pair ->> DEtte stemmer. Lignende resultat for dette er Keller, og er ikke trivielt
+        \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0},
+    \end{equation*}
+    and that the set $E(\Lambda)$ is complete in $L^2(\Omega)$. This follows immediately from the observation that
+    \begin{equation*}
+        \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)} = \int_{I^d} e^{2 \pi i \braa{(\lambda-\lambda'),t}} dt = F_{I^d} (\lambda-\lambda'),
+    \end{equation*}
+    %which is zero whenever $\lambda \neq \lambda'$, that is $\lambda-\lambda'\neq 0$, which imply $\lambda-\lambda' \in \Z_{I^d}$
+    which is zero whenever $\lambda \neq \lambda'$ from the orthogonality of $E(\Lambda)$. Hence, $(\lambda-\lambda') \in \Zstroke_{I^d}$. On the other hand, if we assume \labelcref{eq:zero_set_orthogonal}, we immediately get that $\lambda \neq \lambda'$ since $(\lambda-\lambda') \in \Zstroke_{I^d}$, which implies the orthogonality.  % vet at for forskjellige lambda, så er integralet null. Det viktige her er at vi med en gang vet at de er forskjellige, siden de er et element av null-mengden til F, og vi vet at det kun er ikke-null elementer som er med der. MAO kan de ikke være like.
+    
+    %Thus, $F_{I^d}(\lambda-\lambda') = 0 = \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(I^d)}$
+    % that $F_{I^d}(\lambda-\lambda')=0$ since we know $\lambda \neq \lambda'$ from fact that $\lambda - \lambda' \neq 0 \Leftrightarrow (\lambda-\lambda') \in \Zstroke_{I^d}$ 
+\end{remark}
+This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_all_shift_2d}. %! Max lurer på om dette er nødvendig ??
+%! Higlighte om at vi med lemma 4.7 og remark 4.8 essensielt erstatter ortogonalitetskravet med L-L inne i null mengen. 

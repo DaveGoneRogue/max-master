@@ -32,10 +32,11 @@ However interesting the Penrose and Escher tilings appear, we will only focus on
 %    \end{equation*}
 %\end{theorem}
 \begin{theorem}[Keller's Theorem]\label{thrm:keller_tiling}
-    Let $\Lambda \subset \R^d$ be a discrete subset. If $\Lambda$ is a tiling set for the unit cube $\bras{0,1}^d$, then given any pair $\lambda, \lambda' \in \Lambda$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
+    %Let $\Lambda \subset \R^d$ be a discrete subset.  %* No need to specify, as we will define the tiling set later
+    If $\Lambda$ is a tiling set for the unit cube $I^d$, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
 \end{theorem}
 
-We will formally define what we mean by a \emph{tiling set} from \cref{thrm:keller_tiling} later, but for now, we continue this informal discussion on exotic tilings. Now, although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, Iosevich and Pedersen provide an English proof in their paper \cite{iosevichSpectralTilingProperties1998}. Furthermore, in the same paper by Keller, he also conjectured the following. 
+We will formally define what we mean by a \emph{tiling set} from \cref{thrm:keller_tiling} later (\cref{def:tiling}), but for now, we continue this informal discussion on exotic tilings. Now, although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, Iosevich and Pedersen provide an English proof in their paper \cite{iosevichSpectralTilingProperties1998}. Furthermore, in the same paper by Keller, he also conjectured the following. 
 
 \begin{conjecture}[Keller's conjecture]\label{conj:keller_tiling}
     All tilings of $\R^d$ by translations of the unit cube contain \textsc{two} cubes that share an entire $(d-1)$-dimensional face.
@@ -67,7 +68,7 @@ By this, we mean that a subset $\Omega \subset \R^d$ of non-zero measure is a ti
 % - More formally/Nevertheless, tilings can also be expressed using indicator functions as follows \cite{kolountzakisTilingsTranslation2010}. \SigridChange{/} We will, however, define tilings in terms of indicator functions as follows \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStructureTilingsLine1996}.
 % - Rather than defining tiling in terms of a non-overlapping covering of the space, we will instead define tiling by the indicator function, using little of our geometric intuition \cite{kolountzakisTilingsTranslation2010} \cite{kolountzakisStudyTranslationalTiling2003}. 
 \begin{definition}[Tiling set]\label{def:tiling}
-    Let $\Omega \subset \R^d$ be a subset with nonzero measure, and consider a discrete set $\Lambda \subset \R^d$. If
+    Let $\Omega \subset \R^d$ be a subset with non-zero measure, and consider a discrete set $\Lambda \subset \R^d$. If
     \begin{equation}\label{eq:tiling_set}
         \sum_{\lambda \in \Lambda} \indicator{\Omega}{x-\lambda} = 1, \quad a.e. \text{\space\space} x \in \R^d.
     \end{equation}

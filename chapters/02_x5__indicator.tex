@@ -38,7 +38,9 @@ Throughout the theses, we use the following terminology and notation for the inn
 } %! Here
 
 %* Recall: Heine Borel gives us that compact is equivalent to being closed and bounded for all subsets of R.
-Now, given a bounded subset $\Omega\subset \R^d$ with finite and positive measure, consider the $d$-dimensional Fourier transform given by
+% Now, given a
+\textcolor{orange}{  %! Here
+Given a bounded subset $\Omega\subset \R^d$ with finite and positive measure, consider the $d$-dimensional Fourier transform given by
 \begin{equation*}
     \hat{f}(z) = \int_{\R^d} f(t)  e^{-2\pi i \braa{z,t}} dt, \quad z,t\in \R^d,
 \end{equation*}
@@ -47,25 +49,30 @@ of the indicator function. That is,
     \indicatorFourier{\Omega}{z} = \int_{\R^d} \indicator{\Omega}{t}  e^{-2\pi i \braa{z,t}} dt, \quad z,t\in \R^d,
 \end{equation*} 
 which we redefine into the following function $F_{\Omega}(z)$;
-\begin{equation*}
+\begin{equation}\label{eq:f_omega}
     \indicatorFourier{\Omega}{z} = \int_{\R^d} \indicator{\Omega}{t}  e^{-2\pi i \braa{z,t}} dt = \int_{\Omega} e^{-2\pi i \braa{z,t}} dt := F_{\Omega}(z).
-\end{equation*}
-Since $\Omega$ has finite measure and the exponential has absolute value one, we have that $F_{\Omega}(z)$ is defined for any vector $z = (z_1, \dots z_d)\in \R^d$. Additionally, we introduce the following notation to refer to the \emph{set of real zeroes}, or simply the \emph{zero-set}, of $F_{\Omega}(z)$;
+\end{equation}
+Since $\Omega$ has finite measure and the exponential has absolute value one, we have that $F_{\Omega}(z)$ is defined for any $z \in \R^d$. Note that the authors (\cite{jorgensenSpectralPairsCartesian2001}) define $F_{\Omega}$ without the minus sign in the exponent. Additionally, we introduce the following notation to refer to the \emph{set of real zeroes}, or simply the \emph{zero-set}, of $F_{\Omega}(z)$;
 %Additionally, we introduce the following notation to refer to the \emph{set of real zeroes} of $F_{\Omega}(z)$, which we will simply name the \emph{zero-set} as all our results apply to $\R$;
 \begin{equation*}
-    \Zstroke_{\Omega} = \braqMed{ z \in \R^d \setminus \braqMed{0} : F_{\Omega}(z)= 0}.
+    \Zstroke_{\Omega} = \braqMed{ z  = (z_1, \dots z_d) \in \R^d \setminus \braqMed{0} : F_{\Omega}(z)= 0}.
 \end{equation*}
 To conclude this chapter, we show a simple, yet useful, relationship between orthogonality and the zero-set of $F_{\Omega}(z)$ \cite{lagariasOrthonormalBasesExponentials2000,jorgensenSpectralPairsCartesian2001}. %! nevertheless, instead of yet
-\begin{lemma}
+} %! Here
+\textcolor{orange}{  %! Here
+\begin{lemma}\label{lem:zero_set_orthoganl_general}
     Let $\Omega \subset \R^d$ be a bounded subset with $0< \mes{\Omega}<\infty$, and consider the set
     \begin{equation}\label{eq:zero_set_orthogonal}
         \Lambda - \Lambda = \braqMed{\lambda-\lambda' : \lambda,\lambda' \in \Lambda}.
     \end{equation}
     for some subset $\Lambda\subset \R^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if
-    \begin{equation*}
+    \begin{equation}\label{eq:zero_set_inclusion_original}
         \Lambda - \Lambda \subseteq \Zstroke_{\Omega} \cup \braq{0}.
-    \end{equation*}
+    \end{equation}
 \end{lemma}
+} %! Here
+
+\textcolor{orange}{  %! Here
 \begin{proof}
     Before we begin the proof, observe the following connection between $F_{\Omega}(z)$ and the inner product $\braaMed{e_{\lambda},e_{\lambda'} }$ of two elements $\lambda,\lambda'\in \Lambda$ under the assumption that $\lambda \neq \lambda'$.
     \begin{align*}
@@ -77,37 +84,39 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
         =&\int_{\Omega} e^{-2 \pi i \braa{(\lambda'-\lambda),t}} dt\\
         =& F_{\Omega} (\lambda'-\lambda),
     \end{align*}
-    First, assume orthogonality, which means we have $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ if $\lambda$ and $\lambda'$ are distinct elements. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above calculation. This tells us that $\lambda-\lambda'\in \Zstroke_{\Omega}$. If $\lambda = \lambda'$ we would have 
+    First, assume orthogonality, meaning that $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ if $\lambda$ and $\lambda'$ are distinct elements. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above calculation. This shows that all $\lambda,\lambda'\in\Lambda$ with $\lambda\neq \lambda'$ are containted in the zero-set $\Zstroke_{\Omega}$. If $\lambda = \lambda'$ we get  % would have 
     \begin{equation*}
-        \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} = \int_{\Omega} 1 dt = \prod^d \mes{\Omega} \neq 0
+        %\braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} =\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt = F_{\Omega}(0) \int_{\Omega} 1 dt = \prod^d \mes{\Omega} \neq 0
+        \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} =\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt = \brac{\mesMed{\Omega}}^d = F_{\Omega}(0) \neq 0.
     \end{equation*}
-    Hence we have that $\lambda-\lambda' \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$
-    CONVERSE. 
-    
+    Hence $\lambda-\lambda' \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $F_{\Omega} (\lambda'-\lambda) = 0$ holds only when $\lambda$ and $\lambda'$ are distinct, which shows orthogonality from the above calculation.
 \end{proof}
+} %! Here
+\textcolor{orange}{  %! Here
+\begin{remark}\label{rem:key_insight}
+    %The important observation from 
+    The key insight derived from \cref{lem:zero_set_orthoganl_general} is that orthogonality is equivalent to the \emph{non-zero} elements of $\Lambda - \Lambda$ being contained in the zero-set $\Zstroke_{\Omega}$ of $F_{\Omega}$.  % , meaning
+    %* Trenger ikke si så mye om dette nå, tar det opp i kapittel 4.3
+    % \begin{equation*}
+    %     \brac{\lambda - \lambda'} \in \Zstroke_{\Omega} \quad \text{ for all } \quad \lambda, \lambda'\in \Lambda \quad \text{ where } \quad  \lambda \neq % \lambda', 
+    % \end{equation*}
+    % \begin{equation*}
+    %     \Lambda - \Lambda \subseteq \Zstroke_{\Omega} \quad \text{ for } \lambda, \lambda'\in \Lambda, \quad \lambda \neq \lambda', 
+    % \end{equation*}
+    % \SigridComment{Not $\subseteq$ here, since we cannot have equality unless we also have the elements $\lambda,\lambda'$ that are zero.}
+    % \SigridComment{its the inclusion}
+\end{remark}
+} %! Here
+\textcolor{orange}{  %! Here
+\begin{remark}
+    Additionally, \cref{lem:zero_set_orthoganl_general} also implies that elements of $\Lambda$ cannot be too close to each other. To show this, first note that \emph{a ball} $\mathrm{B}$ of radius $\epsilon$ centered at $a\in\R^d$ can be expressed as 
+    \begin{equation*}
+        \mathrm{B}(a ; \epsilon) = \braqMed{x\in \R^d : \branMed{x-a} < \epsilon},
+    \end{equation*}
+    where $\bran{\cdot}$ denotes the Euclidian norm. Recall that $\mes{\Omega}>0$, and that $F_{\Omega}(0)=\brac{\mes{\Omega}}^d $. Since $F_{\Omega}$ is defined for any $z \in \R^d$, this implies that a ball centered at zero with radius $R$, specifically $\mathrm{B}(0; R)$, includes no element of the zero-set $\Zstroke_{\Omega}$. Hence, for all other elements $(\lambda-\lambda')\in \Zstroke_{\Omega}$, that is all distinct elements $\lambda,\lambda'\in \Lambda$, we would have $\bran{\lambda-\lambda'}\geq R$.
+\end{remark}
+} %! Here
+\SigridComment{I tried avoiding the use of "$F_{\Omega}$ is continuous" above when talking about "$F_{\Omega}$ defined for any $z \in \R^d$". See page five of Lagarias and Reeds for reference to this last remark.}
 
-
-%! sjekke opp om z er i C over og om vi må spesifisere settet av reele nuller. 
-\SigridComment{Må bytte fra C til R notasjon i argumentasjonen, dvs, ikke entire etc.} %! VIKTIG
-NOE OM AT DEN ER VELDEFINERT FOR ALLE SET OMGEGA NÅR VI HAR DENNE FOURIERTRANSFORMASJONEN.
-Note that $\indicatorFourier{\Omega}{z}$ is an entire function for any $z\in \C^d$ since $\Omega$ is compact. % Think the case where JP says: "It is defined for any real vector ($Z\in \R^d$), because $\Omega$ has finite measure and that the absolute value of $e^{-2i\pi \braa{z,t}}$ is one." Two reasons for that formulation. First, He considers real vectors $z$ (although they are of a complex value function). Secondly, we must thus consider the absolute value of the exponential, which is real. 
-
-Furthermore, we use the following notation to denote the \emph{zero-set} of $\indicatorFourier{\Omega}{z}$,
-\begin{equation*}
-    \Zstroke_{\Omega} = \braqMed{ z \in \R^d \setminus \braqMed{0} : \indicatorFourier{\Omega}{z} = 0}.
-\end{equation*}
-
-Before showing a useful result, we can, without loss of generality and ease of notation, redefine our function to be
-\begin{equation*}
-    \indicatorFourier{\Omega}{z} = \int_{\R^d} \indicator{\Omega}{t}  e^{-2\pi i \braa{z,t}} dt = \int_{\Omega} e^{-2\pi i \braa{z,t}} dt := F_{\Omega}(z)
-\end{equation*}
-
-\begin{lemma}
-    Let $\Omega$ be BLALBA in $\R^d$. A set $\Lambda$ gives an orthoganl set of exponentials $E(\Lambda)$ in $L^2(\Omega)$ if and only if
-    $\Lambda - \Lambda \subseteq \Zstroke_{\Omega} \cup \braq{0}$
-
-
-    \SigridComment{Se på non zero elements of direkte undermengde}
-\end{lemma}
 
 \end{document}
