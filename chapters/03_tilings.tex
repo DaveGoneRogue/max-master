@@ -20,7 +20,7 @@ Another interesting pair of monohedral tilings is given in \cref{fig:tiling_thre
 
 \input{figures/figure-tex/tiling_two.tex}
 
-However interesting the Penrose and Escher tilings appear, we will only focus on tilings of $\R^d$ by translation and using only the unit cube as our tile. Considering only cube-tilings might seem simple initially, but we will see that as we increase the dimension, we get increased flexibility and more complex tilings. It turns out that in higher dimensions, highly exotic and counterintuitive cube tilings exist. The fact that this kind of tiling exists in the first place is surprising in light of Keller's theorem \cite{iosevichSpectralTilingProperties1998}.  % This is Perhaps surprising in light of Keller's theorem. 
+However interesting the Penrose and Escher tilings appear, we will only focus on tilings of $\R^d$ by translation and using only the unit cube $I^d$ as our tile. Considering only cube-tilings might seem simple initially, but we will see that as we increase the dimension, we get increased flexibility and more complex tilings. It turns out that in higher dimensions, highly exotic and counterintuitive cube tilings exist. The fact that this kind of tiling exists in the first place is surprising in light of Keller's theorem \cite{iosevichSpectralTilingProperties1998}.  % This is Perhaps surprising in light of Keller's theorem. 
 
 %\begin{theorem}  %* (My original) Keller theorem from the paper of Iosovich and Pedersen
 %    Given a discrete subset $T\subset \R^d$. If $T$ is a tiling set for $\Omega$, then given any pair $\lambda, \lambda' \in T$ such that $\lambda\neq\lambda'$, there exists a $j\in \braq{1,\dots,d}$ so that $\bral{t_j -t_j' } \in \N$
@@ -33,7 +33,7 @@ However interesting the Penrose and Escher tilings appear, we will only focus on
 %\end{theorem}
 \begin{theorem}[Keller's Theorem]\label{thrm:keller_tiling}
     %Let $\Lambda \subset \R^d$ be a discrete subset.  %* No need to specify, as we will define the tiling set later
-    If $\Lambda$ is a tiling set for the unit cube $I^d$, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
+    If $\Lambda$ is a tiling set for the unit cube, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
 \end{theorem}
 
 We will formally define what we mean by a \emph{tiling set} from \cref{thrm:keller_tiling} later (\cref{def:tiling}), but for now, we continue this informal discussion on exotic tilings. Now, although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, Iosevich and Pedersen provide an English proof in their paper \cite{iosevichSpectralTilingProperties1998}. Furthermore, in the same paper by Keller, he also conjectured the following. 
@@ -86,7 +86,7 @@ By this, we mean that a subset $\Omega \subset \R^d$ of non-zero measure is a ti
 %* Viktig, må inn en bit her om 
 %* som en konsekvens av Kellers theorem så får vi nå akkurat den samme formen på disse tilings settene 
 %* de må ligge inneholt i akkurat de samme typene mengder, og de kan ikke være ekte mindre for da får vi ikke oppfylt tiling kravet mitt.
-If we now restrict our attention to the unit cube in $d$-dimensions, Keller's theorem immediately gives the following for $d=1$. Here, the unit cube is simply the unit interval $I = \bras{0,1}$. %In dimension one, the unit cube is simply the unit interval $I = \bras{0,1}$. 
+If we now restrict our attention to \SigridChange{tilings of the unit cube in $R^d$}, Keller's theorem immediately gives the following for dimension one.  For $d=1$, the unit cube is simply the unit interval $I = \bras{0,1}$. %In dimension one, the unit cube is simply the unit interval $I = \bras{0,1}$. 
 
 \begin{lemma}\label{lem:tiling_unit_1d}
     %The set $\Lambda = \Z +\alpha$ for some value $\alpha\in \R$ constitutes a tiling set for $I$.
@@ -106,7 +106,7 @@ If we now restrict our attention to the unit cube in $d$-dimensions, Keller's th
     Hence $\lambda' \in \Lambda$, which shows that $\Lambda = \Z+\alpha$. This concludes the proof that there are no other tiling sets for $I$ in dimension $d=1$. %and that $\Lambda$ is a tiling set for $I$ . %for a tiling set $\Lambda$ of
 \end{proof}
 
-Increasing the dimension by one, we get more flexibility. We do not necessarily need to have a lattice tiling as the one in \cref{fig:tiling_one}. We can have tilings where we translate single or multiple \emph{columns} of the unit cube, shown in \cref{fig:single_shift_vertical_tiling,fig:multiple_shift_vertical_tiling}; or single or multiple \emph{rows} of the unit cube, shown in \cref{fig:single_shift_horizontal_tiling,fig:multiple_shift_horizontal_tiling}. We will see later in \cref{chap:equivalence} that \cref{fig:tiling_figures} to some extent fully captures the flexibility of two dimensions. We remark that all \cref{fig:single_shift_vertical_tiling,fig:multiple_shift_vertical_tiling,fig:single_shift_horizontal_tiling,fig:multiple_shift_horizontal_tiling} clearly illustrates that all tilings for $d=2$ also satisfy Keller's theorem. 
+Increasing the dimension by one, we get more flexibility. \SigridChange{In particular, when $d=2$,} we do not necessarily need to have a lattice tiling as the one in \cref{fig:tiling_one}. We can have tilings where we translate single or multiple \emph{columns} of the unit cube, shown in \cref{fig:single_shift_vertical_tiling,fig:multiple_shift_vertical_tiling}; or single or multiple \emph{rows} of the unit cube, shown in \cref{fig:single_shift_horizontal_tiling,fig:multiple_shift_horizontal_tiling}. We will see later in \cref{chap:equivalence} that \cref{fig:tiling_figures} to some extent fully captures the flexibility of two dimensions. We remark that all \cref{fig:single_shift_vertical_tiling,fig:multiple_shift_vertical_tiling,fig:single_shift_horizontal_tiling,fig:multiple_shift_horizontal_tiling} clearly illustrates that all tilings of the unit cube in $\R^2$ also satisfy Keller's theorem. 
 
 \input{figures/figure-tex/tiling_figures.tex}
 
