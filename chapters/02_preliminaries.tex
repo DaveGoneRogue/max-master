@@ -11,15 +11,17 @@
 
 
 \begin{document}
+\textcolor{orange}{  %! Here
+We commence this thesis by introducing a selection/assortment of fundamental notations, definitions, and results that will be employed throughout. Following this, a concise overview of key results regarding vector spaces and vector spaces of functions is presented. It is important to note that these sections do not delve deeply into these topics; for thorough coverage, the reader is referred to the primary sources of this chapter \cite{heilMetricsNormsInner2018,heilIntroductionRealAnalysis2019}. The chapter concludes with a short discussion of the terminology and notation employed alongside the exponential and indicator functions.
+} %! Here
+\textcolor{orange}{  %! Here
+We let $\N$ denote the set of positive integers $\braq{1,2,3, \dots}$, $\Z$ denote the set of all integers $\braq{\dots, -1,0,1, \dots}$, and $\R$ and $\C$ to denote the set of all real and complex numbers respectively. Furthermore, we denote by $I^d = \bras{0,1}^d$ the \emph{$d$-dimensionial unit cube} in $\R^d$, sometimes referred to as the \emph{unit hypercube} or simply the \emph{unit cube}. These terms will be used interchangeably, and unless the dimension is specified in the context, it will mean the $d$-dimensional cube. Note that the letter $d$ always refers to the dimension and \emph{vice versa}.
+} %! Here
 
-\SigridChange{Intro text for what the contents of this chapter is about. (and reference to main sources?) }
-The main sources for this chapter are different sections from both \cite{heilMetricsNormsInner2018} and \cite{heilIntroductionRealAnalysis2019}.
-\textbf{alternative} For more details on this chapter, the reader is referred to chapters two, three, and four of \cite{heilMetricsNormsInner2018}.
-
-\section{section title / results on ... / Further results on function spaces (and move section after 2.2) }
+\section{Results on vector spaces}  %! Closure from set theory. The rest are results of vector spaces
     \subfile{02_x1__asec.tex}
 
-\section{Vector spaces / Vector spaces of functions}
+\section{Vector spaces of functions}  %* Functions also form vector spaces
     \subfile{02_x2__vecspace.tex}
 
 \section{Orthonormal Bases}
@@ -29,7 +31,7 @@ The main sources for this chapter are different sections from both \cite{heilMet
     \subfile{02_x4__exponential_function.tex}
     %* TANKE: noe om boundedness, og at exp lever i L(\Omega) men IKKE i L^2(R) for da går normen av exp til *helvete*
 
-\section{The indicator function / zero-sets/ Somethingsomething}
+\section{The indicator function and the zero-set}
     \subfile{02_x5__indicator.tex}
 
 \end{document}

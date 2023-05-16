@@ -16,17 +16,36 @@
 % ? \section[]{INtro ishh}
 % * Def complete i form av “and the linear span of $B$ is dense in $H$ relative to the $\|\cdot\|_H$-norm, meaning $\overline{\operatorname{span}(B)} = H$. (fundamental/total)."
 %intro til orthogonal bases 
-We begin with this section with a short introduction to 
+%We begin with this section with a short introduction to 
 
-We begin with the following. 
+%We begin with the following. 
+
+\textcolor{orange}{  %! Here
+\begin{definition}\label{def:dot_prod}
+    % Let $\lambda=(\lambda_1, \dots, \lambda_d)$ and $t=(t_1,\dots t_d)$ be two vectors in $\R^d$. The inner product, denoted $\braa{\cdot, \cdot}$, between $\lambda$ and $t$ is
+    % \begin{equation*}
+    %     \braaMed{\lambda,t} = \sum_{n=1}^d \lambda_n t_n= \lambda_1 t_1 + \dots + \lambda_d t_d,
+    % \end{equation*}
+    % also known as the dot product. 
+    Let $x=(x_1, \dots, x_d)$ and $y=(y_1,\dots y_d)$ be two vectors in $\R^d$. The inner product, denoted $\braa{\cdot, \cdot}$, between $x$ and $y$ is
+    \begin{equation*}
+       \braaMed{x,y} = \sum_{n=1}^d x_n y_n= x_1 y_1 + \dots + x_d y_d,
+    \end{equation*}
+    also known as the dot product. 
+\end{definition}
+} %! Here
+
+\textcolor{orange}{  %! Here
+Additionally, the inner product on $\R^d$ induces the norm $\bran{\cdot}_2 = \sqrt{\braa{\cdot, \cdot}}$, known as the Euclidian norm or Euclidian distance. 
+} %! Here
 
 \begin{definition}
-    Let $V$ be an inner product space, $I$ be an arbitrary index set, and $v_i$ denote a vector in $V$ for some $i \in I$. We have that
+    Let $V$ be an inner product space, $I$ be an arbitrary index set, and $v_i$ denote a vector in $V$ for some $i\in I$. We have that
     \begin{itemize}%[topsep=0pt]
         \item Any two \textsc{elements} $v_i, v_j \in V$ are \emph{orthogonal}, denoted $v_i \perp v_j$, if $\braa{v_i,v_j} = 0$.
         %\item If $\braa{x_1,x_2} = 0$, then the vectors are \emph{orthogonal} to each other %$x_1$ and $_2$ are \emph{orthogonal} or \emph{pairwise orthogonal}.
-        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthogonal} if $\braa{v_i,v_j} = 0$ whenever $i \neq j$. % if any two distinct elements are pairwise orthogonal
-        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthonormal} if it is orthogonal, and each vector $v_i$ satisfies $\|v_i\| = 1$. %unit vector
+        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthogonal} if $\braa{v_i,v_j} = 0$ whenever $i\neq j$. % if any two distinct elements are pairwise orthogonal
+        \item A \textsc{set} of vectors $\braq{v_i : i \in I}$ is \emph{orthonormal} if it is orthogonal, and each vector $v_i$ satisfies $\bran{v_i}_2 = 1$. %unit vector
         \qedhere
     \end{itemize}
 \end{definition}
