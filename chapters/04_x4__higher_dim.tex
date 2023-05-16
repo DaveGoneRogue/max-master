@@ -35,7 +35,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
         &= \int_{I} e^{-2\pi i z_1 t_1} \int_{I} e^{-2\pi i z_2 t_2}  \cdots \int_{I} e^{2\pi i z_d t_d}  dt_1 dt_2\dots dt_d\\ %! DENNE kan sløyfes
         &= \prod_{j=1}^d \int_I e^{-2\pi i z_j t_j} dt_j\\
         % &= \prod_{j=1}^d \frac{e^{2 \pi i z_j} -1}{2 \pi i z_j} % hvis JP F_\Omega
-        &= \prod_{j=1}^d \frac{1-e^{-2 \pi i z_j}}{-2 \pi i z_j} % hvis JP F_\Omega
+        &= \prod_{j=1}^d \frac{1-e^{-2 \pi i z_j}}{2 \pi i z_j} % hvis JP F_\Omega
     \end{align*}
     Note that if any $z_j = 0$, we interpret the corresponding factor in the product as $=1$. Furthermore, assume that $z\neq 0$ as this implies that at least one factor $z_j\neq 0$. In this case, observe that the equation is zero whenever at least one element $z_j\in \intnozero$. %using that the exponential equals one in this case. %* Forklaring, slettet
     Thus, the zero-set for $F_{I^d}$ is $\Zstroke_{I^d}$ which completes the proof. %* First sentence: In other words, reducing the total number of factors in the product.
@@ -45,30 +45,34 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
     %\end{align*}
 \end{proof}
 } %! Here
-\textcolor{orange}{  %! Here
-Moreover, using \cref{rem:key_insight} in combination with $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5}, we can formulate a result that closely resembles Keller's theorem for tiling sets (\cref{thrm:keller_tiling}) \cite{iosevichSpectralTilingProperties1998}.
-\begin{lemma}(Spectral version of Keller's theorem)\label{lem:zero_set_AiSp}
-    Let $\Lambda\subset \R^d$ be a discrete subset and $\Omega=I^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if given any two $\lambda,\lambda'\in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in\braq{1,\dots,d}$ so that $\lambda_j- \lambda_j'\in \intnozero$.
-\end{lemma}
-} %! Here
+\SigridComment{Make some note of the use of distinct elements and what that corresponds to}
 
 \textcolor{orange}{  %! Here
-%! Higlighte om at vi med lemma 4.7 og remark 4.8 essensielt erstatter ortogonalitetskravet med L-L inne i null mengen. 
-\begin{remark}\label{rem:zero_set_orthogonal}  %* One way implication, =>, which took a long time to find out. The equivalent result is Keller's theorem.
-    If given a spectral pair $(I^d,\Lambda)$, it follows from \cref{lem:zero_set_orthoganl_general,lem:zero_set_AiSp} that the spectral pair property is equivalent to the set $E(\Lambda)$ is complete in $L^2(\Omega)$, and that the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{I^d}$, meaning 
+Moreover, using \cref{lem:zero_set_orthoganl_general} in combination with $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5}, we can formulate a result that closely resembles Keller's \namecref{thrm:keller_tiling} for tiling sets (\cref{thrm:keller_tiling}) \cite{lagariasOrthonormalBasesExponentials2000,iosevichSpectralTilingProperties1998}.
+%! can be used to rewrite the introduction sentence on line 51 above.
+% aptly named \emph{the spectral version of Keller's theorem} \cite{iosevichSpectralTilingProperties1998}, which we have previously introduced as our \cref{lem:zero_set_jp_1_5} with \cref{rem:zero_set_orthogonal}. They are the same, with the distinction being in BLABLABLA. 
+\begin{lemma}(Spectral version of Keller's theorem)\label{lem:zero_set_AiSp}
+    Let $\Lambda\subset \R^d$ be a discrete subset and $\Omega=I^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if
+    \begin{equation*}%\label{eq:zero_set_inclusion}
+        \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
+    \end{equation*} 
+\end{lemma}
+%\begin{lemma}(Spectral version of Keller's theorem)  %* As it appears in Iosovich and Pedersen / Lagarias and Reeds. 
+%    Let $\Lambda\subset \R^d$ be a discrete subset and $\Omega=I^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if given any two $\lambda,\lambda'\in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in\braq{1,\dots,d}$ so that $\lambda_j- \lambda_j'\in \intnozero$.
+%\end{lemma}
+} %! Here
+\textcolor{orange}{  %! Here
+Although the wording is different from Kellers' \namecref{thrm:keller_tiling}, the connection between \cref{lem:zero_set_AiSp} and Kellers' \namecref{thrm:keller_tiling} will become more apparent later in \cref{chap:equivalence}. However, for the interested reader, the connection follows from \cref{rem:key_insight} and \cref{lem:zero_set_jp_1_5}.  ISH. 
+%Furthermore, \cref{lem:zero_set_AiSp} also allows us to state the following result for spectral pairs. 
+\begin{remark}\label{rem:zero_set_orthogonal}  %* One way implication, =>, which took a long time to find out. NOT the same as "Spectral Keller"
+    If given a spectral pair $(I^d,\Lambda)$, it follows from \cref{def:spectral_set,lem:zero_set_AiSp} that the spectral pair property is equivalent to the set $E(\Lambda)$ is complete in $L^2(\Omega)$, and that the non-zero elements of $\Lambda - \Lambda$ being contained in the zero-set of $F_{I^d}$, meaning 
     \begin{equation*}%\label{eq:zero_set_inclusion}
         \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
     \end{equation*}
+    \SigridComment{This equivalence of non-zero is taken from Jorgensen and Pedersen, it doesn't match the rest of the thesis. }
 \end{remark}
 } %! Here
 This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_all_shift_2d}.
-
-\SigridComment{Consider changing the order, as remark 2.18 with lemma 4.7 gives now remark 4.10. Then we can create an equivalent result which is a rephrasing of remark 4.10, and that is Kellers spectral version, now lemma 4.8}
-
-\SigridComment{also consider changing the wording in Spectral version so that the zero set becomes more apparent. This can either be done before, as to better build up remark 4.10. Or change the order, and use it in the introduction/build up of the lemma.}
-
-
-
 
 \SigridComment{Sigrid wants to "consider cutting" this example. Reason being: Unclear what it illustrates for the reader}
 \begin{example} %! Opp til deg, derfor vi ikke har tatt det vekk
@@ -78,6 +82,9 @@ This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_a
     \end{equation*}
     Since we have shown that $E(\Z)$ is complete in $L^2(I)$, this shows that $\brac{I,\Z}$ is a spectral pair.
 \end{example}
+
+
+
 
 %* ———————————————————————————————————————— Del 2, construction of spectra
 In \cite{jorgensenSpectralPairsCartesian2001}, Jorgensen and Pedersen present a way of constructing spectral pairs in higher dimensions from spectral pairs in lower dimensions. 

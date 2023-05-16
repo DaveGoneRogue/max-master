@@ -25,22 +25,24 @@
 %* JP: If $\brac{I^d,T}$ is a tiling pair, then $T-T \subset \Zstroke_{I^d}\cup \braq{0}$.\\
 
 \SigridComment{Equvalent restatement of kellers theorem in terms of zero set.}
-
-Recall \cref{thrm:keller_tiling}, Keller's theorem. We have an analogous version of the \namecref{thrm:keller_tiling} aptly named \emph{the spectral version of Keller's theorem} \cite{iosevichSpectralTilingProperties1998}, which we have previously introduced as our \cref{lem:zero_set_jp_1_5} with \cref{rem:zero_set_orthogonal}. They are the same, with the distinction being in BLABLABLA. 
-
-
-Using \cref{thrm:keller_tiling}, and the first part of \cref{rem:zero_set_orthogonal} we have the following \namecref{cor:tiling_pair_implies_orthogonal} from to \cref{thrm:keller_tiling}. \namecref{thrm:keller_tiling}
-
-
-The following \namecref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem (\cref{thrm:keller_tiling}), and \cref{lem:zero_set_AiSp}.
-
+\textcolor{orange}{  %! Here
+Recall \cref{thrm:keller_tiling}, Keller's theorem. We have an equivalent version of the \namecref{thrm:keller_tiling} similar to \cref{lem:zero_set_AiSp}, in which by observing the connection in the wording of the proof of \cref{lem:zero_set_orthoganl_general,lem:zero_set_jp_1_5} with the wording in the \namecref{thrm:keller_tiling}.
+\begin{theorem}[Keller's theorem alternative]\label{thrm:keller_alternative}
+    If $\brac{I^d,\Lambda}$ is a tiling pair, then 
+    \begin{equation*}
+        \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
+    \end{equation*} 
+\end{theorem}
+\cref{lem:zero_set_orthoganl_general}
+} %! Here
+\textcolor{orange}{  %! Here
+The following \namecref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem, \cref{thrm:keller_alternative}, and \cref{lem:zero_set_AiSp}.
 %! The following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
 \begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
-    If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,T}$ is orthogonal. %Meaning that 
-    %\begin{equation*}
-    %    T-T \subset \Zstroke_{I^d}\cup \braq{0}
-    %\end{equation*}
+    If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,\Lambda}$ is an orthogonal pair.\\
+    If $\brac{I^d, \Lambda}$ is a tiling pair, then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$.
 \end{corollary}
+} %! Here
 %! —————— END
 %! og så sagt at "nå skal vi se at vi får akkurat de samme settene".  
 
@@ -110,38 +112,43 @@ We have now seen that we have exactly the same tiling sets as spectra for $I^d$ 
 
 \begin{remark}
     By using Keller's theorem, \cref{thrm:keller_tiling}, in combination with \cref{cor:tiling_pair_implies_orthogonal} and parts of the proof of \cref{thrm:class_all_shift_2d}, we could have shortened the proof, especially the opening. This follows from the following observations. The \namecref{cor:tiling_pair_implies_orthogonal} implies that the tiling pair from Keller's theorem is also orthogonal. Additionally, our proof of \cref{thrm:class_all_shift_2d} establishes that if $\Lambda$ is a spectral set, it must be a subset of one of two classes |due to a condition|/ from an inclusion/ from LEMMA-BLABLA/  that we know is equivalent to orthogonality by LEMMA-BLABLA. 
-    
-
-    Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show after these arguments. 
-
-    Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} is left to show after these arguments. 
-
-    Therefore, through these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-    We could have skipped ahead using these arguments and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-    From these arguments, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show.
-
-    Using these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-    
-
-    From these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-
-
-
-    Since the tiling set from Keller's theorem is also orthogonal according to the \namecref{cor:tiling_pair_implies_orthogonal}, and we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ is a subset of one of the two classes if $\Lambda$ is a spectrum, then we had only to show that it could not be a proper subset.  
-    
-    Keller's theorem provides a tiling set, and we can confirm its orthogonality property through \namecref{cor:tiling_pair_implies_orthogonal}. Additionally, our proof of \cref{thrm:class_all_shift_2d} establishes that if $\Lambda$ is a spectral set, then it must be a subset of one of two classes due to the orthogonality condition. Thus, demonstrating that $\Lambda$ cannot be a proper subset is sufficient to prove our main result."
-    
-    
-    we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum, and the \namecref{cor:tiling_pair_implies_orthogonal} tells us that a tiling pair is also orthogonal, then we get from Keller's theorem that we have a tiling pair. 
-    
-    in the proof of \cref{thrm:class_all_shift_2d}, show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum. This, from \namecref{cor:tiling_pair_implies_orthogonal}, we could essentially go from Keller's theorem to directly having that  
-
 \end{remark}
 
-\SigridComment{Or would you rather have me do the proof again by splicing the remark with the proof, and then leave that as a proof?}
+\SigridComment{Or would you rather have me do the proof again by essentially splicing the remark with the proof above, and then use that as a proof of the theorem?}
+
+
+Max remark alternatives. 
+
+Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show after these arguments. 
+
+Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} is left to show after these arguments. 
+
+Therefore, through these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
+
+We could have skipped ahead using these arguments and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
+
+From these arguments, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show.
+
+Using these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
+
+
+From these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
+
+
+
+
+Since the tiling set from Keller's theorem is also orthogonal according to the \namecref{cor:tiling_pair_implies_orthogonal}, and we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ is a subset of one of the two classes if $\Lambda$ is a spectrum, then we had only to show that it could not be a proper subset.  
+
+Keller's theorem provides a tiling set, and we can confirm its orthogonality property through \namecref{cor:tiling_pair_implies_orthogonal}. Additionally, our proof of \cref{thrm:class_all_shift_2d} establishes that if $\Lambda$ is a spectral set, then it must be a subset of one of two classes due to the orthogonality condition. Thus, demonstrating that $\Lambda$ cannot be a proper subset is sufficient to prove our main result."
+
+
+we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum, and the \namecref{cor:tiling_pair_implies_orthogonal} tells us that a tiling pair is also orthogonal, then we get from Keller's theorem that we have a tiling pair. 
+
+in the proof of \cref{thrm:class_all_shift_2d}, show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum. This, from \namecref{cor:tiling_pair_implies_orthogonal}, we could essentially go from Keller's theorem to directly having that  
+
+
+
+
 
 
 %* Jørgen pedersen skriver: 
