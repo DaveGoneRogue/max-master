@@ -14,15 +14,15 @@
 
 Given $\lambda \in \R^d$, the complex exponential function $e_{\lambda}: \R^d \rightarrow \C$ with frequency $\lambda$ is 
 \begin{equation*}
-    e_{\lambda}(t) = e^{2 \pi i \inpl{t}} = \cos{(2 \pi \inpl{t})} + i \sin{(2 \pi \inpl{t})}, \quad t\in \mathbb{R}^d.
+    e_{\lambda}(t) = e^{2 \pi i \inpl{t}} = \cos{\bracMed{2 \pi \braaMed{\lambda,t}}} + i \sin{\bracMed{2 \pi \braaMed{\lambda,t}}}, \quad t\in \mathbb{R}^d.
 \end{equation*}
-Here, $\inpl{t}$ is the euclidean inner product in \cref{def:dot_prod}. Throughout this thesis we denote by $E\brac{\Lambda}$ the exponential system
+Here, $\braaMed{\lambda, t}$ is the euclidean inner product in \cref{def:dot_prod}. Throughout this thesis we denote by $E\brac{\Lambda}$ the exponential system
 \begin{align*}
     %E\brac{\Lambda} = \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \lambda t } : \lambda \in \Lambda}
     % E\brac{\Lambda} = \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
     %*DENNNEE\brac{\Lambda} =& \braqMed{e_\lambda}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.\\
     %E\brac{\Lambda} =& \braq{e_\lambda}_{\lambda \in \Lambda} = \braq{e^{2\pi i \inpl{t}}}_{\lambda \in \Lambda}= \braq{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}.
-    E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \inpl{t}} : \lambda \in \Lambda}, \quad t\in \R^d,
+    E\brac{\Lambda} = \braqMed{e_\lambda(t) : \lambda \in \Lambda} = \braqMed{e^{2\pi i \braaMed{\lambda,t}} : \lambda \in \Lambda}, \quad t\in \R^d,
 \end{align*}
 \SigridChange{where $\Lambda$ is a a subset of $\R^d$}. We will think of $E(\Lambda)$ as a system of functions in $L^2(\Omega)$ for some subset $\Omega \subseteq \R^d$. In this setting, we intuitively understand $e_\lambda$ to be $e_\lambda$ restricted to $\Omega$. % that is $\indicatorNoVar{\Omega}$
 
