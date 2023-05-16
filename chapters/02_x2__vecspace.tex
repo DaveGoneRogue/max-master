@@ -15,22 +15,22 @@
 \begin{definition}[Lebesgue Space] %? Heil REal analysis book page 269, citation?, page 119+120, chapter 3, Heil metrics and norm
     Let $E$ be a measurable subset of $\R^d$. Given $1 \leq p < \infty$ and a measurable function $f:E\rightarrow \C$, we say that $f$ is \emph{$p$-integrable} if the Lebesgue integral of $|f|^p$ is finite, that is
     \begin{equation*}
-        \int_{E} |f(t)|^p dt < \infty,
+        \int_{E} \bralMed{f(t)}^p dt < \infty,
     \end{equation*}
     where $dt= dt_1 \dots dt_d$. We define the \emph{Lebesgue space} $L^p(E)$ as the set of all $p$-integrable functions on $E$, and equip it with the norm
     \begin{equation*}
-        \bran{f}_{L^p(E)} = \bracMed{\int_{E} |f(t)|^p dt}^{1/p}. \qedhere
+        \bran{f}_{L^p(E)} = \bracMed{\int_{E} \bralMed{f(t)}^p dt}^{1/p}. \qedhere
     \end{equation*}
 \end{definition}
 
-\colorbox{BurntOrange}{Transition text here?} %! %Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
+%! %Of all the $L^p$ spaces, the case $p=2$ is special since $L^2(E)$ is the only space whose norm
 The case $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced by the inner product
 \begin{equation*}
     \braaMed{f, g}_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation*}
 for two functions $f,g\in L^2(E)$. By the Riesz-Fischer theorem \cite[p.~279]{heilIntroductionRealAnalysis2019}, all $L^p$ spaces are complete with respect to the \LPnorm. Hence, $L^2(E)$ is a Hilbert space. 
 
-\colorbox{BurntOrange}{Transition text here?} %! Synes det trengs overgang her
+
 %* —————————————————————————————————————— C Cont. FUNCTIONS ——————————————————————————————————————
 Let
 \begin{equation*}  %? Page 102, chapter 3, Heil metrics norms
@@ -71,7 +71,7 @@ We have a \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$ similar t
     \end{figure}
     %Since $C([a,b])$ is dense in $L^2([a,b])$ from \cref{lem:c_dense_L2}, it will then follow that $\Cper([a,b])$ is dense in $L^2([a,b])$ if we can show that $\Cper([a,b])$ is dense in $C([a,b])$.
     %If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow that $\Cper([a,b])$ is dense in $L^2([a,b])$, since we know from \cref{lem:c_dense_L2} that $C([a,b])$ is dense in $L^2([a,b])$. 
-    If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([a,b])$ is dense in $L^2([a,b])$, since $C([a,b])$ is dense in $L^2([a,b])$. Let $f \in C([a,b])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\|f\|_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[a+\delta,b-\delta ]$ and which attains the value $g = 0$ at the endpoints, making $g\in \Cper([a,b])$. We will see that this will change the \Ltwonorm \space by a negligible amount. %In other words, this allows us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. 
+    If we can show that $\Cper([a,b])$ is dense in $C([a,b])$, it will follow from \cref{lem:c_dense_L2} that $\Cper([a,b])$ is dense in $L^2([a,b])$, since $C([a,b])$ is dense in $L^2([a,b])$. Let $f \in C([a,b])$, $\varepsilon>0$ and $\delta = \varepsilon^2/(8\bran{f}_\infty)$. We aim to construct a piecewise continuous function $g$ which is identical to $f$ on the interval $[a+\delta,b-\delta ]$ and which attains the value $g = 0$ at the endpoints, making $g\in \Cper([a,b])$. We will see that this will change the \Ltwonorm \space by a negligible amount. %In other words, this allows us to approximate any continuous function as closely as we want by a modified (periodic) version of the original function. 
     We construct $g$ in the following way  %. We will see that this will change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$
     \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(b-\delta) / \delta \cdot x + g(b-\delta)/ \delta $ <- dette er høyre side.
         g(t) = 
@@ -82,19 +82,19 @@ We have a \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$ similar t
             a, &  t=b,
         \end{cases}
     \end{equation*} 
-    as illustrated in \cref{fig:g_periodic_close_to_f}. Observe that for all $t$ on the interval $[a+\delta, b-\delta]$ we have $|f(t)-g(t)|= 0$, and for all other values of $t$ we know that
+    as illustrated in \cref{fig:g_periodic_close_to_f}. Observe that for all $t$ on the interval $[a+\delta, b-\delta]$ we have $\bral{f(t)-g(t)}= 0$, and for all other values of $t$ we know that
     \begin{equation*}
-        |g(t)| \leq \|g\|_{\infty} = \sup_{t\in[a,b]} |g(t)| = \sup_{t\in[a+\delta, b-\delta]} |g(t)| = \sup_{t\in[a+\delta, b-\delta]} |f(t)| \leq \sup_{t\in[a, b]} |f(t)| =\| f\|_{\infty}
+        \bralMed{g(t)} \leq \branMed{g}_{\infty} = \sup_{t\in[a,b]} \bralMed{g(t)} = \sup_{t\in[a+\delta, b-\delta]} \bralMed{g(t)} = \sup_{t\in[a+\delta, b-\delta]} \bralMed{f(t)} \leq \sup_{t\in[a, b]} \bralMed{f(t)} =\branMed{f}_{\infty}
     \end{equation*}
-    with equality in the third step using the fact that $g$ is linear and goes towards zero as it approaches $0$ or $b$, and therefore attains its greatest value on the interval $[a+\delta,b-\delta]$ where it is equal to $f$. Using this, and the triangle inequality, we have that
+    with equality in the third step using the fact that $g$ is linear and goes towards zero as it approaches $0$ or $b$, and therefore attains its greatest value on the interval $[a+\delta,b-\delta]$ where it is equal to $f$. Using this and the triangle inequality, we have that
     \begin{equation*}
-        \left|f(t)-g(t) \right| \leq |f(t)| + |-g(t)| \leq \|f \|_{\infty} + \|f \|_{\infty} = 2 \|f \|_{\infty}
+        \bralMed{f(t)-g(t)} \leq \bralMed{f(t)} + \bralMed{-g(t)} \leq \branMed{f}_{\infty} + \branMed{f}_{\infty} = 2 \branMed{f}_{\infty}
     \end{equation*}
     for all $t$ on the intervals $[a, a+\delta]$ and $[b-\delta,b]$. Now,
     \begin{align*}
-        \| f-g \|_{L^2}^2 &=  \int_0^{a+\delta} \left|f(t)-g(t) \right|^2dt + \int_{a+\delta}^{b-\delta} \left|f(t)-g(t) \right|^2dt +\int_{b-\delta}^{b} \left|f(t)-g(t) \right|^2dt\\ 
-        &\leq \int_0^{a+\delta} (2 \| f\|_\infty)^2dt + 0 +\int_{b-\delta}^{b} (2 \| f\|_\infty)^2dt\\
-        &=  4 \delta \| f\|_\infty^2 + 4 \delta \| f\|_\infty^2\\ 
+        \branMed{f-g}_{L^2}^2 &=  \int_0^{a+\delta} \bralMed{f(t)-g(t)}^2 dt + \int_{a+\delta}^{b-\delta} \bralMed{f(t)-g(t)}^2 dt +\int_{b-\delta}^{b} \bralMed{f(t)-g(t)}^2 dt\\ 
+        &\leq \int_0^{a+\delta} \bracMed{2 \branMed{f}_{\infty}}^2 dt + 0 +\int_{b-\delta}^{b} \bracMed{2 \branMed{f}_{\infty}}^2 dt\\
+        &=  4 \delta \branMed{f}_{\infty}^2 + 4 \delta \branMed{f}_{\infty}^2\\ 
         &= \varepsilon^2
     \end{align*}
     This shows that $\Cper([a,b])$ is dense in $C([a,b])$, which finalizes our proof.
