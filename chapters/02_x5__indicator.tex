@@ -11,7 +11,6 @@
 
 
 \begin{document}
-\textcolor{orange}{  %! Here
 %We define the indicator function as follows. 
 \begin{definition}(Indicator function)\label{def:indicator}
     Let $E$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function} of $E$, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
@@ -24,11 +23,9 @@
         \qedhere
     \end{equation*}
 \end{definition}
-} %! Here
 
 %* Recall: Heine Borel gives us that compact is equivalent to being closed and bounded for all subsets of R.
 % Now, given a
-\textcolor{orange}{  %! Here
 Given a bounded subset $\Omega\subset \R^d$ with finite and positive measure, consider the $d$-dimensional Fourier transform given by
 \begin{equation*}
     \hat{f}(z) = \int_{\R^d} f(t)  e^{-2\pi i \braa{z,t}} dt, \quad z,t\in \R^d,
@@ -47,8 +44,8 @@ Since $\Omega$ has finite measure and the exponential has absolute value one, we
     \Zstroke_{\Omega} = \braqMed{ z  = (z_1, \dots z_d) \in \R^d \setminus \braqMed{0} : F_{\Omega}(z)= 0}.
 \end{equation*}
 To conclude this chapter, we show a simple, yet useful, relationship between orthogonality and the zero-set of $F_{\Omega}(z)$ \cite{lagariasOrthonormalBasesExponentials2000,jorgensenSpectralPairsCartesian2001}. %! nevertheless, instead of yet
-} %! Here
-\textcolor{orange}{  %! Here
+
+
 \begin{lemma}\label{lem:zero_set_orthoganl_general}
     Let $\Omega \subset \R^d$ be a bounded subset with $0< \mes{\Omega}<\infty$, and consider the set
     \begin{equation}\label{eq:zero_set_orthogonal}
@@ -59,11 +56,10 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
         \Lambda - \Lambda \subseteq \Zstroke_{\Omega} \cup \braq{0}.
     \end{equation}
 \end{lemma}
-} %! Here
 
-\textcolor{orange}{  %! Here            of two distinct elements $\lambda,\lambda'\in \Lambda$          for $z\neq0$
+% of two distinct elements $\lambda,\lambda'\in \Lambda$          for $z\neq0$
 \begin{proof}
-    Before we begin the proof itself, observe the following connection between the inner product $\braaMed{e_{\lambda},e_{\lambda'} }$ and $F_{\Omega}(z)$, under the assumption that $\lambda,\lambda'\in \Lambda$ are distinct elements, i.e., $\lambda \neq \lambda'$. Equivalently one can assume $z = \lambda - \lambda' \neq0$ and show the connection the other way.  % (since $\lambda - \lambda' = 0$ implies $\lambda = \lambda'$). 
+    As a preliminary step to the proof, observe the following equality between the inner product $\braaMed{e_{\lambda},e_{\lambda'} }$ and $F_{\Omega}(z)$, under the assumption that $\lambda,\lambda'\in \Lambda$ are distinct elements, i.e., $\lambda \neq \lambda'$. Equivalently one can assume $z = \lambda - \lambda' \neq0$ and show the equality the other way.  % (since $\lambda - \lambda' = 0$ implies $\lambda = \lambda'$). 
     \begin{align*}
         \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} =& \int_{\Omega} e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt\\
         =& \int_{\Omega} e^{2\pi i \braa{\lambda,t}} e^{-2 \pi i \braa{\lambda',t}} dt\\
@@ -71,27 +67,19 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
         =& \int_{\Omega} e^{2\pi i  (\lambda_1 -\lambda_1')t_1} \cdots e^{2\pi i  (\lambda_d -\lambda_d')t_d} dt\\
         %=& \int_{\Omega} e^{-2\pi i  (\lambda_1'-\lambda_1)t_1} \cdots e^{-2\pi i  (\lambda_d'-\lambda_d)t_d} dt\\
         =&\int_{\Omega} e^{-2 \pi i \braa{(\lambda'-\lambda),t}} dt\\
-        =& F_{\Omega} (\lambda'-\lambda),
+        =& F_{\Omega} (\lambda'-\lambda)
     \end{align*}
-    First, assume orthogonality, meaning that $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ if $\lambda$ and $\lambda'$ are distinct elements. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above calculation. This shows that all distinct pairs $\lambda,\lambda'\in\Lambda$ are containted in the zero-set $\Zstroke_{\Omega}$. And if $\lambda = \lambda'$ we have  % would have 
-    \begin{equation*}
-        %\braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} =\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt = F_{\Omega}(0) \int_{\Omega} 1 dt = \prod^d \mes{\Omega} \neq 0
-        \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} =\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt = \brac{\mesMed{\Omega}}^d = F_{\Omega}(0) \neq 0.
-    \end{equation*}
-    \begin{align*}
-        %\braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} =\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt = F_{\Omega}(0) \int_{\Omega} 1 dt = \prod^d \mes{\Omega} \neq 0
-        \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} = &\int_{\Omega} e^{-2 \pi i \braa{(\lambda-\lambda),t}} dt  = F_{\Omega}(0),\\
-        =& \brac{\mesMed{\Omega}}^d,\\ 
-        \neq& 0.
-    \end{align*}
-    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $F_{\Omega} (\lambda'-\lambda) = 0$ implies $\lambda'-\lambda\neq 0$, which show the orthogonality from the connection above.
+    First, assume orthogonality, meaning that $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ if $\lambda \neq\lambda'$. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above equality. This shows that all distinct pairs $\lambda,\lambda'\in\Lambda$ are containted in the zero-set $\Zstroke_{\Omega}$, and if $\lambda = \lambda'$ we have
+    \begin{equation}\label{eq:connection_lamb_equal_lamb}
+        \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} = F_{\Omega}(0) = \brac{\mesMed{\Omega}}^d \neq 0.
+    \end{equation}
+    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $\lambda'-\lambda \in \Zstroke_{\Omega}$ imply both that $\lambda'-\lambda\neq 0$ and $F_{\Omega} (\lambda'-\lambda) = 0$. Hence from the equality above $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ for all distinct elements $\lambda,\lambda'\in \Lambda$. If $\lambda-\lambda'\in \braq{0}$, then we have $\lambda=\lambda'$, which \labelcref{eq:connection_lamb_equal_lamb} shows is non-zero and this completes the proof.  %, and we have shown orthogonality.
 \end{proof}
-} %! Here
-\textcolor{orange}{  %! Here
-\begin{remark}\label{rem:key_insight}
+
+%\begin{remark}\label{rem:key_insight}
     %The important observation from 
-    The key insight derived from \cref{lem:zero_set_orthoganl_general} is that orthogonality is equivalent to the \emph{non-zero} elements of $\Lambda - \Lambda$ being contained in the zero-set $\Zstroke_{\Omega}$.  % of $F_{\Omega}$.  % , meaning
-    That is to say: $\lambda,\lambda'$ are distinct, i.e. $\lambda\neq\lambda'$; if and only if $\lambda-\lambda'\neq 0$ and $\lambda-\lambda' \in \Zstroke_{\Omega}$
+    %  The key insight derived from \cref{lem:zero_set_orthoganl_general} is that orthogonality is equivalent to the \emph{non-zero} elements of $\Lambda - \Lambda$ being contained in the zero-set $\Zstroke_{\Omega}$.  % of $F_{\Omega}$.  % , meaning
+    %  That is to say: $\lambda,\lambda'$ are distinct, i.e. $\lambda\neq\lambda'$; if and only if $\lambda-\lambda'\neq 0$ and $\lambda-\lambda' \in \Zstroke_{\Omega}$
     % they are in $(\Lambda - \Lambda)\setminus\braq{0}\subseteq \Zstroke_{\Omega}$.
     %
     %* Trenger ikke si så mye om dette nå, tar det opp i kapittel 4.3
@@ -103,18 +91,14 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
     % \end{equation*}
     % \SigridComment{Not $\subseteq$ here, since we cannot have equality unless we also have the elements $\lambda,\lambda'$ that are zero.}
     % \SigridComment{its the inclusion}
-\end{remark}
-} %! Here
-\textcolor{orange}{  %! Here
+%\end{remark}
+
 \begin{remark}
-    Additionally, \cref{lem:zero_set_orthoganl_general} also implies that elements of $\Lambda$ cannot be too close to each other. To show this, first note that \emph{a ball} $\mathrm{B}$ of radius $\epsilon$ centered at $a\in\R^d$ can be expressed as 
+    Additionally, \cref{lem:zero_set_orthoganl_general} also implies that elements of $\Lambda$ cannot be too close to each other. To show this, first note that a \emph{ball} $\mathrm{B}$ of radius $\epsilon$ centered at $a\in\R^d$ can be expressed as 
     \begin{equation*}
         \mathrm{B}(a ; \epsilon) = \braqMed{x\in \R^d : \branMed{x-a}_2 < \epsilon},
     \end{equation*}
-    Recall that $0<\mes{\Omega}<\infty$, and that $F_{\Omega}(0)=\brac{\mes{\Omega}}^d $. Since $F_{\Omega}$ is defined for any $z \in \R^d$, this implies that a ball centered at zero with radius $R$, specifically $\mathrm{B}(0; R)$, includes no element of the zero-set $\Zstroke_{\Omega}$. Hence, for all other elements $(\lambda-\lambda')\in \Zstroke_{\Omega}$, that is all distinct elements $\lambda,\lambda'\in \Lambda$, we would have $\bran{\lambda-\lambda'}_2\geq R$.
+    Recall that $0<\mes{\Omega}<\infty$, and that $F_{\Omega}(0)=\brac{\mes{\Omega}}^d $. Since $F_{\Omega}$ is defined for any $z \in \R^d$, this implies that a ball centered at zero with radius $R$, specifically $\mathrm{B}(0; R)$, includes no element of the zero-set $\Zstroke_{\Omega}$. Hence, for all other elements $\lambda-\lambda'\in \Zstroke_{\Omega}$, that is all distinct elements $\lambda,\lambda'\in \Lambda$, we would have $\bran{\lambda-\lambda'}_2\geq R$.
 \end{remark}
-} %! Here
-\SigridComment{I tried avoiding the use of "$F_{\Omega}$ is continuous" above when talking about "$F_{\Omega}$ defined for any $z \in \R^d$". See page five of Lagarias and Reeds for reference to this last remark.}
-
 
 \end{document}
