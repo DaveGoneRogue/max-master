@@ -21,37 +21,26 @@
 %* Kan fremheve denne biten i teksten ved å bruke en ligning 
 %*  Forklar i teksten denne likheten mellom keller spectral og lemma 4.7. mitt zero set lemma for I^D
 
-
 %* JP: If $\brac{I^d,T}$ is a tiling pair, then $T-T \subset \Zstroke_{I^d}\cup \braq{0}$.\\
-
-\SigridComment{Equvalent restatement of kellers theorem in terms of zero set.}
-\textcolor{orange}{  %! Here
-Recall \cref{thrm:keller_tiling}, Keller's theorem. We have an equivalent version of the \namecref{thrm:keller_tiling} similar to \cref{lem:zero_set_AiSp}, in which by observing the connection in the wording of the proof of \cref{lem:zero_set_orthoganl_general,lem:zero_set_jp_1_5} with the wording in the \namecref{thrm:keller_tiling}.
+\SigridComment{Need input on this formulation!!}
+Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We have an equivalent version of the \namecref{thrm:keller_tiling} which is similar to \cref{lem:zero_set_AiSp} in the wording. The equivalence follows by generalizing the subtraction of two distinct elements in Keller's \namecref{thrm:keller_tiling} into $(\Lambda-\Lambda)\setminus\braq{0}$, and by observing that $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5} captures the rest of the requirements.
 \begin{theorem}[Keller's theorem alternative]\label{thrm:keller_alternative}
     If $\brac{I^d,\Lambda}$ is a tiling pair, then 
     \begin{equation*}
         \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
     \end{equation*} 
 \end{theorem}
-\cref{lem:zero_set_orthoganl_general}
-} %! Here
-\textcolor{orange}{  %! Here
-The following \namecref{cor:tiling_pair_implies_orthogonal} follows directly from Keller's theorem, \cref{thrm:keller_alternative}, and \cref{lem:zero_set_AiSp}.
-%! The following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
+When using this alternative version of Keller's \namecref{thrm:keller_tiling}, the connection to the previously mentioned spectral version of Keller's  \namecref{thrm:keller_tiling}, \cref{lem:zero_set_AiSp}, becomes apparent. It also allows us to make the following direct connection between the two results. 
 \begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
-    If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,\Lambda}$ is an orthogonal pair.\\
+    %! The following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
+    %If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,\Lambda}$ is an orthogonal pair.\\
     If $\brac{I^d, \Lambda}$ is a tiling pair, then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$.
 \end{corollary}
-} %! Here
-%! —————— END
-%! og så sagt at "nå skal vi se at vi får akkurat de samme settene".  
 
 %* "Vi har sett at vi har akkurat de samme tiling mengdene som spektral mengdene for en dimensjon, og nå skal vi se det for to dimensjoner og der har vi et analogt resulat til 4.20 og beviset vil følge de samme linjene. (Nå for tilings!)
+Until now, we have only seen that we have exactly the same tiling sets as spectra for $I^d$ in dimension one, and we will now see that the same is true for dimension two. Here we have an \SigridChange{analogous/equivalent(?)} result to \cref{thrm:class_all_shift_2d}, which we state in its entirety for convenience. It is worth emphasizing that it is as a consequence of Keller's \namecref{thrm:keller_tiling} that we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
 
-We have now seen that we have exactly the same tiling sets as spectra for $I^d$ in dimension one, and we will now show it for dimension two. Here we have an \SigridChange{analogous/equivalent(?)} result to \cref{thrm:class_all_shift_2d}, which we state in its entirety for convenience. It is worth noting that it is as a consequence of Keller's theorem that we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
-
-%* If one knows that we have a tiling set for the unit cube in two dimensions, then this is our only two possibilities. 
-\begin{theorem}\label{thrm:class_all_tiling_2d}
+\begin{theorem}\label{thrm:class_all_tiling_2d}  %* If given a tiling set for I^2, then this is our only two possibilities. 
     The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a tiling set for $\Omega = I^2$ belong to one of the two classes
     \begin{equation}\label{eq:2d_all_shift_class_1_tiling}
         \Lambda = \braqMed{
@@ -71,7 +60,6 @@ We have now seen that we have exactly the same tiling sets as spectra for $I^d$ 
             }
     \end{equation}
     where $\alpha \in \R$ is fixed and $\brac{\beta_m}_{m\in \Z}$ is an infinite sequence with $\beta_m \in [0,1)$.
-    
 \end{theorem}
 
 \begin{proof}
