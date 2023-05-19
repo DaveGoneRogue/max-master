@@ -59,7 +59,7 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
 
 % of two distinct elements $\lambda,\lambda'\in \Lambda$          for $z\neq0$
 \begin{proof}
-    As a preliminary step to the proof, observe the following equality between the inner product $\braaMed{e_{\lambda},e_{\lambda'} }$ and $F_{\Omega}(z)$, under the assumption that $\lambda,\lambda'\in \Lambda$ are distinct elements, i.e., $\lambda \neq \lambda'$. Equivalently one can assume $z = \lambda - \lambda' \neq0$ and show the equality the other way.  % (since $\lambda - \lambda' = 0$ implies $\lambda = \lambda'$). 
+    As a preliminary step to the proof, observe the following equality between the inner product $\braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)}$ and $F_{\Omega}(z)$, under the assumption that $\lambda,\lambda'\in \Lambda$ are distinct elements, i.e., $\lambda \neq \lambda'$. Equivalently one can assume $z = \lambda - \lambda' \neq0$ and show the equality the other way.  % (since $\lambda - \lambda' = 0$ implies $\lambda = \lambda'$). 
     \begin{align*}
         \braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} =& \int_{\Omega} e_{\lambda}(t)\overline{e_{\lambda'}(t)} dt\\
         =& \int_{\Omega} e^{2\pi i \braa{\lambda,t}} e^{-2 \pi i \braa{\lambda',t}} dt\\
@@ -69,11 +69,11 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
         =&\int_{\Omega} e^{-2 \pi i \braa{(\lambda'-\lambda),t}} dt\\
         =& F_{\Omega} (\lambda'-\lambda)
     \end{align*}
-    First, assume orthogonality, meaning that $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ if $\lambda \neq\lambda'$. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above equality. This shows that all distinct pairs $\lambda,\lambda'\in\Lambda$ are containted in the zero-set $\Zstroke_{\Omega}$, and if $\lambda = \lambda'$ we have
+    First, assume orthogonality, meaning that $\braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} = 0 $ if $\lambda \neq\lambda'$. Clearly $F_{\Omega}(\lambda'-\lambda) = 0$ from the above equality. This shows that all distinct pairs $\lambda,\lambda'\in\Lambda$ are containted in the zero-set $\Zstroke_{\Omega}$, and if $\lambda = \lambda'$ we have
     \begin{equation}\label{eq:connection_lamb_equal_lamb}
         \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} = F_{\Omega}(0) = \brac{\mesMed{\Omega}}^d \neq 0.
     \end{equation}
-    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $\lambda'-\lambda \in \Zstroke_{\Omega}$ imply both that $\lambda'-\lambda\neq 0$ and $F_{\Omega} (\lambda'-\lambda) = 0$. Hence from the equality above $\braaMed{e_{\lambda},e_{\lambda'} } = 0 $ for all distinct elements $\lambda,\lambda'\in \Lambda$. If $\lambda-\lambda'\in \braq{0}$, then we have $\lambda=\lambda'$, which \labelcref{eq:connection_lamb_equal_lamb} shows is non-zero and this completes the proof.  %, and we have shown orthogonality.
+    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $\lambda'-\lambda \in \Zstroke_{\Omega}$ imply both that $\lambda'-\lambda\neq 0$ and $F_{\Omega} (\lambda'-\lambda) = 0$. Hence from the equality above $\braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} = 0 $ for all distinct elements $\lambda,\lambda'\in \Lambda$. If $\lambda-\lambda'\in \braq{0}$, then we have $\lambda=\lambda'$, which \labelcref{eq:connection_lamb_equal_lamb} shows is non-zero and this completes the proof.  %, and we have shown orthogonality.
 \end{proof}
 
 %\begin{remark}\label{rem:key_insight}
