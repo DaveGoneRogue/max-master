@@ -970,10 +970,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm
 INPUT ./figures/figure-tex/tiling_figures.tex
 INPUT ./figures/figure-tex/tiling_figures.tex
-INPUT ./figures/figure-tex/grid_tiling.tex
-INPUT ./figures/figure-tex/grid_tiling.tex
-INPUT ./figures/figure-tex/grid_tiling.tex
-INPUT ./figures/figure-tex/grid_tiling.tex
+INPUT ./figures/figure-tex/grid_tiling_2.tex
+INPUT ./figures/figure-tex/grid_tiling_2.tex
+INPUT ./figures/figure-tex/grid_tiling_2.tex
+INPUT ./figures/figure-tex/grid_tiling_2.tex
 INPUT ./chapters/04_spectral_sets.tex
 INPUT ./chapters/04_spectral_sets.tex
 INPUT ./chapters/04_x1__one_dim.tex
