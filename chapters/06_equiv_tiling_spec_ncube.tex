@@ -26,7 +26,8 @@
 
 Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We have an equivalent version, or more specifically, an equivalent restatement of the \namecref{thrm:keller_tiling} which closely relates to \cref{lem:zero_set_AiSp}. The equivalence follows by generalizing the subtraction of two distinct elements in Keller's \namecref{thrm:keller_tiling} into $(\Lambda-\Lambda)\setminus\braq{0}$, and by observing that $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5} captures the rest of the requirements.
 
-Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We have an equivalent version of the \namecref{thrm:keller_tiling} which is similar to \cref{lem:zero_set_AiSp} in the wording. The equivalence follows by generalizing the subtraction of two distinct elements in Keller's \namecref{thrm:keller_tiling} into $(\Lambda-\Lambda)\setminus\braq{0}$, and by observing that $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5} captures the rest of the requirements.
+%* Old
+%Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We have an equivalent version of the \namecref{thrm:keller_tiling} which is similar to \cref{lem:zero_set_AiSp} in the wording. The equivalence follows by generalizing the subtraction of two distinct elements in Keller's \namecref{thrm:keller_tiling} into $(\Lambda-\Lambda)\setminus\braq{0}$, and by observing that $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5} captures the rest of the requirements.
 
 \begin{theorem}[Keller's theorem alternative]\label{thrm:keller_alternative}
     If $\brac{I^d,\Lambda}$ is a tiling pair, then 
@@ -34,7 +35,9 @@ Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We hav
         \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
     \end{equation*} 
 \end{theorem}
-When using this alternative version of Keller's \namecref{thrm:keller_tiling}, the connection to the previously mentioned spectral version of Keller's  \namecref{thrm:keller_tiling}, \cref{lem:zero_set_AiSp}, becomes apparent in that Keller's requirement for a cube tiling corresponds to the exponentials being orthogonal for a discrete set $\Lambda$.  % It also allows us to make the following direct connection between the two results. 
+When using the alternative version, the connection to the previously mentioned spectral version of Keller's  \namecref{thrm:keller_tiling}, \cref{lem:zero_set_AiSp}, becomes apparent in that Keller's requirement for a cube tiling corresponds to the exponentials being orthogonal for a discrete set $\Lambda$.  % It also allows us to make the following direct connection between the two results. 
+% old with possible addtion
+%When using the alternative version of Keller's \namecref{thrm:keller_tiling}, the connection to the previously mentioned spectral version of Keller's  \namecref{thrm:keller_tiling}, \cref{lem:zero_set_AiSp}, becomes apparent in that Keller's requirement for a cube tiling corresponds to the exponentials being orthogonal for a discrete set $\Lambda$. 
 \begin{corollary}\label{cor:tiling_pair_implies_orthogonal}
     %! The following result shows that any tiling set for the cube is orthogonal. It is a critical step in our proof that any tiling set for the cube must be a spectrum for the cube and should be compared with the spectral version of Keller's theorem. 
     %If $\brac{I^d, \Lambda}$ is a tiling pair, then $\brac{I^d,\Lambda}$ is an orthogonal pair.\\
@@ -42,7 +45,7 @@ When using this alternative version of Keller's \namecref{thrm:keller_tiling}, t
 \end{corollary}
 
 %* "Vi har sett at vi har akkurat de samme tiling mengdene som spektral mengdene for en dimensjon, og nå skal vi se det for to dimensjoner og der har vi et analogt resulat til 4.20 og beviset vil følge de samme linjene. (Nå for tilings!)
-Until now, we have only seen that we have exactly the same tiling sets as spectra for $I^d$ in dimension one, and we will now see that the same is true for dimension two. Here we have an \SigridChange{analogous/equivalent(?)} result to \cref{thrm:class_all_shift_2d}, which we state in its entirety for convenience. It is worth emphasizing that it is as a consequence of Keller's \namecref{thrm:keller_tiling} that we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
+Until now, we have only seen that we have exactly the same tiling sets as spectra for $I^d$ in dimension one. We will now see that the same is true for dimension two. Here we have an \SigridChange{analogous/equivalent(?)} result to \cref{thrm:class_all_shift_2d}, which we state in its entirety for convenience. It is worth emphasizing that it, in this case, is as a consequence of Keller's \namecref{thrm:keller_tiling} that we have that these tiling sets must also look like they do in \cref{thrm:class_all_shift_2d}.
 
 \begin{theorem}\label{thrm:class_all_tiling_2d}  %* If given a tiling set for I^2, then this is our only two possibilities. 
     The only subsets $\Lambda \subset \R^2$ such that $\Lambda$ is a tiling set for $\Omega = I^2$ belong to one of the two classes
@@ -66,16 +69,11 @@ Until now, we have only seen that we have exactly the same tiling sets as spectr
     where $\alpha \in \R$ is fixed and $\brac{\beta_m}_{m\in \Z}$ is an infinite sequence with $\beta_m \in [0,1)$.
 \end{theorem}
 
-\begin{proof}
-    %! kødd
-    %* similar proof of the one of theorem 4.20, and which considers exactly the same
-    %* redusert versjon, når du ser det blir helt likt referert tilbake til theorem 4.20. 
-    %* Her vil man bruke keller til dette
+\begin{proof}  %! Hva er disse startgreiene kommentert ut?
     % If we now consider a second element $\lambda'\in \Lambda$ with the opposite assumptions for $\lambda_1'$ and $\lambda_2'$ we have exactly the same case 
     % Likewise, if we follow the exact same arguments following the above result in the proof of \cref{thrm:class_all_shift_2d}, we can first show that 
 
     %Likewise, if we further assume $\lambda\notin \Z^2$, and first take $\lambda_1 \in \intnozero$ we also get that $\lambda_2\notin \Z$. By now, following the exact same arguments following the above assumption from the proof of \cref{thrm:class_all_shift_2d}, we can first show that 
-
     Let $\Lambda \subset \R^d$. Keller's theorem, \cref{thrm:keller_tiling}, immediately shows that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in $\intnozero$. As in the proof of \cref{thrm:class_all_shift_2d}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$. That is, at least one of them must be a non-zero integer. Likewise, if we further assume $\lambda\notin \Z^2$, and that $\lambda_1 \in\intnozero$, we have a case identical to the first of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. If we now follow the exact same arguments from that proof, we can first show that 
     \begin{align*}  %* ————  den mengden til høyre er ALLTID større en Lambda ———— 
         \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R},
@@ -99,44 +97,27 @@ Until now, we have only seen that we have exactly the same tiling sets as spectr
         %\Lambda \subseteq \underbrace{\braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}}_{B}.
         \Lambda \subseteq \braqMed{\begin{pmatrix} m +\beta_n \\ n\end{pmatrix} : m,n \in \Z}.
     \end{equation*}
-    If we again assume that $\Lambda$ is incomplete with respect to the set in \labelcref{eq:2d_all_shift_class_2_tiling}, we can show that $\Lambda$ cannot be a proper subset of \labelcref{eq:2d_all_shift_class_2_tiling}. We must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a tiling pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}, and there are no other tiling sets for the unit cube in dimension $d=2$.
+    If we again assume that $\Lambda$ is incomplete with respect to the set in \labelcref{eq:2d_all_shift_class_2_tiling}, we can similarly show that $\Lambda$ cannot be a proper subset of \labelcref{eq:2d_all_shift_class_2_tiling}. We must have equality. To conclude, $\brac{I^2, \Lambda}$ is a tiling pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}, and there are no other tiling sets for the unit cube in dimension $d=2$.
 \end{proof}
 
+\SigridComment{think this remark is wrong, I have written a revised remark I think is correct straight after}
 \begin{remark}
     By using Keller's theorem, \cref{thrm:keller_tiling}, in combination with \cref{cor:tiling_pair_implies_orthogonal} and parts of the proof of \cref{thrm:class_all_shift_2d}, we could have shortened the proof, especially the opening. This follows from the following observations. The \namecref{cor:tiling_pair_implies_orthogonal} implies that the tiling pair from Keller's theorem is also orthogonal. Additionally, our proof of \cref{thrm:class_all_shift_2d} establishes that if $\Lambda$ is a spectral set, it must be a subset of one of two classes |due to a condition|/ from an inclusion/ from LEMMA-BLABLA/  that we know is equivalent to orthogonality by LEMMA-BLABLA. 
 \end{remark}
 
-\SigridComment{Or would you rather have me do the proof again by essentially splicing the remark with the proof above, and then use that as a proof of the theorem?}
+\SigridComment{revised remark:}
+\begin{remark}
+    By using \cref{cor:tiling_pair_implies_orthogonal} and a few more results from the proof of \cref{thrm:class_all_shift_2d}, we could have shortened the proof, especially the opening. This follows from the following observations. The \namecref{cor:tiling_pair_implies_orthogonal} implies that the tiling pair is also orthogonal. In the proof of \cref{thrm:class_all_shift_2d}, we argue that if $E(\Lambda)$ is orthogonal, then that is equivalent to $\Lambda$ belonging to either of the two classes of \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}; or in this case \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} to be specific, even though they are the same. Nevertheless, this would allow us to skip the first part of our proof of \cref{thrm:class_all_tiling_2d}, leaving us with only showing the final equality using the tiling argument from \cref{def:tiling}.
+\end{remark}
 
+\SigridComment{Unsure about the latter claims I am making here:)) Let's discuss this.}
+It should be stressed that when working with a spectrum, it is due to the connection between the zero-set and orthogonality that the spectrum must look like they do. And when working with a tiling set, it is due to Keller's theorem. That said, it is interesting that Keller's theorem can be reformulated in a manner that aligns with the concept of the zero-set, which only strengthens the interconnectedness between spectral sets and tiling sets. 
 
-Max remark alternatives. 
+\vspace*{3cm}
 
-Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show after these arguments. 
+\SigridComment{closing the thesis}
 
-Therefore, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} is left to show after these arguments. 
-
-Therefore, through these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-We could have skipped ahead using these arguments and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-From these arguments, only that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling} would be left to show.
-
-Using these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-
-From these arguments, we could have skipped ahead and only needed to show that $\Lambda$ cannot be a proper subset of either \labelcref{eq:2d_all_shift_class_1_tiling} or \labelcref{eq:2d_all_shift_class_2_tiling}.
-
-
-
-
-Since the tiling set from Keller's theorem is also orthogonal according to the \namecref{cor:tiling_pair_implies_orthogonal}, and we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ is a subset of one of the two classes if $\Lambda$ is a spectrum, then we had only to show that it could not be a proper subset.  
-
-Keller's theorem provides a tiling set, and we can confirm its orthogonality property through \namecref{cor:tiling_pair_implies_orthogonal}. Additionally, our proof of \cref{thrm:class_all_shift_2d} establishes that if $\Lambda$ is a spectral set, then it must be a subset of one of two classes due to the orthogonality condition. Thus, demonstrating that $\Lambda$ cannot be a proper subset is sufficient to prove our main result."
-
-
-we in the proof of \cref{thrm:class_all_shift_2d} show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum, and the \namecref{cor:tiling_pair_implies_orthogonal} tells us that a tiling pair is also orthogonal, then we get from Keller's theorem that we have a tiling pair. 
-
-in the proof of \cref{thrm:class_all_shift_2d}, show that the orthogonality condition makes so $\Lambda$ must belong to either of the two classes if $\Lambda$ is a spectrum. This, from \namecref{cor:tiling_pair_implies_orthogonal}, we could essentially go from Keller's theorem to directly having that  
+Notes, do not read yet
 
 
 %! OM ekvivalens og deepdive i bevisene
