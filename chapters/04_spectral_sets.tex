@@ -42,16 +42,13 @@ in $L^2(\Omega)$, where $\Lambda$ is a set of frequencies in $\R^d$.
     Let $\Omega \subset \R^d$ be a bounded subset with $0< \operatorname{mes} \Omega < \infty$. If the set of exponentials $E(\Lambda)$ form an \textsc{orthogonal} basis for $L^2 (\Omega)$ and $\Lambda \subset \mathbb{R}^d$, then $\Omega$ is called a \emph{spectral set} and $\Lambda$ is called a \emph{spectrum} for $\Omega$. We say that $(\Omega, \Lambda)$ is a \emph{spectral pair} \cite{liuUniformityNonUniformGabor2003}.
 \end{definition} 
 
-%! Synes ikke denne setningen starter meningsfult
-\colorbox{BurntOrange}{Transition sentence here? Do not quite feel like it begins meaningfully, or am I the only one}
-
 Spectral sets and spectra are useful and interesting. One evident reason follows directly from the basis property. That is, every function $f \in L^2(\Omega)$ has a series expansion given by
 \begin{equation*}
     f = \sum_{\lambda \in \Lambda} c_{\lambda} e_{\lambda},
 \end{equation*}
 with $e_\lambda \in E(\Lambda)$, and constants explicitly given by the inner product $c_{\lambda}=\braa{f,e_{\lambda}}$. Moreover, the orthogonality condition guarantees that the series expansion is \emph{unique}.
 
-Due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making them highly rigid structures. As a consequence, not many sets $\Omega$ have the property of being spectral. However, once we have one spectrum for a spectral set, observe that the spectrum is shift-invariant.
+Due to the restrictions imposed by the orthogonality requirement, there is limited flexibility in constructing spectral sets, making them highly rigid structures. As a consequence, not many sets $\Omega$ have the property of being spectral. \SigridChange{Examples of sets that are not spectral are the \emph{unit triangle} and \emph{unit ball}\footnote[1]{It was later shown that the unit ball for any dimension $d\geq2$ is not a spectral set \cite{iosevichFourierBasesDistance2001}. See also \cite{kolountzakisPackingTilingOrthogonality2000} for an excellent exposition.} for $d=2$, meaning that there exist no suitable spectra $\Lambda$ to make a spectral pair with either of these sets \cite{fugledeCommutingSelfadjointPartial1974}.} However, once we have one spectrum for a spectral set, observe that the spectrum is shift-invariant.
 %* Also, spectral sets are a rarity as very few sets satisfy all the conditions. Even classifying all spectra for certain sets is not a trivial case. which is why the spectral conjecture of Fuglede is so essential. 
 \begin{lemma}\label{lem:spectrum_shift_is_spectrum}
     Let $\Lambda$ be a spectrum for a spectral set $\Omega \subset \R^d$. Then $\Lambda_\alpha = \Lambda + \alpha$ is also a spectrum for $\Omega$ for any vector $\alpha \in \R^d$.
@@ -85,7 +82,7 @@ Due to the restrictions imposed by the orthogonality requirement, there is limit
 \end{proof}
 
 % As in \cref{chap:tiling},
-\SigridChange{We will here mainly consider the case when $\Omega$ is the unit cube in $\R^d$, and study the connection between tiling sets and spectra for $\Omega=I^d$. Before considering spectral sets for the unit cube in higher dimensions, let us first consider the one-dimensional case and observe our limited flexibility in choosing $\Lambda$ here.}
+\SigridChange{We will here mainly consider the case when $\Omega$ is the unit cube in $\R^d$, and study the connection between tiling sets and spectra for $\Omega=I^d$.  Before considering spectral sets for the unit cube in higher dimensions, let us first consider the one-dimensional case and observe our limited flexibility in choosing $\Lambda$ here.}
 
 \section{The unit cube in dimension one}\label{sec:complx_trig_1d}
     %* What flexibility do we have? Almost nothing at all

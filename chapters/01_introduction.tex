@@ -13,117 +13,68 @@
 
 \begin{document}
 %* ———————————————— !! OVERVIEW !! ————————————————
-%!Vurdere å slette parantesene med navn. 
 %The two main objects of study in this thesis are \emph{spectral pairs} and their connection to \emph{tiling pairs}.
-This thesis's two main objects of study are \emph{spectral pairs} and their connection to \emph{tiling pairs}. While we will provide a formal definition later, we intuitively understand them to be the following; A spectral pair $\brac{\Omega,\mathcal{F}}$ represents a complementary relationship between a \emph{spectral set} $\Omega$ and a set of frequencies $\mathcal{F}$, where the exponential functions derived from $\mathcal{F}$ form a complete representation of any square-integrable function defined on $\Omega$. On the other hand, a tiling pair $\brac{\Omega,\mathcal{T}}$ represents a complementary arrangement of the set $\Omega$ (\emph{a tile}) in which all elements specified by the set of translations $\mathcal{T}$ are utilized to form a complete surface covering without any gaps or overlaps. Despite their individual importance in the fields of analysis and geometry, the relation between spectra and tiling pairs still remains an enigma and continues to be an active area of research, see \cite{levFugledeConjectureConvex2022,kissFugledeConjectureHolds2022}. The origin of this area of research is due to a now-famous paper by Fuglede \cite{fugledeCommutingSelfadjointPartial1974}, who put forward the idea that there should be a geometric way to describe spectral sets \cite{lagariasOrthonormalBasesExponentials2000,liDualityPropertiesSpectra2010}. 
+This thesis's two main objects of study are \emph{spectral pairs} and their connection to \emph{tiling pairs}. While we will provide a formal definition later, we intuitively understand them to be the following; A spectral pair $\brac{\Omega,\mathcal{F}}$ represents a complementary relationship between a \emph{spectral set} $\Omega$ and a set of \emph{frequencies} $\mathcal{F}$, where the exponential functions derived from $\mathcal{F}$ form a complete representation of any square-integrable function defined on $\Omega$. On the other hand, a tiling pair $\brac{\Omega,\mathcal{T}}$ represents a complementary arrangement of the set, or more specifically, a \emph{tile} $\Omega$, in which all elements specified by the \emph{set of translations} $\mathcal{T}$ are utilized to form a complete surface covering without any gaps or overlaps. Despite their individual importance in the fields of analysis and geometry, the relation between spectra and tiling pairs still remains an enigma and continues to be an active area of research, see \cite{levFugledeConjectureConvex2022,kissFugledeConjectureHolds2022}. The origin of this area of research is due to a now-famous paper by Fuglede \cite{fugledeCommutingSelfadjointPartial1974}, who put forward the idea that there should be a geometric way to describe spectral sets \cite{lagariasOrthonormalBasesExponentials2000,liDualityPropertiesSpectra2010}. 
 
-\begin{conjecture}[Spectral set conjecture or Fugledes conjecture]
+\begin{conjecture}[Spectral set conjecture or Fuglede's conjecture]  
+    %! LEGGE TIL ET STED: One common goal of the prior efforts is to clarify the relations between spectra and tilings
     Let $\Omega\subset \R^d$ be a bounded subset with positive finite measure. Then $\Omega$ is a spectral set if and only if $\Omega$ is a tile. 
 \end{conjecture}
 
-We remark that the conjecture does not claim a connection between the \emph{spectrum} ($\mathcal{F}$) of $\Omega$ and the \emph{tiling set} ($\mathcal{T}$) of $\Omega$, meaning that there exists a set $\mathcal{F}$ such that $\brac{\Omega,\mathcal{F}}$ is a spectral pair if and only if there exists a set $\mathcal{T}$ such that $\brac{\Omega,\mathcal{T}}$ is a tiling pair. However, there can be more direct connections between spectrum and tiling sets in certain special cases, such as the one examined in this thesis. One example of such a connection is that $\mathcal{F}=\mathcal{T}$ for some set $\Omega$, clearly also showing that the conjecture is true for this particular case. Additionally, Fuglede himself showed that the conjecture is true if one adds a \emph{lattice} assumption. Meaning, if $\brac{\Omega,\mathcal{T}}$ is a tiling pair, then $\brac{\Omega,\mathcal{T^*}}$ is a spectral pair, and conversely. Here $\mathcal{T^*}$ denotes the \emph{dual lattice}, indicating another connection \cite{fugledeCommutingSelfadjointPartial1974}.
+We remark that the conjecture does not claim a connection between the \emph{spectrum} $\mathcal{F}$ of $\Omega$ and the \emph{tiling set} $\mathcal{T}$ of $\Omega$, meaning that there exists a set $\mathcal{F}$ such that $\brac{\Omega,\mathcal{F}}$ is a spectral pair if and only if there exists a set $\mathcal{T}$ such that $\brac{\Omega,\mathcal{T}}$ is a tiling pair. However, there can be more direct connections between spectrum and tiling sets in certain special cases, such as the one examined in this thesis. To give an example of what such a connection looks like, one can have $\mathcal{F}=\mathcal{T}$ for some set $\Omega$, clearly also showing that the conjecture is true for this particular case. Additionally, Fuglede himself showed that the conjecture is true if one adds a \emph{lattice} assumption. Meaning, if $\brac{\Omega,\mathcal{T}}$ is a tiling pair, then $\brac{\Omega,\mathcal{T^*}}$ is a spectral pair, and conversely. Here $\mathcal{T^*}$ denotes the \emph{dual lattice}, which also highlights a different kind of connection \cite{fugledeCommutingSelfadjointPartial1974}.
 
-We refer the reader to the following sources for more in-depth coverage of the spectral set conjecture and highlight the most important results: The conjecture remains open only in dimensions one and two, and in both directions, following the discovery of counterexamples in all dimensions $d \geq 3$ where \emph{non-convex} spectral sets $\Omega$ that do not tile by translation. Furthermore, the conjecture is known to be true in all dimensions if one adds the assumption that $\Omega$ is a \emph{convex body}. For further details, refer to \cite{levFugledeConjectureConvex2022,dutkayReductionsSpectralSet2014,liDualityPropertiesSpectra2010,farkasFugledeConjectureExistence2006,kolountzakisStudyTranslationalTiling2003,jorgensenSpectralPairsCartesian2001}. It is worth noting that the spectral set conjecture represents just one of many more intriguing aspects than what we might have eluded to earlier and that \cite{kolountzakisStudyTranslationalTiling2003} also highlights the many connections between tilings by translation and the broader field of \SigridChange{(functional?)} analysis. 
-\SigridComment{Change last sentence: the goal is to show the connection between tilings and the broader field of analysis, in which conj. is but one example of such a connection.}
+We refer the reader to the following sources for more in-depth coverage of the spectral set conjecture and highlight the most important results: The conjecture remains open only in dimensions one and two, and in both directions, following the discovery of counterexamples in all dimensions $d \geq 3$ involving \emph{non-convex} spectral sets $\Omega$ that do not tile by translation. Furthermore, the conjecture is known to be true in all dimensions if one adds the assumption that $\Omega$ is a \emph{convex body}. For further details, refer to \cite{levFugledeConjectureConvex2022,dutkayReductionsSpectralSet2014,liDualityPropertiesSpectra2010,farkasFugledeConjectureExistence2006,kolountzakisStudyTranslationalTiling2003,jorgensenSpectralPairsCartesian2001}. It is worth noting that the spectral set conjecture is just one of the many intriguing aspects within the broader field of functional analysis to which tilings are connected. This is also further detailed in \cite{kolountzakisStudyTranslationalTiling2003}. 
 
-This thesis focuses on the special case when the set $\Omega$ is the \emph{$d$-dimensional unit cube}, $\bras{0,1}^d$. While the unit cube may appear simple, it has been extensively studied, not only due to its simplicity but also because of its significant role in Fourier analysis and tilings. Interestingly, it has even been used to construct the aforementioned \emph{non-convex} sets that counterexample the spectral set conjecture by arranging the unit cubes in specific arithmetic configurations \cite{levFugledeConjectureConvex2022}. Nevertheless, it is well-known that the spectrum $\mathcal{F}=\Z^d$ corresponds to the standard Fourier basis for the space of square-integrable functions defined on $\bras{0,1}^d$ \cite{lagariasOrthonormalBasesExponentials2000}. It is also well-known that the unit cube tiles $\R^d$ with the tiling set $\mathcal{T}=\Z^d$. Moreover, the history of cube tilings spans well over a century, starting with Minkowski's conjecture on lattice tilings in $1907$, which later led to Keller's conjecture on non-lattice tilings, the latter of which will be a topic further explored in this thesis \cite{liDualityPropertiesSpectra2010,iosevichSpectralTilingProperties1998}. It is worth mentioning that both of these conjectures have been fully resolved: Minkowski's conjecture in \cite{hajsBerEinfacheUnd1942}, and Keller's conjecture in \cite{brakensiekResolutionKellerConjecture2020}.
+This thesis focuses on the special case when the set $\Omega$ is the \emph{$d$-dimensional unit cube}, $\bras{0,1}^d$. While the unit cube may appear simple, it has been extensively studied, not only due to its simplicity but also because of its significant role in Fourier analysis and tilings. Interestingly, it has even been used to construct the aforementioned \emph{non-convex} sets that counterexample the spectral set conjecture by arranging the unit cubes in specific arithmetic configurations \cite{levFugledeConjectureConvex2022}. Nevertheless, it is well-known that the spectrum $\mathcal{F}=\Z^d$ corresponds to the standard Fourier basis for the space of square-integrable functions defined on $\bras{0,1}^d$ \cite{lagariasOrthonormalBasesExponentials2000}. It is also well-known that the unit cube tiles $\R^d$ with the tiling set $\mathcal{T}=\Z^d$. Moreover, the history of cube tilings spans well over a century, starting with Minkowski's conjecture on lattice tilings in $1907$, which later led to Keller's conjecture on non-lattice tilings, the latter of which will be a topic further explored in this thesis \cite{liDualityPropertiesSpectra2010,iosevichSpectralTilingProperties1998}. It is worth mentioning that both of these conjectures have been fully resolved: Minkowski's conjecture in \cite{hajosUeberEinfacheUnd1942}, and Keller's conjecture in \cite{brakensiekResolutionKellerConjecture2020}.
 
-The thesis will focus on the connection between spectra and tiling sets for the unit cube. As we have alluded to above, $\mathcal{F}=\mathcal{T}=\Z^d$, there appears to be a more direct connection between tiles and spectra for $\bras{0,1}^d$ than for other examples of sets $\Omega$. The following theorem captures our main result \cite{iosevichSpectralTilingProperties1998}:
+Our goal is to show a connection between spectra and tiling sets for the unit cube. As we have alluded to above, $\mathcal{F}=\mathcal{T}=\Z^d$, there appears to be a more direct connection between tiles and spectra for $\bras{0,1}^d$ than for other examples of sets $\Omega$. The following theorem captures our main result \cite{iosevichSpectralTilingProperties1998}:
 
 \begin{theorem}\label{thrm:main_result}
     Let $\Lambda\subset \R^d$ and $\Omega=\bras{0,1}^d$ be the unit cube in $\R^d$. Then $\brac{\Omega,\Lambda}$ is a spectral pair if and only if $\brac{\Omega,\Lambda}$ is a tiling pair.
 \end{theorem}
 
-The result originates from a conjecture by Jorgensen and Pedersen, who initially proved it for $d\leq3$ and for all dimensions if $\Lambda$ was assumed to be a periodic set \cite{jorgensenSpectralPairsCartesian2001}. What makes \cref{thrm:main_result} particularly intriguing is that it holds in any dimensions, without any assumptions on $\Lambda$, and even when the restrictive lattice condition, which Fuglede proved, is removed. After the conjecture was initially put forward, two independent proofs using different approaches to the conjecture were made \cite{lagariasOrthonormalBasesExponentials2000,iosevichSpectralTilingProperties1998}. Later Kolountzakis showed that \cref{thrm:main_result} can be proven without the use of Keller's theorem, which both previous proofs used \cite{kolountzakisPackingTilingOrthogonality2000}. 
+The result originates from a conjecture by Jorgensen and Pedersen, who initially proved it for $d\leq3$ and for all dimensions if $\Lambda$ was assumed to be a \emph{periodic set} \cite{jorgensenSpectralPairsCartesian2001}. What makes \cref{thrm:main_result} particularly intriguing is that it holds in any dimensions, without any assumptions on $\Lambda$, and even when the restrictive lattice condition, which Fuglede proved, is removed. After the conjecture was initially put forward, two independent proofs using different approaches to the conjecture were made \cite{lagariasOrthonormalBasesExponentials2000,iosevichSpectralTilingProperties1998}. Later Kolountzakis showed that \cref{thrm:main_result} can be proven without the use of Keller's theorem, which both previous proofs used \cite{kolountzakisPackingTilingOrthogonality2000}. 
 
-%! HER MÅ VI LESE OG SKRIVE OM
-As we will see in the thesis, the unit cube has in fact, a huge variation of vastly different spectra and tiling sets. 
-The above result, \cref{thrm:main_result}, suggests that classes of tiling sets correspond to classes of spectra. This also shows that the conjecture by Fuglede is a difficult problem to solve for general sets, however, one promising fact is that it seems that a "generic" spectral set has a unice spectrum up to translations \cite{lagariasOrthonormalBasesExponentials2000}. 
+As we will see in the thesis, the unit cube has a huge variation of vastly different spectra (and tiling sets). Compared to a typical spectral set, it appears likely that such sets have a \emph{unique} spectrum up to translations, making the unit cube a non-trivial object to study. By typical spectral set, we mean a typical fundamental domain $\Omega$ of a full-rank lattice, where one can show that the corresponding unique spectrum is the dual lattice, meaning $\Lambda = L^*$ \cite{lagariasOrthonormalBasesExponentials2000}. Furthermore, the above result, \cref{thrm:main_result}, also suggests that classes of tiling sets correspond to classes of spectra. By classes, we mean classifications of \emph{all} spectra and tiling sets for the unit cube for a particular dimension. We will further elaborate on this subject in the thesis. 
 
-Furthermore, the results of 
+%* Possible addition on the connection between our problem and Fugeledes conjecture
+% linking our problem back to the conj. the question one wonders, BLABLA, duality paper and L & R & W paper. (see comment at the end)
+%
+The text is structured as follows:
 
-Partly this has been showd by Lagarias, Reeds, Wang where they gave a one dimensional example of more general sets, $\Omega=\bras{0,1}\cup \bras{2,3}$  that satisfied the conjecture \cite{lagariasOrthonormalBasesExponentials2000}.
+We begin with a chapter on the preliminaries, where we lay the foundation for the subsequent discussions.
 
+The second chapter delves into the topic of tilings. Here, we discuss the concept of tilings in general and provide a comprehensive exploration of counter-intuitive cube-tilings in higher dimensions. Additionally, we undertake the classification of all translational tilings in one dimension. This chapter's last and most significant result is the proof of Keller's theorem, which is central to many of the proofs in the thesis.
 
-%* Overview /roadmap
-The thesis is structured as follows: We begin with a chapter on the preliminaries, followed by a chapter on tilings where we both discuss and define what we mean by tilings in general, explore the notion of counter-intuitive cube-tilings in higher dimensions, classify all the translational tilings in one dimension, and prove Keller's theorem which is a main result of this chapter. Following this is a chapter on spectral sets, covering both the definition and properties before solid work is put into both showing and classifying all spectra in dimensions one and two. Finally, we close the thesis with a chapter on the connection, or more specifically, the equivalence of spectrum and tiling set for the unit cube. The general result of \cref{thrm:main_result} is out of the scope of this thesis, although we will delve into the details of the proofs in the final chapter.
+The third chapter focuses on spectral sets. We start by defining spectral sets and examining their properties. Subsequently, we devote considerable effort to demonstrating and classifying all spectra in dimensions one and two.
 
-
-
-%* Notes
-a subject we will further elaborate on in the thesis. 
+Finally, we conclude the thesis with a chapter on the connection, or more specifically, the equivalence of spectra and tiling sets for the unit cube. While the general result of \cref{thrm:main_result} lies beyond the scope of this thesis, we provide a detailed analysis of the two independent proofs mentioned above in this final chapter.
 
 
-Strange remarks on the unit cube, tie it with the conjecture.
+\mycomment{  %! Optional if time
+%* ————— Applications
+%* applications referred to by the Chinese guy
+Before beginning the thesis, we highlight a few areas of importance where spectra and tilings are used. 
+They are closely connected to wavelets where similar connection AND COMPLEX HADAMARD MATRICES. 
 
-The study of spectra sets for the unit cube 
-
-
-
-standard basis in Fourier analysis is the exponential functions. 
-meaning in general that if a spectrum exists, it is a way of generalizing the Fourier series (i.e basis property og representing anything)
-
-
-%! LEGGE TIL OVER: One common goal of the prior efforts is to clarify the relations between spectra and tilings
-
-%* ————————————————
-The main theorem of study in this thesis is the following result. 
-The main object of study in this thesis is the following result 
-
-%! the same set $\Lambda\subset\R^d$ is indeed a spectrum and tiling set for $\Omega = I^d$. 
-%! Highlight denne direkte linken i chapter 5 med keller. dvs: the connection between tiles and spectrum is more direct for OMEGA=I^d than for other sets due to "NULL sett tingen" and the corresponding result for tilings (Keller). 
+In fact, tilings are not only related to the subject 
 
 
-Etter theoremet av denne spesielle casen. 
-
-In general there does not seem to be any simple relation between tiling sets T used with tile omega in the space domain and the set of spectra lambda for omega. se referanser. 
-
-
-
-
-%* KINESEREN MED DUALITET
-%* A little generalization of these two facts is to replace Zn by a full rank lattice L and to replace [0, 1]n by a tile ΩL with the tiling set L, and conclude that (ΩL,L∗) is a spectral pair, i.e., EL∗ is an orthogonal basis of L2(ΩL), where L∗ is the dual lattice of L. Equivalently (ΩL,L) is a tiling pair 
-
-%* The combination of these two features (spectrum and tiling) on the n-cube [0,1]n or on the tile ΩL with the tiling set L is used in a variety of problems in analysis and geometry. One subject in this direction is concentrated on the question of whether L and ΩL can be replaced by a certain discrete set Λ ⊂ Rn and a certain Lebesgue measurable set Ω ⊂ Rn respectively. In most cases it is more difficult to answer this question. Therefore the research on the relationship between spectra and tilings becomes a main subject of considerable interests.
-
-
-%* ————————————————
-%* applications which is reffered to by the Chinese guy
-Before beginning the thesis we highlight a few areas of importance where spectra and tilings are used. 
-They are closely connected to wavelets where similiar connection AND COMPLEX HADAMARD MATRICIS. 
-
-in fact, tilings are not only related to the subject 
-
-
-
-These two connected concepts from seemingly different areas of mathematics, have applications in various fields, for example, wavelet theory (CITE) and harmonic analysis and quantum mechanics (cite EStimates on spectrum of ffractals paper).  
+These two connected concepts from seemingly different areas of mathematics have applications in various fields, for example, wavelet theory (CITE) and harmonic analysis and quantum mechanics (cite Estimates on the spectrum of fractals paper).  
 
 
 Wavelets are mentioned in the "structure of tilings of the line by a function."
 
-study of gabor bases, page 10 in lit. rewiev. 
-%* ————————————————
-
-Rettelse, er det bedre å begynne med følgende
-
-Temaet for dette er følgende theorem
-
-det ble først conjured i blabla og bevist her. og her 
+Study of Gabor bases, page 10 in the literature review document. 
 
 
-det linker opp til cube tilings og 
+%* The combination of these two features (spectrum and tiling) on the n-cube [0,1]n is used in a variety of problems in analysis and geometry. One subject in this direction is concentrated on the question of whether L and ΩL can be replaced by a certain discrete set Λ ⊂ Rn and a certain Lebesgue measurable set Ω ⊂ Rn, respectively. In most cases, it is more difficult to answer this question. Therefore the research on the relationship between spectra and tilings becomes a main subject of considerable interest.
+}
 
+\mycomment{  %! Paper by: L & R & W
+De stater to ekvivalente theoremer. Den første er det som J&P conj. og den andre er en slags generalisering. 
+Videre gjør de noen merknader på "rommene" de lever i, og hva som skiller de. 
 
-som en specail case av følgende conjecture av fuglede.
-
-her er status på fuglede. 
-
-og spectral sets. 
-
-
-slutnning og la oss begynne. 
-
-
-
-
+Det som er vanskelig å skjønne der er det de sier etter fuglede, om hvordan dette linker opp til han sin conj. og tematikken generelt. 
+}
 \end{document}
