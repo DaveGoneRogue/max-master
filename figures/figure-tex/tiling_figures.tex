@@ -15,17 +15,17 @@
             \def\tiletwo{
             %\draw[black, fill=gray!65] (0,0) rectangle (1,1);
             %\draw[black, fill=cyan!65] (0,0) rectangle (1,1);
-            \draw[pattern=north east lines, pattern color=MaxCyan] (0,0) rectangle (1,1);
+            \draw[pattern=north east lines, pattern color=MaxCyan4] (0,0) rectangle (1,1);
             }
             
             % Draw the tiling pattern
             % Shifted line, part 1, left and right half tiles 
             \foreach \x in {0}{
                 %\draw[cyan, fill=cyan] (\x-0.2,2) rectangle (\x+0.5,3);  % leftmost value to the first square
-                \draw[white, pattern=north east lines, pattern color=MaxCyan] (\x-0.2,2) rectangle (\x+0.5,3); % leftmost value to the first square
+                \draw[white, pattern=north east lines, pattern color=MaxCyan4] (\x-0.2,2) rectangle (\x+0.5,3); % leftmost value to the first square
             }
             \foreach \x in {6}{
-                \draw[white, pattern=north east lines, pattern color=MaxCyan] (\x+0.2,2) rectangle (\x-0.5,3);
+                \draw[white, pattern=north east lines, pattern color=MaxCyan4] (\x+0.2,2) rectangle (\x-0.5,3);
                 %\draw[gray!65, fill=cyan!65] (\x+0.2,2) rectangle (\x-0.5,3);  % rightmost value to the last square
             }
             % part 2, whole tiles in the middle
