@@ -231,8 +231,8 @@
 \usepackage{placeins}  % Control float placement with /FloatBarrier
 
 % * --- Bibliography --- * %
-\RequirePackage{babel}                      % language specifics
-\RequirePackage{csquotes}                   % recommended for biblatex
+\RequirePackage{babel}                     % language specifics
+\usepackage[english=british]{csquotes}     % recommended for biblatex
 \RequirePackage[
     backend=biber,
     style=alphabetic,
