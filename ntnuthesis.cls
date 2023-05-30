@@ -353,11 +353,11 @@
 
 
 % Itemize and enumerate: tighter and with other symbols
-\setlist[enumerate]{itemsep=0mm, topsep=5pt, partopsep=0mm, parsep=0mm}
+\setlist[enumerate]{itemsep=0mm, topsep=3pt, partopsep=0mm, parsep=0mm}
 \setlist[enumerate,1]{label=\arabic*., ref=\arabic*}
 \setlist[enumerate,2]{label=\alph*., ref=\alph*}
 \setlist[enumerate,3]{label=\roman*., ref=\roman*}
-\setlist[itemize]{itemsep=0mm, topsep=5pt, partopsep=0mm, parsep=0mm}
+\setlist[itemize]{itemsep=0mm, topsep=3pt, partopsep=0mm, parsep=0mm}
 \setlist[itemize,1]{label=$\bullet$}
 \setlist[itemize,2]{label=$\circ$}
 \setlist[itemize,3]{label=$-$}
