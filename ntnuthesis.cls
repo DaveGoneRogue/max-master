@@ -272,7 +272,6 @@
 
 
 % * CUSTOMISATION
-
 % pgf customs
 \pgfplotsset{compat=1.15}
 
@@ -305,8 +304,7 @@
     \std@chapter
 }
 
-
-% Add unnumbered chapters to table of contents and headings
+% Add unnumbered chapters (abstract, preface, etc) to table of contents and headings
 \let\std@schapter\@schapter
 \def\@schapter#1{
     \std@schapter{#1}
@@ -372,42 +370,72 @@
 
 
 % * --- Theorems and definitions --- * %
-% \newtheorem{environment name}{displayed name}
-% \newtheorem*{environment name}{displayed name} % for unnumbered theorems
-% \newtheorem{environment name}{displayed name}[link] % the link for linking with sections, subsections, chapters etc.
-% theorem styles
-% plain: The default with plain heading, italicised text
-% definition: plain heading, plain text
-% remark: italicised heading, plain text
+% Numbered enviroments: \newtheorem{environment name}{displayed name}
+% Unnumbered enviroments:  \newtheorem*{environment name}{displayed name}
+% The link for linking with sections, subsections, chapters etc. : \newtheorem{environment name}{displayed name}[link]
+% Remark. The position of the link lable matters depending on the level wanted (i.e Lemma 2.4 or Lemma 2.4.3)
+%  The three different Theorem styles:
+% - plain: The default with plain heading, italicised text
+% - definition: plain heading, plain text
+% - remark: italicised heading, plain text
 
-% Defining theorem env
+% All enviroments using the plain style
 \theoremstyle{plain}
-%\newtheorem{theorem}{Theorem}[section]
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]  % [section] for alternative labeling
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
-% Defining definition env
+% All enviroments using the definition style
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\AtBeginEnvironment{definition}{%
-  \pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}%
-}
+% Close the enviroment with its own qed sumbol
+\AtBeginEnvironment{definition}{\pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}}
 \AtEndEnvironment{definition}{\popQED\enddefinition}
 
-% Defining remark env
+
+% All enviroments using the definition style
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{construction}[theorem]{Construction}
 \newtheorem{observation}[theorem]{Observation}
-
-\newtheorem{example}[theorem]{Example}  % with added custom symbol to end the enviroment
-\AtBeginEnvironment{example}{%
-  \pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}%
-}
+\newtheorem{example}[theorem]{Example}
+% Close the enviroment with its own qed sumbol
+\AtBeginEnvironment{example}{\pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}}
 \AtEndEnvironment{example}{\popQED\endexample}
 
-% Ending proof environment
+
+%* Symbol for ending the proof enviroment 
 \renewcommand\qedsymbol{$\square$}
+
+
+%* For repeating/recalling a previous Theorem, Lemma, ...
+% Remark! To use rep enviroment one must use the following command with doubble curly brackets: 
+% \begin{repEnviromenttype}{TheLabel}
+    % MyText
+% \end{repEnviromenttype}
+
+% Ex:
+%\begin{reptheorem}{thrm:MyTheoremLabel}
+%\end{reptheorem}
+
+%\begin{replemma}{lem:MyLemmaLabel}
+%\end{replemma}
+
+% The code implementation
+\makeatletter
+\newcommand{\newreptheorem}[2]{
+    \newtheorem*{rep@#1}{\rep@title}
+    \newenvironment{rep#1}[1]{
+        \def\rep@title{#2 \ref*{##1}}
+        \begin{rep@#1}
+        }
+    {\end{rep@#1}}
+}
+\makeatother
+
+% Rep enviroments
+\theoremstyle{plain}  % Remember to chose/check the style before making a new rep enviroment!
+\newreptheorem{theorem}{Theorem}
+\newreptheorem{lemma}{Lemma}

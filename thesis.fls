@@ -981,6 +981,8 @@ INPUT ./figures/figure-tex/grid_tiling_2.tex
 INPUT ./figures/figure-tex/grid_tiling_2.tex
 INPUT ./figures/figure-tex/grid_tiling_2.tex
 INPUT ./figures/figure-tex/grid_tiling_2.tex
+INPUT ./chapters/03_x1__proof_keller.tex
+INPUT ./chapters/03_x1__proof_keller.tex
 INPUT ./chapters/04_spectral_sets.tex
 INPUT ./chapters/04_spectral_sets.tex
 INPUT ./chapters/04_x1__one_dim.tex

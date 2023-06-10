@@ -12,14 +12,54 @@
 
 \begin{document}
 % TEXT
+Before we begin the proof, we restate Keller's \namecref{thrm:keller_tiling} here for convenience. 
+\begin{reptheorem}{thrm:keller_tiling}
+    If $\Lambda$ is a tiling set for the unit cube, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
+\end{reptheorem}
+
+The proof is based on an English version by \cite{iosevichSpectralTilingProperties1998}.
+
+\begin{proof}[Proof of \cref{thrm:keller_tiling}]
+    Let $\Lambda$ be a tiling set for $I^d$, let $\lambda = (\lambda_1,\dots,\lambda_d)$ and $\lambda' = (\lambda_1',\dots,\lambda_d')$ be two distinct elements in $\Lambda$, and let $j\in\braq{1,\dots, d}$ index the coordinates. In short, the proof will be an induction on the number of $j$'s with distance $ \bral{\lambda_j-\lambda_j'}\geq 1$.
+    % elements in $\Lambda$ where the coordinates are indexed by $j\in\braq{1,\dots, d}$ 
+
+    %* BASE CASE
+    In the base case we assume first that $\bral{\lambda_j-\lambda_j' }< 1 $ for all but \emph{one} coordinate $j\in \braq{1,\dots,d}$, and let $j_0$ denote the distinct $j$-coordinate for which we have $\bral{\lambda_{j_0}-\lambda_{j_0}'} \geq 1$. Now, take $x=\brac{x_1,\dots,x_d}\in \R^d$, and fix all $x_j$'s for which $j\neq j_0$ to create a very specific line
+    \begin{equation*}
+        l_{j_0} = \braqMed{\bracMed{x_1,\dots,x_d} : x_{j_0} \in \R },
+    \end{equation*}
+    which also must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$ it is clear that the distance between all of the cubes in this direction must be a natural number since $\mes{I}=1$. In other words,
+    \begin{equation}\label{eq:special_j0}
+        \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N,
+    \end{equation}
+    which is equivalent to our condition that $\lambda_{j_0}-\lambda_{j_0}' \in \intnozero$.
+
+    %* INDUCTIVE STEP
+    Now for the inductive hypothesis. Suppose 
+    \begin{align*}
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k$ number of the possible values of j}\\
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k$ number of the possible values of j}
+        \intertext{and that this implies \labelcref{eq:special_j0} for some $j_0$.}
+        \intertext{For the inductive step, we consider}
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k-1$ number of the possible values of j}\\
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k+1$ number of the possible values of j}
+    \end{align*}
+    As we can interchange the coordinate axes, we can assume the following
+    \begin{align*}
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for } j=1,\dots,d-k+1\\
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for } j= d-k+2,\dots,d
+    \end{align*}
+
+    
+    %* Cover the whole space
+    Let $x=\brac{x_1,\dots,x_d}\in \R^d$ denote an arbitrary point. We know from our initial assumptions that $x\in I+\Lambda$
+    %! Riktig notasjon?
+    Now, if 
 
 
 
 
-
-
-
-
+\end{proof}
 
 
 \end{document}
