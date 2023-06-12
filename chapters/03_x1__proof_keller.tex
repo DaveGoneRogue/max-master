@@ -11,7 +11,6 @@
 
 
 \begin{document}
-% TEXT
 Before we begin the proof, we restate Keller's \namecref{thrm:keller_tiling} here for convenience. 
 \begin{reptheorem}{thrm:keller_tiling}
     If $\Lambda$ is a tiling set for the unit cube, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
@@ -20,37 +19,63 @@ Before we begin the proof, we restate Keller's \namecref{thrm:keller_tiling} her
 The proof is based on an English version by \cite{iosevichSpectralTilingProperties1998}.
 
 \begin{proof}[Proof of \cref{thrm:keller_tiling}]
-    Let $\Lambda$ be a tiling set for $I^d$, let $\lambda = (\lambda_1,\dots,\lambda_d)$ and $\lambda' = (\lambda_1',\dots,\lambda_d')$ be two distinct elements in $\Lambda$, and let $j\in\braq{1,\dots, d}$ index the coordinates. In short, the proof will be an induction on the number of $j$'s with distance $ \bral{\lambda_j-\lambda_j'}\geq 1$.
+    Let $\Lambda$ be a tiling set for $I^d$, let $\lambda = (\lambda_1,\dots,\lambda_d)$ and $\lambda' = (\lambda_1',\dots,\lambda_d')$ be two distinct elements from $\Lambda$, and let $j\in\braq{1,\dots, d}$ index the coordinates. In short, the proof will be an induction on the number of $j$'s with distance $ \bral{\lambda_j-\lambda_j'}\geq 1$, and for which we must show that at least one of these $j$'s satisfy $\bral{\lambda_{j}-\lambda_{j}'} \in \N$ for the (induction?)case to hold true. The latter equation is simply an equivalent reformulation of the condition $\lambda_{j}-\lambda_{j}' \in \intnozero$.
     % elements in $\Lambda$ where the coordinates are indexed by $j\in\braq{1,\dots, d}$ 
 
     %* BASE CASE
-    In the base case we assume first that $\bral{\lambda_j-\lambda_j' }< 1 $ for all but \emph{one} coordinate $j\in \braq{1,\dots,d}$, and let $j_0$ denote the distinct $j$-coordinate for which we have $\bral{\lambda_{j_0}-\lambda_{j_0}'} \geq 1$. Now, take $x=\brac{x_1,\dots,x_d}\in \R^d$, and fix all $x_j$'s for which $j\neq j_0$ to create a very specific line
+    In the base case we assume that $\bral{\lambda_j-\lambda_j' }< 1 $ for all but \emph{one} coordinate $j\in \braq{1,\dots,d}$, and let $j_0$ denote the distinct $j$-coordinate for which we have $\bral{\lambda_{j_0}-\lambda_{j_0}'} \geq 1$. Now, take $x=\brac{x_1,\dots,x_d}\in \R^d$, and fix all $x_j$'s for which $j\neq j_0$ to create a very specific line
     \begin{equation*}
         l_{j_0} = \braqMed{\bracMed{x_1,\dots,x_d} : x_{j_0} \in \R },
     \end{equation*}
-    which also must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$ it is clear that the distance between all of the cubes in this direction must be a natural number since $\mes{I}=1$. In other words,
-    \begin{equation}\label{eq:special_j0}
-        \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N,
-    \end{equation}
-    which is equivalent to our condition that $\lambda_{j_0}-\lambda_{j_0}' \in \intnozero$.
+    which additionally must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$ it is clear that the distance between all of the cubes in this direction must be a natural number since $\Lambda$ is a tiling set and $\mes{I}=1$. In other words,
+    \begin{equation*}
+        \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N.
+    \end{equation*}
 
-    %* INDUCTIVE STEP
-    Now for the inductive hypothesis. Suppose 
+    %* INDUCTIVE HYPOTHESIS FOLLOWED BY THE INDUCTIVE STEP
+    Now for the induction hypothesis. Let $k\in \N$ denote some number of values of $j\in \braq{1,\dots, d}$, and note that the number of remaining values is given by $d-k$. In the hypothesis, we assume that $\bral{\lambda_{j}-\lambda_{j}'} < 1$ for all but $d-k$ coordinates of $j\in\braq{1,\dots, d}$ imply that $\bral{\lambda_{j_0}-\lambda_{j_0}'} \in \N$ for at least one $j_0$ of the $d-k$ values with $\bral{\lambda_{j}-\lambda_{j}'} \geq 1$. That is,
     \begin{align*}
-        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k$ number of the possible values of j}\\
-        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k$ number of the possible values of j}
-        \intertext{and that this implies \labelcref{eq:special_j0} for some $j_0$.}
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k$ values of $j$}, \\
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k$ values of j}.
         \intertext{For the inductive step, we consider}
-        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k-1$ number of the possible values of j}\\
-        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k+1$ number of the possible values of j}
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for $k-1$ values of j}, \\
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for $d-k+1$ values of j}.
     \end{align*}
-    As we can interchange the coordinate axes, we can assume the following
+    As we can interchange the coordinate axes, we can always rearrange the order of the values of the index set into
+    \begin{equation*}
+        \braq{\underbrace{1,2,3,4,5,\dots,}_{d-k+1 \text{ values of $j$}}\underbrace{\dots,d-2,d-1,d}_{k-1 \text{ values of $j$}}} \Leftrightarrow \braq{\underbrace{1,\dots,d-k+1,}_{d-k+1 \text{ values of $j$}}\underbrace{d-k+2,\dots,d}_{k-1 \text{ values of $j$}}},
+    \end{equation*} 
+    so that we can assume
     \begin{align*}
-        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for } j=1,\dots,d-k+1\\
-        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for } j= d-k+2,\dots,d
+        \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for } j=1,\dots,d-k+1 \\
+        \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for } j= d-k+2,\dots,d.
     \end{align*}
+    Now to show that at least one of $ \bral{\lambda_{j}-\lambda_{j}'} \geq 1$ for  the values $j=1,\dots,d-k+1$ is an integer. Observe that if $\bral{\lambda_{1}-\lambda_{1}'}$ is an integer/natural number, then there is nothing to show. Therefore, assume $\bral{\lambda_{1}-\lambda_{1}'} \notin \N$. Furthermore, for some $\alpha\in\R^d$ let $\alpha = \brac{\lambda_{1}-\lambda_{1}',0,\dots,0}$, and for all translations $\tilde{\lambda}\in \Lambda$ define the following function
+    \begin{equation*}
+        s(\tilde{\lambda}) = 
+        \begin{cases}
+            \tilde{\lambda} - \alpha & \text{ if } \tilde{\lambda}_1-\lambda_1 \in \Z\\
+            \tilde{\lambda} & \text{ if } \tilde{\lambda}_1-\lambda_1 \notin \Z\\
+        \end{cases}
+    \end{equation*}
+    Observe that $s(\lambda')=\lambda'$ from the assumtion that $\lambda \neq \lambda'$ and that $\bral{\lambda_{1}-\lambda_{1}'} \notin \N$. Additionally, $s(\lambda)=\lambda-\alpha$ since clearly $\lambda_{1}-\lambda_{1} = 0$. Using this function, we can create a new set 
+    \begin{equation*}
+        \mathbf{S} = \braqMed{s(\tilde{\lambda}) :\tilde{\lambda} \in  \Lambda },
+    \end{equation*}
+    which we claim is also a tiling set for the unit cube. Before proving this rigorously, assume that $\mathbf{S}$ is a tiling set for $I^d$, and observe first that 
+    \begin{equation*}
+        \bralMed{ s(\lambda)_1 - s(\lambda')_1} = \bralMed{\lambda_1 - \bracMed{\lambda_1-\lambda_1'} - \lambda_1'} = 0
+    \end{equation*}
+    and then that
+    \begin{equation*}
+        \bralMed{ s(\lambda)_j - s(\lambda')_j} < 1 \quad \text{ for } j= d-k+2,\dots,d.
+    \end{equation*}
+    which, from the inductive hypothesis, leaves one of the numbers 
+    \begin{equation*}
+        \bral{\lambda_j - \lambda_j' = s(\lambda)_j - s(\lambda')_j} \in \N \quad \text{ for } j = 2,\dots, d-k+1.
+    \end{equation*}
 
-    
+
     %* Cover the whole space
     Let $x=\brac{x_1,\dots,x_d}\in \R^d$ denote an arbitrary point. We know from our initial assumptions that $x\in I+\Lambda$
     %! Riktig notasjon?
