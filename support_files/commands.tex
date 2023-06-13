@@ -36,11 +36,11 @@
 \crefname{enumv}{}{}%
 
 
-% * --- Mathematical symbol commands --- * %
-% Symbols
+% * --- Mathematical Symbol Commands --- * %
+%% Symbols
 \newcommand{\nsubset}{\not\subset}
 
-% Arabic letters
+%% Arabic letters
 \newcommand{\N}{\mathbb{N}}  % Already defined
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\bbP}{\mathbb{P}}  % as \P yields some note P
@@ -52,26 +52,25 @@
 
 \newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\Fq}{\mathbb{F}_q}
-\newcommand{\indic}{\mathbb{1}}
+%\newcommand{\indic}{\mathbb{1}}  % not used
 
-% Greek letters
+%% Greek letters
 \newcommand{\Tau}{\mathrm{T}}
 
-
-% Z with strikethrough
+%% Z with strikethrough
 \newcommand{\Zstroke}{\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$Z$\cr}}}
 \newcommand{\zstroke}{\text{\ooalign{\hidewidth -\kern-.3em-\hidewidth\cr$z$\cr}}}
 
 
-% Degrees and-such
+%% Degrees and-such
 \newcommand{\degc}{$^\circ$C~}
 \renewcommand{\deg}{\ensuremath{^{\circ}}}
 \newcommand{\edegc}{^\circ \text{C}~}
-\newcommand{\minone}{$^{-1}$}
-\newcommand{\eminone}{^{-1}}
+\newcommand{\minone}{$^{-1}$}  % For use in textmode
+\newcommand{\eminone}{^{-1}}  % For use in mathmode
 
 
-% Brackets
+%% Brackets
 %% normal-brackets
 \newcommand{\brac}[1]{(#1)}
 \newcommand{\bracMed}[1]{\left(#1\right)}  % Husk at \left og \right legger på mellomrom. Ex: E (A) vs. E(A) 
@@ -92,8 +91,8 @@
 \newcommand{\branMed}[1]{\left \|#1\right \|}
 
 
-% Operator names  
-% A more high-level approach is to use \DeclareMathOperator{\max}{max} to create a shortcut with brackets and operator name at once, \max -> max(.)
+%% Operator names  
+%% A more high-level approach is to use \DeclareMathOperator{\max}{max} to create a shortcut with brackets and operator name at once, \max -> max(.)
 \newcommand{\spn}[1]{\operatorname{span}\brac{#1}}
 \newcommand{\spnMed}[1]{\operatorname{span}\bracMed{#1}}
 \newcommand{\spnclos}[1]{\overline{\operatorname{span}}\brac{#1}}
@@ -101,57 +100,49 @@
 \newcommand{\mes}[1]{\operatorname{mes}\brac{#1}}
 \newcommand{\mesMed}[1]{\operatorname{mes}\bracMed{#1}}
 
-
-% others 
+%% Other functions
 \newcommand{\inpl}[1]{\langle \lambda, #1 \rangle}  % inner product w. lambda
 \newcommand{\Cper}{C_{\text{per}}}  % C_per for set of continuous and periodic functions
 \newcommand{\intnozero}{\Z\setminus\braq{0}}   % for the integers setminus zero
 
-% Indicator function
+%% Indicator function
 \newcommand{\indicator}[2]{\mathbbm{1}_{#1}(#2)}  % indicator 1_A (t) 
 \newcommand{\indicatorNoVar}[1]{\mathbbm{1}_{#1}}  % indicator 1_A 
 \newcommand{\indicatorFourier}[2]{\widehat{\mathbbm{1}}_{#1}(#2)}  % indicator HAT over 1_A (t) 
 \newcommand{\indicatorNoVarFourier}[1]{\widehat{\mathbbm{1}}_{#1}}  % indicator HAT over 1_A 
 
-% Set of exponential functions
+%% Set of exponential functions
 \newcommand{\onedexp}{ \braq{e^{2\pi i \lambda t } : \lambda \in \Z} }
 \newcommand{\alldexp}{ \braq{e^{2\pi i \inpl{t}} : \lambda \in \Z^d} }
 
-
-% text replacements
-\newcommand{\Ltwonorm}{$\|\cdot\|_{L^2}$-norm}  %! Uten dollartegn, rett i teksten ->
-\newcommand{\LPnorm}{$\|\cdot\|_{L^p}$-norm}  %! HUSK, hvis det ikke er siste ord i setningen, bruk \space etter komandoen
-\newcommand{\GenNormX}{$\|\cdot\|_{X}$-norm}
-\newcommand{\GenNormH}{$\|\cdot\|_{H}$-norm}
-
-% Lambda "function." 
+%% Lambda "function." 
 \newcommand{\lambfunc}{\mathbf{L}(\lambda_1)}  % will type L(lambda_1)  consider: \mathsf{}, \mathbf{}, or L
 \newcommand{\lambfuncNoVar}{\mathbf{L}}  % no variable
 \newcommand{\lambfuncGen}[1]{\mathbf{L}(#1)}  % general, must give input
 \newcommand{\betafunc}{\bm{\beta}} 
 
 
-% * --- Other Settings --- * %
-% \newcommand{\masl}{m.a.s.l}
+% * --- Text replacements (NO $ $ symbols) --- * %
+\newcommand{\Ltwonorm}{$\|\cdot\|_{L^2}$-norm}  %! Uten dollartegn, rett i teksten ->
+\newcommand{\LPnorm}{$\|\cdot\|_{L^p}$-norm}  %! HUSK, hvis det ikke er siste ord i setningen, bruk \space etter komandoen
+\newcommand{\GenNormX}{$\|\cdot\|_{X}$-norm}
+\newcommand{\GenNormH}{$\|\cdot\|_{H}$-norm}
 
+
+
+% * --- Other Settings and Useful Commands --- * %
+% \newcommand{\masl}{m.a.s.l}
 
 \newcommand{\mycomment}[1]{} %! Block comment
 \newcommand{\SigridComment}[1]{\textcolor{green}{Comment: #1}}
 \newcommand{\SigridChange}[1]{\textcolor{green}{#1}}
 \newcommand{\SigridChangeTwo}[1]{\textcolor{orange}{#1}}
 
-% For use in enumerate, itemize, description write \item \printvalues to get the following values
+%% For use inside enumerate OR itemize. Write  \item \printvalues  to get the following values printed
+%% Usecase: Figuring out the spacing for such environments so that one can later better fit it to the text
 \newcommand{\printvalues}{topsep=\the\topsep; itemsep=\the\itemsep; parsep=\the\parsep; partopsep=\the\partopsep}
 
 
-% Some abstract test
-\let\abstracttwo\abstract
-\let\endabstracttwo\endabstract
-\patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
-\patchcmd{\abstracttwo}{\abstractname}{\abstracttwoname}{}{}
-\newcommand{\abstracttwoname}{Sammendrag}
-
-
-% Color test
+%% Max Color for Tikiz Pattern library (which does not use "dvipsnames" from Xcolor:/)
 \definecolor{MaxCyan4}{rgb}{0.0, 0.611764, 0.854901}
 \definecolor{MaxOrange}{rgb}{1.0, 0.5, 0.0}

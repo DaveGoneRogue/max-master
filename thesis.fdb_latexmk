@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber thesis"] 1686503489 "thesis.bcf" "thesis.bbl" "thesis" 1686504181
+["biber thesis"] 1686658919 "thesis.bcf" "thesis.bbl" "thesis" 1686663948
   "support_files/Mastergrad.bib" 1685043655 38289 b4b2ceade55e6dfeabd998241c5c8b38 ""
-  "thesis.bcf" 1686504180 115482 8ef826bc6db2f6edac04060042a2b221 "lualatex"
+  "thesis.bcf" 1686663947 115482 8ef826bc6db2f6edac04060042a2b221 "lualatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["lualatex"] 1686504165 "/Users/max/Desktop/Mastergrad/LaTeX_Files/max-master/thesis.tex" "thesis.pdf" "thesis" 1686504181
+["lualatex"] 1686663932 "/Users/max/Desktop/Mastergrad/LaTeX_Files/max-master/thesis.tex" "thesis.pdf" "thesis" 1686663948
   "/Users/max/Desktop/Mastergrad/LaTeX_Files/max-master/thesis.tex" 1686405075 1963 7e7bb88787a47a3c5439ac88939f15d6 ""
   "/Users/max/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk" 1675167168 7808 1c1240c77e0acd1de4355cca393388c4 ""
   "/Users/max/Library/texlive/2022/texmf-var/luatex-cache/generic/fonts/hb/:System:Library:Fonts:Apple Color Emoji.ttc:1:nil" 1663338024 125011 50b7190db6a0475c185b57220d01aadf ""
@@ -519,8 +519,8 @@
   "chapters/02_x4__exponential_function.tex" 1684515162 2942 fc406574f643576015b20f83547b0eba ""
   "chapters/02_x5__indicator.tex" 1684852909 8250 3a5a29f97d7d333392d27663d6a05f4a ""
   "chapters/03_tilings.tex" 1686407309 26382 bc04dce32626e6b830a5252e00cb535f ""
-  "chapters/03_x1__proof_keller.tex" 1686504165 6269 7016b273c1a4c2c255f5e633e6296294 ""
-  "chapters/04_spectral_sets.tex" 1684855442 8353 91019f6a3ebec9389bda4b22d1bc6aa8 ""
+  "chapters/03_x1__proof_keller.tex" 1686663931 14352 a6e005b18d0002edf43359eee7874233 ""
+  "chapters/04_spectral_sets.tex" 1686557138 8345 3951de3b36195e4634e28db9f15e7d5c ""
   "chapters/04_x1__one_dim.tex" 1684515986 8174 1ad140265efb4d069534c35ebbf03366 ""
   "chapters/04_x4__higher_dim.tex" 1685440376 30734 b63cc1413fdf3255b8f59af93a1e4b40 ""
   "chapters/06_equiv_tiling_spec_ncube.tex" 1685551948 21004 82cb0d3595ec5c691c1f2c7384a05736 ""
@@ -540,14 +540,14 @@
   "figures/figure-tex/tiling_two.tex" 1683623036 2229 66ec8b4a16b55faeda321d187d2a7b2b ""
   "ntnuthesis.cls" 1686410062 15134 b5d4e25a3a92c550faca18f7110efba9 ""
   "preamble/head_mk2.sty" 1685309452 5153 950d953117e9dfe4e54e9dcfb025b65a ""
-  "support_files/commands.tex" 1685028442 5638 602e22b6efaab2fc4cbc89d8be2a8a18 ""
+  "support_files/commands.tex" 1686651144 5707 181491cf18aa974d5dd23fba8d5859fe ""
   "support_files/titlepage_max.tex" 1686138732 2132 d7a67e8af8ffffef2a2af8e58b461803 ""
-  "thesis.aux" 1686504180 40091 b2d33646233fd9d121eef7cae46f089b "lualatex"
-  "thesis.bbl" 1686503493 70024 97984692434c2cb411a6ff408c7af2df "biber thesis"
-  "thesis.out" 1686504180 2834 4f0c2f25c88f98523b330411e889b657 "lualatex"
-  "thesis.run.xml" 1686504180 2405 5171f1e8bd7f8155ba7c6b021a872736 "lualatex"
+  "thesis.aux" 1686663947 40236 a6735d1f9d120ff652767e3248a38359 "lualatex"
+  "thesis.bbl" 1686658929 70024 97984692434c2cb411a6ff408c7af2df "biber thesis"
+  "thesis.out" 1686663947 2834 4f0c2f25c88f98523b330411e889b657 "lualatex"
+  "thesis.run.xml" 1686663947 2405 5171f1e8bd7f8155ba7c6b021a872736 "lualatex"
   "thesis.tex" 1686405075 1963 7e7bb88787a47a3c5439ac88939f15d6 ""
-  "thesis.toc" 1686504180 1343 ed54af7a3dc551f139c23380af9d3a00 "lualatex"
+  "thesis.toc" 1686663947 1343 62cb3fc619fef3afb36ddf8ee6901b27 "lualatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"
