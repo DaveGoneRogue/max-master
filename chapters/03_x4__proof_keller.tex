@@ -16,10 +16,11 @@ Before we begin the proof, we restate Keller's \namecref{thrm:keller_tiling} her
 \begin{reptheorem}{thrm:keller_tiling}
     If $\Lambda$ is a tiling set for the unit cube, then for any two $\lambda, \lambda' \in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in \braq{1,\dots,d}$ so that $\lambda_j-\lambda_j' \in \intnozero$.
 \end{reptheorem}
+Although Keller proved \cref{thrm:keller_tiling} in his original paper \cite{kellerUberLuckenloseErfullung1930} in 1930, the \namecref{thrm:keller_tiling} was later proven in detail by Perron in \cite{perronUeberLueckenloseAusfuellung1940}, which is the proof Iosevich and Pedersen provide an English proof for in their paper \cite{iosevichSpectralTilingProperties1998}. This proof closely follows the latter.
 
-Although Keller proved the theorem in his original paper \cite{kellerUberLuckenloseErfullung1930}, the \namecref{thrm:keller_tiling} was later proven by Perron in \cite{perronUeberLueckenloseAusfuellung1940}, which is the proof Iosevich and Pedersen provide an English proof for in their paper \cite{iosevichSpectralTilingProperties1998}. This proof closely follows the latter.
+For this proof, we must redefine our working definition of the unit cube from $\brac{0,1}$ into the half-open interval $[0,1)$. This is because the proof will heavily rely on geometric arguments, and we make the proof simpler if we ensure that two distinct cubes have a disjoint interior rather than an interior with measure zero. We must also redefine our working definition to use the concepts of non-overlapping and cover. Note that for a tiling set to be non-overlapping, it now means that the intersection of two distinct cubes must be empty.
 
-\SigridComment{On second thought, it might be correct to consider [0,1) in this case, as it leads to some complications when doing the $\leq 1$ stuff, especially when one shows non-overlapping and covering}
+\SigridComment{Some argument that we can do this without loss of generality?}
 
 \begin{proof}[Proof of \cref{thrm:keller_tiling}]
     Let $\Lambda$ be a tiling set for $I^d$, let $\lambda = (\lambda_1,\dots,\lambda_d)$ and $\lambda' = (\lambda_1',\dots,\lambda_d')$ be two elements from $\Lambda$, and let $j\in\braq{1,\dots, d}$ index the coordinates. In short, the proof will be an induction on the number of $j$'s with distance $\bral{\lambda_j-\lambda_j'}\geq 1$, and for which we must show that at least one of these $j$'s satisfy $\bral{\lambda_{j}-\lambda_{j}'} \in \N$ for $\lambda \neq \lambda'$ in each of the induction steps. The latter equation is simply an equivalent reformulation of the condition $\lambda_{j}-\lambda_{j}' \in \intnozero$.
@@ -30,10 +31,7 @@ Although Keller proved the theorem in his original paper \cite{kellerUberLuckenl
     \begin{equation*}
         l_{j_0} = \braqMed{\bracMed{x_1,\dots,x_d} : x_{j_0} \in \R },
     \end{equation*}
-    which additionally must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$, it is clear that the distance between all of the cubes along this line is either $0$ if $\lambda=\lambda'$ or a natural number if $\lambda \neq \lambda'$, since $\Lambda$ is a tiling set and $\mes{I}=1$. In other words, for $\lambda \neq \lambda'$ we have
-    \begin{equation*}
-        \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N.
-    \end{equation*}
+    which additionally must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$, it is clear that the distance between all of the cubes along this line is either $0$ if $\lambda=\lambda'$ or a natural number if $\lambda \neq \lambda'$, since $\Lambda$ is a tiling set and $\mes{I}=1$. In other words, for $\lambda \neq \lambda'$ we have $\bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N$, in short meaning that $(\lambda_{j_0}-\lambda_{j_0}')\in \Z$.
 
     %* INDUCTIVE HYPOTHESIS FOLLOWED BY THE INDUCTIVE STEP
     Now for the induction hypothesis. Let $k\in \N$, in the hypothesis we assume that $\bral{\lambda_{j}-\lambda_{j}'} < 1$ for all but $d-k$ coordinates of $j\in\braq{1,\dots, d}$ imply that $\bral{\lambda_{j_0}-\lambda_{j_0}'} \in \N$ for at least one $j_0$ of the $d-k$ values with $\bral{\lambda_{j}-\lambda_{j}'} \geq 1$. That is,
@@ -42,7 +40,7 @@ Although Keller proved the theorem in his original paper \cite{kellerUberLuckenl
             \bralMed{\lambda_{j}-\lambda_{j}'} < 1 & \text{ for $k$ values of } j , \\
             \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1 & \text{ for $d-k$ values of } j .
         \end{rcases}
-        \Rightarrow \exists \text{ one } j_0 \text{ such that } \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N.
+        \Longrightarrow \exists \text{ one } j_0 \text{ such that } \bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N.
     \end{align*}
     For the inductive step, we consider
     \begin{align*}
@@ -58,7 +56,7 @@ Although Keller proved the theorem in his original paper \cite{kellerUberLuckenl
         \bralMed{\lambda_{j}-\lambda_{j}'} \geq 1& \quad \text{ for } j=1,\dots,d-k+1 \\
         \bralMed{\lambda_{j}-\lambda_{j}'} < 1& \quad \text{ for } j= d-k+2,\dots,d.
     \end{align*}
-    Now to show that at least one of $\bral{\lambda_{j}-\lambda_{j}'} \geq 1$ for the values $j=1,\dots,d-k+1$ is an integer. Observe that if $\lambda_{1}-\lambda_{1}'\in\Z$, then there is nothing to show. Therefore, assume $\lambda_{1}-\lambda_{1}' \notin \Z$. Furthermore, for some $\alpha\in\R^d$ let $\alpha = \brac{\lambda_{1}-\lambda_{1}',0,\dots,0}$, and define the function $s(\tilde{\lambda})$ where $\tilde{\lambda}\in \Lambda$ as
+    Now to show that at least one of $\bral{\lambda_{j}-\lambda_{j}'} \geq 1$ for the values $j=1,\dots,d-k+1$ is an integer. Observe that if $(\lambda_{1}-\lambda_{1}')\in\Z$, then there is nothing to show. Therefore, assume $(\lambda_{1}-\lambda_{1}') \notin \Z$. Furthermore, for some $\alpha\in\R^d$ let $\alpha = \brac{\lambda_{1}-\lambda_{1}',0,\dots,0}$, and define the function $s(\tilde{\lambda})$ where $\tilde{\lambda}\in \Lambda$ as
     \begin{equation}\label{eq:s_function}
         s(\tilde{\lambda}) = 
         \begin{cases}
@@ -66,7 +64,7 @@ Although Keller proved the theorem in his original paper \cite{kellerUberLuckenl
             \tilde{\lambda} & \text{ if } \tilde{\lambda}_1-\lambda_1 \notin \Z\\
         \end{cases}
     \end{equation}
-    Observe that $s(\lambda')=\lambda'$ using that  $\lambda \neq \lambda'$ and $\lambda_{1}-\lambda_{1}' \notin \Z$. Additionally, $s(\lambda)=\lambda-\alpha$ since clearly $\lambda_{1}-\lambda_{1} = 0$. Using \labelcref{eq:s_function}, we create a new set 
+    Observe that $s(\lambda')=\lambda'$ using that  $\lambda \neq \lambda'$ and $(\lambda_{1}-\lambda_{1}') \notin \Z$. Additionally, $s(\lambda)=\lambda-\alpha$ since clearly $\lambda_{1}-\lambda_{1} = 0$. Using \labelcref{eq:s_function}, we create a new set 
     \begin{equation*}
         \mathbf{S} = \braqMed{s(\tilde{\lambda}) :\tilde{\lambda} \in  \Lambda },
     \end{equation*}
@@ -121,15 +119,16 @@ Although Keller proved the theorem in his original paper \cite{kellerUberLuckenl
     \begin{equation*}
         z\in \bigcup_{\gamma\in\Lambda} \brac{I^d + \gamma}.
     \end{equation*}
-    For $s(\gamma)$ we have two options depending on whether $\gamma_1-\lambda_1 \in\Z$ or $\gamma_1-\lambda_1 \not\in\Z$. In the latter case, observe that since $z\in I^d+\gamma$ then this implies that $z\in I^d+s(\gamma)$ since $s(\gamma) = \gamma$. In the first case, the argument is not as straightforward. As we have $\gamma_1-\lambda_1\in \Z$, we know that $z\in(I^d+\gamma-\alpha)$, which means that if we consider the point $z+\alpha$, we know that this must be in the cube $I^d+\gamma'$ for some $\gamma'\in \Lambda$. Naturally, the cubes $I^d+\gamma$ and $I^d+\gamma'$ are distinct, and our intermediate goal is to show now that there must be a non-zero integer distance between them. By using $z\in I^d+\gamma$ and $z+\alpha \in I^d+\gamma'$, observe that for all $j=1,\dots, d$ we have
+    For $s(\gamma)$ we have two options depending on whether $(\gamma_1-\lambda_1) \in\Z$ or $(\gamma_1-\lambda_1) \not\in\Z$. In the latter case, observe that since $z\in I^d+\gamma$ then this implies that $z\in I^d+s(\gamma)$ since $s(\gamma) = \gamma$. In the first case, the argument is not as straightforward. As we have $(\gamma_1-\lambda_1)\in \Z$, we know that $z\in I^d+\gamma-\alpha$, which means that if we consider the point $z+\alpha$, we know that this must be in the cube $I^d+\gamma'$ for some $\gamma'\in \Lambda$. Naturally, the cubes $I^d+\gamma$ and $I^d+\gamma'$ are distinct, and our intermediate goal is to show now that there must be a non-zero integer distance between them. By using $z\in I^d+\gamma$ and $(z+\alpha) \in I^d+\gamma'$, observe that for all $j=1,\dots, d$ we have
     \begin{equation*}
         0 \leq z_j - \gamma_j < 1 \quad \text{ and } \quad 0 \leq z_j + \alpha_j - \gamma_j' < 1.
     \end{equation*}
-    Since we know $\alpha_j = 0$ for all $j=2,\dots,d$ this implies that $\bral{\gamma_j-\gamma_j'} <1$ for all $j=2,\dots,d$. Again, we have a case similar to the base case, and we can use the same arguments to show $\bral{\gamma_j-\gamma_j'} \in \N$. As there is a positive integer distance between these cubes and we know that $\gamma_1-\lambda_1 \in\Z$, then we also know that $\gamma_1'-\lambda_1 \in\Z$. Since $s(\gamma') = \gamma'-\alpha$ and we know
+    Since we know $\alpha_j = 0$ for all $j=2,\dots,d$ this implies that $\bral{\gamma_j-\gamma_j'} <1$ for all $j=2,\dots,d$. Again, we have a case similar to the base case, and we can use the same arguments to show $\bral{\gamma_j-\gamma_j'} \in \N$. As there is a positive integer distance between these cubes and we know that $(\gamma_1-\lambda_1) \in\Z$, then we also know that $(\gamma_1'-\lambda_1) \in\Z$. Since $s(\gamma') = \gamma'-\alpha$ and we know
     \begin{equation*}
-        0\leq z_1+\alpha_1 - \gamma_1' < 1 \quad \text{ for } \quad z+\alpha \in I^d+\gamma',
+        0\leq z_1+\alpha_1 - \gamma_1' < 1 \quad \text{ for } \quad (z+\alpha) \in I^d+\gamma',
     \end{equation*}
     we have that $z\in I+s(\gamma')$. Since $z\in\R^d$ was arbitrary, we have shown that $\mathbf{S}$ cover $\R^d$, and hence is a tiling set for $I^d$.
 \end{proof}
 
+%!  Note that $\lambda$ and $\lambda'$ are the initial fixed guys, the troublemakers from which we create our $\alpha$. And then, we consider other guys since we need other letters and compare with this initial "troublemaker."
 \end{document}
