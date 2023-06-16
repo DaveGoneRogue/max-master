@@ -38,13 +38,35 @@ For convenience, we will label cubes in the tiling by their corner coordinates w
 where $x\in \R^d$ is the specified corner coordinate. We say that this is an \emph{axis-paralell unit cube}. 
 
 The proof will provide a specific way to construct an aperiodic tiling of unit cubes in any dimension from a fully periodic tiling of unit cubes in $\R^d$. More specifically, we will consider a lattice tiling of unit cubes. As such, all cube corners will initially be in the integer lattice. From this, we will create a new tiling denoted by $T_n$ by the following translation. This insures
-BLABLA FINAL REMARK NOTE
+%* BLABLA FINAL REMARK NOTE
+%* and final sentence "exatly two one dimensional " bla bla
 
 
 
-Before generalizing it to higher dimensions, we prove the result for dimension $d=3$. 
+Before generalizing it to higher dimensions, we prove the result for dimension $d=3$. Here we displace two columns of cubes with corner coordinates 
+\begin{align*}
+    \bracMed{m_1,0,1},& \quad m_1 \in \Z,\\
+    \bracMed{0,1,m_3},& \quad m_3 \in \Z.
+\end{align*}
+and moving each of them with the respective translation vectors $w_1 = \brac{\frac{1}{2},0,0}$ and $w_3 = \brac{0,0,\frac{1}{2}}$ so that
+\begin{align*}
+    \bracMed{m_1,0,1} \xlongrightarrow[]{w_1} \bracMed{m_1 + \frac{1}{2} ,0,1}, \quad  &\text{ for all } m_1 \in \Z,\\
+    \bracMed{0,1,m_3} \xlongrightarrow[]{w_3} \bracMed{0,1,m_3+\frac{1}{2}},    \quad  &\text{ for all }  m_3 \in \Z.
+\end{align*}
+Observe that the column of cubes covers exactly the same set after the translation since the translation is in the same direction as the column itself 
+\begin{align*}
+    \braqMed{ \bracMed{x_1, 0+t_2,1+t_3} : 0 \leq t_j \leq 1, x_1\in\R} \xlongrightarrow[]{w_1} & \braqMed{ \bracMed{x_1, 0+t_2,1+t_3} : 0 \leq t_j \leq 1, x_1\in\R},\\
+    \braqMed{ \bracMed{0+t_1,1+t_2,x_3} : 0 \leq t_j \leq 1, x_3\in\R} \xlongrightarrow[]{w_3} & \braqMed{ \bracMed{0+t_1,1+t_2,x_3} : 0 \leq t_j \leq 1, x_3\in\R}.
+\end{align*}
+In addition, note that both shifted columns are \emph{disjoint} in $\R^3$ since their middle corner coordinates $x_2$ differ by a non-zero integer. Hence, the new tiling $T_3$ is still a unit cube tiling of $\R^3$. To show that $T_3$ is an aperiodic tiling, consider the following. Let $v=\brac{a_1,a_2,a_3}\in \R^3$ be a vector which we associate with the translation $\mathbf{T}_v:T_3 \rightarrow T_3$ (correct?? )
+\begin{equation*}
+    \mathbf{T}_v \bracMed{x_1,x_2,x_3} = \bracMed{x_1+a_1, x_2+a_2, x_3+a_3} 
+\end{equation*}
+where $\brac{x_1,x_2,x_3}$ is the point which the translation acts on. If the translation maps cube-corners to cube-corners, then the tiling will be invariant under $\mathbf{T}_v$. We now show that $v=\brac{0,0,0}$ is the only vector that preserves cube-corners and makes $\mathbf{T}_v$ invariant (map?). 
 
+We first show that the translation vector $v\in \Z^3$. Consider a $2\times 2\times 2$ block of $8$ unit cubes in $T_3$, which do not intersect any part of our translated columns. Note that all cubes in our block have integer coordinates. When translating the block, its image under the translation must also be a $2\times 2\times 2$ block of $8$ unit cubes in $T_3$. Since our shifted columns are disjoint, there will be at most $4$ unit cubes in our shifted columns, and the rest must still have integer coordinates. As such, $v$ maps an integer vector to another integer vector. That is, $v$ maps some cube-corner from the initial block to a cube-corner in the image block, which has an integer corner vector. Hence, $v\in \Z$. 
 
+We now show that the translation vector $v\in \brac{0,0,0}$. 
 
 
 %*  Gammel Avslutnint.
