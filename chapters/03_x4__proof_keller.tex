@@ -18,7 +18,7 @@ Before we begin the proof, we restate Keller's \namecref{thrm:keller_tiling} her
 \end{reptheorem}
 Although Keller proved \cref{thrm:keller_tiling} in his original paper \cite{kellerUberLuckenloseErfullung1930} in 1930, the \namecref{thrm:keller_tiling} was later proven in detail by Perron in \cite{perronUeberLueckenloseAusfuellung1940}, which is the proof Iosevich and Pedersen provide an English proof for in their paper \cite{iosevichSpectralTilingProperties1998}. This proof closely follows the latter.
 
-For this proof, we must redefine our working definition of the unit cube from $\brac{0,1}$ into the half-open interval $[0,1)$. This is because the proof will heavily rely on geometric arguments, and we make the proof simpler if we ensure that two distinct cubes have a disjoint interior rather than an interior with measure zero. We must also redefine our working definition to use the concepts of non-overlapping and cover. Note that for a tiling set to be non-overlapping, it now means that the intersection of two distinct cubes must be empty.
+For this proof, we must redefine our working definition of the unit cube from $\brac{0,1}$ into the half-open interval $[0,1)$. This is because the proof will heavily rely on geometric arguments, and we make the proof simpler if we ensure that two distinct unit cubes have a disjoint interior rather than an interior with measure zero. We must also redefine our working definition to use the concepts of non-overlapping and cover. Note that for a tiling set to be non-overlapping, it now means that the intersection of two distinct unit cubes must be empty.
 
 \SigridComment{Some argument that we can do this without loss of generality?}
 
@@ -31,7 +31,7 @@ For this proof, we must redefine our working definition of the unit cube from $\
     \begin{equation*}
         l_{j_0} = \braqMed{\bracMed{x_1,\dots,x_d} : x_{j_0} \in \R },
     \end{equation*}
-    which additionally must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$, it is clear that the distance between all of the cubes along this line is either $0$ if $\lambda=\lambda'$ or a natural number if $\lambda \neq \lambda'$, since $\Lambda$ is a tiling set and $\mes{I}=1$. In other words, for $\lambda \neq \lambda'$ we have $\bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N$, in short meaning that $(\lambda_{j_0}-\lambda_{j_0}')\in \Z$.
+    which additionally must intersect the two unit cubes $I+\lambda$ and $I+\lambda'$. If we now consider \emph{all} unit cubes $I+\lambda$ for $\lambda \in \Lambda$ that intersect the line $l_{j_0}$, it is clear that the distance between all of the unit cubes along this line is either $0$ if $\lambda=\lambda'$ or a natural number if $\lambda \neq \lambda'$, since $\Lambda$ is a tiling set and $\mes{I}=1$. In other words, for $\lambda \neq \lambda'$ we have $\bralMed{\lambda_{j_0}-\lambda_{j_0}'} \in \N$, in short meaning that $(\lambda_{j_0}-\lambda_{j_0}')\in \Z$.
 
     %* INDUCTIVE HYPOTHESIS FOLLOWED BY THE INDUCTIVE STEP
     Now for the induction hypothesis. Let $k\in \N$, in the hypothesis we assume that $\bral{\lambda_{j}-\lambda_{j}'} < 1$ for all but $d-k$ coordinates of $j\in\braq{1,\dots, d}$ imply that $\bral{\lambda_{j_0}-\lambda_{j_0}'} \in \N$ for at least one $j_0$ of the $d-k$ values with $\bral{\lambda_{j}-\lambda_{j}'} \geq 1$. That is,
@@ -123,7 +123,7 @@ For this proof, we must redefine our working definition of the unit cube from $\
     \begin{equation*}
         0 \leq z_j - \gamma_j < 1 \quad \text{ and } \quad 0 \leq z_j + \alpha_j - \gamma_j' < 1.
     \end{equation*}
-    Since we know $\alpha_j = 0$ for all $j=2,\dots,d$ this implies that $\bral{\gamma_j-\gamma_j'} <1$ for all $j=2,\dots,d$. Again, we have a case similar to the base case, and we can use the same arguments to show $\bral{\gamma_j-\gamma_j'} \in \N$. As there is a positive integer distance between these cubes and we know that $(\gamma_1-\lambda_1) \in\Z$, then we also know that $(\gamma_1'-\lambda_1) \in\Z$. Since $s(\gamma') = \gamma'-\alpha$ and we know
+    Since we know $\alpha_j = 0$ for all $j=2,\dots,d$ this implies that $\bral{\gamma_j-\gamma_j'} <1$ for all $j=2,\dots,d$. Again, we have a case similar to the base case, and we can use the same arguments to show $\bral{\gamma_j-\gamma_j'} \in \N$. As there is a positive integer distance between these unit cubes and we know that $(\gamma_1-\lambda_1) \in\Z$, then we also know that $(\gamma_1'-\lambda_1) \in\Z$. Since $s(\gamma') = \gamma'-\alpha$ and we know
     \begin{equation*}
         0\leq z_1+\alpha_1 - \gamma_1' < 1 \quad \text{ for } \quad (z+\alpha) \in I^d+\gamma',
     \end{equation*}
