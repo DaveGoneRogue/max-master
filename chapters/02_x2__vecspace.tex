@@ -23,7 +23,7 @@
     \end{equation*}
 \end{definition}
 
-The case $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced by the inner product
+The case $p=2$ is special since $L^2(E)$ is the only $L^p$ space whose norm is induced by an inner product;
 \begin{equation*}
     \braaMed{f, g}_{L^2(E)} = \int_{E} f(t)\overline{g(t)} dt,
 \end{equation*}
@@ -72,14 +72,14 @@ We have a \namecref{lem:c_per_dense_c_and_dense_L2} for $\Cper([a,b])$ similar t
     We construct $g$ in the following way  %. We will see that this will change the \Ltwonorm \space by a negligible amount and only at the expense of two intervals of length $\delta$
     \begin{equation*} % kan lage formel for g på ax+b formel: dvs $dy/dx \cdot x + b$ ELLER  $ -g(b-\delta) / \delta \cdot x + g(b-\delta)/ \delta $ <- dette er høyre side.
         g(t) = 
-        \begin{cases} a, &  t=a,\\  
+        \begin{cases} 0, &  t=a,\\  
             \text{linear}, &  0<t<a+\delta,\\ 
             f(t), & a+\delta \leq t \leq b-\delta,\\ 
             \text{linear}, &  b-\delta <t<b,\\ 
-            a, &  t=b,
+            0, &  t=b,
         \end{cases}
     \end{equation*} 
-    as illustrated in \cref{fig:g_periodic_close_to_f}. Observe that for all $t$ on the interval $[a+\delta, b-\delta]$ we have $\bral{f(t)-g(t)}= 0$, and for all other values of $t$ we know that
+    as illustrated in \cref{fig:g_periodic_close_to_f}. Observe that for all $t$ on the interval $[a+\delta, b-\delta]$ we have that $\bral{f(t)-g(t)}= 0$, and for all other values of $t$ we know that
     \begin{equation*}
         \bralMed{g(t)} \leq \branMed{g}_{\infty} = \sup_{t\in[a,b]} \bralMed{g(t)} = \sup_{t\in[a+\delta, b-\delta]} \bralMed{g(t)} = \sup_{t\in[a+\delta, b-\delta]} \bralMed{f(t)} \leq \sup_{t\in[a, b]} \bralMed{f(t)} =\branMed{f}_{\infty}
     \end{equation*}

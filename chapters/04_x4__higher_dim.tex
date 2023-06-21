@@ -12,7 +12,7 @@
 
 \begin{document}
 
-Before tackling spectral sets in higher dimensions, we first emphasize the importance of \cref{eq:zero_set_equation} and generalize it to higher dimensions. \SigridChange{This result is similar to the general case in \cref{sec:indicator_zero_set}, although the distinction here is that we show it specifically in the case where $\Omega$ is the unit cube.}
+Before tackling spectral sets in higher dimensions, we first emphasize the importance of \cref{eq:zero_set_equation} and generalize it to higher dimensions. This result is similar to the general case in \cref{sec:indicator_zero_set}, although the distinction here is that we show it specifically in the case where $\Omega$ is the unit cube.
 \begin{lemma}\label{lem:zero_set_jp_1_5}
     Let $\Omega = I^d$. The zero-set for $F_{\Omega}$ from \cref{eq:f_omega} %, in this case the function 
     %\begin{equation*}
@@ -54,7 +54,7 @@ Moreover, as an application of \cref{lem:zero_set_orthoganl_general} in combinat
 %    Let $\Lambda\subset \R^d$ be a discrete subset and $\Omega=I^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if given any two $\lambda,\lambda'\in \Lambda$ with $\lambda\neq\lambda'$, there exist a $j\in\braq{1,\dots,d}$ so that $\lambda_j- \lambda_j'\in \intnozero$.
 %\end{lemma}
 
-However, more useful \cref{lem:zero_set_AiSp} also allows us to state the following result for spectral pairs. 
+However, more useful, \cref{lem:zero_set_AiSp} also allows us to state the following result for spectral pairs. 
 \begin{remark}\label{rem:zero_set_orthogonal}  %* One way implication, =>, which took a long time to find out. NOT the same as "Spectral Keller"
     If given a spectral pair $(I^d,\Lambda)$, it follows from \cref{def:spectral_set,lem:zero_set_AiSp} that the spectral pair property is equivalent to the set $E(\Lambda)$ is complete in $L^2(\Omega)$, and that
     \begin{equation*}%\label{eq:zero_set_inclusion}
@@ -277,7 +277,7 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
     \begin{equation*}\label{eq:zeroset_dim_2}
         \Zstroke_{I^2} = \braqMed{z = \brac{z_1,z_2} \in \R^2\setminus \braqMed{0} : \exists \space j \in \braq{1,2} \text{ such that } z_j \in \intnozero}.
     \end{equation*}
-    To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one \SigridChange{fixed} vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$. From \labelcref{eq:inclusion_dim_2} we must have
+    To begin, let $\brac{I^2,\Lambda}$ be a spectral pair, which we know also implies that $\Lambda$ satisfies \labelcref{eq:inclusion_dim_2}. In addition, let us assume that the zero-element $\brac{0,0}$ is in $\Lambda$, as we can always translate $\Lambda$ by one fixed vector so that the zero-element is in $\Lambda$. Now, let $\lambda = \brac{\lambda_1,\lambda_2} \in \Lambda$. From \labelcref{eq:inclusion_dim_2} we must have
     \begin{equation*}  %* sidelengs fordi vi ser på elementer som er implisert fra inklusjonen, uten noen antagelser på Lambda
         \bracMed{\lambda_1, \lambda_2} - \bracMed{0,0} \in \Zstroke_{I^2} \cup \braq{0} \Longrightarrow \brac{\lambda_1, \lambda_2} \in \Zstroke_{I^2} \cup \braq{0}.
     \end{equation*}
@@ -333,7 +333,6 @@ We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPai
     From \cref{lem:onb_direct_subset}, we once more get that $\Lambda$ cannot be a proper subset of \labelcref{eq:2d_all_shift_class_2} and that we must have equality here. To conclude, $\brac{I^2, \Lambda}$ is a spectral pair in the case where $\Lambda$ is given by either \labelcref{eq:2d_all_shift_class_1} or \labelcref{eq:2d_all_shift_class_2}, and there are no other spectra for the unit cube in dimension $d=2$.
 \end{proof}
 
-\SigridComment{Ish, needs to be rewritten.}
 \begin{remark}
     Avid readers will notice the fact that we did not show the proof using fixed $\alpha$. However, in this case, we showed for $\alpha =0$. One should note that the $\alpha$ values cancel out in the subtractions. 
 \end{remark}

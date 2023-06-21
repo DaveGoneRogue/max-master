@@ -12,8 +12,8 @@
 
 \begin{document}
 %We define the indicator function as follows. 
-\begin{definition}(Indicator function)\label{def:indicator}
-    Let $E$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function} of $E$, is a function $\indicator{E}{t}: X \rightarrow \braq{0,1}$ where
+\begin{definition}[Indicator function]\label{def:indicator}
+    Let $E$ be a subset of a set $X$. The \emph{indicator function}, also known as the \emph{characteristic function}, of $E$ is a function $\indicatorNoVar{E}: X \rightarrow \braq{0,1}$ where
     \begin{equation*}
         \indicator{E}{t}  = 
         \begin{cases} 
@@ -73,7 +73,7 @@ To conclude this chapter, we show a simple, yet useful, relationship between ort
     \begin{equation}\label{eq:connection_lamb_equal_lamb}
         \braaMed{e_{\lambda},e_{\lambda} }_{L^2(\Omega)} = F_{\Omega}(0) = \brac{\mesMed{\Omega}}^d \neq 0.
     \end{equation}
-    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $\lambda'-\lambda \in \Zstroke_{\Omega}$ imply both that $\lambda'-\lambda\neq 0$ and $F_{\Omega} (\lambda'-\lambda) = 0$. Hence from the equality above $\braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} = 0 $ for all distinct elements $\lambda,\lambda'\in \Lambda$. If $\lambda-\lambda'\in \braq{0}$, then we have $\lambda=\lambda'$, which \labelcref{eq:connection_lamb_equal_lamb} shows is non-zero and this completes the proof.  %, and we have shown orthogonality.
+    Hence $\lambda'-\lambda \in \Zstroke_{\Omega} \cup \braq{0}$ for all elements $\lambda,\lambda'\in \Lambda$, and we have shown \labelcref{eq:zero_set_inclusion_original}. Conversely, if we assume \labelcref{eq:zero_set_inclusion_original}, we can readily observe that $\lambda'-\lambda \in \Zstroke_{\Omega}$ imply both that $\lambda'-\lambda\neq 0$ and $F_{\Omega} (\lambda'-\lambda) = 0$. Hence from the equality above, $\braaMed{e_{\lambda},e_{\lambda'} }_{L^2(\Omega)} = 0 $ for all distinct elements $\lambda,\lambda'\in \Lambda$. If $\lambda-\lambda'\in \braq{0}$, then we have $\lambda=\lambda'$, which \labelcref{eq:connection_lamb_equal_lamb} shows is non-zero and this completes the proof.  %, and we have shown orthogonality.
 \end{proof}
 
 %\begin{remark}\label{rem:key_insight}

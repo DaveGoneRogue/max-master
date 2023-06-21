@@ -15,7 +15,7 @@
 %intro til orthogonal bases 
 %We begin this section with a short introduction to 
 %We begin with the following. 
-\begin{definition}\label{def:dot_prod}
+\begin{definition}[Inner product]\label{def:dot_prod}
     % Let $\lambda=(\lambda_1, \dots, \lambda_d)$ and $t=(t_1,\dots t_d)$ be two vectors in $\R^d$. The inner product, denoted $\braa{\cdot, \cdot}$, between $\lambda$ and $t$ is
     % \begin{equation*}
     %     \braaMed{\lambda,t} = \sum_{n=1}^d \lambda_n t_n= \lambda_1 t_1 + \dots + \lambda_d t_d,
@@ -30,7 +30,7 @@
 
 Additionally, the inner product on $\R^d$ induces the norm $\bran{\cdot}_2 = \sqrt{\braa{\cdot, \cdot}}$, known as the Euclidian norm or Euclidian distance. 
 
-\begin{definition}
+\begin{definition}[Orthogonal and orthonormal]
     Let $V$ be an inner product space, $I$ be an arbitrary index set, and $v_i$ denote a vector in $V$ for some $i\in I$. We have that
     \begin{itemize}%[topsep=0pt]
         \item Any two \textsc{elements} $v_i, v_j \in V$ are \emph{orthogonal}, denoted $v_i \perp v_j$, if $\braa{v_i,v_j} = 0$.
@@ -46,7 +46,7 @@ Additionally, the inner product on $\R^d$ induces the norm $\bran{\cdot}_2 = \sq
 %\begin{definition}
 %    Let $H$ be a Hilbert space. A countable infinite orthonormal set $E = \braq{v_i: i \in I}$, which is complete in $H$, is called an \emph{orthonormal basis} for $H$.
 %\end{definition}
-\begin{definition}
+\begin{definition}[ONB]
     Let $H$ be a Hilbert space, and let $E = \braq{v_i : i \in I}$ be a countable infinite orthonormal set. If $E$ is complete in $H$, then $E$ is an \emph{orthonormal basis} for $H$.
 \end{definition}
 Recall that $E$ is complete in $H$ if the linear span of $E$ is dense in $H$ with respect to the \GenNormH, meaning that every vector $x$ in $H$ can be written as the infinite series
