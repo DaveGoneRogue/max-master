@@ -11,30 +11,12 @@
 
 
 \begin{document}
-%
-%
-%\begin{remark}
-%    Nevertheless, by arranging unit cubes into a \emph{new} tile, one can get an aperiodic tiling for all $d\geq3$, as done in \cite{lagariasKellerCubetilingConjecture1992}. (Max: Given that it is actually true that this organization/new tile/ of unit cubes EXCLUSIVELY tiles non-periodically. Not known to me yet). The fact that the new tile only consists of unit cubes in a particular arrangement is not equivalent to the statement that there \emph{are} aperiodic cube tilings in all $d\geq3$ as stated in \cite{lagariasOrthonormalBasesExponentials2000,liuUniformityNonUniformGabor2003}, as one considers a tiling which, in fact, is \textsc{not} a cube, only consisting of cubes; and by the very definition of aperiodicity means that it must exclusively tile non-periodically, which \emph{cube tilings} intrinsically do not as highlighted above. Furthermore, \cite{lagariasOrthonormalBasesExponentials2000} provides no source for this "well-known" statement, and \cite{liuUniformityNonUniformGabor2003} makes a reference to \cite{lagariasKellerCubetilingConjecture1992}, but the explanation here is both insufficient and unclear, as this result is \textsc{never} stated anywhere. (Max: If I am wrong with this, then I cannot read. This can very well be the case when it comes to math, but I am pretty certain of this latter sentence. It can be true that the result is implied by the paper or somehow obvious in a way I cannot understand, but that is not a clear and sufficient statement of the result from my undergraduate perspective.)
-%\end{remark}
+%The topic for this \namecref{sec:aperi_cube} is a new result first put forward by Lagarias, Reeds, and Wang in \cite{lagariasOrthonormalBasesExponentials2000}. However, no proof or reference to the literature was attached. The statement has later been referenced in \cite{liuUniformityNonUniformGabor2003}, although with incorrect reference. After correspondence with one of the original paper's authors, the main result of this \namecref{sec:aperi_cube} has been submitted as a problem for \textsc{The American Mathematical Monthly} \cite{haugeTitle}. It is likely known to the experts that aperiodic tilings by translation of the unit cube exist in all dimensions $d\geq3$; however, the authors of \cite{haugeTitle} are not aware of any solutions in the published literature.  The following will put one solution on the record \cite{haugeTitle}. 
 
-APERIODIC: $\mathbf{T}_\tau: \widetilde{\Lambda} \rightarrow \widetilde{\Lambda}'$, if $\widetilde{\Lambda}' = \widetilde{\Lambda}$ then the translation is invariant ? 
-or for a more general tiling set $\mathbf{T}_\tau: \Lambda \rightarrow \Lambda'$, if $\Lambda = \Lambda'$ then the translation is invariant.
+It is likely known to the experts that aperiodic tilings by translation of the unit cube exist in all dimensions $d\geq3$. Lagarias, Reeds, and Wang first put forward the result in \cite{lagariasOrthonormalBasesExponentials2000}. However, no proof or reference to the literature was attached. Later, the same statement appeared in \cite{liuUniformityNonUniformGabor2003}, although with an incorrect reference. Construction of a tiling with \emph{no periods} is given in \cite{kolountzakisStudyTranslationalTiling2003} for $d=3$, though with no proof for the construction or mention of whether it is an aperiodic tiling. \SigridComment{agree? this is the image I sent in the e-mail}. Additionally, the book \cite{zongCubeWindowConvex2006}, which covers cube tilings, notably lacks any mention of such a tiling as an example. In other words, there is a high possibility that no such constructions exist in the literature. To fill the gap, the following will put one complete solution on the record as a result of joint work with Lagarias \cite{haugeAperiodicTilingTranslations2023} and constitutes the main contribution of the thesis. 
 
-
-\SigridChange{Intro optinons:}
-
-In this section, we will show the following result. 
-\SigridComment{ or }
-
-The topic for this \namecref{sec:aperi_cube} is a "new" result first put forward by Lagarias (, Reeds, and Wang??) in \cite{lagariasOrthonormalBasesExponentials2000}, however no proof or reference to the literature was attached \SigridChange{(needs rephrasing!)}. The statement has later been referenced in \cite{liuUniformityNonUniformGabor2003}, although with incorrect reference. After correspondence with Lagarias himself, the main result of this \namecref{sec:aperi_cube} was submitted as a problem for the American Math Monthly. 
-
-\SigridComment{not sure how to intro this, or whether to put this info in a footnote, or close the section with this.}
-
-Correct citation?
-\cite{haugeTitle}
-
-\begin{theorem}
-    There exists a translational tiling of unit cubes $I^d + \lambda$ in $\R^d$ for $\lambda\in \Lambda$ in all dimensions $d\geq3$, in which the tiling set $\Lambda$ constitutes an aperiodic tiling. 
+\begin{theorem}[\cite{haugeAperiodicTilingTranslations2023}]
+    There exists a translational tiling of unit cubes $I^d + \lambda$ in $\R^d$ for $\lambda\in \Lambda$ in all dimensions $d\geq3$, in which the tiling set $\Lambda$ constitutes an aperiodic tiling.
 \end{theorem}
 
 For convenience, we will label unit cubes in the tiling by their corner coordinates which will be given by the vector $x = \brac{x_1,\dots,x_d} \in \R^d$. Note that it is essential that all unit cubes are labeled using the same corner; otherwise, the notation we will employ will lead to overlap. Furthermore, we will denote a unit cube that is parallel to an axis by
@@ -46,11 +28,10 @@ where $x\in \R^d$ is the specified corner coordinate. We say that this is an \em
 The proof will provide a specific way to construct an aperiodic tiling of unit cubes in any dimension from a fully periodic tiling of unit cubes $\Lambda$ in $\R^d$. We will initially consider a lattice tiling of unit cubes such that all cube-corners will be in an integer lattice, meaning $\Lambda = \Z^d$. Using the following translation, we create the new tiling denoted by $\widetilde{\Lambda}$, which we will show is aperiodic. The translation consists of shifting exactly two specific disjoint columns of unit cubes and leaving the remaining unit cubes in the $\Z^d$-tiling in place. The underlying idea is that the shifted columns create dislocations in the fully periodic tiling of unit cubes $\Lambda$. We can think of these dislocations as line or skew-line defects. The critical observation is that the position of the defects can be detected locally and that these positions move when $\widetilde{\Lambda}$ undergoes a translation. Since translated tilings of $\widetilde{\Lambda}$ will differ from the original tiling $\widetilde{\Lambda}$, we have that $\widetilde{\Lambda}$ will have no non-trivial translation symmetry, and hence must necessarily be aperiodic. 
 
 \begin{remark}
-    The use of \emph{column} in this \namecref{sec:aperi_cube} differs from how the term has been used in the rest of the thesis. Here, a column is considered to be a one-dimensional column of unit cubes in one of the $d$ coordinate directions. As an example, for $d=2$, what we previously denoted as a row or a column of unit cubes is now considered a column of unit cubes in either the first or second coordinate direction, respectively. \SigridComment{write something on why? We make this distinction as in higher coordinates$\dots$} 
+    The use of \emph{column} in this \namecref{sec:aperi_cube} differs from how the term has been used in the rest of the thesis. Here, a column is considered to be a one-dimensional column of unit cubes in one of the $d$ coordinate directions. As an example, for $d=2$, what we previously denoted as a row or a column of unit cubes is now considered a column of unit cubes in either the first or second coordinate direction, respectively.
 \end{remark}
 
-\SigridChangeTwo{Begin proof environment here?}
-
+\begin{proof}
 Before generalizing it to higher dimensions, we prove the result for dimension $d=3$. Here we displace two columns of unit cubes with corner coordinates 
 \begin{align*}
     \bracMed{m_1,0,1},& \quad m_1 \in \Z,\\
@@ -61,7 +42,7 @@ shifting each of them with the respective translation vectors $\upsilon' = \brac
     \bracMed{m_1,0,1} \xlongrightarrow[]{\upsilon'} \bracMed{m_1 + \frac{1}{2} ,0,1}, \quad  &\text{ for all } m_1 \in \Z,\\
     \bracMed{0,1,m_3} \xlongrightarrow[]{\upsilon''} \bracMed{0,1,m_3 + \frac{1}{2} },    \quad  &\text{ for all }  m_3 \in \Z.
 \end{align*}
-Observe that the column of unit cubes covers exactly the same set after the translation since the translation is in the same direction as the column itself 
+Observe that the column of unit cubes covers exactly the same set after the translation since the translation is in the same direction as the column itself \SigridComment{How do I highlight this in the equation? }
 \begin{align*}
     \braqMed{ \bracMed{x_1, 0+t_2,1+t_3} : 0 \leq t_j \leq 1, x_1\in\R} \xlongrightarrow[]{\upsilon'} & \braqMed{ \bracMed{x_1, 0+t_2,1+t_3} : 0 \leq t_j \leq 1, x_1\in\R},\\
     \braqMed{ \bracMed{0+t_1,1+t_2,x_3} : 0 \leq t_j \leq 1, x_3\in\R} \xlongrightarrow[]{\upsilon''} & \braqMed{ \bracMed{0+t_1,1+t_2,x_3} : 0 \leq t_j \leq 1, x_3\in\R}.
@@ -70,7 +51,7 @@ In addition, note that both shifted columns are disjoint in $\R^3$ since their m
 \begin{equation*}
     \mathbf{T}_\tau \bracMed{x} = x+\tau = \bracMed{x_1+\tau_1, x_2+\tau_2, x_3+\tau_3},
 \end{equation*}
-where $x\in \R^3$ is the point on which the translation acts. If the translation maps cube-corners to cube-corners, then the tiling will be invariant under $\mathbf{T}_\tau$. We now show that $\tau=\brac{0,0,0}$ is the only vector that preserves cube-corners and makes $\mathbf{T}_\tau$ invariant \SigridChange{(map?)}. 
+where $x\in \R^3$ is the point on which the translation acts. If the $\mathbf{T}_\tau \brac{x}$ maps cube-corners to cube-corners, then the tiling will be invariant under the translation. From this, we will show that $\tau=\brac{0,0,0}$ is the only vector that preserves the set of cube-corners making $\widetilde{\Lambda}$ an aperiodic tiling of unit cubes. 
 
 We first show that the translation vector $\tau \in \Z^3$. Consider a $2\times 2\times 2$ block of $8$ unit cubes in $\widetilde{\Lambda}$, which do not intersect any part of our translated columns. Note that all unit cubes in our block have integer coordinates. When translating the block, its image under the translation must also be a $2\times 2\times 2$ block of $8$ unit cubes in $\widetilde{\Lambda}$. Since our shifted columns are disjoint, there will be at most $4$ unit cubes from our shifted columns, while the remaining unit cubes must still have integer coordinates. As such, $\tau$ maps an integer vector to another integer vector. That is, $\tau$ maps some cube-corner from the initial block to a cube-corner in the image block, which has an integer corner vector. Hence, $\tau \in \Z^3$. 
 
@@ -102,17 +83,7 @@ Then, using the exact same arguments, but now with a $\overbrace{2\times \dots \
     \tau'' =& \bracMed{0,\dots,0,\tau''_d}, \quad \tau''_d \in \Z,
 \end{align*}
 shows that the translation vector $\tau=\brac{0,\dots,0}$ is the zero-vector.
-
-
-$\square$
-
-
-\SigridComment{some alternative ending}
-Hence we can state the following result using the above as proof
-
-\begin{theorem}
-    There exists a translational tiling of unit cubes $I^d + \lambda$ in $\R^d$ for $\lambda\in \Lambda$ in all dimensions $d\geq3$, in which the tiling set $\Lambda$ constitutes an aperiodic tiling. 
-\end{theorem}
+\end{proof}
 
 \begin{figure*}[h!]
     \centering
