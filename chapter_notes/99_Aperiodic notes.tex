@@ -1,4 +1,27 @@
 
+Winston aperiodic notes
+
+Just to clarify: a tiling is periodic if there exists a non-trivial translation $\tau$ such that $\tau(\Lambda)=\Lambda$ - as sets 
+(obviously, if I colored a tile and applied $\tau$, it would move to a different place, but the point is that the whole shape shouldn't change). 
+If no such translation exists, the tiling is aperiodic. So, to prove a tiling is aperiodic, one need to show that if $\tau(\Lambda)=\Lambda$
+then the only possibility for $\tau$ is the identity. 
+
+Thus what we are doing in the proof is taking a translation and comparing the image of $\Lambda$ under this translation with the original set. 
+So it makes sense to talk about the intersection of the shifted 2*2*2 cube with the defected parts. 
+
+%* Mail 2:
+You take the tiling, translate the whole thing, and compare this image with the original. 
+I don't understand the bit about matching the coordinates. You could translate by an irrational shift or anything less than 1, 
+and this would give a different set. The point is, to find a periodic tiling you need to demonstrate the existence of some translation 
+that gives you the same set. If you can't find any such translation the tiling must be aperiodic. 
+
+Naturally/intuitively, the translation needs to be an integer shift.  
+To prove this you start with a 2*2*2 block, colour it, this will move when you translate the whole tiling. 
+Now compare the translation with the original tiling. The block can hit the shifted columns, but if so, it can only intersect in at 
+most four cubes of these columns. Since we are assuming the translation preserves the tiling, the other four cubes of the block must 
+match exactly with cubes in non-shifted columns. Hence the translation must be an integer shift; i.e. from Z^3    
+%* ————————–
+
 
 
 
