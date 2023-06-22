@@ -57,7 +57,7 @@ Moreover, as an application of \cref{lem:zero_set_orthoganl_general} in combinat
 However, more useful, \cref{lem:zero_set_AiSp} also allows us to state the following result for spectral pairs. 
 \begin{remark}\label{rem:zero_set_orthogonal}  %* One way implication, =>, which took a long time to find out. NOT the same as "Spectral Keller"
     If given a spectral pair $(I^d,\Lambda)$, it follows from \cref{def:spectral_set,lem:zero_set_AiSp} that the spectral pair property is equivalent to the set $E(\Lambda)$ is complete in $L^2(\Omega)$, and that
-    \begin{equation*}%\label{eq:zero_set_inclusion}
+    \begin{equation*}  %\label{eq:zero_set_inclusion}
         \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
     \end{equation*}
 \end{remark}
@@ -65,7 +65,7 @@ However, more useful, \cref{lem:zero_set_AiSp} also allows us to state the follo
 This \namecref{rem:zero_set_orthogonal} will be used later in \cref{thrm:class_all_shift_2d}.
 
 %* ———————————————————————————————————————— Del 2, construction of spectra
-In \cite{jorgensenSpectralPairsCartesian2001}, Jorgensen and Pedersen present a way of constructing spectral pairs in higher dimensions from spectral pairs in lower dimensions. 
+In \cite{jorgensenSpectralPairsCartesian2001}, Jorgensen and Pedersen present a way of constructing spectral pairs in higher dimensions from spectral pairs in lower dimensions.
 
 \begin{theorem}[Construction of spectra]\label{thrm:construction_spectra}
     Let $\brac{\Omega_1,\Lambda_1}$ be a spectral pair in $\R^{d_1}$, and let $\Omega_2$ be a set of positive finite measure in $\R^{d_2}$. Suppose for each $\lambda_1 \in \Lambda_1$ that $\lambfunc$ is a discrete subset of $\R^{d_2}$ such that $\brac{\Omega_2,\lambfunc}$ is a spectral pair. If 
@@ -94,7 +94,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Jorgensen and Pedersen present a 
         &= \mes{\Omega_1}\mes{\Omega_2} \neq 0.
     \end{align*}
     To show that $E(\Lambda)$ is complete in $L^2(\Omega_1 \times \Omega_2)$, let $f\in L^2\brac{\Omega_1 \times \Omega_2}$ and assume it is orthogonal to $\spn{E(\Lambda)}$. For all $e_\lambda \in E(\Lambda)$ the inner product is
-    \begin{align*} % REMEMBER t is a vector, i.e t=(t_1,t_2)
+    \begin{align*} %? REMEMBER t is a vector, i.e t=(t_1,t_2)
         \braa{e_\lambda,f}_{L^2\brac{\Omega_1 \times \Omega_2}}
         &= \int_{\Omega_1} \int_{\Omega_2} e_\lambda(t) \overline{f(t)} dt_1dt_2 \\
         &= \int_{\Omega_2} \int_{\Omega_1} e^{2\pi i  (\lambda_2 t_2+\lambda_1 t_1)} \overline{f(t_1,t_2)} dt_2 dt_1 \\
@@ -110,7 +110,7 @@ In \cite{jorgensenSpectralPairsCartesian2001}, Jorgensen and Pedersen present a 
     %* Gammel variant var feil fordi rekkefølgen er klundrete når vi bruker L Funksjonen. Den er lettere å ta hensyn til som siste ting.
 \end{proof}
 %* ———————————————————————————————————————— Del 3, Eksempler på theoremet
-Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility. 
+Let us now give some examples using \cref{thrm:construction_spectra} to illustrate its ease of use and newfound flexibility \cite{jorgensenSpectralPairsCartesian2001}. 
 \begin{example}\label{ex:first_construction}
     Let $\brac{\Omega_1,\Lambda_1}=\brac{I, \Z}$, which we know is a spectral pair in dimension $d_1=1$. Clearly $\brac{\Omega_2,\lambfunc}$ is also a spectral pair in dimension $d_2=1$ if $\Omega_2=I$ and $\lambfunc = \Z$ for all $\lambda_1 \in \Lambda_1$. Now, letting 
     %\begin{equation*}
@@ -173,12 +173,9 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
         %\Lambda = \braqMed{\begin{pmatrix}\lambda_1 \\ \lambda_2 \end{pmatrix}: \lambda_1 \in \Z, \lambda_2 \in \lambfunc}
         %\Lambda = \begin{pmatrix}\lambfuncGen{\lambda_2} \\ \Lambda_2 \end{pmatrix}
     \end{equation}
-    %The latter of which is illustrated in \cref{fig:multiple_shift_horizontal}.
     which is illustrated in \cref{fig:multiple_shift_horizontal}, is also a spectrum for $I^2$.
 \end{remark}
-As has been observed, increasing the dimension from one to two opens up several new possibilities in our choices for the spectrum. We summarize this flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical} in the following \namecref{lem:beta_shift}.
-%To summarize and capture the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we capture the flexibility in the following \namecref{lem:beta_shift}.
-%To sumarize the flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical}, we introduce the following \namecref{lem:beta_shift}.
+As has been observed, increasing the dimension from one to two opens up several new possibilities in our choices for the spectrum. We summarize this flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical} in the following \namecref{lem:beta_shift} \cite{jorgensenSpectralPairsCartesian2001}.
 %* ———————————————————————————————————————— Del 4, Lemma som fanger den nye fleksibiliteten
 \begin{lemma}\label{lem:beta_shift}
     Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$ respectivly. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$, and let
@@ -240,7 +237,7 @@ As has been observed, increasing the dimension from one to two opens up several 
     %! Is this needed? Better not to mention it? 
 \end{example}
 %* ———————————————————————————————————————— Del 5, Klassefisering av alle
-We can now classify all spectra for $I^2$ as follows (\cite{jorgensenSpectralPairsCartesian2001}). 
+We can now classify all spectra for $I^2$ as follows \cite{jorgensenSpectralPairsCartesian2001}. 
 %* spektra kan være for så mangt, og det finnes mange i dimensjon to som ikke knytter seg til enhetskuben.
 \begin{theorem}\label{thrm:class_all_shift_2d}
     %$\braq{\beta_m \in [0,1) : m \in \Z}$  %* ANDRE skrivemåten for beta_m

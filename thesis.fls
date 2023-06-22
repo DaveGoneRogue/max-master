@@ -987,6 +987,8 @@ INPUT ./chapters/03_x2__non-periodic.tex
 INPUT ./chapters/03_x2__non-periodic.tex
 INPUT ./chapters/03_x3__aperiodic.tex
 INPUT ./chapters/03_x3__aperiodic.tex
+INPUT ./figures/figure-tex/aper_tiling.tex
+INPUT ./figures/figure-tex/aper_tiling.tex
 INPUT ./figures/figure-png/aper_yeye.jpg
 INPUT ./figures/figure-png/aper_yeye.jpg
 INPUT ./figures/figure-png/aper_yeye.jpg
@@ -1042,6 +1044,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb

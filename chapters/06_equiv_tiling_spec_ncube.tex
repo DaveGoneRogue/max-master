@@ -10,14 +10,7 @@
 % // This is strikethrough
 
 
-\begin{document}  
-%* Sammenligning tiling sets <--> spectral sets
-
-%! —————— Villee hatt med korolaret jeg har skrevet opp først, og så argumentert for det. 
-%* skiller seg ut på et viktig sted, i lemmaet over bruker vi link mellom Ortogonalitet og tingen med null settet, mens i min lemma, så sier jeg bare at null settet til funksjonen er denne tingen. jeg sier ingeinting om at dette er ekvivalent med et ortogonalitetskrav. Selv i remarken etterpå sier vi bare at å være "blabla" er det samme som "lemma 4.7 + kompletthet". Ikke at lemma 4.7 erstatter ortogonalitetskravet. 
-%* Kan fremheve denne biten i teksten ved å bruke en ligning 
-%*  Forklar i teksten denne likheten mellom keller spectral og lemma 4.7. mitt zero set lemma for I^D
-
+\begin{document}
 Recall \cref{thrm:keller_tiling}, Keller's \namecref{thrm:keller_tiling}. We have an equivalent version, or more specifically, an equivalent restatement of \cref{thrm:keller_tiling}, which closely relates to the previously mentioned spectral version of Keller's \namecref{thrm:keller_tiling}, \cref{lem:zero_set_AiSp}. The equivalence of \Cref{thrm:keller_tiling} and the following \cref{thrm:keller_alternative} follows by rewriting the subtraction of two distinct elements in \cref{thrm:keller_tiling} into $(\Lambda-\Lambda)\setminus\braq{0}$, and by observing that $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5} captures the rest of the requirements.
 
 \begin{theorem}[Keller's theorem reformulation]\label{thrm:keller_alternative}
@@ -60,7 +53,7 @@ Until now, we have only seen that we have exactly the same tiling sets as spectr
 \end{theorem}
 
 \begin{proof}
-    Let $\Lambda \subset \R^d$. Keller's theorem, \cref{thrm:keller_tiling}, immediately shows that there must be an integer distance between two distinct points $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in $\intnozero$. That said, as in the proof of \cref{thrm:class_all_shift_2d} while instead using \cref{thrm:keller_alternative}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$. That is, at least one of them must be a non-zero integer. Likewise, if we further assume $\lambda\notin \Z^2$, and that $\lambda_1 \in\intnozero$, we have a case identical to the first of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. If we now follow the exact same arguments from that proof, we can first show that 
+    Let $\Lambda \subset \R^d$. Keller's theorem, \cref{thrm:keller_tiling}, immediately shows that there must be an integer distance between two distinct elements $\lambda,\lambda' \in \Lambda$ if $\Lambda$ is to be a tiling set for $I^2$. That gives us that at least one of $\brac{\lambda_1-\lambda_1'}$ or $\brac{\lambda_2-\lambda_2'}$ is in $\intnozero$. That said, as in the proof of \cref{thrm:class_all_shift_2d} while instead using \cref{thrm:keller_alternative}, we can assume that the zero-element $\brac{0,0}$ is in $\Lambda$, which would result in the same two options for $\lambda_1$ and $\lambda_2$ for all $\lambda\in \Lambda$. That is, at least one of them must be a non-zero integer. Likewise, if we further assume $\lambda\notin \Z^2$, and that $\lambda_1 \in\intnozero$, we have a case identical to the first of the two possibilities in the proof of \cref{thrm:class_all_shift_2d}. If we now follow the exact same arguments from that proof, we can first show that 
     \begin{align*}  %* ————  den mengden til høyre er ALLTID større en Lambda ———— 
         \Lambda \subseteq \braqMed{ \bracMed{\lambda_1, \lambda_2} : \lambda_1 \in \Z, \lambda_2 \in \R},
     \end{align*}
@@ -70,7 +63,7 @@ Until now, we have only seen that we have exactly the same tiling sets as spectr
         %\Lambda \subseteq \underbrace{\braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}}_{A}.
         \Lambda \subseteq \braqMed{\begin{pmatrix} m \\ n+\beta_m\end{pmatrix} : m,n \in \Z}.
     \end{equation*}
-    If we now assume that $\Lambda$ is incomplete with respect to the set \labelcref{eq:2d_all_shift_class_1_tiling}, then there would be an arbitrary point $\lambda'$ in \labelcref{eq:2d_all_shift_class_1_tiling} that is not in $\Lambda$. However, now $\Lambda$ is not tiling set anymore. Observe that we would have an entire square, specifically the square at
+    If we now assume that $\Lambda$ is incomplete with respect to the set \labelcref{eq:2d_all_shift_class_1_tiling}, then there would be an arbitrary element $\lambda'$ in \labelcref{eq:2d_all_shift_class_1_tiling} that is not in $\Lambda$. However, now $\Lambda$ is not tiling set anymore. Observe that we would have an entire square, specifically the square at
     \begin{equation*}
         %I^2 + \lambda' = \brasMed{0+\lambda_1,1+\lambda_1}\times \bras{0+\lambda_2,1+\lambda_2} = \bras{0+m,1+m}\times \bras{0+n+\beta_m,1+n+\beta_m}, 
         %I^2 + \lambda' = \brasMed{\bras{0+m}},1+m}\times \bras{0+n+\beta_m,1+n+\beta_m}, 
@@ -117,14 +110,27 @@ Now for the equivalence of tiling sets and spectra for the unit cube. Jorgen and
     The last statement simplifies the zero-set condition of $\Lambda-\Lambda$ since we now have a lattice $L=M\Z^d$. As \cref{eq:zero_set_orthogonal}  defines the set difference as the set of all differences, subtracting two elements from $L$ gives another element of $L$, and we get $L-L=L$.
 \end{remark}
 
-What is more interesting about \cref{thrm:periodic_equivalence} is that it has a strong connection to the proofs where Keller's \namecref{conj:keller_tiling}, \cref{conj:keller_tiling}, is disproved. Notably, if the \namecref{conj:keller_tiling} is false for $\R^d$, the tiling in $\R^n$ for some $n\geq d$ that counterexample Keller's \namecref{conj:keller_tiling} has two additional properties \cite{lagariasKellerCubetilingConjecture1992}: First, the centers of all the unit cubes are in $\frac{1}{2}\Z^n$. Secondly, the tiling is periodic and contains the period lattice $2\Z^n$. The latter is the important one because it means that the counterexamples can be periodic. Specifically, in the case where Keller's \namecref{conj:keller_tiling} was disproved for $d\geq10$, they found a periodic set of translations of the form $\Lambda= K + (2\Z)^{10}$, where $\bral{K} = 2^{10} = 1024$ elements. Using \cref{thrm:periodic_equivalence}, we have that the tiling pair where no two tiles share an entire face $\brac{I^{10},\Lambda}$ is also a spectral pair in $\R^{10}$ \cite{jorgensenSpectralPairsCartesian2001}. As Mackey \cite{mackeyCubeTilingDimension2002} improved this result further by finding a set of translations of the form $\Lambda= K + (2\Z)^{8}$ where $\bral{K} = 2^{8} = 256$ elements, we also have that the tiling pair $\brac{I^{8},\Lambda}$ is a spectral pair in $\R^8$ using \cref{thrm:periodic_equivalence}. What is interesting about these spectral pairs is that $\Lambda-\Lambda$ does not contain one of the canonical unit basis vectors for $\R^{10}$ \cite{jorgensenSpectralPairsCartesian2001}, which also is true in $\R^{8}$ with the resolution of the \namecref{conj:keller_tiling} \cite{brakensiekResolutionKellerConjecture2020}. Hence, we know that in all $d\geq8$, periodic tilings sets exist where no two tiles share an entire face, with the added fact that the difference $\Lambda-\Lambda$ does not contain one of the canonical basis vectors of $\R^d$.
-\begin{remark}
-    \SigridComment{remark on the restatement of Keller's conjecture? }
-\end{remark}
+What is more interesting about \cref{thrm:periodic_equivalence} is that it has a strong connection to the proofs where Keller's \namecref{conj:keller_tiling}, \cref{conj:keller_tiling}, is disproved. Notably, if the \namecref{conj:keller_tiling} is false for $\R^d$, the tiling in $\R^n$ for some $n\geq d$ that counterexample Keller's \namecref{conj:keller_tiling} has two additional properties \cite{lagariasKellerCubetilingConjecture1992}: First, the centers of all the unit cubes are in $\frac{1}{2}\Z^n$. Secondly, the tiling is periodic and contains the period lattice $2\Z^n$. The latter is the important one because it means that the counterexamples can be periodic. Specifically, in the case where Keller's \namecref{conj:keller_tiling} was disproved for $d\geq10$, they found a periodic set of translations of the form $\Lambda= K + (2\Z)^{10}$, where $\bral{K} = 2^{10} = 1024$ elements. Using \cref{thrm:periodic_equivalence}, we have that the tiling pair where no two tiles share an entire face $\brac{I^{10},\Lambda}$ is also a spectral pair in $\R^{10}$ \cite{jorgensenSpectralPairsCartesian2001}. As Mackey \cite{mackeyCubeTilingDimension2002} improved this result further by finding a set of translations of the form $\Lambda= K + (2\Z)^{8}$ where $\bral{K} = 2^{8} = 256$ elements, we also have that the tiling pair $\brac{I^{8},\Lambda}$ is a spectral pair in $\R^8$ using \cref{thrm:periodic_equivalence}. What is interesting about these spectral pairs is that $\Lambda-\Lambda$ does not contain one of the canonical unit basis vectors for $\R^{10}$ \cite{jorgensenSpectralPairsCartesian2001}, which also is true in $\R^{8}$ with the resolution of the \namecref{conj:keller_tiling} \cite{brakensiekResolutionKellerConjecture2020}. Hence, we know that in all $d\geq8$, periodic tilings sets exist where no two tiles share an entire face, which can be equivalently stated as that the difference $\Lambda-\Lambda$ does not contain one of the canonical basis vectors of $\R^d$ \cite{jorgensenSpectralPairsCartesian2001}.
 
-This result is important for the previous \cref{ex:cannot_class_all}. In particular, \cref{ex:cannot_class_all} presents a method for creating spectra that make $\brac{I^d,\Lambda}$ an $\R^d$-spectral pair by giving an explicit equation for the set of points in $\Lambda$ in \cref{eq:cannot_class_all}. Note that there are variations of \labelcref{eq:cannot_class_all} that result from a permutation of the $d$ coordinates; however, the consequential result is that the corresponding combinations given by \labelcref{eq:cannot_class_all} for $d\geq8$, \emph{cannot} catalog \textsc{all} possible spectra that make $\brac{I^d,\Lambda}$ an $\R^d$-spectral pair. Said differently, \labelcref{eq:cannot_class_all} cannot provide all possible spectra for $I^d$. That this is the same dimension where Keller's \namecref{conj:keller_tiling} fails first is no coincidence and follows from the following: Since there exist tilings $\Lambda-\Lambda$ for all $d\geq8$ that do not contain one of the canonical base vectors, then $\Lambda$ is \SigridChange{in a form/of a type/...} not given by \labelcref{eq:cannot_class_all} as one in the \namecref{eq:cannot_class_all} need at least one of the canonical basis vectors.
-
-\SigridComment{Regarding your comment on referencing the non-trivial stuff, see the image in the e-mail.}
+This result is important for the previous \cref{ex:cannot_class_all}. In particular, \cref{ex:cannot_class_all} presents a method for creating spectra that make $\brac{I^d,\Lambda}$ an $\R^d$-spectral pair by giving an explicit equation for the set of points $\Lambda$ in \cref{eq:cannot_class_all}. Note that there are variations of \labelcref{eq:cannot_class_all} that result from a permutation of the $d$ coordinates; however, the consequential result is that the corresponding combinations given by \labelcref{eq:cannot_class_all} for $d\geq8$, \emph{cannot} classify \textsc{all} possible spectra that make $\brac{I^d,\Lambda}$ an $\R^d$-spectral pair. Said differently, \labelcref{eq:cannot_class_all} cannot provide all possible spectra for $I^d$. The same is true for tiling sets and tiling pairs. That this is the same dimension where Keller's \namecref{conj:keller_tiling} fails first is no coincidence and follows from the following: Consider two elements $\lambda,\lambda'\in \Lambda$ with $\Lambda$ given by \labelcref{eq:cannot_class_all}, then our two elements will be of the form
+\begin{equation*}
+    \begin{pmatrix}
+        \lambda_1\\
+        \lambda_2+\betafunc_2(\lambda_1)\\
+        \vdots\\
+        \lambda_d+\betafunc_d(\lambda_1,\dots,\lambda_{d-1})\\
+    \end{pmatrix},
+    \quad \text{ and } \quad 
+    \begin{pmatrix}
+        \lambda_1'\\
+        \lambda_2'+\betafunc_2(\lambda_1')\\
+        \vdots\\
+        \lambda_d'+\betafunc_d(\lambda_1',\dots,\lambda_{d-1}')\\
+    \end{pmatrix}.
+\end{equation*}
+Now, if we have $\lambda_j=\lambda_j'$ in all the first $d-1$ entries, and in the last entry have $\lambda_j=\lambda_j'+1$, then observe that the difference of $\lambda-\lambda'$ gives a canonical basis vector $\brac{0,\dots,0,1}$ of $\R^d$. Since we can permute any of the $d$ coordinates, we could have selected $\lambda_j=\lambda_j'+1$ to be anywhere in the $d-1$ first coordinate positions, meaning that we can create any of the canonical basis vectors. Observe that when two unit cubes in Keller's \namecref{conj:keller_tiling} share a $(d-1)$-dimensional face, differencing these two cubes gives a vector with all but one coordinate equal to zero, hence also demonstrating a canonical basis vector of $\R^d$. 
+%This means that \labelcref{eq:cannot_class_all} can only classify tilings in which at least two cubes share a $(d-1)$-dimensional face, which is Keller's \namecref{conj:keller_tiling}. 
+Now, as there exist tilings in all $d\geq8$ where $\Lambda-\Lambda$ do not contain one of the canonical basis vectors, specifically the ones that we now know counterexample Kellers \namecref{conj:keller_tiling}, it then follows that \labelcref{eq:cannot_class_all} cannot classify this class of tiling sets. Since if we have one basis vector given by $\lambda-\lambda'$, we could have used permutation to get \emph{any} of the other basis vectors, leading to a contradiction. Hence, sets $\Lambda$ of the form \labelcref{eq:cannot_class_all} cannot classify all possible tiling sets for the unit cube in all $d\geq8$. 
 
 We now turn to the discussion of the independent proofs of \cref{thrm:main_result} by Iosevich and Pedersen \cite{iosevichSpectralTilingProperties1998} and Lagarias, Reeds, and Wang in \cite{lagariasOrthonormalBasesExponentials2000}, with further improvements by Kolountzakis in \cite{kolountzakisPackingTilingOrthogonality2000} and Li in \cite{liCharacterizationsSpectraTilings2004}. 
 
@@ -147,18 +153,18 @@ The tiling set is $\Lambda'=4\Z +\braq{0,1}$ \cite{liuUniformityNonUniformGabor2
 When comparing the proofs, the most notable similarity is that they both make use of Keller's \namecref{thrm:keller_tiling}, \cref{thrm:keller_tiling}, as well as the same underlying terminology, and an argument on an inequality becoming and equality. Other than that, they use entirely different techniques to prove \cref{thrm:main_result}. After the publication of these solutions, there have been a few notable improvements to both proofs. Using a Fourier analytic criterion to characterize tilings by translation, Kolountzakis in \cite{kolountzakisPackingTilingOrthogonality2000} further improved the results from \cite{lagariasOrthonormalBasesExponentials2000}, as well as providing a substantially shorter proof of a result equivalent to their criterion and increasing the class of suitable auxiliary sets $D$. Furthermore, Kolountzakis also showed that one could prove \cref{thrm:main_result} without the use of Keller's \namecref{thrm:keller_tiling}, and as mentioned, generalized it to hold for more general sets using the concepts established by \cite{lagariasOrthonormalBasesExponentials2000}. A notable example by Kolountzakis in dimension one is that the set $\Omega\subset \R$ where $\Omega = \brac{0,\frac{1}{2}} \cup  \brac{1,\frac{3}{2}}$ is a non-unit cube where all tiling sets are also spectra and \emph{vice versa}. Lastly, Li in \cite{liCharacterizationsSpectraTilings2004}  provided a cleaner proof of the criterion in \cite{kolountzakisPackingTilingOrthogonality2000} using a simple yet powerful method, which he also showed has applications related to Fuglede's \namecref{conj:fuglede}. 
 
 
-
-\SigridChange{As a closing thought on this thesis,}
-As a closing thought on this thesis, ... 
-
-As a closing thought on this thesis, we highlight the important results that the connection between tiling sets and spectra is more direct for the unit cube than for other sets 
+As a closing thought on the thesis, the author hopes that the reader's understanding of the special case of Fugledes \namecref{conj:fuglede} has expanded, managing to highlight the interconnectedness between tiling and spectral pairs for the unit cube, as well as their connections to Kellers \namecref{thrm:keller_tiling} and \namecref{conj:keller_tiling}. However, as mentioned in the introduction, there is still more to be discovered. Fugledes \namecref{conj:fuglede} is not yet fully resolved, and other results related to the unit cube itself might need further exploration, as in the case of the aperiodic tilings of translated unit cubes shown here.  
 
 
-the important fact that  
+%* Winston comment: 
+%* What we have seen
+%* we have seen that there is this interesting equivalence between tilings and spectra
+%* The Fuglede conjecture 
+%* Our understanding has clearly developed, and I hope Ive described some of these recent developments, but there is clearly many open problems remaining. 
 
+%* General overview. Sign off. 
 %? Winston quote
 %? A main result of this thesis is the following criterion which relates spectra to tilings in the Fourier domain.
-
 
 % THE MAIN RESULT OF ALL PAPERS:
 %!On the other hand, relating spectra to tilings in Fourier space allows them to characterize all spectra for the unit cube geometrically. 
@@ -166,7 +172,4 @@ the important fact that
 % also
 %! the same set $\Lambda\subset\R^d$ is indeed a spectrum and tiling set for $\Omega = I^d$. 
 %! Highlight denne direkte linken i chapter 5 med keller. dvs: the connection between tiles and spectrum is more direct for OMEGA=I^d than for other sets due to "NULL sett tingen" and the corresponding result for tilings (Keller). 
-
-%* Word choise for 
-%* Cataloging, categorizing, classifying
 \end{document}
