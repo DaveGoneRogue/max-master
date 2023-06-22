@@ -44,7 +44,7 @@ Before tackling spectral sets in higher dimensions, we first emphasize the impor
 \end{proof}
 
 Moreover, as an application of \cref{lem:zero_set_orthoganl_general} in combination with the specific zero-set for the unit cube $\Zstroke_{I^d}$ from \cref{lem:zero_set_jp_1_5}, we can formulate a result that closely resembles Keller's \namecref{thrm:keller_tiling} for tiling sets (\cref{thrm:keller_tiling}) \cite{lagariasOrthonormalBasesExponentials2000,jorgensenSpectralPairsCartesian2001}. The specific connection between the two results will become apparent later in \cref{chap:equivalence}.
-\begin{lemma}(Spectral version of Keller's theorem)\label{lem:zero_set_AiSp}
+\begin{lemma}[Spectral version of Keller's theorem]\label{lem:zero_set_AiSp}
     Let $\Lambda\subset \R^d$ be a discrete subset and $\Omega=I^d$. Then $\Lambda$ gives an orthogonal set of exponentials $E(\Lambda)$ if and only if
     \begin{equation*}%\label{eq:zero_set_inclusion}
         \Lambda - \Lambda \subseteq \Zstroke_{I^d} \cup \braq{0}.
@@ -178,7 +178,7 @@ Furthermore, there is no reason only to consider one shift for one $\lambda_1'$ 
 As has been observed, increasing the dimension from one to two opens up several new possibilities in our choices for the spectrum. We summarize this flexibility seen in \cref{ex:first_construction,ex:single_shift_vertical,ex:multiple_shift_vertical} in the following \namecref{lem:beta_shift} \cite{jorgensenSpectralPairsCartesian2001}.
 %* ———————————————————————————————————————— Del 4, Lemma som fanger den nye fleksibiliteten
 \begin{lemma}\label{lem:beta_shift}
-    Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$ respectivly. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$, and let
+    Let $\brac{\Omega_1,\Lambda_1}$ and $\brac{\Omega_2,\Lambda_2}$ be spectral pairs in dimensions $d_1$ and $d_2$, respectively. Furthermore, define an arbitrary function $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$, and let
     % $\betafunc: \Lambda_1 \rightarrow \R^{d_2}$ to denote the shift in the spectrum for $\Omega_2$ at each $\lambda_1$-value, and let %* unødvendig
     \begin{equation}
         \Lambda = \Lambda_\beta
@@ -194,7 +194,7 @@ As has been observed, increasing the dimension from one to two opens up several 
 %    As we assumed that $\brac{\Omega_2,\Lambda_2}$ is a spectral pair, it follows directly from \cref{lem:spectrum_shift_is_spectrum} that $\brac{\Omega_2,\Lambda_2+\beta}$ is also a spectral pair for any $\beta \in \R^{d_2}$ (with elements populated by $\betafunc(\lambda_1)$)
 %\end{proof}
 \begin{remark}\label{rem:beta_shift}
-    We can also shift the spectrum for $\Omega_1$ by a vector $\alpha \in \R^{d_1}$, to obtain the spectrum 
+    We can also shift the spectrum for $\Omega_1$ by a vector $\alpha \in \R^{d_1}$ to obtain the spectrum 
     \begin{equation*}
         \Lambda = \Lambda_{\alpha,\beta} 
         = \braqMed{\begin{pmatrix}
@@ -331,7 +331,7 @@ We can now classify all spectra for $I^2$ as follows \cite{jorgensenSpectralPair
 \end{proof}
 
 \begin{remark}
-    Avid readers will notice the fact that we did not show the proof using fixed $\alpha$. However, in this case, we showed for $\alpha =0$. One should note that the $\alpha$ values cancel out in the subtractions. 
+    Astute readers will notice that we only proved this in the case $\alpha=0$. However, the general case clearly follows similarly since the $\alpha$'s cancel when differencing.
 \end{remark}
 
 \end{document}
