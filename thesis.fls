@@ -185,6 +185,9 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/layout.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/layout.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tools/layout.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
@@ -784,6 +787,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
+INPUT ./support_files/critical_info.tex
+INPUT ./support_files/critical_info.tex
 INPUT ./support_files/commands.tex
 INPUT ./support_files/commands.tex
 INPUT ./thesis.aux

@@ -1,5 +1,12 @@
 
 %? Note: we have "Clearpage" automatically after the title page
+%* A clear frontpage backside for printing
+\ifPRINTING
+    \clearpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \clearpage
+\fi
 
 %* Abstract
 \thispagestyle{plain}
@@ -16,3 +23,4 @@
 %* Table of contents
 \setcounter{tocdepth}{3}
 \tableofcontents
+

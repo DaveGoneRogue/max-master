@@ -2,42 +2,32 @@
 % * CC-BY CoPCSE@NTNU, 2019
 
 % * Partly merged, partly based on, and partly a simplification of
-% * various previous thesis templates by Simon McCallum, Ivar Farup,
-% * Kjetil Ørbekk an others, by CoPCSE@NTNU.
-% * Heavily modified by Max Hauge 2022
+% * various previous thesis templates by Simon McCallum, Ivar Farup, Kjetil Ørbekk an others, by CoPCSE@NTNU.
+% * Heavily modified by Max Hauge 2023
 
 % * IDENTIFICATION
-
 \xdef\ntnuthesisdate{2019/07/18}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ntnuthesis}[\ntnuthesisdate\space CC-BY CoPCSE at NTNU 2019]
 
 
-
-
 % * LOAD PRELIMINARY PACKAGES
 % error, Xcolor må loades før pdfpages
 % https://tex.stackexchange.com/questions/124636/package-xcolor-error-undefined-colors-maroon-royal-blue-when-master-has-pdf
-\RequirePackage[usenames,dvipsnames]{xcolor}    % selecting text color
+\RequirePackage[usenames,dvipsnames]{xcolor}  % selecting text color
 
 % Package for some reason needed before the options
 \RequirePackage{pdfpages}                   % including pdf files
 
 
-
 % * CLASS OPTIONS
 % One or twosided paging
-\newcommand{\paging}{twoside}
+\newcommand{\paging}{twoside}  % Must create command before one can change it
 \DeclareOption{oneside}{
-  \renewcommand{\paging}{oneside}
+    \renewcommand{\paging}{oneside}
 }
-% Title Page option
-\DeclareOption{titlepage}{
-    \AtBeginDocument{
-        %\begin{titlepage}
-        \maketitle
-        %\end{titlepage}
-    }
+\DeclareOption{twoside}{  % Not needed, but document becomes more intuitive to use
+    \renewcommand{\paging}{twoside}
 }
 
 % British
@@ -47,9 +37,15 @@
     %\capitalizefalse
     \def\papername{Paper}
     \newcommand{\NTNU}{{N}orwegian {U}niversity of {S}cience and {T}echnology}
+    \newcommand{\NTNULowerC}{norwegian university of science and technology}
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
+    \newcommand{\NTNUTrondheimLowerC}{ntnu in trondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} in {G}j\o{}vik}
+    \newcommand{\NTNUGjoevikLowerC}{ntnu in gj\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} in {\AA}lesund}
+    \newcommand{\NTNUAalesundLowerC}{ntnu in {\aa}lesund}
+    \newcommand{\NTNUinstitutt}{{I}nstitute of {M}athematical {S}ciences}
+    \newcommand{\NTNUinstituttLowerC}{institute of mathematical sciences}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Code listing}
         \renewcommand{\lstlistlistingname}{Code Listings}
@@ -70,9 +66,15 @@
     \capitalizetrue  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Paper}
     \newcommand{\NTNU}{{N}orwegian {U}niversity of {S}cience and {T}echnology}
+    \newcommand{\NTNULowerC}{norwegian university of science and technology}
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
+    \newcommand{\NTNUTrondheimLowerC}{ntnu in trondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} in {G}j\o{}vik}
+    \newcommand{\NTNUGjoevikLowerC}{ntnu in gj\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} in {\AA}lesund}
+    \newcommand{\NTNUAalesundLowerC}{ntnu in {\aa}lesund}
+    \newcommand{\NTNUinstitutt}{{I}nstitute of {M}athematical {S}ciences}
+    \newcommand{\NTNUinstituttLowerC}{institute of mathematical sciences}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Code listing}
         \renewcommand{\lstlistlistingname}{Code Listings}
@@ -93,9 +95,15 @@
     \capitalizefalse  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Artikkel}
     \newcommand{\NTNU}{{N}orges teknisk-naturvitenskapelige universitet}
+    \newcommand{\NTNULowerC}{norges teknisk-naturvitenskapelige universitet}
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
+    \newcommand{\NTNUTrondheimLowerC}{ntnu i trondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} i {G}j\o{}vik}
+    \newcommand{\NTNUGjoevikLowerC}{ntnu i gj\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} i {\AA}lesund}
+    \newcommand{\NTNUAalesundLowerC}{ntnu i {\aa}lesund}
+    \newcommand{\NTNUinstitutt}{{I}nstitutt for {M}atematiske {F}ag}
+    \newcommand{\NTNUinstituttLowerC}{institutt for matematiske fag}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Kodeliste}
         \renewcommand{\lstlistlistingname}{Kodelister}
@@ -116,9 +124,15 @@
     \capitalizefalse  %! CLEVER REF CAPITALIZE av og på
     \def\papername{Artikkel}
     \newcommand{\NTNU}{{N}oregs teknisk-naturvitskaplege universitet}
+    \newcommand{\NTNULowerC}{noregs teknisk-naturvitskaplege universitet}
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
+    \newcommand{\NTNUTrondheimLowerC}{ntnu i trondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} i {G}j\o{}vik}
+    \newcommand{\NTNUGjoevikLowerC}{ntnu i gj\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} i {\AA}lesund}
+    \newcommand{\NTNUAalesundLowerC}{ntnu i {\aa}lesund}
+    \newcommand{\NTNUinstitutt}{{I}nstitutt for {M}atematiske {F}ag}
+    \newcommand{\NTNUinstituttLowerC}{institutt for matematiske fag}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Kodeliste}
         \renewcommand{\lstlistlistingname}{Kodelister}
@@ -143,18 +157,18 @@
 
 
 % * CLASS FILE LOADING
-\LoadClass[a4paper, 11pt, openright, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
+\LoadClass[a4paper, 11pt, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
 
 \let\underline\undefined % here - PS 
 \let\underbar\undefined % here - PS
 \usepackage{sectsty}
-\allsectionsfont{\sffamily}  % Dette fikset font erroren, dvs det er sans-serif og ikke serif!!
+\allsectionsfont{\sffamily}  % Dette fikset font erroren, dvs det er sans-serif og ikke serif!! Yay
 
-% F*** Standard latex rport style, go KOMA-style report type w
+% F*** Standard latex report style, go KOMA-style report type i.e:
 %\LoadClass[a4paper,11pt,openright, \paging]{scrreprt}  % i.e load the standard LaTeX Report class which this is based on
 
-% * PACKAGE LOADING
 
+% * PACKAGE LOADING
 % * --- Fonts --- * %
 %\RequirePackage{fontspec}                % modern font encoding (INN MY ASS, ubrukelig pakke)
 
@@ -175,6 +189,7 @@
 
 % * --- Layout & Graphics --- * %
 \RequirePackage{geometry}                   % page layout
+\RequirePackage{layout}                     % Gives the ability to use \layout to give the page geometry       
 \RequirePackage{listings}                   % code listings
 \RequirePackage{etoolbox}                   % fixing list of listings spacing, as well as enviroments for example, eq, etc
 \RequirePackage{enumitem}                   % customising list appearance
@@ -182,8 +197,6 @@
 \RequirePackage{emptypage}                  % empty pages should be blank
 % \RequirePackage{microtype}
 \RequirePackage{emoji}
-
-
 
 % * --- Math --- * %
 %\usepackage{ bbold }  %\mathbb{1}
@@ -200,6 +213,8 @@
     %margin=5mm,
     margin=\parindent,
 ]{caption}
+
+
 %* Del 2 av caption setup
 \captionsetup{
     % There are three font options which affects different parts of the caption: 
@@ -227,8 +242,8 @@
     margin=\parindent
 ]{subcaption}  % enables depiction of several images amongst each other (\subcaptionbox)
 
-
 \usepackage{placeins}  % Control float placement with /FloatBarrier
+
 
 % * --- Bibliography --- * %
 \RequirePackage{babel}                     % language specifics
@@ -248,13 +263,14 @@
 \RequirePackage[acronym]{glossaries}        % create a glossary and acronym list
 
 % Hyperrref has \autoref, instead we opt to use \cref from cleverref 
-\usepackage[colorlinks=true,  % Toggles all references colours on or off, or set all colours to black
-            urlcolor=RoyalBlue,
-            citecolor=Green,
-            linkcolor=purple]{hyperref}     % hyperref is for interactive cross references
-%
+\usepackage[
+    colorlinks=true,  % Toggles all references colours on or off, or set all colours to black
+    urlcolor=RoyalBlue,
+    citecolor=Green,
+    linkcolor=purple
+]{hyperref}     % hyperref is for interactive cross references
 
-% automatic cross references for theorems, lemmas, chapters
+% Automatic cross references for theorems, lemmas, chapters
 %! capitalization option in language options above
 \ifcapitalize
     \RequirePackage[capitalize, noabbrev, nameinlink]{cleveref} 
@@ -262,12 +278,11 @@
     \RequirePackage[noabbrev, nameinlink]{cleveref}
 \fi
 
+
 % * --- Tikz & Plots --- * %
 \RequirePackage{pgfplots}
 \RequirePackage{tikz}
 \RequirePackage{tikz-cd}
-
-
 
 
 
@@ -281,7 +296,6 @@
 
 
 % * --- Geometry & Spacing --- * %
-\geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
 \frenchspacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
@@ -290,7 +304,7 @@
 % * --- Typesetting --- * %
 % Roman page numbers from the beginning of the document
 \pagenumbering{roman}
-\setcounter{page}{3}
+\setcounter{page}{1}
 
 % Switch to Arabic page numbering at the beginning of the first numbered chapter
 \newif\iffirstchapter
@@ -343,11 +357,31 @@
 \def\ps@ntnuheadings{
     \let\@evenfoot\@empty
     \let\@oddfoot\@empty
-    \def\@evenhead{\small\thepage\hfil\textit{\@shortauthor: \@shorttitle}}
-    \def\@oddhead{\small\textit{\ch@ptermark}\hfil\thepage}
+    % Odd Head
+    %\def\@oddhead{\small\textit{\ch@ptermark}\hfil\thepage}
+    \def\@oddhead{\small\thepage\hfil\textit{\ch@ptermark}}
     \def\chaptermark##1{\def\ch@ptermark{\chaptername\ \thechapter: ##1}}
+    % Even Head
+    \typeout{Section Counter Value: \the\value{section}}
+    \def\sectionmark##1{
+        \ifnum\value{section}>0
+            \def\sec@tionmark{Section: ##1}
+        \else
+            \def\sec@tionmark{}
+        \fi
+    }
+    \def\@evenhead{\small\textit{\sec@tionmark}\hfil\thepage}
+    \sectionmark{}
 }
 \pagestyle{ntnuheadings}
+
+
+\ifPRINTING
+    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}  %! Dont think this geometry thing works...
+\else
+    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
+\fi
+
 
 
 % Itemize and enumerate: tighter and with other symbols
@@ -387,6 +421,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
+
 % All enviroments using the definition style
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -413,14 +448,16 @@
 %* For repeating/recalling a previous Theorem, Lemma, ...
 % Remark! To use rep enviroment one must use the following command with doubble curly brackets: 
 % \begin{repEnviromenttype}{TheLabel}
-    % MyText
+    % MyText, i.e copy/paste the identical content of the enviroment you want to repeat
 % \end{repEnviromenttype}
 
 % Ex:
 %\begin{reptheorem}{thrm:MyTheoremLabel}
+    %TheContents of the thrm 
 %\end{reptheorem}
 
 %\begin{replemma}{lem:MyLemmaLabel}
+    %The Contents of the lemma
 %\end{replemma}
 
 % The code implementation
@@ -435,7 +472,20 @@
 }
 \makeatother
 
-% Rep enviroments
+% Rep enviroments currently supported, i.e the enviroments we have made above using \newtheorem command
 \theoremstyle{plain}  % Remember to chose/check the style before making a new rep enviroment!
 \newreptheorem{theorem}{Theorem}
 \newreptheorem{lemma}{Lemma}
+\newreptheorem{proposition}{Proposition}
+\newreptheorem{corollary}{Corollary}
+\newreptheorem{conjecture}{Conjecture}
+
+\theoremstyle{definition}  % Remember to chose/check the style before making a new rep enviroment!
+\newreptheorem{definition}{Definition}
+
+\theoremstyle{remark}  % Remember to chose/check the style before making a new rep enviroment!
+\newreptheorem{remark}{Remark}
+\newreptheorem{construction}{Construction}
+\newreptheorem{observation}{Observation}
+\newreptheorem{example}{Example}
+%*––––

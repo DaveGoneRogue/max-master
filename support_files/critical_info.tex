@@ -1,0 +1,41 @@
+
+%* Author
+\author{Hauge, Max}
+\shortauthor{MH}
+
+
+%* Supervisor(s)
+\newif\ifSINGLESUPERVISOR
+%\SINGLESUPERVISORtrue  %! Set the conditional to true
+\SINGLESUPERVISORfalse  %! Set the conditional to false
+
+\ifSINGLESUPERVISOR
+    \newcommand{\supervisorGrammar}{Supervisor}
+    \newcommand{\supervisor_A}{Grepstad, Sigrid}
+\else
+    \newcommand{\supervisorGrammar}{Supervisors}
+    \newcommand{\supervisorA}{Grepstad, Sigrid}
+    \newcommand{\supervisorB}{Heap, Winston}
+\fi
+
+
+%* Title
+\title{Tiling and Spectral Pairs for the \emph{d}-dimensional\\ Unit Cube}  %* sans serif
+%\title{Tiling Sets and Spectral Pairs for the d-dimensional Unit Cube}  %* RM
+%\title{Plaser Din Fancy Lange Tittel Her}  %* Original Placeholder
+\shorttitle{Master's thesis}
+
+
+%* Course name / Emnekode
+\newcommand{\emnekode}{MA3911 — masteroppgave i matematiske fag}
+
+
+%* Institutt
+%? Bokmål, Nynorsk, English, the command is the same no matter the language
+%? If changing between languages either update the "ntnuthesis.cls" file directly or comment in/out the used/unused commands
+\renewcommand{\NTNUinstitutt}{Institute of Mathematical Sciences}
+\renewcommand{\NTNUinstituttLowerC}{institute of mathematical sciences}
+
+
+%* Date
+\date{\today}
