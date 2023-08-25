@@ -57,6 +57,7 @@
             \renewcommand{\listtablename}{Tables}
             \renewcommand{\glossaryname}{Glossary}
             \renewcommand{\acronymname}{Acronyms}
+            \renewcommand{\chaptername}{Chapter}
         }
     }
 }
@@ -86,6 +87,7 @@
             \renewcommand{\listtablename}{Tables}
             \renewcommand{\glossaryname}{Glossary}
             \renewcommand{\acronymname}{Acronyms}
+            \renewcommand{\chaptername}{Chapter}
         }
     }
 }
@@ -115,6 +117,7 @@
             \renewcommand{\appendixname}{Vedlegg}
             \renewcommand{\glossaryname}{Ordliste}
             \renewcommand{\acronymname}{Akronymer}
+            \renewcommand{\chaptername}{Kapittel}
         }
     }
 }
@@ -149,6 +152,7 @@
             \renewcommand{\appendixname}{Vedlegg}
             \renewcommand{\glossaryname}{Ordliste}
             \renewcommand{\acronymname}{Akronym}
+            \renewcommand{\chaptername}{Kapittel}
         }
     }
 }
@@ -157,7 +161,10 @@
 
 
 % * CLASS FILE LOADING
-\LoadClass[a4paper, 11pt, \paging]{report}  % i.e load the standard LaTeX Report class which this is based on
+\LoadClass[a4paper, 11pt, \paging, openright]{report}  % i.e load the standard LaTeX Report class which this is based on
+
+
+
 
 \let\underline\undefined % here - PS 
 \let\underbar\undefined % here - PS
@@ -299,12 +306,18 @@
 \frenchspacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
+% Geometry for changing the "binding offset" (atleast an attempt at it)
+\ifPRINTING
+    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}  %! Dont think this geometry thing works...
+\else
+    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
+\fi
 
 
 % * --- Typesetting --- * %
 % Roman page numbers from the beginning of the document
 \pagenumbering{roman}
-\setcounter{page}{1}
+\setcounter{page}{5}  % Counter set to 5 since NTNU adds 4 pages in front
 
 % Switch to Arabic page numbering at the beginning of the first numbered chapter
 \newif\iffirstchapter
@@ -354,33 +367,24 @@
 
 
 % Headers and footers
-\def\ps@ntnuheadings{
-    \let\@evenfoot\@empty
-    \let\@oddfoot\@empty
-    % Odd Head
-    %\def\@oddhead{\small\textit{\ch@ptermark}\hfil\thepage}
-    \def\@oddhead{\small\thepage\hfil\textit{\ch@ptermark}}
-    \def\chaptermark##1{\def\ch@ptermark{\chaptername\ \thechapter: ##1}}
-    % Even Head
-    \typeout{Section Counter Value: \the\value{section}}
-    \def\sectionmark##1{
-        \ifnum\value{section}>0
-            \def\sec@tionmark{Section: ##1}
-        \else
-            \def\sec@tionmark{}
-        \fi
+\ifPRINTING  % Two side, both odd and even pages
+    \def\ps@ntnuheadings{
+        \let\@evenfoot\@empty
+        \let\@oddfoot\@empty
+        \def\@oddhead{\small\textit{\rightmark}\hfil\thepage}  % \rightmark is the current section name
+        \def\@evenhead{\small\thepage\hfil\textit{\leftmark}}  % \leftmark is the current chapter name
     }
-    \def\@evenhead{\small\textit{\sec@tionmark}\hfil\thepage}
-    \sectionmark{}
-}
-\pagestyle{ntnuheadings}
-
-
-\ifPRINTING
-    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}  %! Dont think this geometry thing works...
-\else
-    \geometry{left=2.5cm, right=2.5cm, top=4cm, bottom=4.5cm}
+\else  % Single page, only "odd pages"
+    \def\ps@ntnuheadings{
+        \let\@oddfoot\@empty
+        \def\@oddhead{\small\textit{\leftmark}\hfil\thepage}
+    }
 \fi
+\pagestyle{ntnuheadings}
+% Note that \leftmark and \rightmark convert the names to uppercase, whichever was the formatting of the text. 
+% If you want them to print the actual name of the chapter without converting it to uppercase use the following command:
+\renewcommand{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter.\ #1}{} } 
+\renewcommand{\sectionmark}[1]{ \markright{\thesection.\ #1}{} }
 
 
 
@@ -394,8 +398,12 @@
 \setlist[itemize,2]{label=$\circ$}
 \setlist[itemize,3]{label=$-$}
 
+
+
 % Make \fullcite show all authors irrespectively of maxcitenames
 \preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
+
+
 
 % Colour palette
 \definecolor{thesisblue}{rgb}{.15, .15, .6}

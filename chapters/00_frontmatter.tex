@@ -1,12 +1,21 @@
 
-%? Note: we have "Clearpage" automatically after the title page
-%* A clear frontpage backside for printing
-\ifPRINTING
-    \clearpage
-    \thispagestyle{empty}
-    \vspace*{\fill}
-    \clearpage
-\fi
+%? Note: We have "Clearpage" automatically after the title page
+%* Simulates the number of pages NTNU adds for the official cover to get the Roman page numbering correct
+%\ifPRINTING
+%    \clearpage
+%    \newpage
+%    \thispagestyle{empty}
+%    \vspace*{\fill}
+%    \clearpage
+%    \newpage
+%    \thispagestyle{empty}
+%    \vspace*{\fill}
+%    \clearpage
+%    \newpage
+%    \thispagestyle{empty}
+%    \vspace*{\fill}
+%    \clearpage
+%\fi
 
 %* Abstract
 \thispagestyle{plain}
@@ -16,11 +25,28 @@
 
 
 %* Preface & acknowledgements
-\chapter*{Preface}
-\input{chapters/00_x2__preface.tex}
+\ifPRINTING
+    % This puts the quote on the "left double page with the Preface on the right"
+    \input{chapters/00_x2__quote.tex}
+    \chapter*{Preface}
+    \input{chapters/00_x2__preface.tex}
+\else
+    % This puts the quote on the page after the Preface
+    \chapter*{Preface}
+    \input{chapters/00_x2__preface.tex}
+    \input{chapters/00_x2__quote.tex}
+\fi
 
 
 %* Table of contents
 \setcounter{tocdepth}{3}
 \tableofcontents
+
+% Blank page to avoid having Chapter 1 and TOC on the same "double page"
+\ifPRINTING
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \clearpage
+\fi
 

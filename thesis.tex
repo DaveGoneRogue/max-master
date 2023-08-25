@@ -1,12 +1,10 @@
 %* --- Options for printing (twoside) or digital (oneside) --- %
 \newif\ifPRINTING
-\PRINTINGfalse %! Set the conditional to true
-%\PRINTINGfalse %! Set the conditional to false
+\PRINTINGtrue %! Set the conditional to true
+%\PRINTINGfalse %! Set the conditional to false (one must be commented out)
 
 \ifPRINTING
     \documentclass[british, twoside]{ntnuthesis}
-    %setlength\oddsidemargin{0pt}
-    %\setlength\evensidemargin{35pt}
 \else
     \documentclass[british, oneside]{ntnuthesis}
 \fi
@@ -23,12 +21,18 @@
 \input{support_files/commands.tex}  % add commands before document
 \addbibresource{support_files/Mastergrad.bib}  % add the Bibliography file
 
+\ifPRINTING
+    \let\tmp\oddsidemargin
+    \let\oddsidemargin\evensidemargin
+    \let\evensidemargin\tmp
+    \reversemarginpar
+\fi
 
 %* —————————————  THE DOCUMENT  ————————————— %
 \begin{document}
     %* --- Opening --- %
     %? Remember to comment out the title page when creating the final front page required by NTNU
-    \input{support_files/titlepage_max.tex}  %! Temporary title page for your project
+    %\input{support_files/titlepage_max.tex}  %! Temporary title page for your project
     \input{chapters/00_frontmatter.tex}
 
     %* --- DOCUMENT START --- %
