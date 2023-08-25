@@ -66,4 +66,12 @@
     % Bibliography
     \printbibliography
 
+    %! Must manually check whether the last page of the bibliography ends on the "left" or "right" side of the "double page".
+    %! The back cover from NTNU should be "alone" when using the "two-page" view mode in the PDF reader. 
+    \ifPRINTING
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \clearpage
+    \fi
 \end{document}

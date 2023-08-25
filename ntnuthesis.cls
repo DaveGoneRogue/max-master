@@ -186,6 +186,7 @@
 %\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 
 \usepackage{libertine}
+
 %\setmainfont{Linux Libertine O}
 %\setsansfont{Linux Biolinum O}
 % ? TANKE, LaTeX report class har ikke noe skille på å bruke forksjellige fonter, ei heller designere forskjellige fonter på titler vs. brødtekst. 
