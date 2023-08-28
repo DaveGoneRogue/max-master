@@ -164,19 +164,25 @@
 \LoadClass[a4paper, 11pt, \paging, openright]{report}  % i.e load the standard LaTeX Report class which this is based on
 
 
+% * PACKAGE LOADING
 
-
-\let\underline\undefined % here - PS 
-\let\underbar\undefined % here - PS
+% * --- Fonts --- * %
+%* LIBERTINE FONT LOADING
+% F*** Standard latex report style, go KOMA-style report type i.e: \LoadClass[a4paper,11pt,openright, \paging]{scrreprt} 
+\let\underline\undefined % Defined again in sectsty
+\let\underbar\undefined % Defined again in sectsty
 \usepackage{sectsty}
 \allsectionsfont{\sffamily}  % Dette fikset font erroren, dvs det er sans-serif og ikke serif!! Yay
 
-% F*** Standard latex report style, go KOMA-style report type i.e:
-%\LoadClass[a4paper,11pt,openright, \paging]{scrreprt}  % i.e load the standard LaTeX Report class which this is based on
+\usepackage{libertine}
+%\setmainfont{Linux Libertine O}
+%\setsansfont{Linux Biolinum O}
+% ? TANKE, LaTeX report class har ikke noe skille på å bruke forksjellige fonter, ei heller designere forskjellige fonter på titler vs. brødtekst. 
+% ? Derfor fungerer ingenting ved å sette "setsansfont". Må deklarere dette individuelt
+%\RequirePackage{sansmath}  % Optional math font, did not look good in my opinion
 
 
-% * PACKAGE LOADING
-% * --- Fonts --- * %
+%* LOADING OTHER FONTS
 %\RequirePackage{fontspec}                % modern font encoding (INN MY ASS, ubrukelig pakke)
 
 %\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
@@ -184,15 +190,6 @@
 
 %\setmainfont{Atkinson Hyperlegible}       % sans serif font
 %\RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
-
-\usepackage{libertine}
-
-%\setmainfont{Linux Libertine O}
-%\setsansfont{Linux Biolinum O}
-% ? TANKE, LaTeX report class har ikke noe skille på å bruke forksjellige fonter, ei heller designere forskjellige fonter på titler vs. brødtekst. 
-% ? Derfor fungerer ingenting ved å sette "setsansfont". Må deklarere dette individuelt
-
-%\RequirePackage{sansmath}
 
 
 % * --- Layout & Graphics --- * %

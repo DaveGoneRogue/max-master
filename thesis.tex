@@ -4,24 +4,28 @@
 %\PRINTINGfalse %! Set the conditional to false (one must be commented out)
 
 \ifPRINTING
-    \documentclass[british, twoside]{ntnuthesis}
+    \documentclass[british, twoside]{ntnuthesis}  % Language options: british, american, norsk, nynorsk
 \else
-    \documentclass[british, oneside]{ntnuthesis}
+    \documentclass[british, oneside]{ntnuthesis}  % Language options: british, american, norsk, nynorsk
 \fi
 
 
 %* --- Import of additional preamble files (advanced) --- %
-\usepackage{import}
-\usepackage{preamble/head_mk2}  % import allows for self made .sty files
+\usepackage{import}  % import package allows for loading self-made .sty files
+\usepackage{preamble/head_mk2}
 
 
 %* --- Import support files --- %
-\input{support_files/critical_info.tex}  %! Remember to update the contents here
+\input{support_files/critical_info.tex}  %! Remember to update the content here
 %\input{support_files/glossary.tex}  % add glossary and acronym lists before document. Add \printglossaries after \tableofcontents to print
 \input{support_files/commands.tex}  % add commands before document
 \addbibresource{support_files/Mastergrad.bib}  % add the Bibliography file
 
+%! Two-side option
+%! Must manually check whether the page offset appears correctly on each 'left' and 'right' page. 
+%? If the code is commented out (i.e. the offset appears on the wrong pages), then one also needs to update the headers in 'ntnuthesis.cls'
 \ifPRINTING
+    % The following code "flips" the offset for the 'left' and 'right' pages
     \let\tmp\oddsidemargin
     \let\oddsidemargin\evensidemargin
     \let\evensidemargin\tmp
@@ -66,6 +70,7 @@
     % Bibliography
     \printbibliography
 
+    %! Two-side option
     %! Must manually check whether the last page of the bibliography ends on the "left" or "right" side of the "double page".
     %! The back cover from NTNU should be "alone" when using the "two-page" view mode in the PDF reader. 
     \ifPRINTING

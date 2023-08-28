@@ -1,6 +1,6 @@
 # Forked thesis-NTNU
 
-This is a modification of CoPCSE@NTNUs LaTeX document class. Its purpose is to make a more friendly environment for writing mathematics while removing some redundancy thereof.
+This is a modification of CoPCSE@NTNUs LaTeX document class. Its purpose is to make a more friendly environment for writing mathematics while removing some redundancy.
 
 
 Some other changes to this template are that it uses LuaLaTeX instead of pdflatex to compile pdfs. The main font of this document is libertine, and if using a recent tex distribution it should be included in the local installation. 
