@@ -436,7 +436,7 @@
 \AtEndEnvironment{definition}{\popQED\enddefinition}
 
 
-% All enviroments using the definition style
+% All enviroments using the remark style
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{construction}[theorem]{Construction}
